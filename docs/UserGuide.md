@@ -109,11 +109,11 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-### Locating persons by name: `find`
+### Locating students by name: `findstudent`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
@@ -123,9 +123,25 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+* `findstudent John` returns `john` and `John Doe`
+* `findstudent alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+
+### Locating courses by name: `findcourse`
+
+Finds courses whose names contain any of the given keywords.
+
+Format: `findcourse KEYWORD [MORE_KEYWORDS]`
+* The search is case-insensitive. e.g cs2030s will match CS2030S
+* Only the course name is searched.
+* Partial words will be matched e.g. CS2030 will match  CS2030 and CS2030S
+* Courses matching at least one keyword will be returned (i.e. OR search). e.g. cs210 will return CS2103, CS2106
+
+
+Examples:
+* `findcourse cs2030s` returns `cs2030` and `cs2030s` 
+* `findcourse CS2040s cs2030s` returns `cs2040s` and `cs2030s`
+  ![result for 'find alex david'](images/findCS2030sCS2040sResult.png)
 
 ### Deleting a person : `delete`
 
