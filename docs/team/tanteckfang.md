@@ -30,6 +30,9 @@ Given below are my contributions to the project.
     * Developer Guide:
         * Added and edited implementation details of the NPR.
 
-* **Community**: to be added
+* **Community**:
+    * to be added
 
-* **Tools**: to be added
+* **Tools**: 
+    * to be added
+
