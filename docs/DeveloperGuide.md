@@ -270,14 +270,38 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                               | I want to …​                                                                                | So that I can…​                                                                              |
+|----------|---------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `* * *`  | SoC Student                           | add/create a student and the courses they take                                              | save their details in my address book                                                        |
+| `* * *`  | Forgetful SoC student                 | have a one-stop place to view all the courses my friends are taking this semester           | try to go to class with them together                                                        |
+ | `* * *`  | Organised SoC student                 | delete a contact in my address book                                                         | keep my address book clutter-free from the people I am no longer friends with                | 
+ | `* * *`  | Novice with limited knowledge of CLI  | easily handle the various commands                                                          | smoothly navigate the address book                                                           | 
+ | `* * *`  | First-time user of the app            | easily handle the various commands                                                          | smoothly navigate the address book                                                           |
+ | `* * *`  | SoC Student                           | add contact details (telehandle, phone number) of student into the student's profile        | contact the student in another way                                                           |
+ | `* * `   | Blur SoC student                      | read the user guide                                                                         | learn to use the application.                                                                |
+ | `* * `   | Unorganised SoC student               | sort the courses by alphabetical order                                                      | find a specific course easily                                                                | 
+ | `* * `   | SoC Student                           | sort my friends by alphabetical order                                                       | find a specific friend easily                                                                |
+ | `* * `   | Unorganised SoC student               | filter the address book by course                                                           | find and track other students taking the same course as me                                   |
+ | `* * `   | SoC Student                           | leave some data fields blank when adding a friend                                           | add my friend even if I do not have all their personal details                               | 
+ | `* * `   | Overwhelmed SoC student               | view the contact details of a student                                                       | contact them via their email or phone anytime if required                                    | 
+ | `* * `   | SoC Student                           | add the detail of my friend's tutorials                                                     | know which tutorial they choose                                                              |
+ | `* * `   | SoC Student                           | remove friend from my friend's list                                                         | keep my address book's contact list relevant                                                 |
+ | `* * `   | SoC Student                           | tag the course according to the semester in which it was taken                              | differentiate between friends who are taking the course now and in the past                  |
+ | `* * `   | Careless SoC Student                  | undo commands I made                                                                        | have a better user experience                                                                |
+ | `* * `   | SoC student with a huge social circle | view the total number of users in the address book                                          | have a good idea of how many users are in the address book                                   | 
+ | `* * `   | SoC Student                           | give feedback to the developers                                                             | feedback any bugs or problems I faced while using the app                                    | 
+ | `* `     | Confused SoC student                  | look at the common FAQs in the settings page                                                | get a better understanding of some of the features of the app to use the app more seamlessly | 
+ | `* `     | SoC Student                           | add email address of students                                                               | easily access the email address of the student                                               | 
+ | `* `     | SoC Student                           | edit the background of my address book                                                      | make my address book looks nicer and personalized                                            | 
+ | `* `     | SoC Student                           | separate friends list from close friends list                                               | prioritize which class to take                                                               | 
+ | `* `     | SoC Student                           | see my close friends' courses displayed first before other friends' courses                 | easily see which are the classes I should take                                               | 
+ | `* `     | SoC Student                           | check the history of what contacts have been added                                          | make amendments to the contact list easily                                                   | 
+ | `* `     | SoC Student with poor vision          | Edit the font size of my address book                                                       | see clearer                                                                                  | 
+ | `* `     | SoC Student                           | change the theme of the app                                                                 | customize between dark and light themes                                                      | 
+ | `* `     | SoC student with disability           | use the app seamlessly                                                                      | get to enjoy using this app too!                                                             | 
+ | `* `     | Lazy SoC Student                      | get recommendations about what course(s) I should take without doing any computation myself | know which classes to take at one glance                                                     | 
+ | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
+ | `* `     | SoC Student                           | set a profile picture for my address book                                                   | personalize the address book                                                                 | 
 
 *{More to be added}*
 
@@ -313,9 +337,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2.  Should be able to hold up to 1000 students without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
+4.  The user's device should have sufficient storage space to install and run the application without issues.
 *{More to be added}*
 
 ### Glossary
