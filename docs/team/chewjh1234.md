@@ -33,20 +33,16 @@ Given below are my contributions to the project.
 * to be added soon
 
 #### Documentation
-
 * User Guide
   * [To be added soon]
 * Developer's Guide
   * [To be added soon]
 
 #### Review/mentoring contributions
-
 * to be added soon
 
 #### Community
-
 * to be added soon
 
 #### Tools
-
 * to be added soon
