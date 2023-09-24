@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+NUSCourseMates is a **desktop app for managing contacts and their courses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -92,22 +92,32 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a student : `edit`
 
-Edits an existing person in the address book.
+Edits an existing student in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​ [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
+* If a student is not already taking COURSE_TO_CHANGE, the specified change will be ignored. Only those courses that are actually taken by the specified student will be modified.
+* The changes will be performed in the listed order.
+  * Assuming a specified student takes MA1521 initially:
+    * If the successive changes applied are MA1521-CS2100 and CS2100-MA1521, then MA1521 is still associated with the student.
+    * If the successive changes applied are MA1521-CS2103 and MA1521-CS2100, then MA1521 will be changed to CS2103 and not CS2100.
+* Editing a course will not result in duplicates. For example, CS2103T-MA1521 and CS2100-MA1521 will remove both CS2103T and CS2100, and create only one copy of MA1521.
+
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively, and changes the MA1521 and CS2100 courses to ST2334 and CS2106 respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+   
+![edit student](images/editStudent.png)
+
 
 ### Locating persons by name: `find`
 
@@ -127,19 +137,23 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### Deleting a person : `delete`
+### Deleting a student : `delete`
 
-Deletes the specified person from the address book.
+Deletes the specified student from the address book.
 
 Format: `delete INDEX`
 
-* Deletes the person at the specified `INDEX`.
+* Deletes the student at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
+* The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+
+![delete student](images/deleteStudent.png)
+
 
 ### Clearing all entries : `clear`
 
