@@ -119,11 +119,11 @@ Examples:
 ![edit student](images/editStudent.png)
 
 
-### Locating persons by name: `find`
+### Locating students by name: `findstudent`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
@@ -133,9 +133,25 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* `findstudent John` returns `john` and `John Doe`
+* `findstudent alex david` returns `Alex Yeoh`, `David Li`<br>
+  ![result for 'findstudent alex david'](images/findAlexDavidResult.png)
+
+### Locating courses by name: `findcourse`
+
+Finds courses whose names contain any of the given keywords.
+
+Format: `findcourse KEYWORD [MORE_KEYWORDS]`
+* The search is case-insensitive. e.g cs2030s will match CS2030S
+* Only the course name is searched.
+* Partial words will be matched e.g. CS2030 will match  CS2030 and CS2030S
+* Courses matching at least one keyword will be returned (i.e. OR search). e.g. cs210 will return CS2103, CS2106
+
+Examples:
+* `findcourse cs2030s` returns `cs2030` and `cs2030s`
+* `findcourse CS2040s cs2030s` returns `cs2040s` and `cs2030s`
+  ![result for 'findcourse CS2040s cs2030s'](images/findCS2030sCS2040sResult.png)
+
 
 ### Deleting a student : `delete`
 
@@ -200,12 +216,13 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action           | Format, Examples                                                                                                                                                                            |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S CS2103T`                    |
+| **Clear**        | `clear`                                                                                                                                                                                     |
+| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                         |
+| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |
+| **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                    |
+| **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                |
+| **List**         | `list`                                                                                                                                                                                      |
+| **Help**         | `help`                                                                                                                                                                                      |
