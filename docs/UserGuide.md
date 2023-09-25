@@ -84,6 +84,10 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
+Examples:
+![list](images/List.png)
+
+
 ### Editing a student : `edit`
 
 Edits an existing student in the address book.
@@ -168,6 +172,11 @@ Examples:
 Clears all entries from the address book.
 
 Format: `clear`
+
+
+Examples:
+![result for 'clear'](images/Clear.png)
+
 
 ### Exiting the program : `exit`
 
