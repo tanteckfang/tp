@@ -9,51 +9,51 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Joel Foo
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/joel-foo.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
-
-### Jane Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
+[[github](https://github.com/joel-foo)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
-* Responsibilities: UI
 
-### Johnny Doe
+### Tan Teck Fang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/tanteckfang.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/tanteckfang)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Documentation
+* Responsibilities: Quality of various project documents
 
-### James Doe
+### Leon Tan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/leontan2.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/leontan2)] [[portfolio](team/johndoe.md)]
+
+* Role: Code Quality
+* Responsibilities: Looks after code quality, ensures adherence to coding standards, etc.
+
+### Chew Jing Heng
+
+<img src="images/chewjh1234.png" width="200px">
+
+[[github](http://github.com/chewjh1234)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Deliverables and deadlines
+* Responsibilities: Ensure project deliverables are done on time and in the right format
+
+### Carlin Tan
+
+<img src="images/carlintyj.png" width="200px">
+
+[[github](http://github.com/carlintyj)]
+[[portfolio](team/johndoe.md)]
+
+* Role: Tool ABC
+* Responsibilities: Helps other team member with matters related to tool ABC
