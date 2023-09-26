@@ -92,7 +92,8 @@ public class EditCommandParser implements Parser<EditCommand> {
      * is non-empty. If {@code courseChanges} contain only one element which is an empty string, it will be parsed into
      * a {@code Set<CourseChange>} containing zero courses.
      */
-    private Optional<Set<CourseChange>> parseCourseChangesForEdit(Collection<String> courseChanges) throws ParseException {
+    private Optional<Set<CourseChange>> parseCourseChangesForEdit(Collection<String> courseChanges) throws
+            ParseException {
         assert courseChanges != null;
 
         if (courseChanges.isEmpty()) {

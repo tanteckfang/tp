@@ -2,9 +2,18 @@ package seedu.address.model.course.changes;
 
 import static java.util.Objects.requireNonNull;
 
-abstract public class CourseChange {
-    public static final String MESSAGE_CONSTRAINTS = "Course change requires either 'add-[course]', 'del-[course]', " +
-            "or '[original_course]-[new_course]'";
+/**
+ * Represents a course change.
+ */
+public abstract class CourseChange {
+    public static final String MESSAGE_CONSTRAINTS = "Course change requires either 'add-[course]', 'del-[course]', "
+            + "or '[original_course]-[new_course]'";
+
+    /**
+     * Creates a course change object based on the description provided.
+     * @param courseChangeDescription the description provided.
+     * @return the course change object.
+     */
     public static CourseChange createCourseChange(String courseChangeDescription) {
         requireNonNull(courseChangeDescription);
         // order of if else is important, due to regex pattern.

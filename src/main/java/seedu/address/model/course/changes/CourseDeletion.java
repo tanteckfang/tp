@@ -2,10 +2,15 @@ package seedu.address.model.course.changes;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import seedu.address.model.course.Course;
 
+/**
+ * Represents a course deletion.
+ */
 public class CourseDeletion extends CourseChange {
     public static final String MESSAGE_CONSTRAINTS = "Course deletion needs 'del' followed by an alphanumeric string.";
     private static final Pattern COURSE_DELETION_PATTERN = Pattern.compile("^del-(?<course>[A-Za-z0-9]+)$");

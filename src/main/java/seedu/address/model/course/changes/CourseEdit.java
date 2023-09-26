@@ -2,10 +2,11 @@ package seedu.address.model.course.changes;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import seedu.address.model.course.Course;
 
+import seedu.address.model.course.Course;
 
 /**
  * Represents a CourseEdit (original course, new course) in the address book.
@@ -13,8 +14,8 @@ import seedu.address.model.course.Course;
  */
 public class CourseEdit extends CourseChange {
 
-    public static final String MESSAGE_CONSTRAINTS = "Course edit pair should include two alphanumeric courses " +
-            "separated by a single -.";
+    public static final String MESSAGE_CONSTRAINTS = "Course edit pair should include two alphanumeric courses "
+            + "separated by a single -.";
     private static final Pattern COURSE_EDIT_PATTERN = Pattern.compile(
             "^(?<originalCourse>[A-Za-z0-9]+)\\s*-\\s*(?<newCourse>[A-Za-z0-9]+)$");
     private static Matcher matcher;

@@ -2,10 +2,15 @@ package seedu.address.model.course.changes;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import seedu.address.model.course.Course;
 
+/**
+ * Represents a course addition.
+ */
 public class CourseAddition extends CourseChange {
     public static final String MESSAGE_CONSTRAINTS = "Course addition needs 'add' followed by an alphanumeric string.";
     private static final Pattern COURSE_ADDITION_PATTERN = Pattern.compile("^add-(?<course>[A-Za-z0-9]+)$");

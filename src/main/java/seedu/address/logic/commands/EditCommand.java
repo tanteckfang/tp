@@ -111,7 +111,7 @@ public class EditCommand extends Command {
         Set<Course> updatedCourses = getUpdatedCourses(personToEdit.getCourses(),
                 editPersonDescriptor.getCourseChanges().orElse(null));
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedCourses);
-}
+    }
 
     private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, Set<CourseChange> courseChanges) {
         if (courseChanges == null) {
