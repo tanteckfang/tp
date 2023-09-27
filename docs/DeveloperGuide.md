@@ -309,16 +309,57 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use Case: UC01 - Accessing the Help Page**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. User enters the command help
+2. AddressBook displays a message with a link to the help page
+
+   Use case ends.
+
+**Use Case: UC02 - Adding a Student**
+
+**MSS**
+
+1. User enters a valid add command with student information
+2. AddressBook adds the person
 
     Use case ends.
+
+**Extensions**
+
+* 2a. User enters an invalid command format.
+  * 2a1. AddressBook shows an error message.
+
+**Use Case: UC03 - Deleting a Student**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to delete a specific person in the list
+4. AddressBook deletes the person
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+    Use case ends.
+
+* 3a. The given index is invalid.
+    * 3a1. AddressBook shows an error message.
+
+    Use case resumes at step 2.
+
+**Use Case: UC04 - Editing a Student**
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to edit a specific person in the list
+4. AddressBook edits the person
 
 **Extensions**
 
@@ -327,12 +368,82 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 3a. The given index is invalid.
-
     * 3a1. AddressBook shows an error message.
 
-      Use case resumes at step 2.
+  Use case resumes at step 2.
 
-*{More to be added}*
+**Use Case: UC05 - Locating Students by Name**
+
+**MSS**
+
+1. User enters a valid findstudent command with one or more keywords.
+2. AddressBook displays a list of matching students with their details.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 1b. The given index is invalid.
+    * 1b1. AddressBook shows an error message.
+
+**Use Case: UC06 - Locating Students by Course**
+
+**MSS**
+
+1. User enters a valid findcourse command with one or more keywords.
+2. AddressBook displays a list of matching students with their details.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 1b. The given index is invalid.
+    * 1b1. AddressBook shows an error message.
+
+
+**Use Case: UC07 - Clearing All Entries**
+
+**MSS**
+
+1. User enters the clear command.
+2. AddresBook clears all entries from the address book.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. AddressBook shows an error message.
+
+**Use Case: UC08 - Listing All Students**
+
+**MSS**
+
+1. User enters the list command.
+2. AddressBook displays a list of all students in the address book along with their details.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 1b. The given command is invalid.
+    * 1b1. AddressBook shows an error message.
+
+**Use Case: UC09 - Exiting the Program**
+
+**MSS**
+
+1. User enters the exit command.
+2. AddressBook exits the program.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. AddressBook shows an error message.
 
 ### Non-Functional Requirements
 
@@ -344,6 +455,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
+* **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
