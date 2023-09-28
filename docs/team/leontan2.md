@@ -12,7 +12,7 @@ It is written in Java, and has about 10 kLoC.
 
 ### Summary of Contributions
 Given below are my contributions to the project.
-[Full contribution on RepoSense](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=chewjh1234&breakdown=true)
+[Full contribution on RepoSense](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=leontan2&breakdown=true)
 
 #### New Feature - [To be added]
 * What it does:
