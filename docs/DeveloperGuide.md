@@ -257,13 +257,17 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
+* is a NUS School of Computing (SoC) student
+* takes a number of courses in NUS
 * has a need to manage a significant number of contacts
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: 
+
+Students in SoC often face the challenge of identifying classmates who share their course schedules. NUSCourseMates is designed to alleviate this difficulty by helping them connect with peers who are taking the same courses, which can be a particularly valuable resource when assessments involve group work.
 
 
 ### User stories
