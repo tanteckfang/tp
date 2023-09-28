@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'checkstyle'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'application'
     id 'jacoco'
 }
@@ -39,6 +40,12 @@ task coverage(type: JacocoReport) {
         xml.required = true
     }
 }
+
+javafx {
+    version = '17'
+    modules = [ 'javafx.controls','javafx.graphics', 'javafx.fxml' ]
+}
+
 
 dependencies {
     String jUnitVersion = '5.4.0'
