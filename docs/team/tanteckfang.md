@@ -31,7 +31,7 @@ Given below are my contributions to the project.
         * Added and edited implementation details of the NPR.
 
 * **Community**:
-    * to be added
+    * to be added soon
 
 * **Tools**: 
     * to be added
