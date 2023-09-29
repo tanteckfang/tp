@@ -11,6 +11,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -88,18 +89,18 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> courseChanges} into a {@code Set<CourseChange>} if {@code courseChanges}
+     * Parses {@code Collection<String> courseChanges} into a {@code List<CourseChange>} if {@code courseChanges}
      * is non-empty. If {@code courseChanges} contain only one element which is an empty string, it will be parsed into
-     * a {@code Set<CourseChange>} containing zero courses.
+     * a {@code List<CourseChange>} containing zero courses.
      */
-    private Optional<Set<CourseChange>> parseCourseChangesForEdit(Collection<String> courseChanges) throws
+    private Optional<List<CourseChange>> parseCourseChangesForEdit(Collection<String> courseChanges) throws
             ParseException {
         assert courseChanges != null;
 
         if (courseChanges.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> courseSet = courseChanges.size() == 1 && courseChanges.contains("") ? Collections.emptySet()
+        Collection<String> courseSet = courseChanges.size() == 1 && courseChanges.contains("") ? Collections.emptyList()
                 : courseChanges;
         return Optional.of(ParserUtil.parseCourseChanges(courseSet));
     }

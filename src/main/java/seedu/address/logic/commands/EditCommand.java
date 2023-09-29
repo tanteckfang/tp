@@ -9,6 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -113,7 +114,7 @@ public class EditCommand extends Command {
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedCourses);
     }
 
-    private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, Set<CourseChange> courseChanges) {
+    private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, List<CourseChange> courseChanges) {
         if (courseChanges == null) {
             return originalCourses;
         }
@@ -174,7 +175,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
-        private Set<CourseChange> courseChanges;
+        private List<CourseChange> courseChanges;
 
         public EditPersonDescriptor() {}
 
@@ -251,8 +252,8 @@ public class EditCommand extends Command {
          * Sets {@code courseChanges} to this object's {@code courseChanges}.
          * A defensive copy of {@code courseChanges} is used internally.
          */
-        public void setCourseChanges(Set<CourseChange> courseChanges) {
-            this.courseChanges = (courseChanges != null) ? new HashSet<>(courseChanges) : null;
+        public void setCourseChanges(List<CourseChange> courseChanges) {
+            this.courseChanges = (courseChanges != null) ? new ArrayList<>(courseChanges) : null;
         }
 
         /**
@@ -260,8 +261,8 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code courseChanges} is null.
          */
-        public Optional<Set<CourseChange>> getCourseChanges() {
-            return (courseChanges != null) ? Optional.of(Collections.unmodifiableSet(courseChanges))
+        public Optional<List<CourseChange>> getCourseChanges() {
+            return (courseChanges != null) ? Optional.of(Collections.unmodifiableList(courseChanges))
                     : Optional.empty();
         }
 
