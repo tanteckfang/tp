@@ -98,6 +98,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.sortByCourse();
     }
 
+    public void sortPersons() {
+        persons.sortByName();
+    }
+
     //// util methods
 
     @Override

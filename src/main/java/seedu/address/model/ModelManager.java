@@ -116,6 +116,11 @@ public class ModelManager implements Model {
         addressBook.sortPersonsByCourse();
     }
 
+    @Override
+    public void sortPersonList() {
+        addressBook.sortPersons();
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**

@@ -85,5 +85,13 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+    /**
+     * Sorts the contacts in the address book by number of courses taken.
+     */
     void sortPersonListByCourse();
+
+    /**
+     * Sorts the contacts in the address book by name.
+     */
+    void sortPersonList();
 }

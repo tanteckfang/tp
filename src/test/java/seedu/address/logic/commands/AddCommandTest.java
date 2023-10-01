@@ -159,7 +159,11 @@ public class AddCommandTest {
         }
 
         @Override
+<<<<<<< HEAD
         public void sortPersonListByCourse() {
+=======
+        public void sortPersonList() {
+>>>>>>> 0a86e4e5538dbf574a97b19f765496a76697a884
             throw new AssertionError("This method should not be called.");
         }
     }
