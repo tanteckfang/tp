@@ -30,6 +30,7 @@ public class CourseEdit extends CourseChange {
     public CourseEdit(String courseEditDescription) {
         requireNonNull(courseEditDescription);
         checkArgument(isValidCourseEdit(courseEditDescription), MESSAGE_CONSTRAINTS);
+        courseChangeDescription = courseEditDescription;
         String originalCourseName = matcher.group("originalCourse");
         String newCourseName = matcher.group("newCourse");
         originalCourse = new Course(originalCourseName);

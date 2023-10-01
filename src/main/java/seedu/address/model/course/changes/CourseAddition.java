@@ -13,6 +13,7 @@ import seedu.address.model.course.Course;
  */
 public class CourseAddition extends CourseChange {
     public static final String MESSAGE_CONSTRAINTS = "Course addition needs 'add' followed by an alphanumeric string.";
+    public static final String COURSE_ADDITION_PREFIX = "add-";
     private static final Pattern COURSE_ADDITION_PATTERN = Pattern.compile("^add-(?<course>[A-Za-z0-9]+)$");
     private static Matcher matcher;
     private final Course courseToAdd;
@@ -25,6 +26,7 @@ public class CourseAddition extends CourseChange {
     public CourseAddition(String courseAdditionDescription) {
         requireNonNull(courseAdditionDescription);
         checkArgument(isValidCourseAddition(courseAdditionDescription), MESSAGE_CONSTRAINTS);
+        courseChangeDescription = courseAdditionDescription;
         String courseToAddName = matcher.group("course");
         courseToAdd = new Course(courseToAddName);
     }

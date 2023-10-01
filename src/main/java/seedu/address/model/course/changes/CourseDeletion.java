@@ -25,6 +25,7 @@ public class CourseDeletion extends CourseChange {
     public CourseDeletion(String courseDeletionDescription) {
         requireNonNull(courseDeletionDescription);
         checkArgument(isValidCourseDeletion(courseDeletionDescription), MESSAGE_CONSTRAINTS);
+        courseChangeDescription = courseDeletionDescription;
         String courseToDeleteName = matcher.group("course");
         courseToDelete = new Course(courseToDeleteName);
     }

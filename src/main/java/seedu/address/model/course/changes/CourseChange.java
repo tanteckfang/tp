@@ -9,6 +9,8 @@ public abstract class CourseChange {
     public static final String MESSAGE_CONSTRAINTS = "Course change requires either 'add-[course]', 'del-[course]', "
             + "or '[original_course]-[new_course]'";
 
+    protected String courseChangeDescription;
+
     /**
      * Creates a course change object based on the description provided.
      * @param courseChangeDescription the description provided.
@@ -26,5 +28,9 @@ public abstract class CourseChange {
         } else {
             return null;
         }
+    }
+
+    public String getCourseChangeDescription() {
+        return courseChangeDescription;
     }
 }
