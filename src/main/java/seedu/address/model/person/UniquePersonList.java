@@ -147,4 +147,14 @@ public class UniquePersonList implements Iterable<Person> {
         }
         return true;
     }
+
+    /**
+     * Sorts the internalList by the number of courses taken.
+     */
+    public void sortByCourse() {
+        internalList.sort((person1, person2) -> Integer.compare(
+                person2.getCourses().size(),
+                person1.getCourses().size()
+        ));
+    }
 }
