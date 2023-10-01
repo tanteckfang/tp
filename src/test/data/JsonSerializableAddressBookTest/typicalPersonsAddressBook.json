@@ -5,6 +5,7 @@
     "phone" : "94351253",
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
+    "telehandle": "alice122",
     "tags" : [ "friends" ],
     "courses" : [ ]
   }, {
@@ -12,12 +13,14 @@
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
+    "telehandle" : "bennnyyy",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "address" : "wall street",
+    "telehandle" : "carlinnn",
     "tags" : [ ],
     "courses" : [ ]
   }, {
@@ -25,6 +28,7 @@
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "address" : "10th street",
+    "telehandle" : "DanielleMASTER",
     "tags" : [ "friends" ],
     "courses" : [ ]
   }, {
@@ -32,6 +36,7 @@
     "phone" : "9482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
+    "telehandle" : "ellee",
     "tags" : [ ],
     "courses" : [ ]
   }, {
@@ -39,6 +44,7 @@
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
+    "telehandle" : "fione",
     "tags" : [ ],
     "courses" : [ ]
   }, {
@@ -46,6 +52,7 @@
     "phone" : "9482442",
     "email" : "anna@example.com",
     "address" : "4th street",
+    "telehandle" : "worstgeorge",
     "tags" : [ ],
     "courses" : [ ]
   } ]

@@ -4,11 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.course.Course;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,11 +17,13 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    private static final String DEFAULT_TELEHANDLE = "amyyyyy";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Telehandle telehandle;
     private Set<Tag> tags;
     private Set<Course> courses;
 
@@ -37,6 +35,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        telehandle = new Telehandle(DEFAULT_TELEHANDLE);
         tags = new HashSet<>();
         courses = new HashSet<>();
     }
@@ -49,6 +48,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        telehandle = personToCopy.getTelehandle();
         tags = new HashSet<>(personToCopy.getTags());
         courses = new HashSet<>(personToCopy.getCourses());
     }
@@ -86,6 +86,15 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Telehandle} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withTelehandle(String telehandle) {
+        this.telehandle = new Telehandle(telehandle);
+        return this;
+    }
+
+
+    /**
      * Sets the {@code Phone} of the {@code Person} that we are building.
      */
     public PersonBuilder withPhone(String phone) {
@@ -102,7 +111,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags, courses);
+        return new Person(name, phone, email, address, telehandle, tags, courses);
     }
 
 }
