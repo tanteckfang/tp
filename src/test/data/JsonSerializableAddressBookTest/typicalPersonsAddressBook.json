@@ -47,6 +47,6 @@
     "email" : "anna@example.com",
     "address" : "4th street",
     "tags" : [ ],
-    "courses" : [ ]
+    "courses" : ["MA2001", "CS1231S"]
   } ]
 }
