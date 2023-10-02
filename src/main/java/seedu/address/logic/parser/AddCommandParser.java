@@ -47,10 +47,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
 
         // For email and address, check if present, otherwise set to an empty string or some default value
-        Email email = argMultimap.getValue(PREFIX_EMAIL).isPresent() ?
-                ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()) : new Email(""); // using empty string as default
-        Address address = argMultimap.getValue(PREFIX_ADDRESS).isPresent() ?
-                ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()) : new Address(""); // using empty string as default
+        Email email = argMultimap.getValue(PREFIX_EMAIL).isPresent()
+                ? ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get())
+                : new Email(""); // using empty string as default
+        Address address = argMultimap.getValue(PREFIX_ADDRESS).isPresent()
+                ? ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get())
+                : new Address(""); // using empty string as default
 
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Set<Course> courseList = ParserUtil.parseCourses(argMultimap.getAllValues(PREFIX_COURSE));
