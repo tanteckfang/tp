@@ -16,14 +16,14 @@ public class Course {
     public final String courseName;
 
     /**
-     * Constructs a {@code Tag}.
+     * Constructs a {@code Course}.
      *
      * @param courseName A valid course name.
      */
     public Course(String courseName) {
         requireNonNull(courseName);
         checkArgument(isValidCourseName(courseName), MESSAGE_CONSTRAINTS);
-        this.courseName = courseName;
+        this.courseName = courseName.toUpperCase();
     }
 
     /**

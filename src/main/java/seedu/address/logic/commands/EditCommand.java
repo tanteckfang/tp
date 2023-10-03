@@ -2,12 +2,14 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -22,6 +24,10 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.course.Course;
+import seedu.address.model.course.changes.CourseAddition;
+import seedu.address.model.course.changes.CourseChange;
+import seedu.address.model.course.changes.CourseDeletion;
+import seedu.address.model.course.changes.CourseEdit;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -44,10 +50,14 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_TAG + "TAG]... "
+            + "[" + PREFIX_COURSE + "ORIGINAL_COURSE-NEW_COURSE]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "johndoe@example.com";
+            + PREFIX_EMAIL + "johndoe@example.com "
+            + PREFIX_COURSE + "add-MA1521 "
+            + PREFIX_COURSE + "del-MA1521 "
+            + PREFIX_COURSE + "MA2001-MA1521";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -101,9 +111,36 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        Set<Course> updatedCourses = personToEdit.getCourses(); // TODO: Allow courses to be edited by edit command
-
+        Set<Course> updatedCourses = getUpdatedCourses(personToEdit.getCourses(),
+                editPersonDescriptor.getCourseChanges().orElse(null));
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedCourses);
+    }
+
+    private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, List<CourseChange> courseChanges) {
+        if (courseChanges == null) {
+            return originalCourses;
+        }
+        if (courseChanges.isEmpty()) {
+            return new HashSet<>();
+        }
+        Set<Course> updatedCourses = new HashSet<>(originalCourses);
+        for (CourseChange courseChange: courseChanges) {
+            updateCourses(courseChange, updatedCourses);
+        }
+        return updatedCourses;
+    }
+
+    private static void updateCourses(CourseChange courseChange, Set<Course> currentCourses) {
+        if (courseChange instanceof CourseAddition) {
+            currentCourses.add(((CourseAddition) courseChange).getCourseToAdd());
+        } else if (courseChange instanceof CourseDeletion) {
+            currentCourses.remove(((CourseDeletion) courseChange).getCourseToDelete());
+        } else {
+            CourseEdit courseEdit = (CourseEdit) courseChange;
+            if (currentCourses.remove(courseEdit.getOriginalCourse())) {
+                currentCourses.add(courseEdit.getNewCourse());
+            }
+        }
     }
 
     @Override
@@ -140,6 +177,7 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private List<CourseChange> courseChanges;
 
         public EditPersonDescriptor() {}
 
@@ -153,13 +191,14 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setCourseChanges(toCopy.courseChanges);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, courseChanges);
         }
 
         public void setName(Name name) {
@@ -211,6 +250,24 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        /**
+         * Sets {@code courseChanges} to this object's {@code courseChanges}.
+         * A defensive copy of {@code courseChanges} is used internally.
+         */
+        public void setCourseChanges(List<CourseChange> courseChanges) {
+            this.courseChanges = (courseChanges != null) ? new ArrayList<>(courseChanges) : null;
+        }
+
+        /**
+         * Returns an unmodifiable course pair set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code courseChanges} is null.
+         */
+        public Optional<List<CourseChange>> getCourseChanges() {
+            return (courseChanges != null) ? Optional.of(Collections.unmodifiableList(courseChanges))
+                    : Optional.empty();
+        }
+
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -227,7 +284,8 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(address, otherEditPersonDescriptor.address)
-                    && Objects.equals(tags, otherEditPersonDescriptor.tags);
+                    && Objects.equals(tags, otherEditPersonDescriptor.tags)
+                    && Objects.equals(courseChanges, otherEditPersonDescriptor.courseChanges);
         }
 
         @Override
@@ -238,6 +296,7 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("address", address)
                     .add("tags", tags)
+                    .add("courseChanges", courseChanges)
                     .toString();
         }
     }
