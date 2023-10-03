@@ -97,4 +97,13 @@ public class PersonTest {
                 + ", courses=" + ALICE.getCourses() + "}";
         assertEquals(expected, ALICE.toString());
     }
+
+    @Test
+    public void testHashCodeForEqualObjects() {
+        Person person1 = ALICE;
+        Person person2 = ALICE;
+
+        assertEquals(person1, person2, "Expected both persons to be equal");
+        assertEquals(person1.hashCode(), person2.hashCode(), "Expected equal objects to have the same hash code");
+    }
 }
