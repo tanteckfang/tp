@@ -12,11 +12,31 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.course.Course;
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
+
 public class PersonTest {
+
+    @Test
+    public void constructor_withNullEmailAndAddress_usesDefaultValues() {
+        Name testName = new Name("John Doe");
+        Phone testPhone = new Phone("12345678");
+        Set<Tag> testTags = new HashSet<>();
+        Set<Course> testCourses = new HashSet<>();
+
+        Person person = new Person(testName, testPhone, null, null, testTags, testCourses);
+
+        assertEquals(Email.EMPTY_EMAIL, person.getEmail());
+        assertEquals(Address.EMPTY_ADDRESS, person.getAddress());
+    }
+
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
