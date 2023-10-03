@@ -5,7 +5,6 @@ import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.EMPTY_INPUT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
@@ -75,8 +74,7 @@ public class AddCommandParserTest {
     public void parse_onlyPhonePresent_success() {
         Person expectedPerson = TypicalPersons.JOHN;
 
-        assertParseSuccess(parser, NAME_DESC_JOHN + PHONE_DESC_JOHN + " " + PREFIX_ADDRESS + EMPTY_INPUT
-                        + " " + PREFIX_EMAIL + EMPTY_INPUT,
+        assertParseSuccess(parser, NAME_DESC_JOHN + PHONE_DESC_JOHN + " " ,
                 new AddCommand(expectedPerson));
     }
 
@@ -86,7 +84,7 @@ public class AddCommandParserTest {
                 .withAddress("").build();
 
         assertParseSuccess(parser, " " + PREFIX_NAME + VALID_NAME_AMY + " " + PREFIX_PHONE + VALID_PHONE_AMY
-                        + " " + PREFIX_EMAIL + VALID_EMAIL_AMY + " " + PREFIX_ADDRESS + EMPTY_INPUT,
+                        + " " + PREFIX_EMAIL + VALID_EMAIL_AMY,
                 new AddCommand(expectedPerson));
     }
 
