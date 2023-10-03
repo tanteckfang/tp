@@ -21,8 +21,11 @@ import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -74,6 +77,16 @@ public class AddCommandParserTest {
 
         assertParseSuccess(parser, NAME_DESC_JOHN + PHONE_DESC_JOHN + " " + PREFIX_ADDRESS + EMPTY_INPUT
                         + " " + PREFIX_EMAIL + EMPTY_INPUT,
+                new AddCommand(expectedPerson));
+    }
+
+    @Test
+    public void parse_emailPresent_success() {
+        Person expectedPerson = new PersonBuilder().withPhone("11111111").withEmail(VALID_EMAIL_AMY)
+                .withAddress("").build();
+
+        assertParseSuccess(parser, " " + PREFIX_NAME + VALID_NAME_AMY + " " + PREFIX_PHONE + VALID_PHONE_AMY
+                        + " " + PREFIX_EMAIL + VALID_EMAIL_AMY + " " + PREFIX_ADDRESS + EMPTY_INPUT,
                 new AddCommand(expectedPerson));
     }
 
