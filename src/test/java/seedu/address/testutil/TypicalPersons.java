@@ -56,7 +56,7 @@ public class TypicalPersons {
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();
 
-    public static Person JOHN = new PersonBuilder().withName("John").withPhone("33333333")
+    public static final Person JOHN = new PersonBuilder().withName("John").withPhone("33333333")
             .withEmail("").withAddress("").build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
