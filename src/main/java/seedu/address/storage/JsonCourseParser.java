@@ -19,6 +19,8 @@ import seedu.address.model.course.Course;
  */
 public class JsonCourseParser {
 
+    public static final Path COURSE_PATH = Paths.get("data", "JSONModuleList.json");
+
     /**
      * Parses a JSON file and extracts module codes into a list of strings.
      *
@@ -56,8 +58,7 @@ public class JsonCourseParser {
      */
     public static void initialise() {
         try {
-            Path coursePath = Paths.get("data", "JSONModuleList.json");
-            List<String> courseList = parseJsonFile(coursePath);
+            List<String> courseList = parseJsonFile(COURSE_PATH);
             Course.initialiseCourseList(courseList);
         } catch (IOException e) {
             e.printStackTrace();
