@@ -68,6 +68,7 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "MA0!0"; // '!' not allowed in tags
+    public static final String INVALID_EXISTING_COURSE_DESC = " " + PREFIX_COURSE + "MA9999"; // Non-existence course
     // TODO: add in these constants once we have course validation:
     // public static final String INVALID_COURSE_ADDITION = " " + PREFIX_COURSE + "ard-CS2103T"; // 'and', not 'ard'
     // public static final String INVALID_COURSE_DELETION = " " + PREFIX_COURSE + "de-CS2103T"; // 'del', not 'de'

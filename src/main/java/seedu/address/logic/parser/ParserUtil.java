@@ -113,6 +113,8 @@ public class ParserUtil {
         String trimmedCourse = course.trim().toUpperCase();
         if (!Course.isValidCourseName(trimmedCourse)) {
             throw new ParseException(Course.MESSAGE_CONSTRAINTS);
+        } else if (!Course.isExistingCourseName(trimmedCourse)) {
+            throw new ParseException(Course.MESSAGE_INVALID);
         }
         return new Course(trimmedCourse);
     }
