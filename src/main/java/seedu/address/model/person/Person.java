@@ -31,14 +31,17 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Set<Course> courses) {
-        requireAllNonNull(name, phone, email, address, tags);
+
+        requireAllNonNull(name, phone, tags);
+
         this.name = name;
         this.phone = phone;
-        this.email = email;
-        this.address = address;
+        this.email = email != null ? email : Email.EMPTY_EMAIL;
+        this.address = address != null ? address : Address.EMPTY_ADDRESS;
         this.tags.addAll(tags);
-        this.courses.addAll(courses);
+        this.courses.addAll(courses != null ? courses : Collections.emptySet());
     }
+
 
     public Name getName() {
         return name;
