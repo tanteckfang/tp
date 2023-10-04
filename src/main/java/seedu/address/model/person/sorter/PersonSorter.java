@@ -9,26 +9,31 @@ import seedu.address.model.person.Person;
  * Subclasses of this class define specific sorting criteria.
  */
 public abstract class PersonSorter implements Comparator<Person> {
+    protected String criterion;
 
     /**
      * Creates a person sorter object based on the criterion provided.
-     * @param criterion the description provided.
-     * @return a PersonSorter object corresponding to the criterion.
+     * @param criterion the sorting requirement provided.
+     * @return a PersonSorter object which satisfies the criterion.
      */
     public static PersonSorter createPersonSorter(String criterion) {
         switch (criterion) {
         case "name":
         case "name-ascending":
-            return new PersonNameAscendingSorter();
+            return new PersonNameAscendingSorter("name-ascending");
         case "name-descending":
-            return new PersonNameDescendingSorter();
+            return new PersonNameDescendingSorter("name-descending");
         case "course":
         case "course size-descending":
-            return new PersonCourseSizeDescendingSorter();
+            return new PersonCourseSizeDescendingSorter("course size-descending");
         case "course size-ascending":
-            return new PersonCourseSizeAscendingSorter();
+            return new PersonCourseSizeAscendingSorter("course size-ascending");
         default:
             return null;
         }
+    }
+
+    public String getSortingCriterion() {
+        return criterion;
     }
 }

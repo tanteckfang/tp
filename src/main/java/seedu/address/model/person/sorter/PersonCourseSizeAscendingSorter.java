@@ -1,5 +1,7 @@
 package seedu.address.model.person.sorter;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.model.person.Person;
 
 /**
@@ -8,6 +10,16 @@ import seedu.address.model.person.Person;
  * Subclass of {@link PersonSorter}.
  */
 public class PersonCourseSizeAscendingSorter extends PersonSorter {
+
+    /**
+     * Constructs a {@code PersonCourseSizeAscendingSorter}.
+     *
+     * @param courseSizeAscending Description of the sorting criterion.
+     */
+    public PersonCourseSizeAscendingSorter(String courseSizeAscending) {
+        requireNonNull(courseSizeAscending);
+        criterion = courseSizeAscending;
+    }
 
     @Override
     public int compare(Person person1, Person person2) {
@@ -24,5 +36,24 @@ public class PersonCourseSizeAscendingSorter extends PersonSorter {
 
             return person1UpperCaseName.compareTo(person2UpperCaseName);
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof PersonCourseSizeAscendingSorter)) {
+            return false;
+        }
+
+        PersonCourseSizeAscendingSorter otherCourseSizeAscendingSorter = (PersonCourseSizeAscendingSorter) other;
+        return this.getSortingCriterion().equals(otherCourseSizeAscendingSorter.getSortingCriterion());
+    }
+
+    @Override
+    public int hashCode() {
+        return criterion.hashCode();
     }
 }
