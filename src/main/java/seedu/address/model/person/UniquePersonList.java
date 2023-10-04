@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.person.sorter.PersonSorter;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
@@ -149,17 +150,10 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
-     * Sorts the internalList by the number of courses taken.
+     * Sorts the internalList according to the PersonSorter object passed into it.
      */
-    public void sortByCourse() {
-        internalList.sort((person1, person2) -> Integer.compare(
-                person2.getCourses().size(),
-                person1.getCourses().size()
-        ));
-    }
-
-    public void sortByName() {
-        internalList.sort((person1, person2) -> person1.getName().compareTo(person2.getName()));
+    public void sortPersons(PersonSorter sorter) {
+        internalList.sort(sorter);
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.sorter.PersonSorter;
 
 /**
  * The API of the Model component.
@@ -86,12 +87,7 @@ public interface Model {
     void updateFilteredPersonList(Predicate<Person> predicate);
 
     /**
-     * Sorts the contacts in the address book by number of courses taken.
+     * Sorts the contacts in the address book as specified by the PersonSorter object.
      */
-    void sortPersonListByCourse();
-
-    /**
-     * Sorts the contacts in the address book by name.
-     */
-    void sortPersonList();
+    void sortPersonList(PersonSorter sorter);
 }
