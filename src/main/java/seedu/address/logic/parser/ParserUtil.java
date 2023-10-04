@@ -2,14 +2,20 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.course.Course;
+import seedu.address.model.course.changes.CourseAddition;
+import seedu.address.model.course.changes.CourseChange;
+import seedu.address.model.course.changes.CourseDeletion;
+import seedu.address.model.course.changes.CourseEdit;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -128,6 +134,24 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code String courseChange} into a {@code courseChange}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code courseChange} is invalid.
+     */
+    public static CourseChange parseCourseChange(String courseChange) throws ParseException {
+        requireNonNull(courseChange);
+        String trimmedCourseChange = courseChange.trim();
+        boolean isValidCourseAddition = CourseAddition.isValidCourseAddition(trimmedCourseChange);
+        boolean isValidCourseDeletion = CourseDeletion.isValidCourseDeletion(trimmedCourseChange);
+        boolean isValidCourseEdit = CourseEdit.isValidCourseEdit(trimmedCourseChange);
+        if (!isValidCourseAddition && !isValidCourseDeletion && !isValidCourseEdit) {
+            throw new ParseException(CourseChange.MESSAGE_CONSTRAINTS);
+        }
+        return CourseChange.createCourseChange(courseChange);
+    }
+
+    /**
      * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -155,7 +179,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Course>}.
+     * Parses {@code Collection<String> courses} into a {@code Set<Course>}.
      */
     public static Set<Course> parseCourses(Collection<String> courses) throws ParseException {
         requireNonNull(courses);
@@ -166,4 +190,15 @@ public class ParserUtil {
         return courseSet;
     }
 
+    /**
+     * Parses {@code Collection<String> courseChanges} into a {@code List<CourseChange>}.
+     */
+    public static List<CourseChange> parseCourseChanges(Collection<String> courseChanges) throws ParseException {
+        requireNonNull(courseChanges);
+        final List<CourseChange> courseChangeList = new ArrayList<>();
+        for (String courseChange : courseChanges) {
+            courseChangeList.add(parseCourseChange(courseChange));
+        }
+        return courseChangeList;
+    }
 }

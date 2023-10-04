@@ -68,21 +68,26 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [c/COURSE]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+A person can have any number of tags or courses (including 0)
+
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S c/CS2103T`
+* `add n/Bob Lee p/81234568 e/BL@gmail.com a/123 Clementi Rd c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 
 ### Listing all persons : `list`
 
 Shows a list of all persons in the address book.
 
 Format: `list`
+
+Examples:
+![list](images/List.png)
+
 
 ### Editing a student : `edit`
 
@@ -168,6 +173,11 @@ Examples:
 Clears all entries from the address book.
 
 Format: `clear`
+
+
+Examples:
+![result for 'clear'](images/Clear.png)
+
 
 ### Exiting the program : `exit`
 
