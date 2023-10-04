@@ -57,6 +57,9 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String COURSE_DESC_CS2103T = " " + PREFIX_COURSE + VALID_COURSE_CS2103T;
+    public static final String COURSE_DESC_MA1521 = " " + PREFIX_COURSE + VALID_COURSE_MA1521;
+    public static final String COURSE_DESC_MA2001 = " " + PREFIX_COURSE + VALID_COURSE_MA2001;
     public static final String COURSE_CHANGE_DESC_ADD = " " + PREFIX_COURSE + VALID_COURSE_ADDITION_CS2103T;
     public static final String COURSE_CHANGE_DESC_DELETE = " " + PREFIX_COURSE + VALID_COURSE_DELETION_MA2001;
     public static final String COURSE_CHANGE_DESC_EDIT = " " + PREFIX_COURSE + VALID_COURSE_EDIT_CS1231S_TO_MA1521;
@@ -66,7 +69,8 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
-    // add in these constants once we have course validation:
+    public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "MA0!0"; // '!' not allowed in tags
+    // TODO: add in these constants once we have course validation:
     // public static final String INVALID_COURSE_ADDITION = " " + PREFIX_COURSE + "ard-CS2103T"; // 'and', not 'ard'
     // public static final String INVALID_COURSE_DELETION = " " + PREFIX_COURSE + "de-CS2103T"; // 'del', not 'de'
     public static final String INVALID_COURSE_EDIT = " " + PREFIX_COURSE + "-CS2103T"; // missing original course
