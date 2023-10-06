@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.sorter.PersonNameAscendingSorter;
 import seedu.address.testutil.AddressBookBuilder;
 
 public class ModelManagerTest {
@@ -91,6 +92,15 @@ public class ModelManagerTest {
     @Test
     public void sortPersonList_nullPersonSorter_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> modelManager.sortPersonList(null));
+    }
+
+    @Test
+    public void sortPersonList_validPersonSorter_keepsFilePath() {
+        Path path = Paths.get("address/book/file/path");
+        modelManager.setAddressBookFilePath(path);
+        modelManager.sortPersonList(new PersonNameAscendingSorter("name-ascending"));
+        modelManager.getAddressBookFilePath();
+        assertEquals(path, modelManager.getAddressBookFilePath());
     }
 
     @Test

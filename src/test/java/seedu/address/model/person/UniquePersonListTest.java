@@ -9,6 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalPersons.CARL;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,6 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.person.sorter.PersonNameAscendingSorter;
 import seedu.address.model.person.sorter.PersonSorter;
 import seedu.address.testutil.PersonBuilder;
 
@@ -167,7 +169,7 @@ public class UniquePersonListTest {
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, ()
-            -> uniquePersonList.asUnmodifiableObservableList().remove(0));
+                -> uniquePersonList.asUnmodifiableObservableList().remove(0));
     }
 
     @Test
@@ -178,5 +180,18 @@ public class UniquePersonListTest {
     @Test
     public void sortPersons_nullPersonSorterObject_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> uniquePersonList.sortPersons((PersonSorter) null));
+    }
+
+    @Test
+    public void sortPersons_validPersonSorterObject_returnsSortedList() {
+        uniquePersonList.add(BOB);
+        uniquePersonList.add(CARL);
+        uniquePersonList.add(ALICE);
+        UniquePersonList expectedUniquePersonList = new UniquePersonList();
+        expectedUniquePersonList.add(ALICE);
+        expectedUniquePersonList.add(BOB);
+        expectedUniquePersonList.add(CARL);
+        uniquePersonList.sortPersons(new PersonNameAscendingSorter("name-ascending"));
+        assertEquals(expectedUniquePersonList, uniquePersonList);
     }
 }
