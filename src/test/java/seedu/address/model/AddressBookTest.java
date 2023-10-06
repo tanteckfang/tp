@@ -89,6 +89,11 @@ public class AddressBookTest {
         assertEquals(expected, addressBook.toString());
     }
 
+    @Test
+    public void sortPersonList_nullPersonSorter_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> addressBook.sortPersonList(null));
+    }
+
     /**
      * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
      */

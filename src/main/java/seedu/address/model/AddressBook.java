@@ -95,7 +95,12 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    /**
+     * Sorts the {@code AddressBook} according to the specified {@code sorter}.
+     * {@code sorter} must not be null.
+     */
     public void sortPersonList(PersonSorter sorter) {
+        requireNonNull(sorter);
         persons.sortPersons(sorter);
     }
 

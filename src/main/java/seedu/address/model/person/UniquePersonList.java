@@ -153,6 +153,7 @@ public class UniquePersonList implements Iterable<Person> {
      * Sorts the internalList according to the PersonSorter object passed into it.
      */
     public void sortPersons(PersonSorter sorter) {
+        requireNonNull(sorter);
         internalList.sort(sorter);
     }
 

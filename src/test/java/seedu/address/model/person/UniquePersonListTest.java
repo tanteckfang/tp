@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.person.sorter.PersonSorter;
 import seedu.address.testutil.PersonBuilder;
 
 public class UniquePersonListTest {
@@ -172,5 +173,10 @@ public class UniquePersonListTest {
     @Test
     public void toStringMethod() {
         assertEquals(uniquePersonList.asUnmodifiableObservableList().toString(), uniquePersonList.toString());
+    }
+
+    @Test
+    public void sortPersons_nullPersonSorterObject_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> uniquePersonList.sortPersons((PersonSorter) null));
     }
 }

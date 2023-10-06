@@ -26,6 +26,21 @@ public class SortCommand extends Command {
     }
 
     @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortCommand)) {
+            return false;
+        }
+
+        SortCommand otherSortCommand = (SortCommand) other;
+        return sorter.equals(otherSortCommand.sorter);
+    }
+
+    @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.sortPersonList(sorter);
