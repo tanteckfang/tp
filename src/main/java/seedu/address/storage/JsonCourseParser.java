@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,13 +22,13 @@ public class JsonCourseParser {
     public static final Path COURSE_PATH = Paths.get("data", "JSONModuleList.json");
 
     /**
-     * Parses a JSON file and extracts module codes into a list of strings.
+     * Parses a JSON file and extracts module codes into a set of strings.
      *
      * @param jsonFilePath The path to the JSON file to be parsed.
-     * @return A list of module codes extracted from the JSON file.
+     * @return A set of module codes extracted from the JSON file.
      * @throws IOException If an I/O error occurs or if the JSON file does not exist or has invalid format.
      */
-    public static List<String> parseJsonFile(Path jsonFilePath) throws IOException {
+    public static Set<String> parseJsonFile(Path jsonFilePath) throws IOException {
 
         if (!Files.exists(jsonFilePath)) {
             throw new IOException("JSON file does not exist: " + jsonFilePath.toString());
@@ -42,7 +42,7 @@ public class JsonCourseParser {
             throw new IOException("Invalid JSON format. Expected an array of courses.");
         }
 
-        List<String> courseList = new ArrayList<>();
+        Set<String> courseList = new HashSet<>();
 
         for (JsonNode courseNode : rootNode) {
             String moduleCode = courseNode.get("moduleCode").asText();
@@ -58,7 +58,7 @@ public class JsonCourseParser {
      */
     public static void initialise() {
         try {
-            List<String> courseList = parseJsonFile(COURSE_PATH);
+            Set<String> courseList = parseJsonFile(COURSE_PATH);
             Course.initialiseCourseList(courseList);
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -20,11 +20,11 @@ public class JsonCourseParserTest {
 
     @Test
     public void parseJsonFile_validJsonFile_success() throws IOException {
-        List<String> moduleCodes = JsonCourseParser.parseJsonFile(TEST_DATA_FOLDER);
+        Set<String> moduleCodes = JsonCourseParser.parseJsonFile(TEST_DATA_FOLDER);
         assertEquals(3, moduleCodes.size());
-        assertEquals("CS2103T", moduleCodes.get(0));
-        assertEquals("CS2040", moduleCodes.get(1));
-        assertEquals("CS1101S", moduleCodes.get(2));
+        assertEquals(moduleCodes.contains("CS2103T"), true);
+        assertEquals(moduleCodes.contains("CS2040"), true);
+        assertEquals(moduleCodes.contains("CS1101S"), true);
     }
 
     @Test

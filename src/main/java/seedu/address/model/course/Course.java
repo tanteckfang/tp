@@ -3,7 +3,7 @@ package seedu.address.model.course;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.util.List;
+import java.util.Set;
 
 import seedu.address.storage.JsonCourseParser;
 
@@ -16,7 +16,7 @@ public class Course {
     public static final String MESSAGE_CONSTRAINTS = "Course module ID should consist of letters and numbers";
     public static final String MESSAGE_INVALID = "Course module ID is invalid";
     public static final String MODULE_ID_VALIDATION_REGEX = "^[A-Za-z0-9]+$";
-    private static List<String> courseList;
+    private static Set<String> courseList;
     public final String courseName;
 
     /**
@@ -36,7 +36,7 @@ public class Course {
      *
      * @param courseList A valid course name.
      */
-    public static void initialiseCourseList(List<String> courseList) {
+    public static void initialiseCourseList(Set<String> courseList) {
         Course.courseList = courseList;
     }
 
