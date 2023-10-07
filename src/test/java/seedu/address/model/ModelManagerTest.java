@@ -98,7 +98,7 @@ public class ModelManagerTest {
     public void sortPersonList_validPersonSorter_keepsFilePath() {
         Path path = Paths.get("address/book/file/path");
         modelManager.setAddressBookFilePath(path);
-        modelManager.sortPersonList(new PersonNameAscendingSorter("name-ascending"));
+        modelManager.sortPersonList(new PersonNameAscendingSorter());
         modelManager.getAddressBookFilePath();
         assertEquals(path, modelManager.getAddressBookFilePath());
     }

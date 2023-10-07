@@ -191,7 +191,7 @@ public class UniquePersonListTest {
         expectedUniquePersonList.add(ALICE);
         expectedUniquePersonList.add(BOB);
         expectedUniquePersonList.add(CARL);
-        uniquePersonList.sortPersons(new PersonNameAscendingSorter("name-ascending"));
+        uniquePersonList.sortPersons(new PersonNameAscendingSorter());
         assertEquals(expectedUniquePersonList, uniquePersonList);
     }
 }

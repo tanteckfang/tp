@@ -25,6 +25,6 @@ public class SortCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsSortCommand() {
-        assertParseSuccess(parser, "name", new SortCommand(new PersonNameAscendingSorter("name-ascending")));
+        assertParseSuccess(parser, "name", new SortCommand(new PersonNameAscendingSorter()));
     }
 }

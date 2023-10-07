@@ -23,8 +23,8 @@ public class SortCommandTest {
     @Test
     public void equals() {
 
-        PersonSorter firstPersonSorter = new PersonNameAscendingSorter(NAME_ASCENDING);
-        PersonSorter secondPersonSorter = new PersonNameDescendingSorter(NAME_DESCENDING);
+        PersonSorter firstPersonSorter = new PersonNameAscendingSorter();
+        PersonSorter secondPersonSorter = new PersonNameDescendingSorter();
 
         SortCommand firstCommand = new SortCommand(firstPersonSorter);
         SortCommand secondCommand = new SortCommand(secondPersonSorter);
@@ -48,7 +48,7 @@ public class SortCommandTest {
 
     @Test
     public void execute_validSortCommandUnsortedList_success() {
-        PersonSorter personSorter = new PersonNameAscendingSorter(NAME_ASCENDING);
+        PersonSorter personSorter = new PersonNameAscendingSorter();
         SortCommand sortCommand = new SortCommand(personSorter);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());

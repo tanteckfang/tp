@@ -1,6 +1,6 @@
 package seedu.address.model.person.sorter;
 
-import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import seedu.address.model.person.Person;
 
@@ -13,16 +13,14 @@ public class PersonCourseSizeAscendingSorter extends PersonSorter {
 
     /**
      * Constructs a {@code PersonCourseSizeAscendingSorter}.
-     *
-     * @param courseSizeAscending Description of the sorting criterion.
      */
-    public PersonCourseSizeAscendingSorter(String courseSizeAscending) {
-        requireNonNull(courseSizeAscending);
-        criterion = courseSizeAscending;
+    public PersonCourseSizeAscendingSorter() {
+        criterion = "course size-ascending";
     }
 
     @Override
     public int compare(Person person1, Person person2) {
+        requireAllNonNull(person1, person2);
 
         int courseSizeComparison = Integer.compare(person1.getCourses().size(), person2.getCourses().size());
 

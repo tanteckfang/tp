@@ -1,6 +1,6 @@
 package seedu.address.model.person.sorter;
 
-import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import seedu.address.model.person.Person;
 
@@ -12,16 +12,15 @@ public class PersonNameDescendingSorter extends PersonSorter {
 
     /**
      * Constructs a {@code PersonNameDescendingSorter}.
-     *
-     * @param nameDescending Description of the sorting criterion.
      */
-    public PersonNameDescendingSorter(String nameDescending) {
-        requireNonNull(nameDescending);
-        criterion = nameDescending;
+    public PersonNameDescendingSorter() {
+        criterion = "name-descending";
     }
 
     @Override
     public int compare(Person person1, Person person2) {
+        requireAllNonNull(person1, person2);
+
         // Convert to uppercase so as to compare ASCII values
         String person1UpperCaseName = person1.getName().fullName.toUpperCase();
         String person2UpperCaseName = person2.getName().fullName.toUpperCase();

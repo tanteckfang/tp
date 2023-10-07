@@ -93,7 +93,7 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_sort() throws Exception {
 
-        PersonNameAscendingSorter sorter = new PersonNameAscendingSorter("name-ascending");
+        PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
         SortCommand command = (SortCommand) parser.parseCommand(SortCommand.COMMAND_WORD + " " + "name");
         assertEquals(new SortCommand(sorter), command);
 

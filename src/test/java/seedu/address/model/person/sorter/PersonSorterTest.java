@@ -21,27 +21,27 @@ public class PersonSorterTest {
         assertNull(PersonSorter.createPersonSorter("number"));
 
         // ascending lexicographic order
-        assertEquals(new PersonNameAscendingSorter("name-ascending"),
+        assertEquals(new PersonNameAscendingSorter(),
                 PersonSorter.createPersonSorter("name"));
 
         // ascending lexicographic order
-        assertEquals(new PersonNameAscendingSorter("name-ascending"),
+        assertEquals(new PersonNameAscendingSorter(),
                 PersonSorter.createPersonSorter("name-ascending"));
 
         // descending lexicographic order
-        assertEquals(new PersonNameDescendingSorter("name-descending"),
+        assertEquals(new PersonNameDescendingSorter(),
                 PersonSorter.createPersonSorter("name-descending"));
 
         // decreasing course size
-        assertEquals(new PersonCourseSizeDescendingSorter("course size-descending"),
+        assertEquals(new PersonCourseSizeDescendingSorter(),
                 PersonSorter.createPersonSorter("course"));
 
         // decreasing course size
-        assertEquals(new PersonCourseSizeDescendingSorter("course size-descending"),
+        assertEquals(new PersonCourseSizeDescendingSorter(),
                 PersonSorter.createPersonSorter("course size-descending"));
 
         // increasing course size
-        assertEquals(new PersonCourseSizeAscendingSorter("course size-ascending"),
+        assertEquals(new PersonCourseSizeAscendingSorter(),
                 PersonSorter.createPersonSorter("course size-ascending"));
     }
 

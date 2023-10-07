@@ -114,7 +114,7 @@ public class AddressBookTest {
         sortedAddressBook.addPerson(BOB);
         sortedAddressBook.addPerson(CARL);
 
-        addressBook.sortPersonList(new PersonNameAscendingSorter("name-ascending"));
+        addressBook.sortPersonList(new PersonNameAscendingSorter());
         assertEquals(addressBook, sortedAddressBook);
     }
 
