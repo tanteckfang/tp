@@ -69,6 +69,7 @@ public class SampleDataUtil {
      */
     public static Set<Course> getCourseSet(String... strings) {
         return Arrays.stream(strings)
+                .filter(str -> !str.isEmpty())
                 .map(Course::new)
                 .collect(Collectors.toSet());
     }
