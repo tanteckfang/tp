@@ -167,6 +167,19 @@ Examples:
 
 ![delete student](images/deleteStudent.png)
 
+### Sorting all entries : `sort` 
+
+Sorts all contacts according to the specified criterion. 
+
+Format: `sort SORT_CRITERION`
+
+Examples:
+* `sort course` returns a sorted address book based on the number of courses taken in **descending** order.
+* `sort course size-ascending` returns a sorted address book based on the number of courses taken in **ascending** order.
+* `sort name` returns a sorted address book based on the names of the persons in **ascending** lexicographic order.
+* `sort name-descending` returns a sorted address book based on the names of the persons in **descending** lexicographic order.
+
+![result for sort name](images/SortByName.png)
 
 ### Clearing all entries : `clear`
 
@@ -244,5 +257,6 @@ _Details coming soon ..._
 | **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |
 | **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                    |
 | **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                |
+| **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                 |
 | **List**         | `list`                                                                                                                                                                                      |
 | **Help**         | `help`                                                                                                                                                                                      |
