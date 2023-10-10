@@ -93,7 +93,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_emailPresent_success() {
         Person expectedPerson = new PersonBuilder().withPhone("11111111").withEmail(VALID_EMAIL_AMY)
-                .withAddress("").build();
+                .withAddress("").withTelehandle("").build();
 
         assertParseSuccess(parser, " " + PREFIX_NAME + VALID_NAME_AMY + " " + PREFIX_PHONE + VALID_PHONE_AMY
                         + " " + PREFIX_EMAIL + VALID_EMAIL_AMY,

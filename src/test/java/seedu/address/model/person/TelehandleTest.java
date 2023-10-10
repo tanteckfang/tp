@@ -15,31 +15,30 @@ public class TelehandleTest {
 
     @Test
     public void constructor_invalidTelehandle_throwsIllegalArgumentException() {
-        String invalidTelehandle = "";
+        String invalidTelehandle = "amyyyy"; // no @ infront
         assertThrows(IllegalArgumentException.class, () -> new Telehandle(invalidTelehandle));
     }
 
     @Test
     public void isValidTelehandle() {
-        // null address
-        assertThrows(NullPointerException.class, () -> Telehandle.isValidTelehandle(null));
+        // invalid telehandle
+        assertFalse(Telehandle.isValidTelehandle("marylovejinheng")); // no @
+        assertFalse(Telehandle.isValidTelehandle("asdasd@asdasd")); // @ in the middle
+        assertFalse(Telehandle.isValidTelehandle("@marylove jinheng")); // white spaces
+        assertFalse(Telehandle.isValidTelehandle("@*!@~")); // no other special characters apart from underscores
 
-        // invalid addresses
-        assertFalse(Telehandle.isValidTelehandle("")); // empty string
-        assertFalse(Telehandle.isValidTelehandle(" ")); // spaces only
-
-        // valid addresses
-        assertTrue(Telehandle.isValidTelehandle("nice"));
-        assertTrue(Telehandle.isValidTelehandle("-")); // one character
-        assertTrue(Telehandle.isValidTelehandle("HiIamACSstudenthihihiilonggggggname")); // long telehandle
+        // valid telehandles
+        assertTrue(Telehandle.isValidTelehandle("@nice")); //default
+        assertTrue(Telehandle.isValidTelehandle("@nice_")); // underscore as a special character are allowed.
+        assertTrue(Telehandle.isValidTelehandle("@HiIamACSstudenthihihiilonggggggname")); // long telehandle
     }
 
     @Test
     public void equals() {
-        Telehandle telehandle = new Telehandle("Valid Telehandle");
+        Telehandle telehandle = new Telehandle("@ValidTelehandle");
 
         // same values -> returns true
-        assertTrue(telehandle.equals(new Telehandle("Valid Telehandle")));
+        assertTrue(telehandle.equals(new Telehandle("@ValidTelehandle")));
 
         // same object -> returns true
         assertTrue(telehandle.equals(telehandle));
@@ -51,6 +50,6 @@ public class TelehandleTest {
         assertFalse(telehandle.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(telehandle.equals(new Telehandle("Other Valid Telehandle")));
+        assertFalse(telehandle.equals(new Telehandle("@OtherValidTelehandle")));
     }
 }

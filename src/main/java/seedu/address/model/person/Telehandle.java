@@ -9,13 +9,14 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Telehandle {
 
-    public static final String MESSAGE_CONSTRAINTS = "Telehandle can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Telehandle can take any values, "
+            + "but it has to start with @ and no spaces in between.";
 
     /*
-     * The first character of the telehandle must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * The first character of the telehandle must be a @,
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "@[a-zA-Z0-9_]+";
+    public static final Telehandle EMPTY_TELEHANDLE = new Telehandle("");
 
     public final String value;
 
@@ -34,7 +35,7 @@ public class Telehandle {
      * Returns true if a given string is a valid email.
      */
     public static boolean isValidTelehandle(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.isEmpty() || test.matches(VALIDATION_REGEX);
     }
 
     @Override

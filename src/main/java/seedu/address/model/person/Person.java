@@ -40,7 +40,7 @@ public class Person {
         this.phone = phone;
         this.email = email != null ? email : Email.EMPTY_EMAIL;
         this.address = address != null ? address : Address.EMPTY_ADDRESS;
-        this.telehandle = telehandle;
+        this.telehandle = telehandle != null ? telehandle : Telehandle.EMPTY_TELEHANDLE;;
         this.tags.addAll(tags);
         this.courses.addAll(courses != null ? courses : Collections.emptySet());
     }

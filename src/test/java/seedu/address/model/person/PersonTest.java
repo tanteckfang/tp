@@ -30,15 +30,29 @@ public class PersonTest {
     public void constructor_withNullEmailAndAddress_usesDefaultValues() {
         Name testName = new Name("John Doe");
         Phone testPhone = new Phone("12345678");
+        Telehandle telehandle = new Telehandle("@jonnny");
         Set<Tag> testTags = new HashSet<>();
         Set<Course> testCourses = new HashSet<>();
 
-        Person person = new Person(testName, testPhone, null, null, testTags, testCourses);
+        Person person = new Person(testName, testPhone, null, null, telehandle, testTags, testCourses);
 
         assertEquals(Email.EMPTY_EMAIL, person.getEmail());
         assertEquals(Address.EMPTY_ADDRESS, person.getAddress());
     }
 
+    @Test
+    public void constructor_withNullTelehandle_usesDefaultValues() {
+        Name testName = new Name("John Doe");
+        Phone testPhone = new Phone("12345678");
+        Email email = new Email("johny@gmail.com");
+        Address address = new Address("Jurong West St 72 BLK 777");
+        Set<Tag> testTags = new HashSet<>();
+        Set<Course> testCourses = new HashSet<>();
+
+        Person person = new Person(testName, testPhone, email, address, null, testTags, testCourses);
+
+        assertEquals(Telehandle.EMPTY_TELEHANDLE, person.getTelehandle());
+    }
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
