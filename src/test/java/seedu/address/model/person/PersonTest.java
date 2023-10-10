@@ -14,11 +14,31 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.course.Course;
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
+
 public class PersonTest {
+
+    @Test
+    public void constructor_withNullEmailAndAddress_usesDefaultValues() {
+        Name testName = new Name("John Doe");
+        Phone testPhone = new Phone("12345678");
+        Set<Tag> testTags = new HashSet<>();
+        Set<Course> testCourses = new HashSet<>();
+
+        Person person = new Person(testName, testPhone, null, null, testTags, testCourses);
+
+        assertEquals(Email.EMPTY_EMAIL, person.getEmail());
+        assertEquals(Address.EMPTY_ADDRESS, person.getAddress());
+    }
+
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
@@ -108,5 +128,14 @@ public class PersonTest {
                 + ALICE.getTelehandle() + ", tags=" + ALICE.getTags()
                 + ", courses=" + ALICE.getCourses() + "}";
         assertEquals(expected, ALICE.toString());
+    }
+
+    @Test
+    public void testHashCodeForEqualObjects() {
+        Person person1 = ALICE;
+        Person person2 = ALICE;
+
+        assertEquals(person1, person2, "Expected both persons to be equal");
+        assertEquals(person1.hashCode(), person2.hashCode(), "Expected equal objects to have the same hash code");
     }
 }

@@ -11,38 +11,40 @@ import seedu.address.model.course.Course;
  */
 class JsonAdaptedCourse {
 
-    private final String tagName;
+    private final String courseName;
 
     /**
-     * Constructs a {@code JsonAdaptedTag} with the given {@code tagName}.
+     * Constructs a {@code JsonAdaptedTag} with the given {@code courseName}.
      */
     @JsonCreator
-    public JsonAdaptedCourse(String tagName) {
-        this.tagName = tagName;
+    public JsonAdaptedCourse(String courseName) {
+        this.courseName = courseName;
     }
 
     /**
-     * Converts a given {@code Tag} into this class for Jackson use.
+     * Converts a given {@code Course} into this class for Jackson use.
      */
     public JsonAdaptedCourse(Course source) {
-        tagName = source.courseName;
+        courseName = source.courseName;
     }
 
     @JsonValue
-    public String getTagName() {
-        return tagName;
+    public String getCourseName() {
+        return courseName;
     }
 
     /**
-     * Converts this Jackson-friendly adapted tag object into the model's {@code Tag} object.
+     * Converts this Jackson-friendly adapted course object into the model's {@code Course} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted tag.
+     * @throws IllegalValueException if there were any data constraints violated in the adapted course.
      */
     public Course toModelType() throws IllegalValueException {
-        if (!Course.isValidCourseName(tagName)) {
+        if (!Course.isValidCourseName(courseName)) {
             throw new IllegalValueException(Course.MESSAGE_CONSTRAINTS);
+        } else if (!Course.isExistingCourseName(courseName)) {
+            throw new IllegalValueException(Course.MESSAGE_INVALID);
         }
-        return new Course(tagName);
+        return new Course(courseName);
     }
 
 }
