@@ -9,6 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEHANDLE_BOB;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
@@ -29,15 +30,29 @@ public class PersonTest {
     public void constructor_withNullEmailAndAddress_usesDefaultValues() {
         Name testName = new Name("John Doe");
         Phone testPhone = new Phone("12345678");
+        Telehandle telehandle = new Telehandle("@jonnny");
         Set<Tag> testTags = new HashSet<>();
         Set<Course> testCourses = new HashSet<>();
 
-        Person person = new Person(testName, testPhone, null, null, testTags, testCourses);
+        Person person = new Person(testName, testPhone, null, null, telehandle, testTags, testCourses);
 
         assertEquals(Email.EMPTY_EMAIL, person.getEmail());
         assertEquals(Address.EMPTY_ADDRESS, person.getAddress());
     }
 
+    @Test
+    public void constructor_withNullTelehandle_usesDefaultValues() {
+        Name testName = new Name("John Doe");
+        Phone testPhone = new Phone("12345678");
+        Email email = new Email("johny@gmail.com");
+        Address address = new Address("Jurong West St 72 BLK 777");
+        Set<Tag> testTags = new HashSet<>();
+        Set<Course> testCourses = new HashSet<>();
+
+        Person person = new Person(testName, testPhone, email, address, null, testTags, testCourses);
+
+        assertEquals(Telehandle.EMPTY_TELEHANDLE, person.getTelehandle());
+    }
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
@@ -55,7 +70,8 @@ public class PersonTest {
 
         // same name, all other attributes different -> returns true
         Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withAddress(VALID_ADDRESS_BOB).withTelehandle(VALID_TELEHANDLE_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
 
         // different name, all other attributes same -> returns false
@@ -106,6 +122,10 @@ public class PersonTest {
         editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
+        // different address -> returns false
+        editedAlice = new PersonBuilder(ALICE).withTelehandle(VALID_TELEHANDLE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
         // different tags -> returns false
         editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));
@@ -118,7 +138,8 @@ public class PersonTest {
     @Test
     public void toStringMethod() {
         String expected = Person.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
-                + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress() + ", tags=" + ALICE.getTags()
+                + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress() + ", telehandle="
+                + ALICE.getTelehandle() + ", tags=" + ALICE.getTags()
                 + ", courses=" + ALICE.getCourses() + "}";
         assertEquals(expected, ALICE.toString());
     }

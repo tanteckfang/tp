@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Telehandle;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -50,6 +52,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_TELEHANDLE + "TELEHANDLE] "
             + "[" + PREFIX_TAG + "TAG]... "
             + "[" + PREFIX_COURSE + "ORIGINAL_COURSE-NEW_COURSE]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -110,10 +113,12 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Telehandle updatedTelehandle = editPersonDescriptor.getTelehandle().orElse(personToEdit.getTelehandle());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Set<Course> updatedCourses = getUpdatedCourses(personToEdit.getCourses(),
                 editPersonDescriptor.getCourseChanges().orElse(null));
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedCourses);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTelehandle,
+                updatedTags, updatedCourses);
     }
 
     private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, List<CourseChange> courseChanges) {
@@ -176,6 +181,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
+        private Telehandle telehandle;
         private Set<Tag> tags;
         private List<CourseChange> courseChanges;
 
@@ -190,6 +196,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setTelehandle(toCopy.telehandle);
             setTags(toCopy.tags);
             setCourseChanges(toCopy.courseChanges);
         }
@@ -198,7 +205,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, courseChanges);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, telehandle, tags, courseChanges);
         }
 
         public void setName(Name name) {
@@ -231,6 +238,14 @@ public class EditCommand extends Command {
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
+        }
+
+        public void setTelehandle(Telehandle telehandle) {
+            this.telehandle = telehandle;
+        }
+
+        public Optional<Telehandle> getTelehandle() {
+            return Optional.ofNullable(telehandle);
         }
 
         /**
@@ -284,6 +299,7 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(address, otherEditPersonDescriptor.address)
+                    && Objects.equals(telehandle, otherEditPersonDescriptor.telehandle)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags)
                     && Objects.equals(courseChanges, otherEditPersonDescriptor.courseChanges);
         }
@@ -295,6 +311,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("address", address)
+                    .add("telehandle", telehandle)
                     .add("tags", tags)
                     .add("courseChanges", courseChanges)
                     .toString();
