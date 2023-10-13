@@ -68,7 +68,7 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [c/COURSE]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE[t/TAG] [c/COURSE]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags or courses (including 0)
@@ -76,8 +76,8 @@ A person can have any number of tags or courses (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S c/CS2103T`
-* `add n/Bob Lee p/81234568 e/BL@gmail.com a/123 Clementi Rd c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close_friend c/CS1231S c/CS2103T`
+* `add n/Bob Lee p/81234568 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 
 ### Listing all persons : `list`
 
@@ -93,7 +93,7 @@ Examples:
 
 Edits an existing student in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​ [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -249,14 +249,14 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action           | Format, Examples                                                                                                                                                                            |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S CS2103T`                    |
-| **Clear**        | `clear`                                                                                                                                                                                     |
-| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                         |
-| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |
-| **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                    |
-| **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                |
-| **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                 |
-| **List**         | `list`                                                                                                                                                                                      |
-| **Help**         | `help`                                                                                                                                                                                      |
+| Action           | Format, Examples                                                                                                                                                                                            |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S CS2103T`                      |
+| **Clear**        | `clear`                                                                                                                                                                                                     |
+| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                         |
+| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |
+| **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                    |
+| **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                |
+| **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                 |
+| **List**         | `list`                                                                                                                                                                                                      |
+| **Help**         | `help`                                                                                                                                                                                                      |

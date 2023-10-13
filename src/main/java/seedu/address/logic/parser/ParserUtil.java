@@ -20,6 +20,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Telehandle;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -85,6 +86,21 @@ public class ParserUtil {
             throw new ParseException(Address.MESSAGE_CONSTRAINTS);
         }
         return new Address(trimmedAddress);
+    }
+
+    /**
+     * Parses a {@code String telehandle} into an {@code Telehandle}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code telehandle} is invalid.
+     */
+    public static Telehandle parseTelehandle(String telehandle) throws ParseException {
+        requireNonNull(telehandle);
+        String trimmedTelehandle = telehandle.trim();
+        if (!Telehandle.isValidTelehandle(trimmedTelehandle)) {
+            throw new ParseException(Telehandle.MESSAGE_CONSTRAINTS);
+        }
+        return new Telehandle(trimmedTelehandle);
     }
 
     /**
