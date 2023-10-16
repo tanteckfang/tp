@@ -83,11 +83,4 @@ public class Course {
     public String toString() {
         return '[' + courseName + ']';
     }
-
-    /**
-     * Gets the course name
-     */
-    public String getCourseName() {
-        return courseName;
-    }
 }

@@ -89,7 +89,7 @@ public class LogicManager implements Logic {
         for (Person person : personList) {
             Set<Course> courses = person.getCourses();
             for (Course course : courses) {
-                String courseName = course.getCourseName();
+                String courseName = course.courseName;
                 courseCountMap.put(courseName, courseCountMap.getOrDefault(courseName, 0) + 1);
             }
         }
