@@ -39,6 +39,12 @@
                 <Menu mnemonicParsing="false" text="Help">
                   <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
                 </Menu>
+                     <Menu mnemonicParsing="false" text="Theme">
+                       <items>
+                         <MenuItem fx:id="lightModeMenuItem" mnemonicParsing="false" onAction="#setLightMode" text="Light Mode" />
+                           <MenuItem fx:id="darkModeMenuItem" mnemonicParsing="false" onAction="#setDarkMode" text="Dark Mode" />
+                       </items>
+                     </Menu>
               </MenuBar>
                </children>
             </HBox>

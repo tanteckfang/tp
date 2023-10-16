@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
@@ -31,12 +33,48 @@
       <FlowPane fx:id="tags" />
          <HBox prefHeight="0.0" prefWidth="116.0">
             <children>
-            <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+                <HBox prefHeight="0.0" prefWidth="78.0">
+                    <children>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/phone_icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" translateX="3.0" />
+                    </children>
+                </HBox>
             </children>
          </HBox>
-      <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
-      <Label fx:id="telehandle" styleClass="cell_small_label" text="\$telehandle" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+         <HBox prefHeight="0.0" prefWidth="78.0">
+            <children>
+               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/address_icon.png" />
+                  </image>
+               </ImageView>
+            <Label fx:id="address" styleClass="cell_small_label" text="\$address" translateX="3.0" />
+            </children>
+         </HBox>
+        <HBox prefHeight="0.0" prefWidth="78.0">
+            <children>
+                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/telegram_icon.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="telehandle" styleClass="cell_small_label" text="\$telehandle" translateX="3.0" />
+            </children>
+        </HBox>
+        <HBox prefHeight="0.0" prefWidth="78.0">
+            <children>
+                <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/email_icon.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="email" styleClass="cell_small_label" text="\$email" translateX="3.0" />
+            </children>
+        </HBox>
       <FlowPane fx:id="courses" />
     </VBox>
       <rowConstraints>

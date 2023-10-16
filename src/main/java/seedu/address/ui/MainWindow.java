@@ -50,6 +50,12 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    @FXML
+    private MenuItem lightModeMenuItem;
+
+    @FXML
+    private MenuItem darkModeMenuItem;
+
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -193,4 +199,22 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
+
+    @FXML
+    private void setLightMode() {
+        String lightThemePath = getClass().getResource("/view/LightTheme.css").toExternalForm();
+        String darkThemePath = getClass().getResource("/view/DarkTheme.css").toExternalForm();
+        primaryStage.getScene().getStylesheets().remove(darkThemePath);
+        primaryStage.getScene().getStylesheets().add(lightThemePath);
+    }
+
+    @FXML
+    private void setDarkMode() {
+        String lightThemePath = getClass().getResource("/view/LightTheme.css").toExternalForm();
+        String darkThemePath = getClass().getResource("/view/DarkTheme.css").toExternalForm();
+        primaryStage.getScene().getStylesheets().remove(lightThemePath);
+        primaryStage.getScene().getStylesheets().add(darkThemePath);
+
+    }
+
 }
