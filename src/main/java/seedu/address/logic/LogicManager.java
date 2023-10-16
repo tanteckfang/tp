@@ -3,9 +3,16 @@ package seedu.address.logic;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.Command;
@@ -15,6 +22,7 @@ import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.course.Course;
 import seedu.address.model.person.Person;
 import seedu.address.storage.Storage;
 
@@ -69,6 +77,31 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Person> getFilteredPersonList() {
         return model.getFilteredPersonList();
+    }
+
+    @Override
+    public ObservableList<Pair<String, Integer>> getFilteredCourseList() {
+        ObservableList<Person> personList = getFilteredPersonList();
+
+        Map<String, Integer> courseCountMap = new HashMap<>();
+
+        for (Person person : personList) {
+            Set<Course> courses = person.getCourses();
+            for (Course course : courses) {
+                String courseName = course.getCourseName();
+                courseCountMap.put(courseName, courseCountMap.getOrDefault(courseName, 0) + 1);
+            }
+        }
+
+        // Create a list of Pair<String, Integer> from the course count map
+        List<Pair<String, Integer>> coursePairs = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : courseCountMap.entrySet()) {
+            coursePairs.add(new Pair<>(entry.getKey(), entry.getValue()));
+        }
+
+        // Populate the ListView with the course pairs
+        ObservableList<Pair<String, Integer>> observableCourseList = FXCollections.observableArrayList(coursePairs);
+        return observableCourseList;
     }
 
     @Override
