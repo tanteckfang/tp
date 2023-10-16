@@ -36,6 +36,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Telehandle;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.util.TagUtil;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -95,6 +96,10 @@ public class EditCommand extends Command {
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (!TagUtil.canAddOrEditEmergencyTag(editedPerson, model.getFilteredPersonList())) {
+            throw new CommandException(TagUtil.EMERGENCY_TAG_LIMIT_MESSAGE);
         }
 
         model.setPerson(personToEdit, editedPerson);
