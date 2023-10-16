@@ -64,4 +64,19 @@ public class TagTest {
         Tag secondTag = new Tag(inputTagName);
         assertEquals(expectedTagName, secondTag.tagName);
     }
+
+    @Test
+    public void createFriendTag_allowAnyCase() {
+        String expectedTagName = "Friend";
+
+        // All upper case
+        String upperCaseTagName = "FRIEND";
+        Tag firstTag = new Tag(upperCaseTagName);
+        assertEquals(expectedTagName, firstTag.tagName);
+
+        //case insensitive
+        String inputTagName = "FriEND";
+        Tag secondTag = new Tag(inputTagName);
+        assertEquals(expectedTagName, secondTag.tagName);
+    }
 }

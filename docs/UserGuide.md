@@ -71,7 +71,13 @@ Adds a person to the address book.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE[t/TAG] [c/COURSE]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags or courses (including 0)
+A person can have any number of tags or courses (including 0).
+
+If you want to add a close friend tag , the format will be `t/cf`, it is case insensitive.
+
+The tags 'Emergency', 'close friend', and 'friend' are case-insensitive; they will be saved as 'EMERGENCY', 'Close Friend', and 'Friend' in our address book.
+
+We can only tag up to two contacts with the EMERGENCY tag.
 
 </div>
 
