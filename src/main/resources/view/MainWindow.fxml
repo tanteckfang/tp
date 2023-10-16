@@ -55,13 +55,11 @@
                         <Insets bottom="5" left="10" right="10" top="5" />
                     </padding>
                 </StackPane>
-
                 <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" prefHeight="100" styleClass="pane-with-border" VBox.vgrow="NEVER">
                     <padding>
                         <Insets bottom="5" left="10" right="10" top="5" />
                     </padding>
                 </StackPane>
-
                 <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                     <VBox fx:id="personList" minWidth="340" prefWidth="340" styleClass="pane-with-border" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                         <padding>
@@ -77,7 +75,6 @@
                     </VBox>
                <VBox prefHeight="200.0" prefWidth="100.0">
                   <children>
-      
                           <VBox fx:id="courseList" minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                               <padding>
                                   <Insets bottom="10" left="10" right="10" top="10" />
@@ -102,7 +99,6 @@
                   </children>
                </VBox>
                 </HBox>
-
                 <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
             </VBox>
         </Scene>
