@@ -68,16 +68,26 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE[t/TAG] [c/COURSE]…​`
+Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags or courses (including 0)
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+
+* A person MUST have a name and phone number
+
+* A person can have any number of tags or courses (including 0)
+
+* Only unique students can be added. It is considered a duplicate if an existing students and the current students to be added have name.
+
+* Courses added have to be existing and valid courses.
 
 </div>
 
 Examples:
 * `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close_friend c/CS1231S c/CS2103T`
-* `add n/Bob Lee p/81234568 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
+* `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
+* `add n/Tom Lee p/81289900`
 
 ### Listing all persons : `list`
 
