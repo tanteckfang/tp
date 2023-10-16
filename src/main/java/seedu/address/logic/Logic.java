@@ -37,6 +37,9 @@ public interface Logic {
     /** Returns an unmodifiable view of the filtered list of courses */
     public ObservableList<Pair<String, Integer>> getFilteredCourseList();
 
+    /** Returns an unmodifiable view of the filtered list of tags */
+    public ObservableList<Pair<String, Integer>> getFilteredTagList();
+
     /**
      * Returns the user prefs' address book file path.
      */

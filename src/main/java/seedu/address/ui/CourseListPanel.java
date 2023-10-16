@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-import java.util.Set;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -10,8 +9,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.util.Pair;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.course.Course;
-import seedu.address.model.person.Person;
 
 /**
  * Panel containing the list of courses.
@@ -26,9 +23,9 @@ public class CourseListPanel extends UiPart<Region> {
     /**
      * Creates a {@code CourseListPanel} with the given {@code ObservableList}.
      */
-    public CourseListPanel(ObservableList<Pair<String, Integer>> personList) {
+    public CourseListPanel(ObservableList<Pair<String, Integer>> courseList) {
         super(FXML);
-        courseListView.setItems(personList);
+        courseListView.setItems(courseList);
         courseListView.setCellFactory(listView -> new CourseListViewCell());
     }
 

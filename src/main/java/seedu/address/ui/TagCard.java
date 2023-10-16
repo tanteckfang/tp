@@ -9,9 +9,9 @@ import javafx.util.Pair;
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class CourseCard extends UiPart<Region> {
+public class TagCard extends UiPart<Region> {
 
-    private static final String FXML = "CourseListCard.fxml";
+    private static final String FXML = "TagListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -21,7 +21,7 @@ public class CourseCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Pair<String, Integer> coursePair;
+    public final Pair<String, Integer> tagPair;
 
     @FXML
     private HBox cardPane;
@@ -30,16 +30,15 @@ public class CourseCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label taking;
+    private Label tagged;
 
     /**
-     * Creates a {@code CourseCode} with the given {@code Course} and index to display.
+     * Creates a {@code TagCode} with the given {@code Tag} and index to display.
      */
-    public CourseCard(Pair<String, Integer> coursePair, int displayedIndex) {
+    public TagCard(Pair<String, Integer> tagPair) {
         super(FXML);
-        this.coursePair = coursePair;
-        id.setText(displayedIndex + ". ");
-        name.setText(coursePair.getKey());
-        taking.setText(Integer.toString(coursePair.getValue()));
+        this.tagPair = tagPair;
+        name.setText(tagPair.getKey());
+        tagged.setText(Integer.toString(tagPair.getValue()));
     }
 }

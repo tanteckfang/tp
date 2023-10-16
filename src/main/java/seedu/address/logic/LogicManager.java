@@ -24,6 +24,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.course.Course;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 import seedu.address.storage.Storage;
 
 /**
@@ -93,15 +94,42 @@ public class LogicManager implements Logic {
             }
         }
 
-        // Create a list of Pair<String, Integer> from the course count map
         List<Pair<String, Integer>> coursePairs = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : courseCountMap.entrySet()) {
             coursePairs.add(new Pair<>(entry.getKey(), entry.getValue()));
         }
 
-        // Populate the ListView with the course pairs
         ObservableList<Pair<String, Integer>> observableCourseList = FXCollections.observableArrayList(coursePairs);
         return observableCourseList;
+    }
+
+    @Override
+    public ObservableList<Pair<String, Integer>> getFilteredTagList() {
+        ObservableList<Person> personList = getFilteredPersonList();
+
+        Map<String, Integer> tagCountMap = new HashMap<>();
+        tagCountMap.put("Friend", 0);
+        tagCountMap.put("Close Friend", 0);
+        tagCountMap.put("EMERGENCY", 0);
+
+        for (Person person : personList) {
+            Set<Tag> tags = person.getTags();
+            for (Tag tag : tags) {
+                String tagName = tag.tagName;
+                if (tagCountMap.containsKey(tagName)) {
+                    tagCountMap.put(tagName, tagCountMap.get(tagName) + 1);
+                }
+            }
+        }
+
+        List<Pair<String, Integer>> tagPairs = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : tagCountMap.entrySet()) {
+            tagPairs.add(new Pair<>(entry.getKey(), entry.getValue()));
+        }
+
+        ObservableList<Pair<String, Integer>> observableTagList =
+                FXCollections.observableArrayList(tagPairs);
+        return observableTagList;
     }
 
     @Override

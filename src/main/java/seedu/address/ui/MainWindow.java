@@ -37,6 +37,7 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private PersonListPanel personListPanel;
     private CourseListPanel courseListPanel;
+    private TagListPanel tagListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -50,6 +51,8 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane personListPanelPlaceholder;
     @FXML
     private StackPane courseListPanelPlaceholder;
+    @FXML
+    private StackPane tagListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -66,6 +69,8 @@ public class MainWindow extends UiPart<Stage> {
     private Label numberStudents;
     @FXML
     private Label numberCourses;
+    @FXML
+    private Label numberTags;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -138,6 +143,9 @@ public class MainWindow extends UiPart<Stage> {
         courseListPanelPlaceholder.getChildren().add(courseListPanel.getRoot());
         updateTotalCourses();
 
+        tagListPanel = new TagListPanel(logic.getFilteredTagList());
+        tagListPanelPlaceholder.getChildren().add(tagListPanel.getRoot());
+
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
@@ -149,7 +157,15 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Updates the individual courses numbers.
+     * Updates the total number of tags.
+     */
+    private void updateTags() {
+        tagListPanel = new TagListPanel(logic.getFilteredTagList());
+        tagListPanelPlaceholder.getChildren().add(tagListPanel.getRoot());
+    }
+
+    /**
+     * Updates the individual tag numbers.
      */
     private void updateCourses() {
         courseListPanel = new CourseListPanel(logic.getFilteredCourseList());
@@ -242,6 +258,7 @@ public class MainWindow extends UiPart<Stage> {
             updateTotalStudents();
             updateTotalCourses();
             updateCourses();
+            updateTags();
 
             return commandResult;
         } catch (CommandException | ParseException e) {
