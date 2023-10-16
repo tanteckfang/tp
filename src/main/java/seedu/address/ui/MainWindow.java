@@ -34,12 +34,15 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private FeedbackWindow feedbackWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
 
     @FXML
     private MenuItem helpMenuItem;
+    @FXML
+    private MenuItem feedbackMenuItem;
 
     @FXML
     private StackPane personListPanelPlaceholder;
@@ -66,6 +69,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+        feedbackWindow = new FeedbackWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -147,6 +151,18 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Opens the feedback window or focuses on it if it's already opened.
+     */
+    @FXML
+    public void handleFeedback() {
+        if (!feedbackWindow.isShowing()) {
+            feedbackWindow.show();
+        } else {
+            feedbackWindow.focus();
+        }
+    }
+
     void show() {
         primaryStage.show();
     }
@@ -160,6 +176,7 @@ public class MainWindow extends UiPart<Stage> {
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
+        feedbackWindow.hide();
         primaryStage.hide();
     }
 
@@ -180,6 +197,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowFeedback()) {
+                handleFeedback();
             }
 
             if (commandResult.isExit()) {
