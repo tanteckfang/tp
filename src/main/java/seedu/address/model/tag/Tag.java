@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Tags names should be alphanumeric, for 'close friends' please type 'cf'";
     public static final String VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String tagName;
@@ -22,7 +23,8 @@ public class Tag {
     public Tag(String tagName) {
         requireNonNull(tagName);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
-        this.tagName = tagName;
+        String formattedTagName = formatTagName(tagName);
+        this.tagName = formattedTagName;
     }
 
     /**
@@ -59,4 +61,21 @@ public class Tag {
         return '[' + tagName + ']';
     }
 
+    public boolean isEmergencyTag() {
+        return "emergency".equalsIgnoreCase(tagName);
+    }
+
+    /**
+     * Formats the tag name to ensure consistency in representation.
+     */
+    private static String formatTagName(String tagName) {
+        String formattedTagName = tagName.trim().replaceAll(" +", " ");
+        if (formattedTagName.equalsIgnoreCase("cf")) {
+            return "Close Friend";
+        } else if (formattedTagName.equalsIgnoreCase("emergency")) {
+            return "EMERGENCY";
+        } else {
+            return formattedTagName;
+        }
+    }
 }
