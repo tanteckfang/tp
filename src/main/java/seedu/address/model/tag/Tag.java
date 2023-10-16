@@ -74,6 +74,8 @@ public class Tag {
             return "Close Friend";
         } else if (formattedTagName.equalsIgnoreCase("emergency")) {
             return "EMERGENCY";
+        } else if (formattedTagName.equalsIgnoreCase("friend")) {
+            return "Friend";
         } else {
             return formattedTagName;
         }
