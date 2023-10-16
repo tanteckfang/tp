@@ -6,10 +6,18 @@ import java.util.stream.Collectors;
 
 import seedu.address.commons.util.ToStringBuilder;
 
-public class CourseContainsKeywordPredicate implements Predicate<Person> {
+/**
+ * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
+ */
+public class CourseContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
-    public CourseContainsKeywordPredicate(List<String> keywords) {
+    /**
+     * Constructor for CourseContainsKeywordsPredicate
+     *
+     * @param keywords course
+     */
+    public CourseContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords.stream()
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
@@ -30,17 +38,17 @@ public class CourseContainsKeywordPredicate implements Predicate<Person> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof CourseContainsKeywordPredicate)) {
+        if (!(other instanceof CourseContainsKeywordsPredicate)) {
             return false;
         }
 
-        CourseContainsKeywordPredicate otherCourseContainsKeywordsPredicate = (CourseContainsKeywordPredicate) other;
+        CourseContainsKeywordsPredicate otherCourseContainsKeywordsPredicate = (CourseContainsKeywordsPredicate) other;
         return keywords.equals(otherCourseContainsKeywordsPredicate.keywords);
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).add("keyword", keywords).toString();
+        return new ToStringBuilder(this).add("keywords", keywords).toString();
     }
 
 }

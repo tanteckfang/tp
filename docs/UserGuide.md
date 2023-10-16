@@ -145,9 +145,9 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 * Courses matching at least one keyword will be returned (i.e. OR search). e.g. cs210 will return CS2103, CS2106
 
 Examples:
-* `findcourse cs2030s` returns `cs2030` and `cs2030s`
-* `findcourse CS2040s cs2030s` returns `cs2040s` and `cs2030s`
-  ![result for 'findcourse CS2040s cs2030s'](images/findCS2030sCS2040sResult.png)
+* `findcourse cs2030s` returns `CS2030` and `CS2030S`
+* `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
+  ![result for 'findcourse CS2040s cs2030s'](images/findCS2103TMA1521.png)
 
 
 ### Deleting a student : `delete`
