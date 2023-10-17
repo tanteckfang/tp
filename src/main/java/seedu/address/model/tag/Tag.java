@@ -62,13 +62,6 @@ public class Tag {
         return '[' + tagName + ']';
     }
 
-    /**
-     * Returns the String representation of the tag name.
-     */
-    public String getTagName() {
-        return tagName;
-    }
-
     public boolean isEmergencyTag() {
         return "emergency".equalsIgnoreCase(tagName);
     }
