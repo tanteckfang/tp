@@ -22,6 +22,11 @@ public class CourseEditTest {
     }
 
     @Test
+    public void constructor_invalidCourses_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> new CourseEdit("CS210333-MA2001"));
+    }
+
+    @Test
     public void isValidCourseEdit() {
         //valid
         assertTrue(CourseEdit.isValidCourseEdit("MA2001-CS2103T"));

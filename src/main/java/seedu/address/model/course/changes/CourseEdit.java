@@ -16,9 +16,9 @@ public class CourseEdit extends CourseChange {
 
     public static final String MESSAGE_CONSTRAINTS = "Course edit pair should include two alphanumeric courses "
             + "separated by a single -.";
+    private static Matcher matcher;
     private static final Pattern COURSE_EDIT_PATTERN = Pattern.compile(
             "^(?<originalCourse>[A-Za-z0-9]+)\\s*-\\s*(?<newCourse>[A-Za-z0-9]+)$");
-    private static Matcher matcher;
     private final Course originalCourse;
     private final Course newCourse;
 
@@ -33,6 +33,8 @@ public class CourseEdit extends CourseChange {
         courseChangeDescription = courseEditDescription;
         String originalCourseName = matcher.group("originalCourse");
         String newCourseName = matcher.group("newCourse");
+        checkArgument(Course.isValidCourseName(originalCourseName), Course.MESSAGE_INVALID_COURSE);
+        checkArgument(Course.isValidCourseName(newCourseName), Course.MESSAGE_INVALID_COURSE);
         originalCourse = new Course(originalCourseName);
         newCourse = new Course(newCourseName);
     }
@@ -43,6 +45,42 @@ public class CourseEdit extends CourseChange {
     public static boolean isValidCourseEdit(String test) {
         matcher = COURSE_EDIT_PATTERN.matcher(test);
         return matcher.matches();
+    }
+
+    /**
+     * Checks if original course is valid
+     * @param description the description
+     * @return whether the original course is valid
+     */
+    public static boolean checkIfValidOriginalCourse(String description) {
+        matcher = COURSE_EDIT_PATTERN.matcher(description);
+        if (matcher.find()) {
+            return Course.isExistingCourseName(matcher.group("originalCourse"));
+        }
+        return false;
+    }
+
+    /**
+     * Checks if the new course is valid
+     * @param description the description
+     * @return whether the new course is valid
+     */
+    public static boolean checkIfValidNewCourse(String description) {
+        matcher = COURSE_EDIT_PATTERN.matcher(description);
+        if (matcher.find()) {
+            return Course.isExistingCourseName(matcher.group("newCourse"));
+        }
+        return false;
+    }
+
+    public static String getParsedOriginalCourseName(String description) {
+        matcher = COURSE_EDIT_PATTERN.matcher(description);
+        return matcher.find() ? matcher.group("originalCourse") : null;
+    }
+
+    public static String getParsedNewCourseName(String description) {
+        matcher = COURSE_EDIT_PATTERN.matcher(description);
+        return matcher.find() ? matcher.group("newCourse") : null;
     }
 
     public Course getOriginalCourse() {

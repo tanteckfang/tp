@@ -113,20 +113,21 @@ Examples:
 
 Edits an existing student in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
+[c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
+* You can remove all the person’s tags and courses by typing `t/` and `c/` respectively without
     specifying any tags after it.
-* If a student is not already taking COURSE_TO_CHANGE, the specified change will be ignored. Only those courses that are actually taken by the specified student will be modified.
-* The changes will be performed in the listed order.
-  * Assuming a specified student takes MA1521 initially:
-    * If the successive changes applied are MA1521-CS2100 and CS2100-MA1521, then MA1521 is still associated with the student.
-    * If the successive changes applied are MA1521-CS2103 and MA1521-CS2100, then MA1521 will be changed to CS2103 and not CS2100.
-* Editing a course will not result in duplicates. For example, CS2103T-MA1521 and CS2100-MA1521 will remove both CS2103T and CS2100, and create only one copy of MA1521.
+* To add a course, use c/add-[COURSE_TO_ADD].
+* To delete a course, use c/del-[COURSE_TO_DELETE].
+* To edit a course directly, use c/[ORIGINAL_COURSE-NEW_COURSE].
+* The three different types of course modifications can be performed in any amount and in any order. For example, it is possible to perform "c/add-MA1521 c/del-CS2103T c/MA2001-ST2334 c/add-CS2103T".
+* As usual, course validation will be performed. Any changes (and the changes thereafter) that fail course violation will not be executed.
+
 
 
 Examples:

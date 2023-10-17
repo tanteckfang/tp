@@ -22,6 +22,11 @@ public class CourseDeletionTest {
     }
 
     @Test
+    public void constructor_invalidCourse_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> new CourseDeletion("del-CS210333"));
+    }
+
+    @Test
     public void isValidCourseDeletion() {
         //valid
         assertTrue(CourseDeletion.isValidCourseDeletion("del-CS2103T"));

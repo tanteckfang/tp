@@ -42,7 +42,7 @@ class JsonAdaptedCourse {
         if (!Course.isValidCourseName(courseName)) {
             throw new IllegalValueException(Course.MESSAGE_CONSTRAINTS);
         } else if (!Course.isExistingCourseName(courseName)) {
-            throw new IllegalValueException(Course.MESSAGE_INVALID);
+            throw new IllegalValueException(Course.MESSAGE_INVALID_COURSE);
         }
         return new Course(courseName);
     }
