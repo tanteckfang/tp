@@ -3,10 +3,6 @@ package seedu.address.model.course;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.util.Set;
-
-import seedu.address.storage.JsonCourseParser;
-
 /**
  * Represents a Course in the address book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidCourseName(String)}
@@ -16,7 +12,7 @@ public class Course {
     public static final String MESSAGE_CONSTRAINTS = "Course module ID should consist of letters and numbers";
     public static final String MESSAGE_INVALID = "Course module ID is invalid";
     public static final String MODULE_ID_VALIDATION_REGEX = "^[A-Za-z0-9]+$";
-    private static Set<String> courseList;
+    private static CourseList courseList;
     public final String courseName;
 
     /**
@@ -32,15 +28,6 @@ public class Course {
     }
 
     /**
-     * Constructs a {@code Course}.
-     *
-     * @param courseList A valid course name.
-     */
-    public static void initialiseCourseList(Set<String> courseList) {
-        Course.courseList = courseList;
-    }
-
-    /**
      * Returns true if a given string is a valid course name.
      */
     public static boolean isValidCourseName(String test) {
@@ -52,10 +39,10 @@ public class Course {
      * and is in the course list.
      */
     public static boolean isExistingCourseName(String test) {
-        if (courseList == null) {
-            JsonCourseParser.initialise();
+        if (Course.courseList == null) {
+            Course.courseList = new CourseList();
         }
-        return courseList.contains(test);
+        return Course.courseList.contains(test);
     }
 
     @Override
