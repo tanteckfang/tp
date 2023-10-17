@@ -6,7 +6,7 @@
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
     "telehandle": "@alice122",
-    "tags" : [ "friends" ],
+    "tags" : [ "Friend" ],
     "courses" : ["MA1521", "CS1231S", "CS1101S", "CS2103T"]
   }, {
     "name" : "Benson Meier",
@@ -14,7 +14,7 @@
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
     "telehandle" : "@bennnyyy",
-    "tags" : [ "owesMoney", "friends" ],
+    "tags" : [ "Friend" ],
     "courses" : ["CS1101S", "CS2103T"]
   }, {
     "name" : "Carl Kurz",
@@ -30,7 +30,7 @@
     "email" : "cornelia@example.com",
     "address" : "10th street",
     "telehandle" : "@DanielleMASTER",
-    "tags" : [ "friends" ],
+    "tags" : [ "Friend" ],
     "courses" : ["MA1521", "IS1108", "IS2218", "CS2103T"]
   }, {
     "name" : "Elle Meyer",

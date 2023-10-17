@@ -16,8 +16,8 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_CLOSE_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_ADDITION_CS2103T;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_DELETION_MA2001;
@@ -26,8 +26,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CLOSE_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -105,9 +105,9 @@ public class EditCommandParserTest {
 
         // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
         // parsing it together with a valid tag results in error
-        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_DESC_HUSBAND + TAG_EMPTY, Tag.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_EMPTY + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_DESC_CLOSE_FRIEND + TAG_EMPTY, Tag.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_EMPTY + TAG_DESC_CLOSE_FRIEND, Tag.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_FRIEND + TAG_DESC_CLOSE_FRIEND, Tag.MESSAGE_CONSTRAINTS);
 
         // while parsing {@code PREFIX_COURSE} alone will reset the courses of the {@code Person} being edited,
         // parsing it together with a valid course results in error
@@ -126,13 +126,13 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_PERSON;
-        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
+        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_CLOSE_FRIEND
                 + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + COURSE_CHANGE_DESC_ADD + NAME_DESC_AMY
                 + TAG_DESC_FRIEND + COURSE_CHANGE_DESC_DELETE + COURSE_CHANGE_DESC_EDIT;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
+                .withTags(VALID_TAG_CLOSE_FRIEND, VALID_TAG_FRIEND)
                 .withCourseChanges(VALID_COURSE_ADDITION_CS2103T, VALID_COURSE_DELETION_MA2001,
                     VALID_COURSE_EDIT_CS1231S_TO_MA1521)
                 .build();
@@ -212,7 +212,7 @@ public class EditCommandParserTest {
         // multiple valid fields repeated
         userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
                 + TAG_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + TAG_DESC_FRIEND
-                + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + TAG_DESC_HUSBAND;
+                + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + TAG_DESC_CLOSE_FRIEND;
 
         assertParseFailure(parser, userInput,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS));

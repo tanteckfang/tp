@@ -39,8 +39,8 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_TELEHANDLE_AMY = "@Amyamy123";
     public static final String VALID_TELEHANDLE_BOB = "@BobaTea123";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
+    public static final String VALID_TAG_CLOSE_FRIEND = "Close Friend";
+    public static final String VALID_TAG_FRIEND = "Friend";
     public static final String VALID_COURSE_CS2103T = "CS2103T";
     public static final String VALID_COURSE_MA1521 = "MA1521";
     public static final String VALID_COURSE_MA2001 = "MA2001";
@@ -61,7 +61,7 @@ public class CommandTestUtil {
     public static final String TELEHANDLE_DESC_AMY = " " + PREFIX_TELEHANDLE + VALID_TELEHANDLE_AMY;
     public static final String TELEHANDLE_DESC_BOB = " " + PREFIX_TELEHANDLE + VALID_TELEHANDLE_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
-    public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String TAG_DESC_CLOSE_FRIEND = " " + PREFIX_TAG + VALID_TAG_CLOSE_FRIEND;
     public static final String COURSE_DESC_CS2103T = " " + PREFIX_COURSE + VALID_COURSE_CS2103T;
     public static final String COURSE_DESC_MA1521 = " " + PREFIX_COURSE + VALID_COURSE_MA1521;
     public static final String COURSE_DESC_MA2001 = " " + PREFIX_COURSE + VALID_COURSE_MA2001;
@@ -97,7 +97,7 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTelehandle(VALID_TELEHANDLE_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).withCourseChanges(VALID_COURSE_DELETION_MA2001,
+                .withTags(VALID_TAG_CLOSE_FRIEND, VALID_TAG_FRIEND).withCourseChanges(VALID_COURSE_DELETION_MA2001,
                 VALID_COURSE_EDIT_CS1231S_TO_MA1521).build();
     }
 

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_CS2103T;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CLOSE_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEHANDLE_BOB;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
@@ -48,7 +48,7 @@ public class UniquePersonListTest {
     public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
         uniquePersonList.add(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
-                .withTelehandle(VALID_TELEHANDLE_BOB).withTags(VALID_TAG_HUSBAND)
+                .withTelehandle(VALID_TELEHANDLE_BOB).withTags(VALID_TAG_CLOSE_FRIEND)
                 .withCourses(VALID_COURSE_CS2103T).build();
         assertTrue(uniquePersonList.contains(editedAlice));
     }
@@ -92,7 +92,7 @@ public class UniquePersonListTest {
     public void setPerson_editedPersonHasSameIdentity_success() {
         uniquePersonList.add(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
-                .withTelehandle(VALID_TELEHANDLE_BOB).withTags(VALID_TAG_HUSBAND)
+                .withTelehandle(VALID_TELEHANDLE_BOB).withTags(VALID_TAG_CLOSE_FRIEND)
                 .build();
         uniquePersonList.setPerson(ALICE, editedAlice);
         UniquePersonList expectedUniquePersonList = new UniquePersonList();
