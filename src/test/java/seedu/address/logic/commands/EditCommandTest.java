@@ -12,7 +12,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_EDIT_CS1
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_MA1521;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CLOSE_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
@@ -61,10 +61,10 @@ public class EditCommandTest {
 
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-                .withTags(VALID_TAG_HUSBAND).withCourses(VALID_COURSE_MA1521, VALID_COURSE_CS2103T).build();
+                .withTags(VALID_TAG_CLOSE_FRIEND).withCourses(VALID_COURSE_MA1521, VALID_COURSE_CS2103T).build();
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND)
+                .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_CLOSE_FRIEND)
                 .withCourseChanges(VALID_COURSE_ADDITION_CS2103T, VALID_COURSE_DELETION_MA2001,
                     VALID_COURSE_EDIT_CS1231S_TO_MA1521).build();
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);

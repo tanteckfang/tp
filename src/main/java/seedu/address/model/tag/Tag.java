@@ -9,8 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Only three kind of tag names are allowed: Friend, Close Friend (or cf), and Emergency'";
 
     public final String tagName;
 
@@ -22,14 +22,17 @@ public class Tag {
     public Tag(String tagName) {
         requireNonNull(tagName);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
-        this.tagName = tagName;
+        String formattedTagName = formatTagName(tagName);
+        this.tagName = formattedTagName;
     }
 
     /**
      * Returns true if a given string is a valid tag name.
      */
     public static boolean isValidTagName(String test) {
-        return test.matches(VALIDATION_REGEX);
+        String formattedTest = formatTagName(test);
+        return formattedTest.equals("Friend") || formattedTest.equals("Close Friend")
+                || formattedTest.equals("Emergency");
     }
 
     @Override
@@ -59,4 +62,25 @@ public class Tag {
         return '[' + tagName + ']';
     }
 
+    public boolean isEmergencyTag() {
+        return "emergency".equalsIgnoreCase(tagName);
+    }
+
+    /**
+     * Formats the tag name to ensure consistency in representation.
+     */
+    private static String formatTagName(String tagName) {
+        String formattedTagName = tagName.trim().replaceAll(" +", " ");
+        switch (formattedTagName.toLowerCase()) {
+        case "cf":
+        case "close friend":
+            return "Close Friend";
+        case "emergency":
+            return "Emergency";
+        case "friend":
+            return "Friend";
+        default:
+            return formattedTagName;
+        }
+    }
 }

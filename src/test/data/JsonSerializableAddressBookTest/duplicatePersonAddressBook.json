@@ -5,7 +5,7 @@
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "telehandle": "@alice122",
-    "tags": [ "friends" ],
+    "tags": [ "Friend" ],
     "courses": [ "CS1101S" ]
   }, {
     "name": "Alice Pauline",
