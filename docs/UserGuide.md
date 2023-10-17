@@ -225,6 +225,19 @@ Format: `help`
 
 ![help message](images/helpMessage.png)
 
+### Viewing Feedback : `feedback`
+
+Shows a message which explains how the user should access the feedback page to give their feedback with regard
+to NUSCourseMates.
+
+Format: `feedback`
+
+* A message containing the hyperlink to the feedback page will be displayed.
+* The prompt `Opened Feedback Window` is also displayed on screen.
+* `Unknown command` appears when the user does not type the correct feedback command.
+    * Examples of invalid commands: `feedbacks`, `FEEDBACK` etc.
+
+![feedback message](images/feedbackMessage.png)
 
 ### Saving the data
 
