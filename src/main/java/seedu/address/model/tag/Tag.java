@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Only three kind of tag names are allowed: Friends, Close Friends (or cf), and EMERGENCY'";
+            "Only three kind of tag names are allowed: Friend, Close Friend (or cf), and EMERGENCY'";
 
     public final String tagName;
 
