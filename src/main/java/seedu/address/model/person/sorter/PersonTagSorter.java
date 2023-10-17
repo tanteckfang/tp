@@ -48,7 +48,7 @@ public class PersonTagSorter extends PersonSorter {
      *         a positive integer if person2 has a higher-priority tag,
      *         or 0 if their tag priorities are equal.
      */
-    private int compareTags(Set<Tag> person1Tags, Set<Tag> person2Tags) {
+    public int compareTags(Set<Tag> person1Tags, Set<Tag> person2Tags) {
         int person1TagPriority = getMaxTagPriority(person1Tags);
         int person2TagPriority = getMaxTagPriority(person2Tags);
 
@@ -61,7 +61,7 @@ public class PersonTagSorter extends PersonSorter {
      * @param tags The set of tags to evaluate.
      * @return The highest priority tag, represented as an integer based on a predefined mapping.
      */
-    private int getMaxTagPriority(Set<Tag> tags) {
+    public int getMaxTagPriority(Set<Tag> tags) {
         Map<String, Integer> tagPriority = new HashMap<>();
 
         tagPriority.put("Close Friend", 1);
