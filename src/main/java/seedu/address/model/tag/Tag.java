@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Only three kind of tag names are allowed: Friend, Close Friend (or cf), and EMERGENCY'";
+            "Only three kind of tag names are allowed: Friend, Close Friend (or cf), and Emergency'";
 
     public final String tagName;
 
@@ -32,7 +32,7 @@ public class Tag {
     public static boolean isValidTagName(String test) {
         String formattedTest = formatTagName(test);
         return formattedTest.equals("Friend") || formattedTest.equals("Close Friend")
-                || formattedTest.equals("EMERGENCY");
+                || formattedTest.equals("Emergency");
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Tag {
         case "close friend":
             return "Close Friend";
         case "emergency":
-            return "EMERGENCY";
+            return "Emergency";
         case "friend":
             return "Friend";
         default:

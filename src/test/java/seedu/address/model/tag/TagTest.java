@@ -47,7 +47,7 @@ public class TagTest {
     public void createEmergencyTag_allLowerCase_convertsToUpperCase() {
         // Arrange
         String inputTagName = "emergency";
-        String expectedTagName = "EMERGENCY";
+        String expectedTagName = "Emergency";
 
         // Act
         Tag tag = new Tag(inputTagName);

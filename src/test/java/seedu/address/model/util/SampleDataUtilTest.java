@@ -30,7 +30,7 @@ public class SampleDataUtilTest {
 
     @Test
     public void testGetTagSet() {
-        Set<Tag> tagSet = SampleDataUtil.getTagSet("friend", "cf", "EMERGENCY");
+        Set<Tag> tagSet = SampleDataUtil.getTagSet("friend", "cf", "Emergency");
         assertNotNull(tagSet, "Tag set should not be null");
         assertEquals(3, tagSet.size(), "Tag set should contain 3 tags");
     }
