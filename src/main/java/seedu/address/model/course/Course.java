@@ -15,12 +15,6 @@ public class Course {
     public static final String MODULE_ID_VALIDATION_REGEX = "^[A-Za-z0-9]+$";
     private static CourseList courseList;
     public final String courseName;
-    private String error;
-
-    public Course(String providedName, String error) {
-        this.courseName = providedName;
-        this.error = error;
-    }
 
     /**
      * Constructs a {@code Course}.
