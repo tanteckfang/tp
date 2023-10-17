@@ -29,6 +29,8 @@ public abstract class PersonSorter implements Comparator<Person> {
             return new PersonCourseSizeDescendingSorter();
         case "course size-ascending":
             return new PersonCourseSizeAscendingSorter();
+        case "tags":
+            return new PersonTagSorter();
         default:
             return null;
         }

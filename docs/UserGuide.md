@@ -52,7 +52,7 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
   e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/close friend`, `t/friend t/emergency` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -95,7 +95,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 </div>
 
 Examples:
-* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close_friend c/CS1231S c/CS2103T`
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/Tom Lee p/81289900`
 
@@ -198,6 +198,7 @@ Examples:
 * `sort course size-ascending` returns a sorted address book based on the number of courses taken in **ascending** order.
 * `sort name` returns a sorted address book based on the names of the persons in **ascending** lexicographic order.
 * `sort name-descending` returns a sorted address book based on the names of the persons in **descending** lexicographic order.
+* `sort tags` returns a sorted address book according to the tags tagged to each person. 
 
 ![result for sort name](images/SortByName.png)
 
@@ -284,7 +285,7 @@ _Details coming soon ..._
 
 | Action           | Format, Examples                                                                                                                                                                                            |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close_friend c/CS1231S CS2103T`                      |
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close friend c/CS1231S CS2103T`                      |
 | **Clear**        | `clear`                                                                                                                                                                                                     |
 | **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                         |
 | **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |

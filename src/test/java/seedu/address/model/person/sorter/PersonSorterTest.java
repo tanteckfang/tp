@@ -43,6 +43,9 @@ public class PersonSorterTest {
         // increasing course size
         assertEquals(new PersonCourseSizeAscendingSorter(),
                 PersonSorter.createPersonSorter("course size-ascending"));
-    }
 
+        // tag sorter
+        assertEquals(new PersonTagSorter(),
+                PersonSorter.createPersonSorter("tags"));
+    }
 }
