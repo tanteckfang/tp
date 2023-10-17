@@ -110,7 +110,7 @@ public class LogicManager implements Logic {
         Map<String, Integer> tagCountMap = new HashMap<>();
         tagCountMap.put("Friend", 0);
         tagCountMap.put("Close Friend", 0);
-        tagCountMap.put("EMERGENCY", 0);
+        tagCountMap.put("Emergency", 0);
 
         for (Person person : personList) {
             Set<Tag> tags = person.getTags();
