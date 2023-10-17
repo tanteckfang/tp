@@ -70,6 +70,8 @@ Adds a person to the address book.
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
+
+
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
@@ -81,6 +83,14 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * Only unique students can be added. It is considered a duplicate if an existing students and the current students to be added have name.
 
 * Courses added have to be existing and valid courses.
+
+* If you want to add a close friend tag , the format will be `t/cf`, it is case insensitive.
+
+* The tags 'Emergency', 'close friend', and 'friend' are case-insensitive; they will be saved as 'Emergency', 'Close Friend', and 'Friend' in our address book.
+
+* We can only tag up to two contacts with the Emergency tag.
+
+
 
 </div>
 
@@ -225,6 +235,19 @@ Format: `help`
 
 ![help message](images/helpMessage.png)
 
+### Viewing Feedback : `feedback`
+
+Shows a message which explains how the user should access the feedback page to give their feedback with regard
+to NUSCourseMates.
+
+Format: `feedback`
+
+* A message containing the hyperlink to the feedback page will be displayed.
+* The prompt `Opened Feedback Window` is also displayed on screen.
+* `Unknown command` appears when the user does not type the correct feedback command.
+    * Examples of invalid commands: `feedbacks`, `FEEDBACK` etc.
+
+![feedback message](images/feedbackMessage.png)
 
 ### Saving the data
 
