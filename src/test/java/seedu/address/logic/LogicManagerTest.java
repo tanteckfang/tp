@@ -232,7 +232,7 @@ public class LogicManagerTest {
 
         Pair<String, Integer> friendPair = new Pair<>("Friend", 0);
         Pair<String, Integer> closeFriendPair = new Pair<>("Close Friend", 0);
-        Pair<String, Integer> emergencyPair = new Pair<>("EMERGENCY", 0);
+        Pair<String, Integer> emergencyPair = new Pair<>("Emergency", 0);
 
         assertTrue(tagList.contains(friendPair));
         assertTrue(tagList.contains(closeFriendPair));
@@ -248,7 +248,7 @@ public class LogicManagerTest {
     @Test
     public void getFilteredTagList_withTags() {
         Person person1 = new PersonBuilder(AMY).withTags("Friend").build();
-        Person person2 = new PersonBuilder(BENSON).withTags("Friend", "EMERGENCY").build();
+        Person person2 = new PersonBuilder(BENSON).withTags("Friend", "Emergency").build();
         model.addPerson(person1);
         model.addPerson(person2);
 
@@ -257,7 +257,7 @@ public class LogicManagerTest {
 
         Pair<String, Integer> friendPair = new Pair<>("Friend", 2);
         Pair<String, Integer> closeFriendPair = new Pair<>("Close Friend", 0);
-        Pair<String, Integer> emergencyPair = new Pair<>("EMERGENCY", 1);
+        Pair<String, Integer> emergencyPair = new Pair<>("Emergency", 1);
 
         assertTrue(tagList.contains(friendPair));
         assertTrue(tagList.contains(closeFriendPair));
