@@ -10,8 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Tags names should be alphanumeric, for 'close friends' please type 'cf'";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+            "Only three kind of tag names are allowed: Friends, Close Friends (or cf), and EMERGENCY'";
 
     public final String tagName;
 
@@ -31,7 +30,9 @@ public class Tag {
      * Returns true if a given string is a valid tag name.
      */
     public static boolean isValidTagName(String test) {
-        return test.matches(VALIDATION_REGEX);
+        String formattedTest = formatTagName(test);
+        return formattedTest.equals("Friend") || formattedTest.equals("Close Friend")
+                || formattedTest.equals("EMERGENCY");
     }
 
     @Override
@@ -70,13 +71,15 @@ public class Tag {
      */
     private static String formatTagName(String tagName) {
         String formattedTagName = tagName.trim().replaceAll(" +", " ");
-        if (formattedTagName.equalsIgnoreCase("cf")) {
+        switch (formattedTagName.toLowerCase()) {
+        case "cf":
+        case "close friend":
             return "Close Friend";
-        } else if (formattedTagName.equalsIgnoreCase("emergency")) {
+        case "emergency":
             return "EMERGENCY";
-        } else if (formattedTagName.equalsIgnoreCase("friend")) {
+        case "friend":
             return "Friend";
-        } else {
+        default:
             return formattedTagName;
         }
     }

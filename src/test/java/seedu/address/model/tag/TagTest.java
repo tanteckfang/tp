@@ -21,9 +21,15 @@ public class TagTest {
     }
 
     @Test
-    public void isValidTagName() {
+    public void checkIsValidTagName() {
         // null tag name
         assertThrows(NullPointerException.class, () -> Tag.isValidTagName(null));
+
+        assertTrue(Tag.isValidTagName("friend"));
+
+        assertFalse(Tag.isValidTagName("classmates"));
+
+
     }
 
     @Test
