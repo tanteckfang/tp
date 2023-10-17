@@ -31,7 +31,7 @@ public class PersonTagSorter extends PersonSorter {
         if (tagComparison != 0) {
             return tagComparison;
         } else {
-            // If tags are similar, sort by name
+            // If the highest priority tag for both persons are similar, sort by name
             String person1UpperCaseName = person1.getName().fullName.toUpperCase();
             String person2UpperCaseName = person2.getName().fullName.toUpperCase();
 
@@ -39,6 +39,15 @@ public class PersonTagSorter extends PersonSorter {
         }
     }
 
+    /**
+     * Compares two sets of tags based on their highest priority tag.
+     *
+     * @param person1Tags The set of tags for the first person.
+     * @param person2Tags The set of tags for the second person.
+     * @return A negative integer if person1 has a higher-priority tag,
+     *         a positive integer if person2 has a higher-priority tag,
+     *         or 0 if their tag priorities are equal.
+     */
     private int compareTags(Set<Tag> person1Tags, Set<Tag> person2Tags) {
         int person1TagPriority = getMaxTagPriority(person1Tags);
         int person2TagPriority = getMaxTagPriority(person2Tags);
@@ -46,8 +55,15 @@ public class PersonTagSorter extends PersonSorter {
         return Integer.compare(person1TagPriority, person2TagPriority);
     }
 
+    /**
+     * Determines the highest priority tag from a set of tags.
+     *
+     * @param tags The set of tags to evaluate.
+     * @return The highest priority tag, represented as an integer based on a predefined mapping.
+     */
     private int getMaxTagPriority(Set<Tag> tags) {
         Map<String, Integer> tagPriority = new HashMap<>();
+
         tagPriority.put("Close Friend", 1);
         tagPriority.put("Friend", 2);
         tagPriority.put("Emergency", 3);
@@ -60,7 +76,6 @@ public class PersonTagSorter extends PersonSorter {
                 maxPriority = Math.min(maxPriority, tagPriority.get(tagName));
             }
         }
-
         return maxPriority;
     }
 
