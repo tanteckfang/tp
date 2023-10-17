@@ -5,24 +5,23 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.CourseContainsKeywordsPredicate;
 
 /**
- * Finds and lists all persons in address book whose name contains any of the argument keywords.
+ * Finds and lists all persons in address book whose course contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
-public class FindCommand extends Command {
+public class FindCourseCommand extends Command {
 
-    public static final String COMMAND_WORD = "findstudent";
+    public static final String COMMAND_WORD = "findcourse";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose courses contain the "
+            + "specified course module ID (case-insensitive) and displays them as a list with index numbers.\n"
+            + "Parameters: MODULE_ID\n"
+            + "Example: " + COMMAND_WORD + " CS2103T";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
-            + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice bob charlie";
+    private final CourseContainsKeywordsPredicate predicate;
 
-    private final NameContainsKeywordsPredicate predicate;
-
-    public FindCommand(NameContainsKeywordsPredicate predicate) {
+    public FindCourseCommand(CourseContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
@@ -41,11 +40,11 @@ public class FindCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof FindCommand)) {
+        if (!(other instanceof FindCourseCommand)) {
             return false;
         }
 
-        FindCommand otherFindCommand = (FindCommand) other;
+        FindCourseCommand otherFindCommand = (FindCourseCommand) other;
         return predicate.equals(otherFindCommand.predicate);
     }
 
