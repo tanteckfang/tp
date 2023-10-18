@@ -226,6 +226,6 @@ public class AddCommandParserTest {
 
         // invalid existing course
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                + VALID_TAG_FRIEND + INVALID_EXISTING_COURSE_DESC, Course.MESSAGE_INVALID);
+                + VALID_TAG_FRIEND + INVALID_EXISTING_COURSE_DESC, Course.MESSAGE_INVALID_COURSE);
     }
 }

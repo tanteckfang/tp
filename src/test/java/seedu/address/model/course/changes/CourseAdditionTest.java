@@ -22,6 +22,11 @@ public class CourseAdditionTest {
     }
 
     @Test
+    public void constructor_invalidCourse_throwsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> new CourseAddition("add-CS210333"));
+    }
+
+    @Test
     public void isValidCourseAddition() {
         //valid
         assertTrue(CourseAddition.isValidCourseAddition("add-CS2103T"));

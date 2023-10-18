@@ -10,7 +10,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Course {
 
     public static final String MESSAGE_CONSTRAINTS = "Course module ID should consist of letters and numbers";
-    public static final String MESSAGE_INVALID = "Course module ID is invalid";
+    public static final String MESSAGE_INVALID_COURSE = "Course module ID is invalid";
+    public static final String MESSAGE_INVALID_COURSE_WITH_NAME = "Course module of ID %s is invalid";
     public static final String MODULE_ID_VALIDATION_REGEX = "^[A-Za-z0-9]+$";
     private static CourseList courseList;
     public final String courseName;
@@ -23,7 +24,7 @@ public class Course {
     public Course(String courseName) {
         requireNonNull(courseName);
         checkArgument(isValidCourseName(courseName), MESSAGE_CONSTRAINTS);
-        checkArgument(isExistingCourseName(courseName.toUpperCase()), MESSAGE_INVALID);
+        checkArgument(isExistingCourseName(courseName), MESSAGE_INVALID_COURSE);
         this.courseName = courseName.toUpperCase();
     }
 
@@ -42,7 +43,7 @@ public class Course {
         if (Course.courseList == null) {
             Course.courseList = new CourseList();
         }
-        return Course.courseList.contains(test);
+        return Course.courseList.contains(test.toUpperCase());
     }
 
     @Override
