@@ -2,6 +2,7 @@ package seedu.address.model.course.changes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -36,6 +37,48 @@ public class CourseEditTest {
 
         // missing new course
         assertFalse(CourseEdit.isValidCourseEdit("CS2103T-"));
+    }
+
+    @Test
+    public void checkIfValidOriginalCourse() {
+        // invalid description
+        assertFalse(CourseEdit.checkIfValidOriginalCourse("-CS2103T"));
+
+        // invalid original course
+        assertFalse(CourseEdit.checkIfValidOriginalCourse("CS210333T-MA2001"));
+
+        // valid original course
+        assertTrue(CourseEdit.checkIfValidOriginalCourse("CS2103T-MA2001"));
+    }
+
+    @Test
+    public void checkIfValidNewCourse() {
+        // invalid description
+        assertFalse(CourseEdit.checkIfValidNewCourse("-CS2103T"));
+
+        // invalid new course
+        assertFalse(CourseEdit.checkIfValidNewCourse("CS2103T-MA200111"));
+
+        // valid original course
+        assertTrue(CourseEdit.checkIfValidNewCourse("CS2103T-MA2001"));
+    }
+
+    @Test
+    public void getParsedOriginalCourseName() {
+        // invalid description
+        assertNull(CourseEdit.getParsedOriginalCourseName("-CS2103T"));
+
+        // valid description
+        assertEquals("CS2103T", CourseEdit.getParsedOriginalCourseName("CS2103T-MA2001"));
+    }
+
+    @Test
+    public void getParsedNewCourseName() {
+        // invalid description
+        assertNull(CourseEdit.getParsedNewCourseName("-CS2103T"));
+
+        // valid description
+        assertEquals("MA2001", CourseEdit.getParsedNewCourseName("CS2103T-MA2001"));
     }
 
     @Test

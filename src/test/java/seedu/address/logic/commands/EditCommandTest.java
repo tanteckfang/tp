@@ -9,7 +9,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_ADDITION
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_CS2103T;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_DELETION_MA2001;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_EDIT_CS1231S_TO_MA1521;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_EDIT_MA1521_TO_MA2001;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_MA1521;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_MA2001;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CLOSE_FRIEND;
@@ -18,6 +20,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.testutil.TypicalPersons.GEORGE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -75,6 +78,41 @@ public class EditCommandTest {
         expectedModel.setPerson(lastPerson, editedPerson);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_someFieldsSpecifiedUnfilteredListWithNonExistentCourseToDelete_failure() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+
+        PersonBuilder personInList = new PersonBuilder(lastPerson);
+        Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+            .withTags(VALID_TAG_CLOSE_FRIEND).withCourses(VALID_COURSE_MA1521, VALID_COURSE_CS2103T).build();
+
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
+            .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_CLOSE_FRIEND)
+            .withCourseChanges(VALID_COURSE_ADDITION_CS2103T, VALID_COURSE_DELETION_MA2001,
+                VALID_COURSE_DELETION_MA2001).build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+        assertCommandFailure(editCommand, model, String.format(EditCommand.MESSAGE_COURSE_DOES_NOT_EXIST,
+            GEORGE.getName().fullName, VALID_COURSE_MA2001));
+    }
+
+    @Test
+    public void execute_someFieldsSpecifiedUnfilteredListWithNonExistentCourseToChange_failure() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+
+        PersonBuilder personInList = new PersonBuilder(lastPerson);
+        Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+            .withTags(VALID_TAG_CLOSE_FRIEND).withCourses(VALID_COURSE_MA1521, VALID_COURSE_CS2103T).build();
+
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
+            .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_CLOSE_FRIEND)
+            .withCourseChanges(VALID_COURSE_EDIT_MA1521_TO_MA2001).build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+        assertCommandFailure(editCommand, model, String.format(EditCommand.MESSAGE_COURSE_DOES_NOT_EXIST,
+            GEORGE.getName().fullName, VALID_COURSE_MA1521));
     }
 
     @Test

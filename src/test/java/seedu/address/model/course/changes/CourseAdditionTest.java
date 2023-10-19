@@ -2,6 +2,7 @@ package seedu.address.model.course.changes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -36,6 +37,27 @@ public class CourseAdditionTest {
 
         // missing course
         assertFalse(CourseAddition.isValidCourseAddition("and-"));
+    }
+
+    @Test
+    public void checkIfValidCourse() {
+        // invalid description
+        assertFalse(CourseAddition.checkIfValidCourse("-CS2103T"));
+
+        // invalid course
+        assertFalse(CourseAddition.checkIfValidCourse("add-CS210333"));
+
+        // valid course
+        assertTrue(CourseAddition.checkIfValidCourse("add-CS2103T"));
+    }
+
+    @Test
+    public void getParsedCourseName() {
+        // invalid description
+        assertNull(CourseAddition.getParsedCourseName("-CS2103T"));
+
+        // valid description
+        assertEquals("CS2103T", CourseAddition.getParsedCourseName("add-CS2103T"));
     }
 
     @Test
