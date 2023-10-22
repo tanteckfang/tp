@@ -25,11 +25,13 @@ public class TagTest {
         // null tag name
         assertThrows(NullPointerException.class, () -> Tag.isValidTagName(null));
 
+        // Valid tag names - case insensitive
         assertTrue(Tag.isValidTagName("friend"));
+        assertTrue(Tag.isValidTagName("FRIEND"));
+        assertTrue(Tag.isValidTagName("FrIeNd"));
 
+        // Invalid tag name
         assertFalse(Tag.isValidTagName("classmates"));
-
-
     }
 
     @Test
@@ -38,8 +40,8 @@ public class TagTest {
         Tag notEmergency = new Tag("friend");
         assertFalse(notEmergency.isEmergencyTag());
 
-        // emergency tag
-        Tag emergency = new Tag("emergency");
+        // emergency tag - case insensitive
+        Tag emergency = new Tag("EMERGENCY");
         assertTrue(emergency.isEmergencyTag());
     }
 
@@ -47,42 +49,42 @@ public class TagTest {
     public void createEmergencyTag_allLowerCase_convertsToUpperCase() {
         // Arrange
         String inputTagName = "emergency";
-        String expectedTagName = "Emergency";
+        String expectedTagName = "[Emergency]";
 
         // Act
         Tag tag = new Tag(inputTagName);
 
         // Assert
-        assertEquals(expectedTagName, tag.tagName);
+        assertEquals(expectedTagName, tag.toString());
     }
 
     @Test
     public void createCloseFriendTag_allowAnyCase() {
-        String expectedTagName = "Close Friend";
+        String expectedTagName = "[Close Friend]";
 
         // All upper case
         String upperCaseTagName = "CF";
         Tag firstTag = new Tag(upperCaseTagName);
-        assertEquals(expectedTagName, firstTag.tagName);
+        assertEquals(expectedTagName, firstTag.toString());
 
-        //case insensitive
-        String inputTagName = "cF";
-        Tag secondTag = new Tag(inputTagName);
-        assertEquals(expectedTagName, secondTag.tagName);
+        // Mixed case
+        String mixedCaseTagName = "cF";
+        Tag secondTag = new Tag(mixedCaseTagName);
+        assertEquals(expectedTagName, secondTag.toString());
     }
 
     @Test
     public void createFriendTag_allowAnyCase() {
-        String expectedTagName = "Friend";
+        String expectedTagName = "[Friend]";
 
         // All upper case
         String upperCaseTagName = "FRIEND";
         Tag firstTag = new Tag(upperCaseTagName);
-        assertEquals(expectedTagName, firstTag.tagName);
+        assertEquals(expectedTagName, firstTag.toString());
 
-        //case insensitive
-        String inputTagName = "FriEND";
-        Tag secondTag = new Tag(inputTagName);
-        assertEquals(expectedTagName, secondTag.tagName);
+        // Mixed case
+        String mixedCaseTagName = "FrIeND";
+        Tag secondTag = new Tag(mixedCaseTagName);
+        assertEquals(expectedTagName, secondTag.toString());
     }
 }

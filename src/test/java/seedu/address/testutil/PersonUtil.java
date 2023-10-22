@@ -40,7 +40,7 @@ public class PersonUtil {
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_TELEHANDLE + person.getTelehandle().value + " ");
         person.getTags().stream().forEach(
-            s -> sb.append(PREFIX_TAG + s.tagName + " ")
+            s -> sb.append(PREFIX_TAG + s.getTagName() + " ")
         );
         person.getCourses().stream().forEach(
             s -> sb.append(PREFIX_COURSE + s.courseName + " ")
@@ -64,7 +64,7 @@ public class PersonUtil {
             if (tags.isEmpty()) {
                 sb.append(PREFIX_TAG).append(" ");
             } else {
-                tags.forEach(s -> sb.append(PREFIX_TAG).append(s.tagName).append(" "));
+                tags.forEach(s -> sb.append(PREFIX_TAG).append(s.getTagName()).append(" "));
             }
         }
         if (descriptor.getCourseChanges().isPresent()) {
