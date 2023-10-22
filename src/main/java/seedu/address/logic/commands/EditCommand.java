@@ -66,6 +66,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_COURSE_DOES_NOT_EXIST = "Person %s doesn't have Course %s!";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -92,13 +93,17 @@ public class EditCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+
+        // this throws an exception if the course to delete/change does not exist
+        Set<Course> updatedCourses = getUpdatedCourses(personToEdit, editPersonDescriptor);
+
+        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor, updatedCourses);
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        if (!TagUtil.canAddOrEditEmergencyTag(editedPerson, model.getFilteredPersonList())) {
+        if (!TagUtil.canAddOrEditEmergencyTag(editPersonDescriptor, model.getFilteredPersonList())) {
             throw new CommandException(TagUtil.EMERGENCY_TAG_LIMIT_MESSAGE);
         }
 
@@ -111,7 +116,8 @@ public class EditCommand extends Command {
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
+    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor,
+            Set<Course> updatedCourses) {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
@@ -120,13 +126,15 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Telehandle updatedTelehandle = editPersonDescriptor.getTelehandle().orElse(personToEdit.getTelehandle());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
-        Set<Course> updatedCourses = getUpdatedCourses(personToEdit.getCourses(),
-                editPersonDescriptor.getCourseChanges().orElse(null));
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTelehandle,
                 updatedTags, updatedCourses);
     }
 
-    private static Set<Course> getUpdatedCourses(Set<Course> originalCourses, List<CourseChange> courseChanges) {
+
+    private Set<Course> getUpdatedCourses(Person personToEdit, EditPersonDescriptor editPersonDescriptor)
+            throws CommandException {
+        Set<Course> originalCourses = personToEdit.getCourses();
+        List<CourseChange> courseChanges = editPersonDescriptor.getCourseChanges().orElse(null);
         if (courseChanges == null) {
             return originalCourses;
         }
@@ -135,21 +143,32 @@ public class EditCommand extends Command {
         }
         Set<Course> updatedCourses = new HashSet<>(originalCourses);
         for (CourseChange courseChange: courseChanges) {
-            updateCourses(courseChange, updatedCourses);
+            updateCourseSet(personToEdit.getName().fullName, courseChange, updatedCourses);
         }
         return updatedCourses;
     }
 
-    private static void updateCourses(CourseChange courseChange, Set<Course> currentCourses) {
+    private void updateCourseSet(String personName, CourseChange courseChange, Set<Course> updatedCourses)
+            throws CommandException {
         if (courseChange instanceof CourseAddition) {
-            currentCourses.add(((CourseAddition) courseChange).getCourseToAdd());
+            updatedCourses.add(((CourseAddition) courseChange).getCourseToAdd());
         } else if (courseChange instanceof CourseDeletion) {
-            currentCourses.remove(((CourseDeletion) courseChange).getCourseToDelete());
+            CourseDeletion courseDeletion = (CourseDeletion) courseChange;
+            Course courseToDelete = courseDeletion.getCourseToDelete();
+            if (!updatedCourses.contains(courseToDelete)) {
+                throw new CommandException(String.format(MESSAGE_COURSE_DOES_NOT_EXIST, personName,
+                        courseToDelete.courseName));
+            }
+            updatedCourses.remove(courseToDelete);
         } else {
             CourseEdit courseEdit = (CourseEdit) courseChange;
-            if (currentCourses.remove(courseEdit.getOriginalCourse())) {
-                currentCourses.add(courseEdit.getNewCourse());
+            Course originalCourse = courseEdit.getOriginalCourse();
+            if (!updatedCourses.contains(originalCourse)) {
+                throw new CommandException(String.format(MESSAGE_COURSE_DOES_NOT_EXIST, personName,
+                        originalCourse.courseName));
             }
+            updatedCourses.remove(originalCourse);
+            updatedCourses.add(courseEdit.getNewCourse());
         }
     }
 

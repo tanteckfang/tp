@@ -47,6 +47,7 @@ public class CommandTestUtil {
     public static final String VALID_COURSE_ADDITION_CS2103T = "add-" + VALID_COURSE_CS2103T;
     public static final String VALID_COURSE_DELETION_MA2001 = "del-" + VALID_COURSE_MA2001;
     public static final String VALID_COURSE_EDIT_CS1231S_TO_MA1521 = "CS1231S-MA1521";
+    public static final String VALID_COURSE_EDIT_MA1521_TO_MA2001 = "MA1521-MA2001";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
