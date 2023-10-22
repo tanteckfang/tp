@@ -3,7 +3,7 @@ package seedu.address.testutil;
 import static seedu.address.model.course.changes.CourseAddition.COURSE_ADDITION_PREFIX;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -110,9 +110,7 @@ public class EditPersonDescriptorBuilder {
         List<CourseChange> courseChangeList =
             Stream.of(courseChanges)
                    .map(CourseChange::createCourseChange)
-                   .map(Optional::ofNullable)
-                   .filter(Optional::isPresent)
-                   .map(Optional::get)
+                   .filter(Objects::nonNull)
                    .collect(Collectors.toList());
         descriptor.setCourseChanges(courseChangeList);
         return this;
