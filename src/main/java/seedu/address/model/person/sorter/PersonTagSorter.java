@@ -71,7 +71,7 @@ public class PersonTagSorter extends PersonSorter {
         int maxPriority = Integer.MAX_VALUE;
 
         for (Tag tag : tags) {
-            String tagName = tag.tagName;
+            String tagName = tag.getTagName();
             if (tagPriority.containsKey(tagName)) {
                 maxPriority = Math.min(maxPriority, tagPriority.get(tagName));
             }

@@ -58,8 +58,8 @@ public class PersonCard extends UiPart<Region> {
         telehandle.setText(person.getTelehandle().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .sorted(Comparator.comparing(tag -> tag.getTagName()))
+                .forEach(tag -> tags.getChildren().add(new Label(tag.getTagName())));
         person.getCourses().stream()
                 .sorted(Comparator.comparing(course -> course.courseName))
                 .forEach(course -> courses.getChildren().add(new Label(course.courseName)));

@@ -115,7 +115,7 @@ public class LogicManager implements Logic {
         for (Person person : personList) {
             Set<Tag> tags = person.getTags();
             for (Tag tag : tags) {
-                String tagName = tag.tagName;
+                String tagName = tag.getTagName();
                 if (tagCountMap.containsKey(tagName)) {
                     tagCountMap.put(tagName, tagCountMap.get(tagName) + 1);
                 }
