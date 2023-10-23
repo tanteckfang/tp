@@ -24,12 +24,12 @@ public enum TagType {
     }
 
     /**
-     * Method to transform a string to a Tagtype.
+     * Method to transform a string to a Tagtype, throw IllegalArgumentException when the tag name is invalid.
      *
      * @param name name of the String.
      * @return Tagtype of the name passed in.
      */
-    public static TagType fromString(String name) {
+    public static TagType fromString(String name) throws IllegalArgumentException {
         for (TagType tagType : TagType.values()) {
             if (tagType.displayName.equalsIgnoreCase(name)
                     || (tagType == CLOSE_FRIEND && name.equalsIgnoreCase("cf"))) {
