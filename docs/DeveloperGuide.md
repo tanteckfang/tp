@@ -236,8 +236,74 @@ _{more aspects and alternatives to be added}_
 
 ### \[Proposed\] Data archiving
 
+#### Proposed Implementation
+
 _{Explain here how the data archiving feature will be implemented}_
 
+
+### Sort feature
+
+#### Implementation
+
+The sort feature sorts the entities in the `UniquePersonList` object in `AddressBook` according to a specified sorting criterion.  
+
+The sorting mechanism for NUSCourseMates is facilitated by `SortCommand`, which extends the existing `Command` class. After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. This `PersonSorter` object implements the Comparable interface and directly sorts the `UniquePersonList` object in `AddressBook`.  
+
+There are different `PersonSorter` objects that each sorts the AddressBook differently. These include `PersonNameAscendingSorter`, `PersonNameDescendingSorter`, `PersonTagSorter`, `PersonCourseSizeAscendingSorter` and `PersonCourseSizeDescendingSorter`.  
+
+Format: `sort CRITERION`
+
+#### Sort by Name
+
+Criterion: name, name-ascending, name-descending   
+Example usage: `sort name-ascending`  
+
+#### Sort by Course Size
+
+Criterion: course, course size-ascending, course size-descending
+Example usage: `sort course size-ascending`  
+
+#### Sort by Tags
+
+Criterion: tags
+Example usage: `sort tags`
+
+Given below is an example usage scenario and how the sort mechanism behaves at each step. 
+
+Step 1. The user launches the application. The `AddressBook` will be initialized with the initial address book state.  
+
+Step 2. The user executes `sort name` command to sort the contacts in the address book by name (in lexicographic order). A new `SortCommand` and `PersonNameAscendingSorter` object is created.  
+
+Step 3. The `SortCommand` object will call `Model#sortPersonList()`, which will call `#AddressBook.sortPersonList()` with the newly created `PersonNameAscendingSorter` object as well.  
+
+Step 4. Finally, `UniquePersonList#sortPersons` is called with the `PersonNameAscendingSorter` object such that the entities in the list will be sorted by the comparator. 
+
+#### Design considerations:
+
+Aspect: How the sorted list should be stored. 
+
+Alternative 1: Sort the `UniquePersonList` object directly. This means that the original list will be modified as it is sorted. The resulting list is stored locally. 
+
+Pros: 
+* Since the resulting list is stored locally, the user's preference is saved because he is able to see the same sorted list the next time he opens the application    
+* Smaller memory usage because there is no need to store copies of the lists are stored  
+
+Cons:  
+* Potentially slower because the list is modified locally
+
+Alternative 2: Make a copy of the original list for sorting before saving it.  
+
+Pros: 
+* Original list is not modified  
+* Original list is recoverable in case of an error  
+
+Cons: 
+* Much more memory required to store copies of the original and sorted list   
+* Less efficient as it takes time to copy the list   
+* Prone to errors that may arise from the copying stage, as the list to be copied from and the list to be copied to will always change when a new `SortCommand` object is instantiated.    
+
+Ultimately, Alternative 1 is chosen over Alternative 2. Since the application is being used frequently, the user's preference should be saved so that he does not need to run the sort command again to see a sorted list.  
+Moreover, there are checks and error handling to ensure that the `PersonSorter` objects are able to sort the list correctly.
 
 --------------------------------------------------------------------------------------------------------------------
 
