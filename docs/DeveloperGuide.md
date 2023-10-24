@@ -238,6 +238,156 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
+### findcourse feature
+
+#### Implementation
+
+The findcourse feature is facilitated by the FindCourseCommand class, which leverages a CourseContainsKeywordsPredicate object. This predicate object is responsible for checking if a person's course contains the specified keyword.
+The following operations are central to this feature:
+
+* `FindCourseCommand#execute(Model model)` —  Executes the command, updating the filtered person list in the model based on the criteria in the predicate.
+* `CourseContainsKeywordsPredicate#test(Person person)` — Checks if the person's course matches the keyword criteria.
+
+
+
+These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+
+Given below is an example usage scenario and how the findcourse mechanism behaves at each step.
+
+Step 1. The user wants to filter the list of persons to show only those enrolled in the course "MA2001". They execute the command "findcourse MA2001".
+
+
+Step 2. The LogicManager receives this command string and passes it to the AddressBookParser.
+
+
+Step 3. The AddressBookParser identifies the type of command and invokes the FindCourseCommandParser to parse the course keyword.
+
+
+Step 4. The FindCourseCommandParser creates a CourseContainsKeywordsPredicate object with the keyword "MA2001" and then creates a FindCourseCommand object with this predicate.
+
+
+Step 5. The FindCourseCommand is executed, and it uses the predicate to filter the list of persons in the model. The filtered list in the model is updated to only show persons enrolled in "MA2001".
+
+
+Step 6. The result, which is the number of persons listed, is then shown to the user.
+
+
+The following sequence diagram shows how the findcourse operation works:
+
+![FindcourseSequenceDiagram](images/FindcourseSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommand should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+</div>
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+<img src="images/FindcourseActivityDiagram.png" width="250" />
+
+#### Design considerations:
+
+**Aspect: How filter is done:**
+
+* **Alternative 1 (current choice):** Use a predicate object (CourseContainsKeywordsPredicate) to handle filtering.
+    * Pros: Modular approach. Easy to extend with more search features in the future. Decouples filtering logic from the command itself.
+    * Cons: Might be over-engineered if no other search features are planned.
+
+* **Alternative 2:** Implement filtering logic directly within the FindCourseCommand.
+    * Pros: Simpler without the need for additional objects or classes.
+    * Cons: Makes the command class more complex. Harder to extend with more search features in the future.
+
+**Aspect: Case-sensitivity in search:**
+
+* **Alternative 1 (current choice):** Case-insensitive search.
+    * Pros: Offers flexibility and a better user experience. Users don't need to worry about the exact casing of course module IDs.
+    * Cons: Might yield results that the user wasn't expecting if there are course module IDs with varied casing.
+
+* **Alternative 2:** Case-sensitive search.
+    * Pros: Precise search results based on exact casing.
+    * Cons: Less flexible. Users need to input the exact casing of course module IDs.
+
+
+### Tag feature
+
+#### Implementation
+
+The Tag feature is facilitated by the `Tag` class, which contains an attribute `TagType` to determine the type of tag. The creation and validation of tags are significantly associated with the `TagUtil` class.
+
+* `TagUtil#canAddOrEditEmergencyTag(Person toAdd, List<Person> currentPersonList)` — Determines if a new "Emergency" tag can be added or edited based on existing contacts with the "Emergency" tag.
+* `Tag#isEmergencyTag()` — Checks if a tag is of the type "Emergency".
+
+Given below is an example usage scenario and how the Tag mechanism behaves at each step.
+
+Step 1. The user wishes to add a new contact with a tag "Emergency". They execute the `add` command: add n/John Doe p/98765432 t/Emergency.
+
+Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
+
+Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
+
+Step 4. The `AddCommandParser` processes the input, and if a tag is provided, a new `Tag` object is created.
+
+Step 5. Before the `Person` object is created, the `TagUtil#canAddOrEditEmergencyTag` method is called to ensure not more than two contacts have the "Emergency" tag.
+
+Step 6. If the validation is successful, a new `Person` object is created with the provided details, including the tag, and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
+
+Step 7. The result, a successful addition or an error message, is displayed to the user.
+
+The following class diagram shows the overview of the Tag mechanism.
+
+![TagClassDiagram](images/TagClassDiagram.png)
+
+
+The following sequence diagram shows how the Tag operation works by calling the add Command:
+
+![TagSequenceDiagram](images/TagSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+</div>
+
+
+
+"The following activity diagram summarizes what happens when a user executes a new 'add' command; the 'edit' command will be similar:
+
+<img src="images/TagActivityDiagram.png" width="250" />
+
+#### Design considerations:
+
+**Aspect: Validation of the "Emergency" tag count:**
+
+* **Alternative 1 (current choice):** Use a utility class (`TagUtil`) to check the constraints.
+    * Pros: Modular approach. Decouples the tag validation logic from the command classes. Easier to maintain and extend if more constraints are introduced in the future.
+    * Cons: Another layer of abstraction. Might be an overkill if no other tag constraints are planned.
+
+* **Alternative 2:** Implement the validation logic within the `AddCommand` class.
+    * Pros: Simpler approach without additional utility classes. Direct handling within the main command.
+    * Cons: Makes the command class more complicated. Difficult to maintain and extend if more constraints on tags are added in the future.
+
+**Aspect: Extensibility of tags:**
+
+* **Alternative 1 (current choice):** Use an enumeration (TagType) to define types of tags.
+    * Pros: Clean and organized. Easy to add more types of tags in the future. Validation can be done based on enum values.
+    * Cons: Might be restrictive if dynamic creation of new tag types is required in the future.
+
+* **Alternative 2:** Store tag types as strings without an enumeration.
+    * Pros: Dynamic creation of new tag types without changing the code.
+    * Cons: Difficult to validate and handle specific tag types. Potential for typos and inconsistencies.
+
+**Aspect:  Types and Limitations of Tags:**
+
+
+* **Alternative 1 (current choice):** Limit the system to three specific types of tags.
+    * Pros: Ensures that the tags used are relevant to the application's main purpose, which is to manage coursemates' contact information.
+    * Pros: Simplifies the interface and experience for the user, ensuring consistency.
+    * Pros: Reduces clutter and potential misuse by preventing users from adding arbitrary tags
+    * Cons: Users might find it restrictive if they wish to add more customized tags for further categorization.
+    * Cons: Possible need for future extensions or adjustments if more relevant tag categories emerge.
+
+* **Alternative 2:** Allow users to add any type of tags.
+    * Pros: Provides flexibility for users to categorize their contacts as they see fit.
+    * Pros: Avoids potential limitations, giving room for diverse usage scenarios.
+    * Cons: Might deviate from the main purpose of the application, leading to inconsistent use.
+    * Cons: Users might add unrelated or inappropriate tags, leading to clutter.
 
 --------------------------------------------------------------------------------------------------------------------
 

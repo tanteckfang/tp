@@ -1,0 +1,38 @@
+@startuml
+skinparam activityBackgroundColor LightYellow
+skinparam activityBorderColor LightBlue
+skinparam activityArrowColor Black
+skinparam activityArrowFontSize 15
+
+start
+
+:User executes `add` command with tag;
+
+if (Is the tag format valid?) then (yes)
+    :Parse the tag data;
+    if (Does tag already exist for person?) then (yes)
+        :Show error message to user;
+        stop
+    else (no)
+        if (Is tag a special type like `Emergency`?) then (yes)
+            :Check with TagUtil for validity;
+            if (Can add or edit emergency tag?) then (yes)
+                :Add tag to person in model;
+                :Display success message;
+                stop
+            else (no)
+                :Show error message;
+                stop
+            endif
+        else (no)
+            :Add tag to person in model;
+            :Display success message;
+            stop
+        endif
+    endif
+else (no)
+    :Show error message for invalid tag format;
+    stop
+endif
+
+@enduml
