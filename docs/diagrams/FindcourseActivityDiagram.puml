@@ -1,0 +1,31 @@
+@startuml
+skinparam activityBackgroundColor LightYellow
+skinparam activityBorderColor LightBlue
+skinparam activityArrowColor Black
+skinparam activityArrowFontSize 15
+
+start
+
+:User inputs "findcourse MA2001";
+
+:LogicManager processes the input;
+
+:AddressBookParser identifies the command type;
+
+:Instantiate FindCourseCommandParser;
+
+:Parse the module code "MA2001";
+
+:Instantiate CourseContainsKeywordsPredicate;
+
+:Instantiate FindCourseCommand with predicate;
+
+:Execute FindCourseCommand;
+
+:Model filters the person list using predicate;
+
+:Return filtered list as CommandResult;
+
+stop
+
+@enduml
