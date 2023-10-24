@@ -15,7 +15,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/joel-foo)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/joel-foo.md)]
 
 * Role: Team Lead
 
@@ -24,7 +24,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/tanteckfang.png" width="200px">
 
 [[github](http://github.com/tanteckfang)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/tanteckfang.md)]
 
 * Role: Documentation
 * Responsibilities: Quality of various project documents
@@ -33,7 +33,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/leontan2.png" width="200px">
 
-[[github](http://github.com/leontan2)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/leontan2)] [[portfolio](team/leontan2.md)]
 
 * Role: Code Quality
 * Responsibilities: Looks after code quality, ensures adherence to coding standards, etc.
@@ -43,7 +43,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/chewjh1234.png" width="200px">
 
 [[github](http://github.com/chewjh1234)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/chewjh1234.md)]
 
 * Role: Deliverables and deadlines
 * Responsibilities: Ensure project deliverables are done on time and in the right format
@@ -53,7 +53,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/carlintyj.png" width="200px">
 
 [[github](http://github.com/carlintyj)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/carlintyj.md)]
 
-* Role: Tool ABC
-* Responsibilities: Helps other team member with matters related to tool ABC
+* Role: Tool Expert
+* Responsibilities: Helps other team member with matters related to the relevant tools
