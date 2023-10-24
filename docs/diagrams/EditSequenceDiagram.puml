@@ -1,0 +1,80 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
+participant ":ParserUtil" as ParserUtil LOGIC_COLOR
+participant "e:EditCommand" as EditCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant ":CourseAddition" as CourseAddition MODEL_COLOR
+participant ":CourseDeletion" as CourseDeletion MODEL_COLOR
+participant ":CourseEdit" as CourseEdit MODEL_COLOR
+participant "editedPerson:Person" as EditedPerson MODEL_COLOR
+end box
+[-> LogicManager : execute("edit 2 c/MA2001-MA1521")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("edit 2 c/MA2001-MA1521")
+activate AddressBookParser
+
+create EditCommandParser
+AddressBookParser -> EditCommandParser ++
+return
+
+AddressBookParser -> EditCommandParser ++: parse("2 c/MA2001-MA1521")
+
+create ParserUtil
+group
+    opt if there are course  modifications
+    EditCommandParser -> ParserUtil ++: parseCourseChanges("MA2001-MA1521")
+    loop number of course modifications
+    ParserUtil -> ParserUtil ++: parseCourseChange("MA2001-MA1521")
+    create CourseAddition
+    ParserUtil -> CourseAddition ++: isValidCourseAddition("MA2001-MA1521")
+    return false
+
+    create CourseDeletion
+    ParserUtil -> CourseDeletion ++: isValidCourseDeletion("MA2001-MA1521")
+    return false
+
+    create CourseEdit
+    ParserUtil -> CourseEdit ++: isValidCourseEdit("MA2001-MA1521")
+    return true
+    return
+    end
+    return
+end
+
+create EditCommand
+EditCommandParser -> EditCommand ++
+return e
+return e
+return e
+
+LogicManager -> EditCommand++ : execute()
+create EditedPerson
+EditCommand -> EditedPerson ++
+return
+EditCommand -> Model ++ : hasPerson(editedPerson)
+return
+EditCommand -> Model ++ : setPerson(personToEdit, editedPerson)
+return
+EditCommand -> Model ++ : updateFilteredPersonList(true)
+return
+
+create CommandResult
+EditCommand -> CommandResult++
+return
+
+return r
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

@@ -154,6 +154,55 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+
+### [Developed] Editing a person
+
+#### [Course Modifications]
+
+The edit person mechanism is facilitated by `EditCommand` and `EditCommandParser`.
+
+Given below is an example usage scenario and how the edit behaves at each step.
+
+Step 1. An existing user launches the application and the second person listed in his address book is John, and one of the courses he has is `MA2001`.
+
+Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
+
+Step 3: If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+
+Step 4: The `EditCommand` is created, and then executed by `EditCommand#execute`.
+
+Step 5: `EditCommand#execute` calls the following methods from `Model`:
+* `Model#hasPerson(editedPerson)` which checks if the address book contains a duplicate person (a person with the same name).
+* `Model#setPerson(personToEdit, editedPerson)` replaces `personToEdit` with `editPerson`
+* `Model#updateFilteredPersonList(predicate)` updates the address book list with the edited person.
+
+Step 6: `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
+
+The following sequence diagram shows how the edit operation works:
+
+![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+The following activity diagram sheds more light on how exactly the chain of edit operations work:
+
+![EditActivityDiagram](images/EditActivityDiagram.png)
+
+Here are some more notes for the activity diagram above:
+* When parsing the list of course modifications, if any of the specified course are invalid (see earlier definition of what is considered a 'valid' course), then the end node is taken immediately.
+* If the end node is taken before all courses in the list that the user passed, then no course modifications present earlier in the list will be performed at all, even if they are valid. 
+
+
+#### Design considerations:
+
+**Aspect: Performing course edits:**
+
+* **Alternative 1 (current choice):** Retain the current c/ prefix in the edit command, but create additional sub-prefixes (i.e. c/add-, c/del-) after the c/ prefix.
+    * Pros: A common edit interface which enables all types of course modifications to be executed all at once makes this a flexible and user-friendly solution. 
+    * Cons: We must ensure that the implementation of each type of modification is correct, and ensure the changes are performed in the correct (listed) order.
+
+* **Alternative 2:** Create a command for each type of modification, i.e. "addcourse" or "deletecourse".
+    * Cons: Greatly reduced flexibility. Does not allow different types of modifications to be executed together at once, as each command can only handle one specific type of modification. There is also a lot more overhead, as three entirely new commands will have to be created, which leads to an arguably more bloated codebase.
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation

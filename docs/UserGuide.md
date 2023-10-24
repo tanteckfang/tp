@@ -120,18 +120,25 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags and courses by typing `t/` and `c/` respectively without
+* You can remove all the person’s tags or courses by typing `t/` or `c/` respectively without
     specifying any tags after it.
-* To add a course, use c/add-[COURSE_TO_ADD].
-* To delete a course, use c/del-[COURSE_TO_DELETE].
-* To edit a course directly, use c/[ORIGINAL_COURSE-NEW_COURSE].
-* The three different types of course modifications can be performed in any amount and in any order. For example, it is possible to perform "c/add-MA1521 c/del-CS2103T c/MA2001-ST2334 c/add-CS2103T".
-* As usual, course validation will be performed. Any changes (and the changes thereafter) that fail course violation will not be executed.
+* Here are the 3 types of course modifications:
+  1. To add a course, use c/add-[COURSE_TO_ADD]. 
+  2. To delete a course, use c/del-[COURSE_TO_DELETE].
+  3. To edit a course directly, use c/[ORIGINAL_COURSE-NEW_COURSE].
+* The three types of course modifications can be chained together in any amount in a single command.
+  * However, the collective chain of modifications will not be executed if any one modification in the chain is invalid.
+  * Invalidity arises from either:
+  
+     (1) Invalid course provided (i.e. CS210333) 
+  
+     (2) The course you are trying to delete (Type ii) or the course you are trying to modify directly (Type iii) does not exist. There are two possible reasons:
+      1. The student does not have the specified course originally. if a student does not have CS2103T originally, performing "c/del-CS2103T" alone will cause an error.
+      2. The student has the specified course originally, but because you can chain a list of modifications together, and the modifications are performed in order, it is possible that the course might not exist after a certain change. Performing "c/del-CS2103T c/del-CS2103T" will cause an error, because the first change is performed before the second, and CS2103T does not exist after the first change.
 
-
-
+  
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively, and changes the MA1521 and CS2100 courses to ST2334 and CS2106 respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334` Assuming the first person in the address book list has courses CS2103T and MA2001 originally, this command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order: add MA1521, delete CS2103T (valid because CS2103T exists originally), change MA2001 to ST2334 (valid because MA2001 exists originally). The first person now has courses MA1521 and ST2334. 
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
    
 ![edit student](images/editStudent.png)
@@ -284,14 +291,14 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action           | Format, Examples                                                                                                                                                                                            |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close friend c/CS1231S CS2103T`                      |
-| **Clear**        | `clear`                                                                                                                                                                                                     |
-| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                         |
-| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/COURSE_TO_CHANGE-CHANGED_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/MA1521-ST2334 CS2100-CS2106` |
-| **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                    |
-| **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                |
-| **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                 |
-| **List**         | `list`                                                                                                                                                                                                      |
-| **Help**         | `help`                                                                                                                                                                                                      |
+| Action           | Format, Examples                                                                                                                                                                                                                                                               |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close friend c/CS1231S CS2103T`                                                                                         |
+| **Clear**        | `clear`                                                                                                                                                                                                                                                                        |
+| **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
+| **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
+| **Find Student** | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                                                                                       |
+| **Find Course**  | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                   |
+| **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
+| **List**         | `list`                                                                                                                                                                                                                                                                         |
+| **Help**         | `help`                                                                                                                                                                                                                                                                         |
