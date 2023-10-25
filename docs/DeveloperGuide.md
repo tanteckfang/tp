@@ -435,18 +435,94 @@ The following sequence diagram shows how the Tag operation works by calling the 
 ### 4.10 Telegram Handle feature
 
 #### 4.10.1 Implementation
-{Explain here how the feature will be implemented}
+
+The Telehandle mechanism is facilitated by the `Telehandle` and `AddCommand` classes.
+
+Given below is an example usage scenario and how the `Telehandle` mechanism behaves at each step.
+
+Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: add n/John Doe p/98765432 th/@johnndoee.
+
+Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
+
+Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
+
+Step 4. The `AddCommandParser` processes the input, and if a `Telehandle` is provided, a new `Telehandle` object is created, else an empty `Telehandle` would be created instead.
+
+Step 5. Before the `Person` object is created, the `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
+
+Step 6. If a valid `Telehandle` is provided, a new `Person` object is created with the telehandle and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
+
+Step 7. The result, a successful addition or an error message, is displayed to the user.
+
+The following sequence diagram shows how the `Telehandle` works through the `AddCommand`:
+
+![TelehandleSequenceDiagram](images/TelehandleSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes the `Add` command with a valid `Telehandle`:
+
+![TelehandleActivityDiagram](images/TelehandleActivityDiagram.png)
 
 #### 4.10.2 Design considerations:
-{Explain here how the feature will be implemented}
+
+**Aspect: Input constraints in `Telehandle`:**
+
+* **Alternative 1 (current choice):** Requiring an @ sign in front of all `Telehandle` fields.
+    * Pros: Increased clarity. The "@" sign provides a clear visual cue that the input is a `Telehandle`, helping users distinguish it from other fields such as `Address`.
+    * Cons: Requiring an "@" sign may be unusual for users who are not familiar with social media or who have not encountered this format before. This requirement may feel counterintuitive to some.
+
+* **Alternative 2:** Not requiring an @ sign in front of all `Telehandle` fields.
+    * Pros: Offers flexibility and a better user experience. 
+    * Cons: `Telehandle` fields that rely solely on user input may not differ significantly from other types of 
+      user-provided data such as `Address` and `Email`. This may cause confusion to the users when viewing the details
 
 ### 4.11 Feedback feature
 
 #### 4.11.1 Implementation
-{Explain here how the feature will be implemented}
+
+The Feedback mechanism is facilitated by `FeedbackCommand`.
+
+Given below is an example usage scenario and how the Feedback mechanism works at each step.
+
+Step 1. The user wishes to send a feedback in regard to the app. They execute the `feedback` command: feedback
+
+Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
+
+Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant command, in this case, 
+`FeedbackCommand`.
+
+Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+Step 5. The success message is displayed to the user.
+
+Step 6. The `Ui` updates and the `Feedback` popup window appears.
+
+The following sequence diagram shows how the `Feedback` operation works:
+
+![FeedbackSequenceDiagram](images/FeedbackSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes the `Feedback` command:
+
+![FeedbackActivityDiagram](images/FeedbackActivityDiagram.png)
 
 #### 4.11.2 Design considerations:
-{Explain here how the feature will be implemented}
+
+**Aspect:  Storage medium for the logging of feedback received**
+
+* **Alternative 1 (current choice):** Use Google forms to store feedback of the users.
+    * Pros: Google Forms are quick and easy to set up. No need for extensive development efforts.
+    * Pros: Google Forms are user-friendly, making it simple for app users to submit feedback without any technical knowledge or app-specific requirements.
+    * Pros: Data Organization. Google Forms automatically organize and store feedback responses in a Google Sheets 
+      spreadsheet, making it convenient for review and analysis.
+
+    * Cons: Data Security. Storing feedback data on external platforms like Google Forms introduces security and privacy concerns.
+
+* **Alternative 2:** Link to an online forum where users can post feedback.
+    * Pros: Peer Support. In addition to providing feedback, users can help each other by sharing solutions to 
+      common issues.
+  
+    * Cons: Lack of Control. There would be lesser control over the structure and organization of feedback compared to a 
+      dedicated feedback form.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
