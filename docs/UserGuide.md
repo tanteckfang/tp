@@ -64,7 +64,9 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
 </div>
 
 
-### Adding a person: `add`
+### Adding a person: `add`  
+> "Every new friend is a new adventure…the start of more memories."
+> — Patrick Lindsay
 
 Adds a person to the address book.
 
@@ -179,6 +181,9 @@ Examples:
 
 
 ### Deleting a student : `delete`
+
+> "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
+> — Unknown
 
 Deletes the specified student from the address book.
 
