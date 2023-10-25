@@ -2,14 +2,42 @@
 layout: page
 title: User Guide
 ---
+![NUSCoursemates](images/Logo.jpg)
+NUSCourseMates is a **desktop app for managing your SoC friends contacts and their courses, optimized for use via a** [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp) while still having the benefits of a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
 
-NUSCourseMates is a **desktop app for managing contacts and their courses, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
-
+### Table of Contents
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+## Using this Guide
 
+Welcome to the NUSCoursemates User Guide, your essential companion for navigating and maximizing the full potential of our platform. Whether you're a novice just stepping into the world of NUS SoC student connections or a seasoned expert seeking new ways to enhance your experience, this guide is tailored to meet your needs.
+
+NUSCoursemates is designed with simplicity in mind, and you don't need any prior knowledge or experience to get started. We'll walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
+
+**Notice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+
+**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing NUSCoursemates to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
+
+**Seasoned Users:** We've streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
+
+Let's embark on this journey together, connecting NUS SoC students like never before.
+
+Here are some simples that will give you a more enjoyable time using our guide: 
+
+| Symbol               | Meaning                                                                                        |
+|----------------------|------------------------------------------------------------------------------------------------|
+| :information_source: | Note. Provides additional information.                                                         |
+| :bulb:               | Helpful tip that will improve your experience.                                                 |
+| :exclamation:        | Warning. Attempting to perform an action with a warning will lead to undesirable consequences. |
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about the command format:**<br>
+* These symbols will be encapsulated in a box as such.
+</div>
+
+--------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -27,7 +55,7 @@ NUSCourseMates is a **desktop app for managing contacts and their courses, optim
 
    * `list` : Lists all contacts.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t` : Adds a contact named `John Doe` to the Address Book.
 
    * `delete 3` : Deletes the 3rd contact shown in the current list.
 
@@ -106,7 +134,7 @@ Shows a list of all persons in the address book.
 Format: `list`
 
 Examples:
-![list](images/List.png)
+![list](images/ListFeature.png)
 
 
 ### Editing a student : `edit`
@@ -141,8 +169,11 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334` Assuming the first person in the address book list has courses CS2103T and MA2001 originally, this command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order: add MA1521, delete CS2103T (valid because CS2103T exists originally), change MA2001 to ST2334 (valid because MA2001 exists originally). The first person now has courses MA1521 and ST2334. 
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
    
-![edit student](images/editStudent.png)
+Before:
+![edit student](images/editFeatureBefore.png)
 
+After:
+![edit student](images/editFeatureAfter.png)
 
 ### Locating students by name: `findstudent`
 
@@ -193,7 +224,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-![delete student](images/deleteStudent.png)
+![delete student](images/deleteFeature.png)
 
 ### Sorting all entries : `sort` 
 
