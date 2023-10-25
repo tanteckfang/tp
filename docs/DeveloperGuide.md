@@ -483,23 +483,17 @@ Aspect: How the sorted list should be stored.
 
 Alternative 1: Sort the `UniquePersonList` object directly. This means that the original list will be modified as it is sorted. The resulting list is stored locally. 
 
-Pros: 
-* Since the resulting list is stored locally, the user's preference is saved because he is able to see the same sorted list the next time he opens the application    
-* Smaller memory usage because there is no need to store copies of the lists are stored  
+* Pros: Since the resulting list is stored locally, the user's preference is saved because he is able to see the same sorted list the next time he opens the application
+* Pros: Smaller memory usage because there is no need to store copies of the lists are stored  
 
-Cons:  
-* Potentially slower because the list is modified locally
+* Cons: Potentially slower because the list is modified locally
 
 Alternative 2: Make a copy of the original list for sorting before saving it.  
 
-Pros: 
-* Original list is not modified  
-* Original list is recoverable in case of an error  
-
-Cons: 
-* Much more memory required to store copies of the original and sorted list   
-* Less efficient as it takes time to copy the list   
-* Prone to errors that may arise from the copying stage, as the list to be copied from and the list to be copied to will always change when a new `SortCommand` object is instantiated.    
+* Pros: Original list is recoverable in case of an error  
+* Cons: More memory required to store copies of the original and sorted list 
+* Cons: Less efficient as it takes time to copy the list   
+* Cons: Prone to errors that may arise from the copying stage, as the list to be copied from and the list to be copied to will always change.    
 
 Ultimately, Alternative 1 is chosen over Alternative 2. Since the application is being used frequently, the user's preference should be saved so that he does not need to run the sort command again to see a sorted list.  
 Moreover, there are checks and error handling to ensure that the `PersonSorter` objects are able to sort the list correctly.
