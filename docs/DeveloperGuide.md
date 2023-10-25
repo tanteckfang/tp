@@ -357,18 +357,25 @@ Step 3. The `SortCommand` object will call `Model#sortPersonList()`, which will 
 
 Step 4. Finally, `UniquePersonList#sortPersons` is called with the `PersonNameAscendingSorter` object and the students in the list will be sorted by the comparator.
 
+The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
+
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+The following UML Activity diagram shows the workflow of sorting students in the address book:
+![SortActivityDiagram](images/SortActivityDiagram.png)
+
 #### 4.5.2 Design considerations:
 
 Aspect: How the sorted list should be stored.
 
-Alternative 1: Sort the `UniquePersonList` object directly. This means that the original list will be modified as it is sorted. The resulting list is stored locally.
+**Alternative 1 (current choice):** Sort the `UniquePersonList` object directly. This means that the original list will be modified as it is sorted. The resulting list is stored locally.
 
 * Pros: Since the resulting list is stored locally, the user's preference is saved because he is able to see the same sorted list the next time he opens the application
 * Pros: Smaller memory usage because there is no need to store copies of the lists are stored
 
 * Cons: Potentially slower because the list is modified locally
 
-Alternative 2: Make a copy of the original list for sorting before saving it.
+**Alternative 2:** Make a copy of the original list for sorting before saving it.
 
 * Pros: Original list is recoverable in case of an error
 * Cons: More memory required to store copies of the original and sorted list
