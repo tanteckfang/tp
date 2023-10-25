@@ -244,7 +244,7 @@ Here are some more notes for the activity diagram above:
 
 ### 4.3 Find Course feature
 
-#### 4.3.1 Implementation
+#### 4.3.1 Implementation  
 
 The findcourse feature is facilitated by the FindCourseCommand class, which leverages a CourseContainsKeywordsPredicate object. This predicate object is responsible for checking if a person's course contains the specified keyword.
 The following operations are central to this feature:
@@ -318,15 +318,74 @@ The following activity diagram summarizes what happens when a user executes a ne
 #### 4.4.2 Design considerations:
 {Explain here how the feature will be implemented}
 
-### 4.5 Sort Student feature
+### 4.5 Sort feature
 
 #### 4.5.1 Implementation
-{Explain here how the feature will be implemented}
+The sort feature sorts the students in the `UniquePersonList` object in `AddressBook` according to a specified sorting criterion.
+
+The sorting mechanism is facilitated by `SortCommandParser` and `SortCommand`. The latter extends the existing `Command` class and overrides the following method: 
+* `Command#execute()`: Executes the command and returns the result message 
+
+After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts the AddressBook differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
+
+Format: `sort CRITERION`
+
+There are 3 ways to sort the students in the address book:
+
+1. **Sort by Name**
+    - Function: Sorts students by name lexicographically
+    - Criterion: name, name-ascending, name-descending
+    - Example usage: `sort name-ascending`
+
+2. **Sort by Course size**
+    - Function: Sorts students by the number of courses taken
+    - Criterion: course, course size-ascending, course size-descending
+    - Example usage: `sort course size-ascending`
+
+3. **Sort by Tags**
+    - Function: Sorts students by their tags
+    - Criterion: tags
+    - Example usage: `sort tags`
+
+Given below is an example usage scenario and how the sort mechanism behaves at each step.
+
+Step 1. The user launches the application. The `AddressBook` will be initialized with the initial address book state.
+
+Step 2. The user executes `sort name` command to sort the contacts in the address book by name (in lexicographic order). New `SortCommand` and `PersonNameAscendingSorter` objects are created.
+
+Step 3. The `SortCommand` object will call `Model#sortPersonList()`, which will then call `#AddressBook.sortPersonList()` with the newly created `PersonNameAscendingSorter` object as well.
+
+Step 4. Finally, `UniquePersonList#sortPersons` is called with the `PersonNameAscendingSorter` object and the students in the list will be sorted by the comparator.
+
+The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
+
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+The following UML Activity diagram shows the workflow of sorting students in the address book:
+![SortActivityDiagram](images/SortActivityDiagram.png)
 
 #### 4.5.2 Design considerations:
-{Explain here how the feature will be implemented}
 
-### 4.6 Sort Course feature
+Aspect: How the sorted list should be stored.
+
+**Alternative 1 (current choice):** Sort the `UniquePersonList` object directly. This means that the original list will be modified as it is sorted. The resulting list is stored locally.
+
+* Pros: Since the resulting list is stored locally, the user's preference is saved because he is able to see the same sorted list the next time he opens the application
+* Pros: Smaller memory usage because there is no need to store copies of the lists are stored
+
+* Cons: Potentially slower because the list is modified locally
+
+**Alternative 2:** Make a copy of the original list for sorting before saving it.
+
+* Pros: Original list is recoverable in case of an error
+* Cons: More memory required to store copies of the original and sorted list
+* Cons: Less efficient as it takes time to copy the list
+* Cons: Prone to errors that may arise from the copying stage, as the list to be copied from and the list to be copied to will always change.
+
+Ultimately, Alternative 1 is chosen over Alternative 2. Since the application is being used frequently, the user's preference should be saved so that he does not need to run the sort command again to see a sorted list.  
+Moreover, there are checks and error handling to ensure that the `PersonSorter` objects are able to sort the list correctly.
+
+### 4.6 List feature
 
 #### 4.6.1 Implementation
 {Explain here how the feature will be implemented}
@@ -334,25 +393,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 #### 4.6.2 Design considerations:
 {Explain here how the feature will be implemented}
 
-### 4.7 Sort Tag feature
+### 4.7 Tag feature
 
 #### 4.7.1 Implementation
-{Explain here how the feature will be implemented}
-
-#### 4.7.2 Design considerations:
-{Explain here how the feature will be implemented}
-
-### 4.8 List feature
-
-#### 4.8.1 Implementation
-{Explain here how the feature will be implemented}
-
-#### 4.8.2 Design considerations:
-{Explain here how the feature will be implemented}
-
-### 4.9 Tag feature
-
-#### 4.9.1 Implementation
 
 The Tag feature is facilitated by the `Tag` class, which contains an attribute `TagType` to determine the type of tag. The creation and validation of tags are significantly associated with the `TagUtil` class.
 
@@ -394,7 +437,7 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 <img src="images/TagActivityDiagram.png" width="250" />
 
-#### Design considerations:
+#### 4.7.2 Design considerations:
 
 **Aspect: Validation of the "Emergency" tag count:**
 
@@ -432,20 +475,21 @@ The following sequence diagram shows how the Tag operation works by calling the 
     * Cons: Might deviate from the main purpose of the application, leading to inconsistent use.
     * Cons: Users might add unrelated or inappropriate tags, leading to clutter.
 
-### 4.10 Telegram Handle feature
 
-#### 4.10.1 Implementation
+### 4.8 Telegram Handle feature
+
+#### 4.8.1 Implementation
 {Explain here how the feature will be implemented}
 
-#### 4.10.2 Design considerations:
+#### 4.8.2 Design considerations:
 {Explain here how the feature will be implemented}
 
-### 4.11 Feedback feature
+### 4.9 Feedback feature
 
-#### 4.11.1 Implementation
+#### 4.9.1 Implementation
 {Explain here how the feature will be implemented}
 
-#### 4.11.2 Design considerations:
+#### 4.9.2 Design considerations:
 {Explain here how the feature will be implemented}
 
 --------------------------------------------------------------------------------------------------------------------

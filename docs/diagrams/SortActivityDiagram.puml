@@ -1,0 +1,43 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User executes Sort command;
+
+if () then ([valid input])
+  :Input is parsed;
+  if () then ([sort by name])
+    :Make a copy of names in uppercase;
+    if () then ([ascending order])
+      :Sort students by names in \nascending lexicographic order;
+    else ([descending order])
+      :Sort students by names in \ndescending lexicographic order;
+    endif
+  else if () then ([sort by course])
+    if () then ([ascending size])
+      :Sort students by the number \nof courses in ascending order;
+    else ([descending size])
+      :Sort students by the number \nof courses in descending order;
+    endif
+    if () then ([some students have same number of courses])
+      :Sort students with the same number of courses by name;
+    else ([else])
+    endif
+  else if () then ([sort by tags])
+    :Get tag with the highest priority;
+    :Sort students by the highest priority tag;
+     if () then ([some students have same highest priority tag])
+       :Sort students with same highest priority tag by name;
+     else ([else])
+     endif
+  else ([invalid sorting criterion])
+    :Display error message;
+  endif
+else ([invalid input])
+  :Display error message;
+endif
+
+stop
+@enduml
