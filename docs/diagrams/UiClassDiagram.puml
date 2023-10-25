@@ -10,6 +10,7 @@ Class "{abstract}\nUiPart" as UiPart
 Class UiManager
 Class MainWindow
 Class HelpWindow
+Class FeedbackWindow
 Class ResultDisplay
 Class PersonListPanel
 Class PersonCard
@@ -41,6 +42,7 @@ MainWindow *-down-> "1" CourseListPanel
 MainWindow *-down-> "1" TagListPanel
 MainWindow *-down-> "1" StatusBarFooter
 MainWindow --> "0..1" HelpWindow
+MainWindow --> "0..1" FeedbackWindow
 
 PersonListPanel -down-> "*" PersonCard
 CourseListPanel -down-> "*" CourseListCard
@@ -58,6 +60,7 @@ TagListPanel --|> UiPart
 TagListCard --|> UiPart
 StatusBarFooter --|> UiPart
 HelpWindow --|> UiPart
+FeedbackWindow --|> UiPart
 
 PersonCard ..> Model
 CourseListCard ..> Model
@@ -67,6 +70,7 @@ MainWindow -left-> Logic
 
 PersonListPanel -[hidden]left- HelpWindow
 HelpWindow -[hidden]left- CommandBox
+FeedbackWindow -[hidden]left- CommandBox
 CommandBox -[hidden]left- ResultDisplay
 ResultDisplay -[hidden]left- StatusBarFooter
 

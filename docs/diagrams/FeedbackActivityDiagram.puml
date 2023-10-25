@@ -1,0 +1,22 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+
+:User inputs "feedback";
+
+:LogicManager processes the input;
+
+:AddressBookParser identifies the command type;
+
+:Execute FeedbackCommand;
+
+:A Feedback popup window appears;
+
+:User sends a feedback through the link provided;
+
+stop
+
+@enduml

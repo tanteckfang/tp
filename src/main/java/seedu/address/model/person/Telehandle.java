@@ -32,7 +32,7 @@ public class Telehandle {
     }
 
     /**
-     * Returns true if a given string is a valid email.
+     * Returns true if a given string is a valid telehandle.
      */
     public static boolean isValidTelehandle(String test) {
         return test.isEmpty() || test.matches(VALIDATION_REGEX);
