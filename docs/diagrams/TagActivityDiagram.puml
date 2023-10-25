@@ -8,31 +8,24 @@ start
 
 :User executes `add` command with tag;
 
-if (Is the tag format valid?) then (yes)
+if () then ([valid format])
     :Parse the tag data;
-    if (Does tag already exist for person?) then (yes)
-        :Show error message to user;
-        stop
-    else (no)
-        if (Is tag a special type like `Emergency`?) then (yes)
-            :Check with TagUtil for validity;
-            if (Can add or edit emergency tag?) then (yes)
-                :Add tag to person in model;
-                :Display success message;
-                stop
-            else (no)
-                :Show error message;
-                stop
-            endif
-        else (no)
+    if () then ([tag is `Emergency`])
+        :Check with TagUtil for validity;
+        if () then ([Emergency tag in address book < 2])
             :Add tag to person in model;
             :Display success message;
-            stop
+        else ([Emergency tag in address book = 2])
+            :Show error message;
         endif
+    else ([tag is not `Emergency`])
+        :Add tag to person in model;
+        :Display success message;
     endif
-else (no)
+else ([invalid format])
     :Show error message for invalid tag format;
-    stop
 endif
+
+stop
 
 @enduml
