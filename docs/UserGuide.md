@@ -92,7 +92,9 @@ Here are some simples that will give you a more enjoyable time using our guide:
 </div>
 
 
-### Adding a person: `add`
+### Adding a person: `add`  
+> "Every new friend is a new adventure…the start of more memories."
+> — Patrick Lindsay
 
 Adds a person to the address book.
 
@@ -211,6 +213,9 @@ Examples:
 
 ### Deleting a student : `delete`
 
+> "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
+> — Unknown
+
 Deletes the specified student from the address book.
 
 Format: `delete INDEX`
@@ -308,6 +313,17 @@ _Details coming soon ..._
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
+**Q**: How do I check the Java version I am using?<br>
+**A**: Open the Terminal application (if you are using MacOS) or Command Prompt (if you are using Windows). Type `java -version` and hit Enter. The first number that appears in the response refers to the Java version you are currently using.    
+
+**Q**: How do I install Java 11, the Java version required by NUSCourseMates?<br>
+**A**: You may download Java 11 from this [link](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html).  
+
+**Q**: I accidentally closed the application. Is my data lost?<br>
+**A**: Fret not! NUSCourseMates saves your data after every change you make, so you won't lose any data.
+
+**Q**: Do I need an active internet connection to use NUSCourseMates?<br>
+**A**: You can use NUSCourseMates offline, but you'll need an internet connection to download it to your device.  
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSCourseMates home folder.
