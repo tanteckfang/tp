@@ -86,6 +86,14 @@ public class TypicalPersons {
         return ab;
     }
 
+    public static AddressBook getTypicalAddressBookWithCoursesCleared() {
+        AddressBook ab = new AddressBook();
+        for (Person person : getTypicalPersons()) {
+            ab.addPerson(new PersonBuilder(person).withCourses("").build());
+        }
+        return ab;
+    }
+
     public static List<Person> getTypicalPersons() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
