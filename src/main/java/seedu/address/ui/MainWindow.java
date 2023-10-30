@@ -289,14 +289,29 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Sets the light mode theme for the application's main window and associated windows.
+     * This method updates the visual style of the application to a light theme.
+     * It removes the dark theme stylesheet and adds the light theme stylesheet to the primary stage's scene.
+     * Additionally, it sets the light theme for the FeedbackWindow and HelpWindow.
+     */
     @FXML
     private void setLightMode() {
         String lightThemePath = getClass().getResource("/view/LightTheme.css").toExternalForm();
         String darkThemePath = getClass().getResource("/view/DarkTheme.css").toExternalForm();
         primaryStage.getScene().getStylesheets().remove(darkThemePath);
         primaryStage.getScene().getStylesheets().add(lightThemePath);
+
+        feedbackWindow.setTheme(true);
+        helpWindow.setTheme(true);
     }
 
+    /**
+     * Sets the dark mode theme for the application's main window and associated windows.
+     * This method updates the visual style of the application to a dark theme.
+     * It removes the light theme stylesheet and adds the dark theme stylesheet to the primary stage's scene.
+     * Additionally, it sets the dark theme for the FeedbackWindow and HelpWindow.
+     */
     @FXML
     private void setDarkMode() {
         String lightThemePath = getClass().getResource("/view/LightTheme.css").toExternalForm();
@@ -304,5 +319,7 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.getScene().getStylesheets().remove(lightThemePath);
         primaryStage.getScene().getStylesheets().add(darkThemePath);
 
+        feedbackWindow.setTheme(false);
+        helpWindow.setTheme(false);
     }
 }

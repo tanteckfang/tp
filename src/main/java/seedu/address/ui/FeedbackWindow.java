@@ -99,4 +99,24 @@ public class FeedbackWindow extends UiPart<Stage> {
         url.putString(FEEDBACK_URL);
         clipboard.setContent(url);
     }
+
+    /**
+     * Sets the theme for the FeedbackWindow based on the specified theme setting.
+     *
+     * @param isLight A boolean indicating whether the light theme should be applied.
+     *                If true, the light theme will be set; if false, the dark theme will be set.
+     */
+    public void setTheme(boolean isLight) {
+        if (isLight) {
+            // Load the light theme CSS
+            String lightThemePath = getClass().getResource("/view/FeedbackWindowLight.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(lightThemePath);
+        } else {
+            // Load the dark theme CSS
+            String darkThemePath = getClass().getResource("/view/FeedbackWindowDark.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(darkThemePath);
+        }
+    }
 }
