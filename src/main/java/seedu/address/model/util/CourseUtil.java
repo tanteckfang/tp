@@ -1,4 +1,4 @@
-package seedu.address.model.course;
+package seedu.address.model.util;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,10 +6,9 @@ import java.util.Set;
 /**
  * Represents a list of valid courses in NUS.
  */
-public class CourseList {
-    private final Set<String> courseList;
-
-    private final String courses = "CP3107, CP3106, PS2238, ZB4299, PS2237, PS2240, GEX1005, GEX1004, "
+public class CourseUtil {
+    private static Set<String> courseList = null;
+    private static final String courses = "CP3107, CP3106, PS2238, ZB4299, PS2237, PS2240, GEX1005, GEX1004, "
             + "SWM5215, SWM5216, SWM5217, GEX1000, LL4133V, GEX1009, GEX1007, PS3551, PS3550,"
             + " IE4220, PS4884, BSP1703, BSP1707, BMK5203, GEX1015, BMK5204, GEX1014, "
             + "BMK5209, BSP1702, DMY1401TSG, GEX1012, BMK5207, GEX1011, GEX1010, HY4660HM, "
@@ -810,29 +809,24 @@ public class CourseList {
             + "YIR3318, MLE5229, TCN4122, YIR3317";
 
     /**
-     * Constructor for CourseList.
-     * Initializes the course list with a predefined set of courses.
-     */
-    public CourseList() {
-
-        String[] courseStringList = this.courses.split(",");
-
-        Set<String> courseList = new HashSet<>();
-
-        for (String course : courseStringList) {
-            courseList.add(course.trim());
-        }
-
-        this.courseList = courseList;
-    }
-
-    /**
      * Checks if a given course is in the course list.
      *
      * @param course The name of the course to check.
      * @return true if the course is in the list, false otherwise.
      */
-    public boolean contains(String course) {
-        return this.courseList.contains(course);
+    public static boolean contains(String course) {
+        if (courseList == null) {
+            instantiateCourseList();
+        }
+        return courseList.contains(course);
+    }
+
+    private static void instantiateCourseList() {
+        String[] courseStringList = courses.split(",");
+        Set<String> courseList = new HashSet<>();
+        for (String courseString : courseStringList) {
+            courseList.add(courseString.trim());
+        }
+        CourseUtil.courseList = courseList;
     }
 }

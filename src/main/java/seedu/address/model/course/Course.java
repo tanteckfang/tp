@@ -3,6 +3,8 @@ package seedu.address.model.course;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.model.util.CourseUtil;
+
 /**
  * Represents a Course in the address book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidCourseName(String)}
@@ -13,7 +15,6 @@ public class Course {
     public static final String MESSAGE_INVALID_COURSE = "Course module ID is invalid";
     public static final String MESSAGE_INVALID_COURSE_WITH_NAME = "Course module of ID %s is invalid";
     public static final String MODULE_ID_VALIDATION_REGEX = "^[A-Za-z0-9]+$";
-    private static CourseList courseList;
     public final String courseName;
 
     /**
@@ -40,10 +41,7 @@ public class Course {
      * and is in the course list.
      */
     public static boolean isExistingCourseName(String test) {
-        if (Course.courseList == null) {
-            Course.courseList = new CourseList();
-        }
-        return Course.courseList.contains(test.toUpperCase());
+        return CourseUtil.contains(test.toUpperCase());
     }
 
     @Override
