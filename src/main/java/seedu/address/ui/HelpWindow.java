@@ -100,6 +100,12 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
+    /**
+     * Sets the theme for the HelpWindow based on the specified theme setting.
+     *
+     * @param isLight A boolean indicating whether the light theme should be applied.
+     *                If true, the light theme will be set; if false, the dark theme will be set.
+     */
     public void setTheme(boolean isLight) {
         if (isLight) {
             // Load the light theme CSS
@@ -113,5 +119,4 @@ public class HelpWindow extends UiPart<Stage> {
             getRoot().getScene().getStylesheets().add(darkThemePath);
         }
     }
-
 }
