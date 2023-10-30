@@ -99,4 +99,19 @@ public class HelpWindow extends UiPart<Stage> {
         url.putString(USERGUIDE_URL);
         clipboard.setContent(url);
     }
+
+    public void setTheme(boolean isLight) {
+        if (isLight) {
+            // Load the light theme CSS
+            String lightThemePath = getClass().getResource("/view/HelpWindowLight.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(lightThemePath);
+        } else {
+            // Load the dark theme CSS
+            String darkThemePath = getClass().getResource("/view/HelpWindowDark.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(darkThemePath);
+        }
+    }
+
 }

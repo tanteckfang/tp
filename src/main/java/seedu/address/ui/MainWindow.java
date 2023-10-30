@@ -295,6 +295,9 @@ public class MainWindow extends UiPart<Stage> {
         String darkThemePath = getClass().getResource("/view/DarkTheme.css").toExternalForm();
         primaryStage.getScene().getStylesheets().remove(darkThemePath);
         primaryStage.getScene().getStylesheets().add(lightThemePath);
+
+        feedbackWindow.setTheme(true);
+        helpWindow.setTheme(true);
     }
 
     @FXML
@@ -304,5 +307,7 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.getScene().getStylesheets().remove(lightThemePath);
         primaryStage.getScene().getStylesheets().add(darkThemePath);
 
+        feedbackWindow.setTheme(false);
+        helpWindow.setTheme(false);
     }
 }

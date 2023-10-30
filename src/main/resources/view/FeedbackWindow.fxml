@@ -16,7 +16,7 @@
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@FeedbackWindow.css" />
+                <URL value="@FeedbackWindowLight.css" />
             </stylesheets>
 
             <HBox alignment="CENTER" fx:id="feedbackMessageContainer">

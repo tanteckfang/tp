@@ -42,6 +42,7 @@ public class FeedbackWindow extends UiPart<Stage> {
      */
     public FeedbackWindow() {
         this(new Stage());
+
     }
 
     /**
@@ -99,4 +100,19 @@ public class FeedbackWindow extends UiPart<Stage> {
         url.putString(FEEDBACK_URL);
         clipboard.setContent(url);
     }
+
+    public void setTheme(boolean isLight) {
+        if (isLight) {
+            // Load the light theme CSS
+            String lightThemePath = getClass().getResource("/view/FeedbackWindowLight.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(lightThemePath);
+        } else {
+            // Load the dark theme CSS
+            String darkThemePath = getClass().getResource("/view/FeedbackWindowDark.css").toExternalForm();
+            getRoot().getScene().getStylesheets().clear();
+            getRoot().getScene().getStylesheets().add(darkThemePath);
+        }
+    }
+
 }
