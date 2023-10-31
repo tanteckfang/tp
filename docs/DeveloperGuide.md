@@ -435,7 +435,7 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 "The following activity diagram summarizes what happens when a user executes a new 'add' command; the 'edit' command will be similar:
 
-<img src="images/TagActivityDiagram.png" width="250" />
+![TagSequenceDiagram](images/TagActivityDiagram.png)
 
 #### 4.7.2 Design considerations:
 
