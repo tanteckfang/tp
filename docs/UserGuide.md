@@ -238,7 +238,7 @@ Examples:
 ![delete student](images/deleteFeature.png)
 
 
-### Sorting by Courses: `sort course`
+### Sorting by Course: `sort course`
 
 Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
 
@@ -263,9 +263,32 @@ Example:
 Before Sorting:
 ![initial](images/BeforeSorting.png)
 
-
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
+
+
+### Sorting by Name: `sort name`
+As time passes, you might encounter people with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
+
+Here's the good news: The sort name command neatly **arranges the students** in your address book **by their names**, making it easier than ever to look up a student.
+
+Plus, you have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** lexicographic order.
+
+Format: `sort name-SORT_CRITERION`
+
+Examples:
+* `sort name-descending` sorts students by their names in descending order.
+* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
+
+
+### Sorting by Tags: `sort tags`
+The greatest joy in university is, without a doubt, to attend boring classes with your close friends. 
+
+With the `sort tags` command, NUSCourseMates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book. 
+
+These will be followed by contacts tagged as 'Friend', and 'Emergency', in that order.  
+
+Format: `sort tags`
 
 
 ### Clearing all entries : `clear`
