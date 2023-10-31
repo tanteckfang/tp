@@ -114,6 +114,8 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 * Courses added have to be existing and valid courses.
 
+* There are only three kinds of tags for NUSCourseMates: `Friend`, `Close Friend`, and `Emergency`. If any other tags are used, an error message will be displayed.
+
 * If you want to add a close friend tag , the format will be `t/cf`, it is case insensitive.
 
 * The tags 'Emergency', 'close friend', and 'friend' are case-insensitive; they will be saved as 'Emergency', 'Close Friend', and 'Friend' in our address book.
@@ -195,20 +197,24 @@ Examples:
 * `findstudent alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'findstudent alex david'](images/findAlexDavidResult.png)
 
-### Locating courses by name: `findcourse`
+### Discover Coursemates with `findcourse`
 
-Finds courses whose names contain any of the given keywords.
+Ever wondered who in your address book has taken the same courses as you? With `findcourse`, you can effortlessly locate fellow NUS SoC students you've saved who have enrolled in specific courses.
+
+
+Here’s how to make the most of this handy tool:
 
 Format: `findcourse KEYWORD [MORE_KEYWORDS]`
-* The search is case-insensitive. e.g cs2030s will match CS2030S
-* Only the course name is searched.
-* Partial words will be matched e.g. CS2030 will match  CS2030 and CS2030S
-* Courses matching at least one keyword will be returned (i.e. OR search). e.g. cs210 will return CS2103, CS2106
+* Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
+* Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
+* Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
+* Multiple Course Searches: Use multiple keywords, and we'll show you students who have enrolled in any of the courses. For instance, 'cs210' will reveal students who took 'CS2103' or 'CS2106'.
+
 
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
-  ![result for 'findcourse CS2040s cs2030s'](images/findCS2103TMA1521.png)
+  ![result for 'findcourse cs2103t ma1521'](images/FindCourse.png)
 
 
 ### Deleting a student : `delete`
@@ -230,6 +236,36 @@ Examples:
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ![delete student](images/deleteFeature.png)
+
+
+### Sorting by Courses: `sort course`
+
+Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
+
+At its core, the `sort course` command rearranges your address book, bringing those with the most courses to the forefront in **descending order**.
+
+For a twist in perspective, and to cheer on those just embarking on their academic journey, use `size-ascending`. This flips the narrative, showcasing contacts with fewer courses in **ascending** order.
+
+#### Format: `sort course`
+* Revel in the contacts who've ventured into many courses, displayed in **descending order**.
+
+Example:
+Before Sorting:
+![initial](images/BeforeSorting.png)
+
+After `sort course`:
+![sourse_course](images/SortCourse.png)
+
+#### Format: `sort course size-ascending`:
+* Highlight the newcomers, those with the fewest courses, arranged in ascending order.
+
+Example:
+Before Sorting:
+![initial](images/BeforeSorting.png)
+
+
+After `sort course size-ascending`:
+![sort_course_size_ascending](images/SortCourseAscending.png)
 
 ### Sorting all entries : `sort` 
 
