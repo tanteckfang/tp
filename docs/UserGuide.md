@@ -267,20 +267,6 @@ Before Sorting:
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
 
-### Sorting all entries : `sort` 
-
-Sorts all contacts according to the specified criterion. 
-
-Format: `sort SORT_CRITERION`
-
-Examples:
-* `sort course` returns a sorted address book based on the number of courses taken in **descending** order.
-* `sort course size-ascending` returns a sorted address book based on the number of courses taken in **ascending** order.
-* `sort name` returns a sorted address book based on the names of the persons in **ascending** lexicographic order.
-* `sort name-descending` returns a sorted address book based on the names of the persons in **descending** lexicographic order.
-* `sort tags` returns a sorted address book according to the tags tagged to each person. 
-
-![result for sort name](images/SortByName.png)
 
 ### Clearing all entries : `clear`
 
