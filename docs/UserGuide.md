@@ -16,7 +16,7 @@ Welcome to the NUSCoursemates User Guide, your essential companion for navigatin
 
 NUSCoursemates is designed with simplicity in mind, and you don't need any prior knowledge or experience to get started. We'll walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Notice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Novice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
 **Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing NUSCoursemates to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
 
@@ -24,7 +24,7 @@ NUSCoursemates is designed with simplicity in mind, and you don't need any prior
 
 Let's embark on this journey together, connecting NUS SoC students like never before.
 
-Here are some simples that will give you a more enjoyable time using our guide: 
+Here are some symbols that will give you a more enjoyable time using our guide: 
 
 | Symbol               | Meaning                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -36,6 +36,68 @@ Here are some simples that will give you a more enjoyable time using our guide:
 **:information_source: Notes about the command format:**<br>
 * These symbols will be encapsulated in a box as such.
 </div>
+
+--------------------------------------------------------------------------------------------------------------------
+## User Interface
+In NUSCoursemates, we've designed our user interface with your convenience and ease of use in mind. Let's take a closer look at the key components of our user interface:
+![Labelled GUI](images/LabelledUI.png)
+
+| No  | Component          | Description                                                                                                                                           |
+|-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
+| 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
+| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
+| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
+| 5   | Course List Panel  | Displays a summary of all the courses in your address book, along with the total number of students in each course.                                   |
+| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                    |
+
+### 1. Menu Bar
+<img src="images/MenuBar.png" alt="MenuBar" height="30"/>
+
+The Menu Bar is your command center, offering access to a variety of functions, including the ability to switch between dark and light modes, and other useful features.
+
+| Menu Item | Description                                                             |
+|-----------|-------------------------------------------------------------------------|
+| File      | Exit the application to close it.                                       |
+| Theme     | Choose between Light or Dark mode for your preferred look.              |
+| Feedback  | Share your thoughts and suggestions with us through the feedback link.  |
+| Help      | Access the User Guide to get assistance and answers to your questions.  |
+
+### 2. Command Box
+The Command Box is where the magic happens. It's your gateway to NUSCoursemates, allowing you to input commands and perform a wide range of operations with ease.
+
+You can locate the list of commands you can perform in our [Command Summary](#command-summary).
+### 3. Command Result
+<img src="images/CommandResult.png" alt="CommandResult"/>
+
+The Command Result section is your information hub. Here, you'll find the outcomes and feedback from your executed commands, helping you stay informed about the impact of your actions.
+
+### 4. Student List Panel
+<img src="images/StudentListPanel.png" alt="StudentListPanel"/>
+
+The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
+
+You will be able to view each student's details such as:
+* Phone number
+* Address
+* Telehandle
+* Email
+* Courses
+* Tags
+
+### 5. Course List Panel
+<img src="images/CourseListPanel.png" alt="CourseListPanel"/>
+
+The Course List Panel is your academic overview. It presents a summary of all the courses in your address book, along with the total number of students in each course. It's your academic compass.
+
+e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
+
+### 6. Tag List Panel
+<img src="images/TagListPanel.png" alt="TagListPanel"/>
+
+The Tag List Panel allows you to personalize your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorize and manage your contacts with ease.
+
+e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
 
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
@@ -91,39 +153,44 @@ Here are some simples that will give you a more enjoyable time using our guide:
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+## Basic Administration
+This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
 
-### Adding a person: `add`  
+### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
 > — Patrick Lindsay
 
-Adds a person to the address book.
+Embrace the opportunity to expand your circle and make lasting connections by adding new friends to your address book. Our user-friendly "Add" feature makes it simple and convenient to do just that.
+
+**How to do it:** With the `add` command, you can include a variety of details to create a comprehensive profile for your new friend. Here's what each element represents:
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
+* `n/NAME`: Your friend's name, because every name carries a unique story.
+* `p/PHONE_NUMBER`: Their contact number, ensuring you're always just a call or message away.
+* `e/EMAIL` (optional): Include their email address, making digital connections seamless.
+* `a/ADDRESS` (optional): Specify their physical address, ideal for planning meetups.
+* `th/TELEHANDLE` (optional): Provide their telehandle, ensuring quick and easy communication.
+* `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
+* `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
 
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
+* You can include any number of tags or courses (including none).
+* Only three tag types are allowed: 'Friend,' 'Close Friend,' and 'Emergency.'
+* To add a 'Close Friend' tag, use t/cf (case-insensitive).
+* Tags and Courses are case-insensitive when entered.
+</div>
 
-* A person MUST have a name and phone number
+<div markdown="span" class="alert alert-warning">
 
-* A person can have any number of tags or courses (including 0)
-
-* Only unique students can be added. It is considered a duplicate if an existing students and the current students to be added have name.
-
-* Courses added have to be existing and valid courses.
-
-* There are only three kinds of tags for NUSCourseMates: `Friend`, `Close Friend`, and `Emergency`. If any other tags are used, an error message will be displayed.
-
-* If you want to add a close friend tag , the format will be `t/cf`, it is case insensitive.
-
-* The tags 'Emergency', 'close friend', and 'friend' are case-insensitive; they will be saved as 'Emergency', 'Close Friend', and 'Friend' in our address book.
-
-* We can only tag up to two contacts with the Emergency tag.
-
-
-
+**:exclamation: Caution:** <br>
+* A student **MUST** have a name and phone number.
+* Duplicate students are identified by their names; ensure the name is unique.
+* Make sure the courses you add exist and are valid.
+* You can tag up to two contacts with the 'Emergency' tag.
 </div>
 
 Examples:
@@ -131,9 +198,11 @@ Examples:
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/Tom Lee p/81289900`
 
-### Listing all persons : `list`
+### Listing all students : `list`
 
-Shows a list of all persons in the address book.
+Discover the power of the "List" feature – your ultimate tool for staying organized and in the know about your student contacts. It's like having your address book at your fingertips, ready to provide you with a clear, comprehensive view of your network.
+
+**How to do it:** With the straightforward `list` command, you can effortlessly generate a list of all the students in your address book. It's as simple as typing "list."
 
 Format: `list`
 
@@ -214,7 +283,8 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
-  ![result for 'findcourse cs2103t ma1521'](images/FindCourse.png)
+
+  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
 
 
 ### Deleting a student : `delete`
@@ -267,54 +337,81 @@ Before Sorting:
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
 
-
 ### Clearing all entries : `clear`
+>"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
+> — Richie Norton
 
-Clears all entries from the address book.
+Clearing all entries is your path to a new chapter in your NUSCoursemates. In NUSCoursemates, we've made it easy for you to clear all student entries when needed.
+
+This feature helps you start fresh or declutter your address book with a single command. Follow the simple steps below to clear all entries from your address book:
 
 Format: `clear`
-
 
 Examples:
 ![result for 'clear'](images/Clear.png)
 
 
-### Exiting the program : `exit`
+<div markdown="span" class="alert alert-warning">
 
-Exits the program.
+**:exclamation: Caution:** <br>
+* Once you run this command, you lose all data immediately.
+</div>
 
-Format: `exit`
-* Program closes.
-* `Unknown command` appears when the user does not type the correct exit command.
-  * Examples of invalid commands: `exits`, `EXIT` etc.
+## Additional Features
+Congratulations, you've reached the end of our user guide, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
+But before you go, let's talk about a few extra features that can make your NUSCoursemates experience even better. We've designed these features with you in mind, making sure your journey with us is as seamless as it gets.
 
-### Viewing help : `help`
+### Seeking help : `help`
+> "Ignorance has always been the weapon of tyrants; enlightenment the salvation of the free."
+> — Bill Richardson
 
-Shows a message which explains how the user should access the help page.
+Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
+
+Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
 Format: `help`
 
-* A message containing the hyperlink to the help page will be displayed.
-* The prompt `Opened Help Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct help command. 
-  * Examples of invalid commands: `helps`, `HELP` etc.
-
 ![help message](images/helpMessage.png)
 
-### Viewing Feedback : `feedback`
+<div markdown="block" class="alert alert-info">
 
-Shows a message which explains how the user should access the feedback page to give their feedback with regard
-to NUSCourseMates.
+**:information_source: Note:**<br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+</div>
+
+### Providing Valuable Feedback : `feedback`
+> "Your voice is the most powerful tool you have. Be the change you want to see."
+> — Anonymous
+
+When you use the feedback command, you'll receive a message containing a link to our dedicated Google feedback form. Alternatively, you can simply click on the feedback button located on the Menu bar. Your journey towards change starts there.
 
 Format: `feedback`
 
-* A message containing the hyperlink to the feedback page will be displayed.
-* The prompt `Opened Feedback Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct feedback command.
-    * Examples of invalid commands: `feedbacks`, `FEEDBACK` etc.
-
 ![feedback message](images/feedbackMessage.png)
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+</div>
+
+
+### Exiting the program : `exit`
+> "The pain of parting is nothing to the joy of meeting again."
+> — Charles Dickens
+
+When you're ready to take a break or end your session, simply use the `exit` command.
+Alternatively, you can also click the close button on the window to exit. It's like closing the door on your way out, knowing that your friends will be right here when you return.
+
+Format: `exit`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* Your data would be saved automatically, feel free to exit anytime!
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`."
+</div>
+
 
 ### Saving the data
 
@@ -362,7 +459,7 @@ _Details coming soon ..._
 
 | Action           | Format, Examples                                                                                                                                                                                                                                                               |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close friend c/CS1231S CS2103T`                                                                                         |
+| **Add**          | `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t`                                                                         |
 | **Clear**        | `clear`                                                                                                                                                                                                                                                                        |
 | **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
 | **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
@@ -371,3 +468,4 @@ _Details coming soon ..._
 | **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
 | **List**         | `list`                                                                                                                                                                                                                                                                         |
 | **Help**         | `help`                                                                                                                                                                                                                                                                         |
+| **Feedback**     | `feedback`                                                                                                                                                                                                                                                                     |
