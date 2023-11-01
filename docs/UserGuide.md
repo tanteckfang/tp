@@ -369,7 +369,8 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
-  ![result for 'findcourse cs2103t ma1521'](images/FindCourse.png)
+
+  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
 
 
 ### Deleting a student : `delete`
