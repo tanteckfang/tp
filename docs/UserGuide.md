@@ -292,41 +292,84 @@ Examples:
 
 ### Editing a student : `edit`
 
-Edits an existing student in the address book.
+Picture this: your best friend has changed his phone number, and you want to ensure his details are updated. With the "edit" feature, modifying any of your contact's details is a piece of cake.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
 [c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags or courses by typing `t/` or `c/` respectively without
-    specifying any tags after it.
-* Here are the 3 types of course modifications:
-  1. To add a course, use c/add-[COURSE_TO_ADD]. 
-  2. To delete a course, use c/del-[COURSE_TO_DELETE].
-  3. To edit a course directly, use c/[ORIGINAL_COURSE-NEW_COURSE].
-* The three types of course modifications can be chained together in any amount in a single command.
-  * However, the collective chain of modifications will not be executed if any one modification in the chain is invalid.
-  * Invalidity arises from either:
-  
-     (1) Invalid course provided (i.e. CS210333) 
-  
-     (2) The course you are trying to delete (Type ii) or the course you are trying to modify directly (Type iii) does not exist. There are two possible reasons:
-      1. The student does not have the specified course originally. if a student does not have CS2103T originally, performing "c/del-CS2103T" alone will cause an error.
-      2. The student has the specified course originally, but because you can chain a list of modifications together, and the modifications are performed in order, it is possible that the course might not exist after a certain change. Performing "c/del-CS2103T c/del-CS2103T" will cause an error, because the first change is performed before the second, and CS2103T does not exist after the first change.
+- Provide the **index number** of the student based on the **student list currently displayed**, along with the updated details you wish to change to.
+- At least one of the optional fields must be provided.
+- Existing values will be updated to the input values. The values of the unspecified fields will remain unchanged. 
 
-  
+| Field            | Tag | Description                                | Requirement | Special Notes                                                                                                                                                               |
+|------------------|-----|--------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `INDEX`          | -   | Index of contact in displayed list         | Compulsory  | -                                                                                                                                                                           |
+| `NAME`           | n/  | Updated name of contact                    | Optional    | Cannot provide a name that already exists in the address book.                                                                                                              |
+| `PHONE`          | p/  | Updated phone number of contact            | Optional    | -                                                                                                                                                                           |
+| `EMAIL`          | e/  | Updated email of contact                   | Optional    | -                                                                                                                                                                           |
+| `ADDRESS`        | a/  | Updated address of contact                 | Optional    | -                                                                                                                                                                           |
+| `TELEHANDLE`     | th/ | Updated telehandle of contact              | Optional    | - A student can only have one telehandle. <br/> - Telehandles must start with "@".                                                                                          |
+| `TAG`            | t/  | Updated tag of contact                     | Optional    | - Only 3 types of tags (Friend, Close Friend and Emergency) are allowed. <br/> -The rule that there is a maximum of 2 persons with emergency tags is enforced here as well. |
+| `COURSE_CHANGE`  | c/  | Course change to be performed for contact  | Optional    | See below for more information.                                                                                                                                             |
+
+
+
+**More information about the `COURSE_CHANGE` field:**
+- As mentioned above, course changes are specified using the `c/` tag. In addition, they need to be in one of three formats specified below.
+- All course names specified must be valid. For example, `CS2103T` is valid while `CS210333` is invalid. 
+- You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.
+  - E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command. 
+
+| Required Format                    | Description                                               | Special Notes                                                                |
+|------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------------------|
+| `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.   |
+| `c/add-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed. |
+| `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.                                                                           |
+
+<div markdown="span" class="alert alert-warning">
+
+**:exclamation: Caution:** <br>
+* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it. 
+* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1. 
+* An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid. 
+</div>
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Pro Tip: **<br>
+* You can include `t/` in your edit command to remove all of a person's tags.
+* You can include `c/` your edit command to remove all of a peron's courses.
+</div>
+
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334` Assuming the first person in the address book list has courses CS2103T and MA2001 originally, this command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order: add MA1521, delete CS2103T (valid because CS2103T exists originally), change MA2001 to ST2334 (valid because MA2001 exists originally). The first person now has courses MA1521 and ST2334. 
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-   
+* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in the address book, which as seen in the "Before" picture below, is John. 
+  * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below. 
+
 Before:
+
 ![edit student](images/editFeatureBefore.png)
 
 After:
+
 ![edit student](images/editFeatureAfter.png)
+
+* `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
+
+
+### Clearing courses of all students: `clear-courses`
+
+A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
+
+**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
+
+Before:
+
+![clear-courses_before](images/ClearCoursesBefore.png)
+
+After:
+
+![clear-courses_after](images/ClearCoursesAfter.png)
+
 
 ### Locating students by name: `findstudent`
 
@@ -363,7 +406,8 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
-  ![result for 'findcourse cs2103t ma1521'](images/FindCourse.png)
+
+  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
 
 
 ### Deleting a student : `delete`

@@ -1,0 +1,31 @@
+@startuml
+skinparam activityBackgroundColor LightYellow
+skinparam activityBorderColor LightBlue
+skinparam activityArrowColor Black
+skinparam activityArrowFontSize 15
+
+start
+
+:User inputs "findstudent Alice Bob";
+
+:LogicManager processes the input;
+
+:AddressBookParser identifies the command type;
+
+:Instantiate FindStudentCommandParser;
+
+:Parse the student names "Alice Bob";
+
+:Instantiate StudentContainsKeywordsPredicate;
+
+:Instantiate FindStudentCommand with predicate;
+
+:Execute FindStudentCommand;
+
+:Model filters the person list using predicate;
+
+:Return filtered list as CommandResult;
+
+stop
+
+@enduml
