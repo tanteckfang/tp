@@ -6,7 +6,7 @@ title: User Guide
 
 Hello, School of Computing (SoC) students in the National University of Singapore (NUS)! 
 
-A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our platform, **NUSCourseMates**.
+A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our application, **NUSCourseMates**.
 
 ### Table of Contents
 * Table of Contents
@@ -15,21 +15,31 @@ A warm welcome to this user guide, your essential companion for navigating and m
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
-At present, there is a lack of suitable platforms for SoC students to conveniently connect with their coursemates.
+Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others too mentally exhausting? 
 
-**NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates. With this desktop application, you can effortlessly find fellow students in your courses, add their contacts into your own NUSCourseMates application, or even sort these contacts to keep them well-organised.
+**NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
+
+With this desktop application, you can effortlessly 
+* find fellow students in your courses, 
+* add their contacts into your own NUSCourseMates application, 
+* sort these contacts 
+* and do much more!
 
 **NUSCourseMates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
 
 ## Using this Guide
 
-Whether you're a novice just beginning your journey into the world of NUS SoC student connections, or a seasoned expert seeking new ways to enhance your experience with **NUSCourseMates**, this guide will cater to your needs. We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
+Whether you're a novice just beginning your journey into the world of NUS SoC student connections, or a seasoned expert seeking new ways to enhance your experience with **NUSCourseMates**, this guide will cater to your needs. 
+
+We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
 **Novice Users:** For those taking their first steps with **NUSCourseMates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCourseMates** to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
+**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCourseMates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
+**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
+
+If you have any doubts while using **NUSCourseMates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCourseMates@gmail.com_](mailto:NUSCourseMates@gmail.com). 
 
 In addition, here are some symbols to enhance your experience while using our guide: 
 
@@ -47,7 +57,7 @@ In addition, here are some symbols to enhance your experience while using our gu
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer. 
 
 2. Download the latest `NUSCourseMates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
 
@@ -72,8 +82,29 @@ In addition, here are some symbols to enhance your experience while using our gu
 
 6. Refer to the [Features](#features) below for details of each command.
 
---------------------------------------------------------------------------------------------------------------------
+### Using the Command Line Interface (CLI)  
+**NUSCourseMates** uses the Command Line Interface (CLI), which is a computer program that runs on **text-based inputs** to execute different tasks. 
 
+Do not worry if you are unfamiliar with CLI! It is definitely less daunting than it seems. 
+
+
+
+
+
+
+
+
+
+
+
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about CLI:**<br>
+* You will encounter the CLI in some SoC courses.
+* It will be beneficial for you to start learning about CLI early!
+</div>
+
+--------------------------------------------------------------------------------------------------------------------
 ## Features
 
 <div markdown="block" class="alert alert-info">
