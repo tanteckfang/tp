@@ -15,7 +15,7 @@ A warm welcome to this user guide, your essential companion for navigating and m
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
-Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others simply too exhausting for you? 
+Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others too exhausting for you? 
 
 **NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
 
@@ -130,14 +130,14 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
    * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
    * The application should state your Java version, as shown in the red circle below:
      <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/javaVersion.png" alt="javaVersion" width="500"/>
+        <img src="images/javaVersion.png" alt="javaVersion" width="600"/>
      </div>
     
     * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.). 
     
 2. Download the latest `NUSCourseMates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
      <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/jarDownload.png" alt="jarDownload" width="500"/>
+        <img src="images/jarDownload.png" alt="jarDownload" width="700"/>
      </div> 
 3. Copy the file to the folder you want to use as the _home folder_ for your NUSCourseMates.
 4. Double-click the file and an interface similar to the image below should appear. 
@@ -163,28 +163,55 @@ Do not worry! CLI is definitely less scary than it sounds. In fact, this is all 
 
 <img src="images/CommandResult.png" alt="CommandResult"/>
 
-Recall that the image above is the [Command Box](#2-command-box) from the previous section. It is the _heart_ of every CLI application. 
+Recall that the image above shows the [Command Box](#2-command-box) of **NUSCourseMates**. It is the _heart_ of **NUSCourseMates**. 
 
 Therefore, it is no surprise that you will be keying in commands, which are text-based inputs, in the [Command Box](#2-command-box) to execute different tasks. 
 
-While we know that you cannot wait to try out some new commands, let us first learn what a command is made of. 
+While we know that you cannot wait to try out some new commands, let us first learn what a command consists of.
 
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat2.png" alt="Command Format" width="650"/>
+ </div>
 
-Now that you have learnt about the components of a command, you are ready to use our application. Admittedly, we are as excited as you are! 
+A command is made up of multiple components: 
 
-Type the following commands in the command box and press **'Enter'** to execute them:
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`      | Specifies the task to be performed                                                                                                                              |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
+| Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
+Additionally, certain symbols in the command format are used to indicate additional properties.
+For example (with reference to the `add` command above): 
+
+| Prefix/Field Format | Example             | Description                                                                         |
+|---------------------|---------------------|-------------------------------------------------------------------------------------|
+| `n/NAME`            | `n/John Doe`        | Denotes a compulsory `name` field                                                   |
+| `[e/EMAIL]`         | `e/johnd@gmail.com` | Denotes an optional `email` field with a maximum of one email for the student       |
+| `[t/TAG]…​`         | `t/friend`          | Denotes an optional `tag` field with no limit on the number of tags for the student |
+
+Let us look at an example for the `add` command:
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat.png" alt="Command Format Example" width="650"/>
+ </div>
+
+When adding your new connections, you would modify the fields accordingly. Note that the command words and prefixes are case-sensitive, and their spelling must be accurate. 
+
+Now that you have learnt about the components of a command, you are ready to use our application! Admittedly, we are as excited as you are! 
+
+You could try typing one of the following commands in the command box. Do not forget to press **'Enter'** to see the magic happen!
 
 * `list` : Lists all contacts.
 * `add n/John Doe p/98765432 e/johnd@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a contact named `John Doe` to the Address Book.
 
 * `delete 3` : Deletes the 3rd contact shown in the current list.
 
-**Absolutely well done!** You are now ready to learn about the exciting [Features](#features) we have specially created for you. Have fun!
+**Great job!** You are now ready to learn about the exciting [features](#features) we have designed for you. Enjou!
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes about CLI:**<br>
-* You will encounter the CLI in some SoC courses.
-* It will be beneficial for you to start learning about CLI early!
+* As a SoC student, you will encounter the CLI in some SoC courses.
+* It will be beneficial for you to start learning the CLI early!
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
