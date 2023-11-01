@@ -273,7 +273,7 @@ Step 5. The FindCourseCommand is executed, and it uses the predicate to filter t
 Step 6. The result, which is the number of persons listed, is then shown to the user.
 
 
-The following sequence diagram shows how the findcourse operation works:
+The following sequence diagram shows how the `findcourse` operation works:
 
 ![FindcourseSequenceDiagram](images/FindcourseSequenceDiagram.png)
 
@@ -289,11 +289,11 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Aspect: How filter is done:**
 
-* **Alternative 1 (current choice):** Use a predicate object (CourseContainsKeywordsPredicate) to handle filtering.
+* **Alternative 1 (current choice):** Use a predicate object (`CourseContainsKeywordsPredicate`) to handle filtering.
     * Pros: Modular approach. Easy to extend with more search features in the future. Decouples filtering logic from the command itself.
     * Cons: Might be over-engineered if no other search features are planned.
 
-* **Alternative 2:** Implement filtering logic directly within the FindCourseCommand.
+* **Alternative 2:** Implement filtering logic directly within the `FindCourseCommand`.
     * Pros: Simpler without the need for additional objects or classes.
     * Cons: Makes the command class more complex. Harder to extend with more search features in the future.
 
@@ -310,10 +310,61 @@ The following activity diagram summarizes what happens when a user executes a ne
 ### 4.4 Find Student feature
 
 #### 4.4.1 Implementation
-{Explain here how the feature will be implemented}
+
+The `findstudent` feature is facilitated by the `FindCommand` class, which uses a `NameContainsKeywordsPredicate` object. This predicate object is designed to check if a person's name matches any of the specified keywords.
+The following operations are central to this feature:
+
+* `FindCommand#execute(Model model)` —  Executes the command, updating the filtered person list in the model based on the criteria set by the predicate.
+* `NameContainsKeywordsPredicate#test(Person person)` — Determines if the person's name matches any of the keyword criteria.
+
+
+Outlined below is an example usage scenario and how the `findstudent` mechanism functions at each stage.
+
+Step 1. The user aims to filter the list of persons to display only those whose names include "Alice" or "Bob". They input the command "findstudent Alice Bob".
+
+Step 2. The `LogicManager` obtains this command string and forwards it to the `AddressBookParser`.
+
+Step 3. The `AddressBookParser` discerns the type of command and engages the `FindCommandParser` to parse the name keywords.
+
+Step 4. The `FindCommandParser` constructs a `NameContainsKeywordsPredicate` object with the keywords "Alice" and "Bob" and subsequently initiates a `FindCommand` object using this predicate.
+
+Step 5. The `FindCommand` is then executed. Utilizing the predicate, it filters the list of persons in the model. The model's filtered list is updated to only show persons with names "Alice" or "Bob".
+
+Step 6. The outcome, which indicates the number of persons found, is presented to the user.
+
+The following sequence diagram shows how the `findstudent` operation works:
+
+![FindcourseSequenceDiagram](images/FindStudentSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
+</div>
+
+The following activity diagram summarizes what happens when a user executes a new command:
+
+<img src="images/FindstudentActivityDiagram.png" width="250" />
 
 #### 4.4.2 Design considerations:
-{Explain here how the feature will be implemented}
+
+**Aspect: How filter is done:**
+
+* **Alternative 1 (current choice):** Use a predicate object (`NameContainsKeywordsPredicate`) to handle filtering.
+    * Pros: Modular approach. Easy to extend with more search features in the future. Decouples filtering logic from the command itself.
+    * Cons: Might be over-engineered if no other search features are planned.
+
+* **Alternative 2:** Implement filtering logic directly within the `FindCommand`.
+    * Pros: Simpler without the need for additional objects or classes.
+    * Cons: Makes the command class more complex. Harder to extend with more search features in the future.
+
+**Aspect: Case-sensitivity in search:**
+
+* **Alternative 1 (current choice):** Case-insensitive search.
+    * Pros: Offers flexibility and a better user experience. Users don't need to worry about the exact casing of student names.
+    * Cons: Might yield results that the user wasn't expecting if there are student names with varied casing.
+
+* **Alternative 2:** Case-sensitive search.
+    * Pros: Precise search results based on exact casing.
+    * Cons: Less flexible. Users need to input the exact casing of student names.
 
 ### 4.5 Sort feature
 
