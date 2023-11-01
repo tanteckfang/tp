@@ -146,7 +146,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      </div>
 5. You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-). **Absolutely well done!**
 
-<div markdown="span" class="alert alert-warning">
+<div markdown="block" class="alert alert-warning">
 **:exclamation: Error messages shown** <br>
 
 Some MacOS users may see an error message when attempting to open the file. Do not be alarmed.
@@ -264,7 +264,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * Tags and Courses are case-insensitive when entered.
 </div>
 
-<div markdown="span" class="alert alert-warning">
+<div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
 * A student **MUST** have a name and phone number. <br>
@@ -326,7 +326,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 | `c/add-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed. |
 | `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.                                                                           |
 
-<div markdown="span" class="alert alert-warning">
+<div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
 * Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
@@ -577,7 +577,7 @@ NUSCoursemates data is saved in the hard disk automatically after any command th
 NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+* If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
