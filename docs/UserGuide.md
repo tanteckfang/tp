@@ -3,28 +3,45 @@ layout: page
 title: User Guide
 ---
 ![NUSCoursemates](images/Logo.jpg)
-NUSCourseMates is a **desktop app for managing your SoC friends contacts and their courses, optimized for use via a** [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp) while still having the benefits of a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
+
+Hello, School of Computing (SoC) students in the National University of Singapore (NUS)! 
+
+A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our application, **NUSCourseMates**.
 
 ### Table of Contents
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+
+## Introduction
+Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others too exhausting for you? 
+
+**NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
+
+With this desktop application, you can effortlessly 
+* **find** fellow students in your courses, 
+* **add** their contacts into your own NUSCourseMates application, 
+* **sort** these contacts 
+* and do **much more**!
+
+**NUSCourseMates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
+
 ## Using this Guide
 
-Welcome to the NUSCoursemates User Guide, your essential companion for navigating and maximizing the full potential of our platform. Whether you're a novice just stepping into the world of NUS SoC student connections or a seasoned expert seeking new ways to enhance your experience, this guide is tailored to meet your needs.
+Whether you're a novice just beginning your journey into the world of NUS SoC student connections, or a seasoned expert seeking new ways to enhance your experience with **NUSCourseMates**, this guide will cater to your needs. 
 
-NUSCoursemates is designed with simplicity in mind, and you don't need any prior knowledge or experience to get started. We'll walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
+We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Novice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Novice Users:** For those taking their first steps with **NUSCourseMates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing NUSCoursemates to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
+**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCourseMates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** We've streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
+**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
-Let's embark on this journey together, connecting NUS SoC students like never before.
+If you have any doubts while using **NUSCourseMates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCourseMates@gmail.com_](mailto:NUSCourseMates@gmail.com). 
 
-Here are some symbols that will give you a more enjoyable time using our guide: 
+In addition, here are some symbols that will give you a more enjoyable time using our guide:
 
 | Symbol               | Meaning                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -73,7 +90,7 @@ You can locate the list of commands you can perform in our [Command Summary](#co
 The Command Result section is your information hub. Here, you'll find the outcomes and feedback from your executed commands, helping you stay informed about the impact of your actions.
 
 ### 4. Student List Panel
-<img src="images/StudentListPanel.png" alt="StudentListPanel"/>
+<img src="images/StudentListPanel.png" alt="StudentListPanel"/> 
 
 The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
 
@@ -102,33 +119,102 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
-
+1. Ensure you have **Java 11** installed in your Computer.
+   * The method to check the Java version you use will be different for every operating system. 
+     * **Windows** users: <br>
+     Click on the '**Windows**' key and search for '**Command Prompt**' <br> 
+     * **Mac** users: <br> 
+     Click on '**F4**' and search for '**Terminal**'
+     * **Linux** users: <br>
+     Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+   * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
+   * The application should state your Java version, as shown in the red circle below:
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/javaVersion.png" alt="javaVersion" width="600"/>
+     </div>
+    
+    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.). 
+    
 2. Download the latest `NUSCourseMates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
-
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/jarDownload.png" alt="jarDownload" width="700"/>
+     </div> 
 3. Copy the file to the folder you want to use as the _home folder_ for your NUSCourseMates.
-
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar NUSCourseMates.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file and an interface similar to the image below should appear. 
    ![Ui](images/Ui.png)
+5. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-). 
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+<div markdown="span" class="alert alert-warning">
+**:exclamation: Error messages shown** <br>
 
-   * `list` : Lists all contacts.
+Some MacOS users may see an error message when attempting to open the file. Do not be alarmed.
+To resolve this, simply: 
+* Open the command terminal in Step 1. 
+* `cd` into the folder with the NUSCourseMates.jar file.  
+For example, if the jar file is in your 'Desktop' folder, type `cd Desktop`. 
+* Then, type `java -jar NUSCourseMates.jar`. 
+* The file should now run normally. 
+</div>
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t` : Adds a contact named `John Doe` to the Address Book.
+## Using the Command Line Interface (CLI)  
+**NUSCourseMates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
-   * `clear` : Deletes all contacts.
+<img src="images/CommandResult.png" alt="CommandResult"/>
 
-   * `exit` : Exits the app.
+Recall that the image above shows the [Command Box](#2-command-box) of **NUSCourseMates**. It is the _heart_ of **NUSCourseMates**. 
 
-6. Refer to the [Features](#features) below for details of each command.
+Therefore, it is no surprise that you will be keying in commands, which are text-based inputs, in the [Command Box](#2-command-box) to execute different tasks. 
+
+While we know that you cannot wait to try out some new commands, let us first learn what a command consists of.
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat2.png" alt="Command Format" width="650"/>
+ </div>
+
+A command is made up of multiple components: 
+
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`      | Specifies the task to be performed                                                                                                                              |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
+| Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
+Additionally, certain symbols in the command format are used to indicate additional properties.
+For example (with reference to the `add` command above): 
+
+| Prefix/Field Format | Example             | Description                                                                         |
+|---------------------|---------------------|-------------------------------------------------------------------------------------|
+| `n/NAME`            | `n/John Doe`        | Denotes a compulsory `name` field                                                   |
+| `[e/EMAIL]`         | `e/johnd@gmail.com` | Denotes an optional `email` field with a maximum of one email for the student       |
+| `[t/TAG]…​`         | `t/friend`          | Denotes an optional `tag` field with no limit on the number of tags for the student |
+
+Let us look at an example for the `add` command:
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat.png" alt="Command Format Example" width="650"/>
+ </div>
+
+When adding your new connections, you would modify the fields accordingly. Note that the command words and prefixes are case-sensitive, and their spelling must be accurate. 
+
+Now that you have learnt about the components of a command, you are ready to use our application! Admittedly, we are as excited as you are! 
+
+You could try typing one of the following commands in the command box. Do not forget to press **'Enter'** to see the magic happen!
+
+* `list` : Lists all contacts.
+* `add n/John Doe p/98765432 e/johnd@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a contact named `John Doe` to the Address Book.
+
+* `delete 3` : Deletes the 3rd contact shown in the current list.
+
+**Great job!** You are now ready to learn about the exciting [features](#features) we have designed for you. Enjou!
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about CLI:**<br>
+* As a SoC student, you will encounter the CLI in some SoC courses.
+* It will be beneficial for you to start learning the CLI early!
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Features
 
 <div markdown="block" class="alert alert-info">
@@ -307,7 +393,7 @@ Examples:
 ![delete student](images/deleteFeature.png)
 
 
-### Sorting by Courses: `sort course`
+### Sorting by Course: `sort course`
 
 Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
 
@@ -332,9 +418,38 @@ Example:
 Before Sorting:
 ![initial](images/BeforeSorting.png)
 
-
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
+
+
+### Sorting by Name: `sort name`
+As time passes, you might encounter people with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
+
+Here's the good news: The sort name command neatly **arranges the students** in your address book **by their names**, making it easier than ever to look up a student.
+
+Plus, you have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** lexicographic order.
+
+Format: `sort name-SORT_CRITERION`
+
+Examples:
+* `sort name-descending` sorts students by their names in descending order.
+* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
+
+
+### Sorting by Tags: `sort tags`
+The greatest joy in university is, without a doubt, to attend boring classes with your close friends. 
+
+With the `sort tags` command, NUSCourseMates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book. 
+
+These will be followed by contacts tagged as 'Friend', and 'Emergency', in that order of decreasing importance.  
+
+Format: `sort tags`
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note on contacts with multiple tags:**<br>
+For contacts with multiple tags, they will be sorted by the tag with the greatest importance.  
+For example, a contact with both 'Friend' and 'Emergency' tags will be placed in the address book with contacts tagged as 'Friend'
+</div>
 
 ### Clearing all entries : `clear`
 >"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
@@ -349,12 +464,17 @@ Format: `clear`
 Examples:
 ![result for 'clear'](images/Clear.png)
 
+<div markdown="block" class="alert alert-info">
+**:exclamation: This action cannot be undone!:**<br>
+* Only enter the `clear` command if you are sure that you wish to remove all existing contacts.
+</div>
+
 
 <div markdown="span" class="alert alert-warning">
-
 **:exclamation: Caution:** <br>
 * Once you run this command, you lose all data immediately.
 </div>
+
 
 ## Additional Features
 Congratulations, you've reached the end of our user guide, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
