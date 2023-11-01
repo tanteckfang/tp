@@ -253,9 +253,6 @@ The following operations are central to this feature:
 * `CourseContainsKeywordsPredicate#test(Person person)` — Checks if the person's course matches the keyword criteria.
 
 
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
 Given below is an example usage scenario and how the findcourse mechanism behaves at each step.
 
 Step 1. The user wants to filter the list of persons to show only those enrolled in the course "MA2001". They execute the command "findcourse MA2001".
@@ -280,7 +277,7 @@ The following sequence diagram shows how the findcourse operation works:
 
 ![FindcourseSequenceDiagram](images/FindcourseSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommand should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
