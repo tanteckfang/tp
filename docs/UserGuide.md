@@ -15,15 +15,15 @@ A warm welcome to this user guide, your essential companion for navigating and m
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
-Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others too mentally exhausting? 
+Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others simply too exhausting for you? 
 
 **NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
 
 With this desktop application, you can effortlessly 
-* find fellow students in your courses, 
-* add their contacts into your own NUSCourseMates application, 
-* sort these contacts 
-* and do much more!
+* **find** fellow students in your courses, 
+* **add** their contacts into your own NUSCourseMates application, 
+* **sort** these contacts 
+* and do **much more**!
 
 **NUSCourseMates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
 
@@ -90,7 +90,7 @@ You can locate the list of commands you can perform in our [Command Summary](#co
 The Command Result section is your information hub. Here, you'll find the outcomes and feedback from your executed commands, helping you stay informed about the impact of your actions.
 
 ### 4. Student List Panel
-<img src="images/StudentListPanel.png" alt="StudentListPanel"/>
+<img src="images/StudentListPanel.png" alt="StudentListPanel"/> 
 
 The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
 
@@ -119,46 +119,67 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer. 
-
+1. Ensure you have **Java 11** installed in your Computer.
+   * The method to check the Java version you use will be different for every operating system. 
+     * **Windows** users: <br>
+     Click on the '**Windows**' key and search for '**Command Prompt**' <br> 
+     * **Mac** users: <br> 
+     Click on '**F4**' and search for '**Terminal**'
+     * **Linux** users: <br>
+     Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+   * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
+   * The application should state your Java version, as shown in the red circle below:
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/javaVersion.png" alt="javaVersion" width="500"/>
+     </div>
+    
+    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.). 
+    
 2. Download the latest `NUSCourseMates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
-
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/jarDownload.png" alt="jarDownload" width="500"/>
+     </div> 
 3. Copy the file to the folder you want to use as the _home folder_ for your NUSCourseMates.
-
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar NUSCourseMates.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file and an interface similar to the image below should appear. 
    ![Ui](images/Ui.png)
+5. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-). 
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+<div markdown="span" class="alert alert-warning">
+**:exclamation: Error messages shown** <br>
 
-   * `list` : Lists all contacts.
+Some MacOS users may see an error message when attempting to open the file. Do not be alarmed.
+To resolve this, simply: 
+* Open the command terminal in Step 1. 
+* `cd` into the folder with the NUSCourseMates.jar file.  
+For example, if the jar file is in your 'Desktop' folder, type `cd Desktop`. 
+* Then, type `java -jar NUSCourseMates.jar`. 
+* The file should now run normally. 
+</div>
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t` : Adds a contact named `John Doe` to the Address Book.
+## Using the Command Line Interface (CLI)  
+**NUSCourseMates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
-   * `clear` : Deletes all contacts.
+<img src="images/CommandResult.png" alt="CommandResult"/>
 
-   * `exit` : Exits the app.
+Recall that the image above is the [Command Box](#2-command-box) from the previous section. It is the _heart_ of every CLI application. 
 
-6. Refer to the [Features](#features) below for details of each command.
+Therefore, it is no surprise that you will be keying in commands, which are text-based inputs, in the [Command Box](#2-command-box) to execute different tasks. 
 
-### Using the Command Line Interface (CLI)  
-**NUSCourseMates** uses the Command Line Interface (CLI), which is a computer program that runs on **text-based inputs** to execute different tasks. 
-
-Do not worry if you are unfamiliar with CLI! It is definitely less daunting than it seems. 
-
-
-
-
-
-
-
-
+While we know that you cannot wait to try out some new commands, let us first learn what a command is made of. 
 
 
+Now that you have learnt about the components of a command, you are ready to use our application. Admittedly, we are as excited as you are! 
 
+Type the following commands in the command box and press **'Enter'** to execute them:
+
+* `list` : Lists all contacts.
+* `add n/John Doe p/98765432 e/johnd@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a contact named `John Doe` to the Address Book.
+
+* `delete 3` : Deletes the 3rd contact shown in the current list.
+
+**Absolutely well done!** You are now ready to learn about the exciting [Features](#features) we have specially created for you. Have fun!
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes about CLI:**<br>
