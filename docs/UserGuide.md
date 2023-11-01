@@ -3,28 +3,35 @@ layout: page
 title: User Guide
 ---
 ![NUSCoursemates](images/Logo.jpg)
-NUSCourseMates is a **desktop app for managing your SoC friends contacts and their courses, optimized for use via a** [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp) while still having the benefits of a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
+
+Hello, School of Computing (SoC) students in the National University of Singapore (NUS)! 
+
+A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our platform, **NUSCourseMates**.
 
 ### Table of Contents
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+
+## Introduction
+At present, there is a lack of suitable platforms for SoC students to conveniently connect with their coursemates.
+
+**NUSCourseMates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates. With this desktop application, you can effortlessly find fellow students in your courses, add their contacts into your own NUSCourseMates application, or even sort these contacts to keep them well-organised.
+
+**NUSCourseMates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
+
 ## Using this Guide
 
-Welcome to the NUSCoursemates User Guide, your essential companion for navigating and maximizing the full potential of our platform. Whether you're a novice just stepping into the world of NUS SoC student connections or a seasoned expert seeking new ways to enhance your experience, this guide is tailored to meet your needs.
+Whether you're a novice just beginning your journey into the world of NUS SoC student connections, or a seasoned expert seeking new ways to enhance your experience with **NUSCourseMates**, this guide will cater to your needs. We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-NUSCoursemates is designed with simplicity in mind, and you don't need any prior knowledge or experience to get started. We'll walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
+**Novice Users:** For those taking their first steps with **NUSCourseMates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Notice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCourseMates** to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
 
-**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing NUSCoursemates to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
+**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
 
-**Seasoned Users:** We've streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
-
-Let's embark on this journey together, connecting NUS SoC students like never before.
-
-Here are some simples that will give you a more enjoyable time using our guide: 
+In addition, here are some symbols to enhance your experience while using our guide: 
 
 | Symbol               | Meaning                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -286,25 +293,36 @@ The greatest joy in university is, without a doubt, to attend boring classes wit
 
 With the `sort tags` command, NUSCourseMates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book. 
 
-These will be followed by contacts tagged as 'Friend', and 'Emergency', in that order.  
+These will be followed by contacts tagged as 'Friend', and 'Emergency', in that order of decreasing importance.  
 
 Format: `sort tags`
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Note on contacts with multiple tags:**<br>
+For contacts with multiple tags, they will be sorted by the tag with the greatest importance.  
+For example, a contact with both 'Friend' and 'Emergency' tags will be placed in the address book with contacts tagged as 'Friend'
+</div>
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+You have made too many meaningful connections, and it seems like you are running out of storage for your important computing assignments! 
+
+The `clear` command comes to the rescue by clearing all your contacts and freeing up storage on your computer. 
 
 Format: `clear`
-
 
 Examples:
 ![result for 'clear'](images/Clear.png)
 
+<div markdown="block" class="alert alert-info">
+**:exclamation: This action cannot be undone!:**<br>
+* Only enter the `clear` command if you are sure that you wish to remove all existing contacts.
+</div>
+
 
 ### Exiting the program : `exit`
 
-Exits the program.
+It is time for you to bring these connections offline. Have fun at tutorial with your newfound friend only after you have exited the program with the `exit` command.
 
 Format: `exit`
 * Program closes.
