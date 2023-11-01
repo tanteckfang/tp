@@ -41,7 +41,7 @@ We will walk you through every step, from the basics of setting up your profile 
 
 If you have any doubts while using **NUSCourseMates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCourseMates@gmail.com_](mailto:NUSCourseMates@gmail.com). 
 
-In addition, here are some symbols to enhance your experience while using our guide: 
+In addition, here are some symbols that will give you a more enjoyable time using our guide:
 
 | Symbol               | Meaning                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -53,6 +53,68 @@ In addition, here are some symbols to enhance your experience while using our gu
 **:information_source: Notes about the command format:**<br>
 * These symbols will be encapsulated in a box as such.
 </div>
+
+--------------------------------------------------------------------------------------------------------------------
+## User Interface
+In NUSCoursemates, we've designed our user interface with your convenience and ease of use in mind. Let's take a closer look at the key components of our user interface:
+![Labelled GUI](images/LabelledUI.png)
+
+| No  | Component          | Description                                                                                                                                           |
+|-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
+| 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
+| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
+| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
+| 5   | Course List Panel  | Displays a summary of all the courses in your address book, along with the total number of students in each course.                                   |
+| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                    |
+
+### 1. Menu Bar
+<img src="images/MenuBar.png" alt="MenuBar" height="30"/>
+
+The Menu Bar is your command center, offering access to a variety of functions, including the ability to switch between dark and light modes, and other useful features.
+
+| Menu Item | Description                                                             |
+|-----------|-------------------------------------------------------------------------|
+| File      | Exit the application to close it.                                       |
+| Theme     | Choose between Light or Dark mode for your preferred look.              |
+| Feedback  | Share your thoughts and suggestions with us through the feedback link.  |
+| Help      | Access the User Guide to get assistance and answers to your questions.  |
+
+### 2. Command Box
+The Command Box is where the magic happens. It's your gateway to NUSCoursemates, allowing you to input commands and perform a wide range of operations with ease.
+
+You can locate the list of commands you can perform in our [Command Summary](#command-summary).
+### 3. Command Result
+<img src="images/CommandResult.png" alt="CommandResult"/>
+
+The Command Result section is your information hub. Here, you'll find the outcomes and feedback from your executed commands, helping you stay informed about the impact of your actions.
+
+### 4. Student List Panel
+<img src="images/StudentListPanel.png" alt="StudentListPanel"/>
+
+The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
+
+You will be able to view each student's details such as:
+* Phone number
+* Address
+* Telehandle
+* Email
+* Courses
+* Tags
+
+### 5. Course List Panel
+<img src="images/CourseListPanel.png" alt="CourseListPanel"/>
+
+The Course List Panel is your academic overview. It presents a summary of all the courses in your address book, along with the total number of students in each course. It's your academic compass.
+
+e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
+
+### 6. Tag List Panel
+<img src="images/TagListPanel.png" alt="TagListPanel"/>
+
+The Tag List Panel allows you to personalize your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorize and manage your contacts with ease.
+
+e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
 
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
@@ -130,38 +192,41 @@ Do not worry if you are unfamiliar with CLI! It is definitely less daunting than
 </div>
 
 
-### Adding a person: `add`  
+### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
 > — Patrick Lindsay
 
-Adds a person to the address book.
+Embrace the opportunity to expand your circle and make lasting connections by adding new friends to your address book. Our user-friendly "Add" feature makes it simple and convenient to do just that.
+
+**How to do it:** With the `add` command, you can include a variety of details to create a comprehensive profile for your new friend. Here's what each element represents:
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
+* `n/NAME`: Your friend's name, because every name carries a unique story.
+* `p/PHONE_NUMBER`: Their contact number, ensuring you're always just a call or message away.
+* `e/EMAIL` (optional): Include their email address, making digital connections seamless.
+* `a/ADDRESS` (optional): Specify their physical address, ideal for planning meetups.
+* `th/TELEHANDLE` (optional): Provide their telehandle, ensuring quick and easy communication.
+* `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
+* `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
 
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
+* You can include any number of tags or courses (including none).
+* Only three tag types are allowed: 'Friend,' 'Close Friend,' and 'Emergency.'
+* To add a 'Close Friend' tag, use t/cf (case-insensitive).
+* Tags and Courses are case-insensitive when entered.
+</div>
 
-* A person MUST have a name and phone number
+<div markdown="span" class="alert alert-warning">
 
-* A person can have any number of tags or courses (including 0)
-
-* Only unique students can be added. It is considered a duplicate if an existing students and the current students to be added have name.
-
-* Courses added have to be existing and valid courses.
-
-* There are only three kinds of tags for NUSCourseMates: `Friend`, `Close Friend`, and `Emergency`. If any other tags are used, an error message will be displayed.
-
-* If you want to add a close friend tag , the format will be `t/cf`, it is case insensitive.
-
-* The tags 'Emergency', 'close friend', and 'friend' are case-insensitive; they will be saved as 'Emergency', 'Close Friend', and 'Friend' in our address book.
-
-* We can only tag up to two contacts with the Emergency tag.
-
-
-
+**:exclamation: Caution:** <br>
+* A student **MUST** have a name and phone number.
+* Duplicate students are identified by their names; ensure the name is unique.
+* Make sure the courses you add exist and are valid.
+* You can tag up to two contacts with the 'Emergency' tag.
 </div>
 
 Examples:
@@ -169,9 +234,11 @@ Examples:
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/Tom Lee p/81289900`
 
-### Listing all persons : `list`
+### Listing all students : `list`
 
-Shows a list of all persons in the address book.
+Discover the power of the "List" feature – your ultimate tool for staying organized and in the know about your student contacts. It's like having your address book at your fingertips, ready to provide you with a clear, comprehensive view of your network.
+
+**How to do it:** With the straightforward `list` command, you can effortlessly generate a list of all the students in your address book. It's as simple as typing "list."
 
 Format: `list`
 
@@ -434,7 +501,7 @@ _Details coming soon ..._
 
 | Action           | Format, Examples                                                                                                                                                                                                                                                               |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**          | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS th/TELEHANDLE [t/TAG] c/COURSE_1…​` <br> e.g., `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd t/close friend c/CS1231S CS2103T`                                                                                         |
+| **Add**          | `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t`                                                                         |
 | **Clear**        | `clear`                                                                                                                                                                                                                                                                        |
 | **Delete**       | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
 | **Edit**         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
