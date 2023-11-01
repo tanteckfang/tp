@@ -329,14 +329,14 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 <div markdown="span" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
-* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it. 
-* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1. 
+* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
+* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1.<br> 
 * An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid. 
 </div>
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Pro Tip: **<br>
+**:information_source: Pro Tip:**<br>
 * You can include `t/` in your edit command to remove all of a person's tags.
 * You can include `c/` your edit command to remove all of a peron's courses.
 </div>
