@@ -791,6 +791,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Tag**: A label or keyword assigned to a contact in an address book, to categorize, annotate, or identify specific characteristics or affiliations of that person.
 
 --------------------------------------------------------------------------------------------------------------------
 
