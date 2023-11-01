@@ -415,14 +415,19 @@ Examples:
 > "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
 > — Unknown
 
-Deletes the specified student from the address book.
+In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your address book. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat address book.
 
 Format: `delete INDEX`
 
-* Deletes the student at the specified `INDEX`.
+* `INDEX`: Deletes the student at the specified mark.
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 * The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
+</div>
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
@@ -489,7 +494,7 @@ Students with multiple tags will be sorted by the tag with the greatest importan
 For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
 </div>
 
-### Clearing all entries : `clear`
+### Clearing all students : `clear`
 >"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
 > — Richie Norton
 
@@ -515,7 +520,7 @@ Examples:
 
 
 ## Additional Features
-Congratulations, you've reached the end of our user guide, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
+Congratulations, you've reached the end of our core features to modify NUSCoursemates, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
 But before you go, let's talk about a few extra features that can make your NUSCoursemates experience even better. We've designed these features with you in mind, making sure your journey with us is as seamless as it gets.
 
@@ -565,8 +570,8 @@ Format: `exit`
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
-* Your data would be saved automatically, feel free to exit anytime!
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`."
+* Your data would be saved automatically, feel free to exit anytime! <br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`." <br>
 </div>
 
 
