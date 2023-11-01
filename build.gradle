@@ -71,7 +71,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveFileName = 'NUSCourseMates.jar'
+    archiveFileName = 'NUSCoursemates.jar'
 }
 
 defaultTasks 'clean', 'test'

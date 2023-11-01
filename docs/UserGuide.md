@@ -3,28 +3,45 @@ layout: page
 title: User Guide
 ---
 ![NUSCoursemates](images/Logo.jpg)
-NUSCourseMates is a **desktop app for managing your SoC friends contacts and their courses, optimized for use via a** [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp) while still having the benefits of a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface). If you can type fast, NUSCourseMates can get your contact management tasks done faster than traditional GUI apps.
+
+Hello, School of Computing (SoC) students in the National University of Singapore (NUS)! 
+
+A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our application, **NUSCoursemates**.
 
 ### Table of Contents
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+
+## Introduction
+Are you a SoC student looking to build new and meaningful connections with others in university? Do you find a lack of suitable applications for you to conveniently connect with your coursemates? Or is connecting with others too exhausting for you? 
+
+**NUSCoursemates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
+
+With this desktop application, you can effortlessly 
+* **find** fellow students in your courses, 
+* **add** their contacts into your own NUSCoursemates application, 
+* **sort** these contacts, 
+* and do **much more**!
+
+**NUSCoursemates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
+
 ## Using this Guide
 
-Welcome to the NUSCoursemates User Guide, your essential companion for navigating and maximizing the full potential of our platform. Whether you're a novice just stepping into the world of NUS SoC student connections or a seasoned expert seeking new ways to enhance your experience, this guide is tailored to meet your needs.
+Whether you're a novice just beginning your journey into the world of NUS SoC student connections, or a seasoned expert seeking new ways to enhance your experience with **NUSCoursemates**, this guide will cater to your needs. 
 
-NUSCoursemates is designed with simplicity in mind, and you don't need any prior knowledge or experience to get started. We'll walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
+We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Novice Users:** For those taking their first steps with NUSCoursemates, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Novice Users:** For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing NUSCoursemates to your preferences by exploring our comprehensive [table of contents](#table-of-contents).
+**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** We've streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find what you need with ease.
+**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
-Let's embark on this journey together, connecting NUS SoC students like never before.
+If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
 
-Here are some symbols that will give you a more enjoyable time using our guide: 
+In addition, here are some symbols that will give you a more enjoyable time using our guide:
 
 | Symbol               | Meaning                                                                                        |
 |----------------------|------------------------------------------------------------------------------------------------|
@@ -73,7 +90,7 @@ You can locate the list of commands you can perform in our [Command Summary](#co
 The Command Result section is your information hub. Here, you'll find the outcomes and feedback from your executed commands, helping you stay informed about the impact of your actions.
 
 ### 4. Student List Panel
-<img src="images/StudentListPanel.png" alt="StudentListPanel"/>
+<img src="images/StudentListPanel.png" alt="StudentListPanel"/> 
 
 The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
 
@@ -102,47 +119,110 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have **Java 11** installed in your Computer.
+   * The method to check the Java version you use will be different for every operating system. 
+     * **Windows** users: <br>
+     Click on the '**Windows**' key and search for '**Command Prompt**' <br> 
+     * **Mac** users: <br> 
+     Click on '**F4**' and search for '**Terminal**'
+     * **Linux** users: <br>
+     Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+   * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
+   * The application should state your Java version, as shown in the red circle below:
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/javaVersion.png" alt="javaVersion" width="600"/> 
+     </div>
+    
+    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.) to download **Java 11**. 
+    
+2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/jarDownload.png" alt="jarDownload" width="725"/> 
+     </div>  
+3. Copy the file to the folder you want to use as the _home folder_ for your NUSCoursemates.
+4. Double-click the file and an interface similar to the image below should appear.
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/Ui.png" alt="Ui"/>
+     </div>
+5. You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-). **Absolutely well done!**
 
-2. Download the latest `NUSCourseMates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Error messages shown** <br>
 
-3. Copy the file to the folder you want to use as the _home folder_ for your NUSCourseMates.
+Some MacOS users may see an error message when attempting to open the file. Do not be alarmed.
+To resolve this, simply: 
+* Open the command terminal in Step 1. <br> 
+* `cd` into the folder with the NUSCoursemates.jar file.  <br> 
+For example, if the jar file is in your 'Desktop' folder, type `cd Desktop`. <br> 
+* Then, type `java -jar NUSCoursemates.jar`. <br>
+* The file should now run normally. <br>
+</div>
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar NUSCourseMates.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+## Using the Command Line Interface (CLI)  
+**NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
-   * `list` : Lists all contacts.
+<img src="images/CommandResult.png" alt="CommandResult"/>
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t` : Adds a contact named `John Doe` to the Address Book.
+Recall that the image above shows the [Command Box](#2-command-box) of **NUSCoursemates**. It is the _heart_ of **NUSCoursemates**. 
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+Therefore, it is no surprise that you will be keying in commands, which are text-based inputs, in the [Command Box](#2-command-box) to execute different tasks. 
 
-   * `clear` : Deletes all contacts.
+While we know that you cannot wait to try out some new commands, let us first learn what a command consists of:
 
-   * `exit` : Exits the app.
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat2.png" alt="Command Format" width="650"/>
+ </div>
 
-6. Refer to the [Features](#features) below for details of each command.
+A command is made up of multiple components: 
+
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`      | Specifies the task to be performed                                                                                                                              |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
+| Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
+Additionally, certain symbols in the command format are used to indicate additional properties.
+For example (with reference to the `add` command above): 
+
+| Prefix/Field Format | Example             | Description                                                                         |
+|---------------------|---------------------|-------------------------------------------------------------------------------------|
+| `n/NAME`            | `n/John Doe`        | Denotes a compulsory `name` field                                                   |
+| `[e/EMAIL]`         | `e/johnd@gmail.com` | Denotes an optional `email` field with a maximum of one email for the student       |
+| `[t/TAG]…​`         | `t/friend`          | Denotes an optional `tag` field with no limit on the number of tags for the student |
+
+Let us look at an example for the `add` command:
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat.png" alt="Command Format Example" width="650"/>
+ </div>
+
+When adding your new connections, you would modify the fields accordingly. Note that the command words and prefixes are case-sensitive, and their spelling must be accurate. 
+
+Now that you have learnt about the components of a command, you are ready to use our application! Admittedly, we are as excited as you are! 
+
+You could try typing one of the following commands in the command box. Afterwards, press **'Enter'** to see the magic happen!
+
+* `list` : Lists all contacts.
+
+* `add n/John Doe p/98765432 e/johnd@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a contact named `John Doe` to the Address Book.
+
+* `delete 3` : Deletes the 3rd contact shown in the current list.
+
+**Great job!** You are now ready to learn about the exciting [features](#features) we have designed for you. Enjoy!
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about CLI:**<br>
+* As a SoC student, you will encounter the CLI in some SoC courses.
+* It is beneficial for you to start learning the CLI early!
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Features
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Notes about the command format:**<br>
-
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/close friend`, `t/friend t/emergency` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -153,6 +233,8 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+## Basic Administration
+This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
 
 ### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
@@ -182,13 +264,21 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * Tags and Courses are case-insensitive when entered.
 </div>
 
-<div markdown="span" class="alert alert-warning">
+<div markdown="block" class="alert alert-warning">
 
+<<<<<<< HEAD
 **:exclamation: Caution:**<br>
 * A student **MUST** have a name and phone number.
 * Duplicate students are identified by their names; ensure the name is unique.
 * Make sure the courses you add exist and are valid.
 * You can tag up to two contacts with the 'Emergency' tag.
+=======
+**:exclamation: Caution:** <br>
+* A student **MUST** have a name and phone number. <br>
+* Duplicate students are identified by their names; ensure the name is unique. <br>
+* Make sure the courses you add exist and are valid. <br>
+* You can tag up to two contacts with the 'Emergency' tag. <br>
+>>>>>>> ea619eeabfe4a6dc3d059bda771be92f80e3e923
 </div>
 
 Examples:
@@ -210,41 +300,84 @@ Examples:
 
 ### Editing a student : `edit`
 
-Edits an existing student in the address book.
+Picture this: your best friend has changed his phone number, and you want to ensure his details are updated. With the "edit" feature, modifying any of your contact's details is a piece of cake.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
 [c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags or courses by typing `t/` or `c/` respectively without
-    specifying any tags after it.
-* Here are the 3 types of course modifications:
-  1. To add a course, use c/add-[COURSE_TO_ADD]. 
-  2. To delete a course, use c/del-[COURSE_TO_DELETE].
-  3. To edit a course directly, use c/[ORIGINAL_COURSE-NEW_COURSE].
-* The three types of course modifications can be chained together in any amount in a single command.
-  * However, the collective chain of modifications will not be executed if any one modification in the chain is invalid.
-  * Invalidity arises from either:
-  
-     (1) Invalid course provided (i.e. CS210333) 
-  
-     (2) The course you are trying to delete (Type ii) or the course you are trying to modify directly (Type iii) does not exist. There are two possible reasons:
-      1. The student does not have the specified course originally. if a student does not have CS2103T originally, performing "c/del-CS2103T" alone will cause an error.
-      2. The student has the specified course originally, but because you can chain a list of modifications together, and the modifications are performed in order, it is possible that the course might not exist after a certain change. Performing "c/del-CS2103T c/del-CS2103T" will cause an error, because the first change is performed before the second, and CS2103T does not exist after the first change.
+- Provide the **index number** of the student based on the **student list currently displayed**, along with the updated details you wish to change to.
+- At least one of the optional fields must be provided.
+- Existing values will be updated to the input values. The values of the unspecified fields will remain unchanged. 
 
-  
+| Field            | Tag | Description                                | Requirement | Special Notes                                                                                                                                                               |
+|------------------|-----|--------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `INDEX`          | -   | Index of contact in displayed list         | Compulsory  | -                                                                                                                                                                           |
+| `NAME`           | n/  | Updated name of contact                    | Optional    | Cannot provide a name that already exists in the address book.                                                                                                              |
+| `PHONE`          | p/  | Updated phone number of contact            | Optional    | -                                                                                                                                                                           |
+| `EMAIL`          | e/  | Updated email of contact                   | Optional    | -                                                                                                                                                                           |
+| `ADDRESS`        | a/  | Updated address of contact                 | Optional    | -                                                                                                                                                                           |
+| `TELEHANDLE`     | th/ | Updated telehandle of contact              | Optional    | - A student can only have one telehandle. <br/> - Telehandles must start with "@".                                                                                          |
+| `TAG`            | t/  | Updated tag of contact                     | Optional    | - Only 3 types of tags (Friend, Close Friend and Emergency) are allowed. <br/> -The rule that there is a maximum of 2 persons with emergency tags is enforced here as well. |
+| `COURSE_CHANGE`  | c/  | Course change to be performed for contact  | Optional    | See below for more information.                                                                                                                                             |
+
+
+
+**More information about the `COURSE_CHANGE` field:**
+- As mentioned above, course changes are specified using the `c/` tag. In addition, they need to be in one of three formats specified below.
+- All course names specified must be valid. For example, `CS2103T` is valid while `CS210333` is invalid. 
+- You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.
+  - E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command. 
+
+| Required Format                    | Description                                               | Special Notes                                                                |
+|------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------------------|
+| `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.   |
+| `c/add-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed. |
+| `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.                                                                           |
+
+<div markdown="block" class="alert alert-warning">
+
+**:exclamation: Caution:** <br>
+* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
+* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1.<br> 
+* An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid. 
+</div>
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Pro Tip:**<br>
+* You can include `t/` in your edit command to remove all of a person's tags.
+* You can include `c/` your edit command to remove all of a peron's courses.
+</div>
+
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334` Assuming the first person in the address book list has courses CS2103T and MA2001 originally, this command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order: add MA1521, delete CS2103T (valid because CS2103T exists originally), change MA2001 to ST2334 (valid because MA2001 exists originally). The first person now has courses MA1521 and ST2334. 
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-   
+* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in the address book, which as seen in the "Before" picture below, is John. 
+  * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below. 
+
 Before:
+
 ![edit student](images/editFeatureBefore.png)
 
 After:
+
 ![edit student](images/editFeatureAfter.png)
+
+* `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
+
+
+### Clearing courses of all students: `clear-courses`
+
+A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
+
+**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
+
+Before:
+
+![clear-courses_before](images/ClearCoursesBefore.png)
+
+After:
+
+![clear-courses_after](images/ClearCoursesAfter.png)
+
 
 ### Locating students by name: `findstudent`
 
@@ -281,7 +414,8 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
-  ![result for 'findcourse cs2103t ma1521'](images/FindCourse.png)
+
+  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
 
 
 ### Deleting a student : `delete`
@@ -289,14 +423,19 @@ Examples:
 > "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
 > — Unknown
 
-Deletes the specified student from the address book.
+In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your address book. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat address book.
 
 Format: `delete INDEX`
 
-* Deletes the student at the specified `INDEX`.
+* `INDEX`: Deletes the student at the specified mark.
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 * The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
+</div>
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
@@ -305,7 +444,7 @@ Examples:
 ![delete student](images/deleteFeature.png)
 
 
-### Sorting by Courses: `sort course`
+### Sorting by Course: `sort course`
 
 Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
 
@@ -330,69 +469,123 @@ Example:
 Before Sorting:
 ![initial](images/BeforeSorting.png)
 
-
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
 
 
-### Clearing all entries : `clear`
+### Sorting by Name: `sort name`
+As time passes, you might encounter students with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
 
-Clears all entries from the address book.
+Here's the good news: The sort name command neatly **arranges the students** in your address book **by their names**, making it easier than ever to look up a student.
+
+Plus, you have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** lexicographic order.
+
+Format: `sort name-SORT_CRITERION`
+
+Examples:
+* `sort name-descending` sorts students by their names in descending order.
+* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
+
+
+### Sorting by Tags: `sort tags`
+The greatest joy in university is, without a doubt, to attend boring classes with your close friends. 
+
+With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book. 
+
+These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.  
+
+Format: `sort tags`
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note on students with multiple tags:**<br>
+Students with multiple tags will be sorted by the tag with the greatest importance.  
+For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
+</div>
+
+### Clearing all students : `clear`
+>"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
+> — Richie Norton
+
+Clearing all entries is your path to a new chapter in your NUSCoursemates. In NUSCoursemates, we've made it easy for you to clear all student entries when needed.
+
+This feature helps you start fresh or declutter your address book with a single command. Follow the simple steps below to clear all entries from your address book:
 
 Format: `clear`
-
 
 Examples:
 ![result for 'clear'](images/Clear.png)
 
-
-### Exiting the program : `exit`
-
-Exits the program.
-
-Format: `exit`
-* Program closes.
-* `Unknown command` appears when the user does not type the correct exit command.
-  * Examples of invalid commands: `exits`, `EXIT` etc.
+<div markdown="block" class="alert alert-info">
+**:exclamation: This action cannot be undone!:**<br>
+* Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
+</div>
 
 
-### Viewing help : `help`
+## Additional Features
+Congratulations, you've reached the end of our core features to modify NUSCoursemates, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
-Shows a message which explains how the user should access the help page.
+But before you go, let's talk about a few extra features that can make your NUSCoursemates experience even better. We've designed these features with you in mind, making sure your journey with us is as seamless as it gets.
+
+### Seeking help : `help`
+> "Ignorance has always been the weapon of tyrants; enlightenment the salvation of the free."
+> — Bill Richardson
+
+Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
+
+Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
 Format: `help`
 
-* A message containing the hyperlink to the help page will be displayed.
-* The prompt `Opened Help Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct help command. 
-  * Examples of invalid commands: `helps`, `HELP` etc.
-
 ![help message](images/helpMessage.png)
 
-### Viewing Feedback : `feedback`
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Caution:** <br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+</div>
 
-Shows a message which explains how the user should access the feedback page to give their feedback with regard
-to NUSCourseMates.
+### Providing Valuable Feedback : `feedback`
+> "Your voice is the most powerful tool you have. Be the change you want to see."
+> — Anonymous
+
+When you use the feedback command, you'll receive a message containing a link to our dedicated Google feedback form. Alternatively, you can simply click on the feedback button located on the Menu bar. Your journey towards change starts there.
 
 Format: `feedback`
 
-* A message containing the hyperlink to the feedback page will be displayed.
-* The prompt `Opened Feedback Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct feedback command.
-    * Examples of invalid commands: `feedbacks`, `FEEDBACK` etc.
-
 ![feedback message](images/feedbackMessage.png)
+
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Caution:** <br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+</div>
+
+
+### Exiting the program : `exit`
+> "The pain of parting is nothing to the joy of meeting again."
+> — Charles Dickens
+
+When you're ready to take a break or end your session, simply use the `exit` command.
+Alternatively, you can also click the close button on the window to exit. It's like closing the door on your way out, knowing that your friends will be right here when you return.
+
+Format: `exit`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* Your data would be saved automatically, feel free to exit anytime! <br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`." <br>
+</div>
+
 
 ### Saving the data
 
-NUSCourseMates data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+NUSCoursemates data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
-NUSCourseMates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, NUSCourseMates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+* If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
@@ -402,20 +595,17 @@ _Details coming soon ..._
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
-**Q**: How do I check the Java version I am using?<br>
-**A**: Open the Terminal application (if you are using MacOS) or Command Prompt (if you are using Windows). Type `java -version` and hit Enter. The first number that appears in the response refers to the Java version you are currently using.    
-
 **Q**: How do I install Java 11, the Java version required by NUSCourseMates?<br>
 **A**: You may download Java 11 from this [link](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html).  
 
 **Q**: I accidentally closed the application. Is my data lost?<br>
-**A**: Fret not! NUSCourseMates saves your data after every change you make, so you won't lose any data.
+**A**: Fret not! NUSCoursemates saves your data after every change you make, so you won't lose any data.
 
-**Q**: Do I need an active internet connection to use NUSCourseMates?<br>
-**A**: You can use NUSCourseMates offline, but you'll need an internet connection to download it to your device.  
+**Q**: Do I need an active internet connection to use NUSCoursemates?<br>
+**A**: You can use NUSCoursemates offline, but you'll need an internet connection to download it to your device.  
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSCourseMates home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSCoursemates home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -438,3 +628,4 @@ _Details coming soon ..._
 | **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
 | **List**         | `list`                                                                                                                                                                                                                                                                         |
 | **Help**         | `help`                                                                                                                                                                                                                                                                         |
+| **Feedback**     | `feedback`                                                                                                                                                                                                                                                                     |
