@@ -184,7 +184,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 <div markdown="span" class="alert alert-warning">
 
-**:exclamation: Caution:** <br>
+**:exclamation: Caution:**<br>
 * A student **MUST** have a name and phone number.
 * Duplicate students are identified by their names; ensure the name is unique.
 * Make sure the courses you add exist and are valid.
