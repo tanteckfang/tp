@@ -433,17 +433,9 @@ Aspect: How the sorted list should be stored.
 Ultimately, Alternative 1 is chosen over Alternative 2. Since the application is being used frequently, the user's preference should be saved so that he does not need to run the sort command again to see a sorted list.  
 Moreover, there are checks and error handling to ensure that the `PersonSorter` objects are able to sort the list correctly.
 
-### 4.6 List feature
+### 4.6 Tag feature
 
 #### 4.6.1 Implementation
-{Explain here how the feature will be implemented}
-
-#### 4.6.2 Design considerations:
-{Explain here how the feature will be implemented}
-
-### 4.7 Tag feature
-
-#### 4.7.1 Implementation
 
 The Tag feature is facilitated by the `Tag` class, which contains an attribute `TagType` to determine the type of tag. The creation and validation of tags are significantly associated with the `TagUtil` class.
 
@@ -485,7 +477,7 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagActivityDiagram.png)
 
-#### 4.7.2 Design considerations:
+#### 4.6.2 Design considerations:
 
 **Aspect: Validation of the "Emergency" tag count:**
 
@@ -523,9 +515,9 @@ The following sequence diagram shows how the Tag operation works by calling the 
     * Cons: Might deviate from the main purpose of the application, leading to inconsistent use.
     * Cons: Users might add unrelated or inappropriate tags, leading to clutter.
 
-### 4.8 Telehandle feature
+### 4.7 Telehandle feature
     
-#### 4.8.1 Implementation
+#### 4.7.1 Implementation
 
 The Telehandle mechanism is facilitated by the `Telehandle` and `AddCommand` classes.
 
@@ -553,7 +545,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 ![TelehandleActivityDiagram](images/TelehandleActivityDiagram.png)
 
-#### 4.8.2 Design considerations:
+#### 4.7.2 Design considerations:
 
 **Aspect: Input constraints in `Telehandle`:**
 
@@ -566,9 +558,9 @@ The following activity diagram summarizes what happens when a user executes the 
     * Cons: `Telehandle` fields that rely solely on user input may not differ significantly from other types of 
       user-provided data such as `Address` and `Email`. This may cause confusion to the users when viewing the details
 
-### 4.9 Feedback feature
+### 4.8 Feedback feature
 
-#### 4.9.1 Implementation
+#### 4.8.1 Implementation
 
 The Feedback mechanism is facilitated by `FeedbackCommand`.
 
@@ -595,7 +587,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 ![FeedbackActivityDiagram](images/FeedbackActivityDiagram.png)
 
-#### 4.9.2 Design considerations:
+#### 4.8.2 Design considerations:
 
 **Aspect:  Storage medium for the logging of feedback received**
 
