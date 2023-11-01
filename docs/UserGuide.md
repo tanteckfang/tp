@@ -570,8 +570,8 @@ Format: `exit`
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
-* Your data would be saved automatically, feel free to exit anytime!
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`."
+* Your data would be saved automatically, feel free to exit anytime! <br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`." <br>
 </div>
 
 
