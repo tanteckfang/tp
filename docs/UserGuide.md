@@ -367,7 +367,7 @@ But before you go, let's talk about a few extra features that can make your NUSC
 
 Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
 
-Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive help page.
+Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
 Format: `help`
 
