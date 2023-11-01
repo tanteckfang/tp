@@ -509,13 +509,7 @@ Examples:
 
 <div markdown="block" class="alert alert-info">
 **:exclamation: This action cannot be undone!:**<br>
-* Only enter the `clear` command if you are sure that you wish to remove all existing contacts.
-</div>
-
-
-<div markdown="span" class="alert alert-warning">
-**:exclamation: Caution:** <br>
-* Once you run this command, you lose all data immediately.
+* Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
 </div>
 
 
@@ -536,9 +530,8 @@ Format: `help`
 
 ![help message](images/helpMessage.png)
 
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Note:**<br>
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Caution:** <br>
 * If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
 </div>
 
@@ -551,9 +544,9 @@ When you use the feedback command, you'll receive a message containing a link to
 Format: `feedback`
 
 ![feedback message](images/feedbackMessage.png)
-<div markdown="block" class="alert alert-info">
 
-**:information_source: Note:**<br>
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Caution:** <br>
 * If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
