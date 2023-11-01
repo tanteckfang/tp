@@ -153,6 +153,8 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+## Basic Administration
+This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
 
 ### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
@@ -334,54 +336,81 @@ Before Sorting:
 After `sort course size-ascending`:
 ![sort_course_size_ascending](images/SortCourseAscending.png)
 
-
 ### Clearing all entries : `clear`
+>"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
+> — Richie Norton
 
-Clears all entries from the address book.
+Clearing all entries is your path to a new chapter in your NUSCoursemates. In NUSCoursemates, we've made it easy for you to clear all student entries when needed.
+
+This feature helps you start fresh or declutter your address book with a single command. Follow the simple steps below to clear all entries from your address book:
 
 Format: `clear`
-
 
 Examples:
 ![result for 'clear'](images/Clear.png)
 
 
-### Exiting the program : `exit`
+<div markdown="span" class="alert alert-warning">
 
-Exits the program.
+**:exclamation: Caution:** <br>
+* Once you run this command, you lose all data immediately.
+</div>
 
-Format: `exit`
-* Program closes.
-* `Unknown command` appears when the user does not type the correct exit command.
-  * Examples of invalid commands: `exits`, `EXIT` etc.
+## Additional Features
+Congratulations, you've reached the end of our user guide, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
+But before you go, let's talk about a few extra features that can make your NUSCoursemates experience even better. We've designed these features with you in mind, making sure your journey with us is as seamless as it gets.
 
-### Viewing help : `help`
+### Seeking help : `help`
+> "Ignorance has always been the weapon of tyrants; enlightenment the salvation of the free."
+> — Bill Richardson
 
-Shows a message which explains how the user should access the help page.
+Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
+
+Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
 Format: `help`
 
-* A message containing the hyperlink to the help page will be displayed.
-* The prompt `Opened Help Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct help command. 
-  * Examples of invalid commands: `helps`, `HELP` etc.
-
 ![help message](images/helpMessage.png)
 
-### Viewing Feedback : `feedback`
+<div markdown="block" class="alert alert-info">
 
-Shows a message which explains how the user should access the feedback page to give their feedback with regard
-to NUSCourseMates.
+**:information_source: Note:**<br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+</div>
+
+### Providing Valuable Feedback : `feedback`
+> "Your voice is the most powerful tool you have. Be the change you want to see."
+> — Anonymous
+
+When you use the feedback command, you'll receive a message containing a link to our dedicated Google feedback form. Alternatively, you can simply click on the feedback button located on the Menu bar. Your journey towards change starts there.
 
 Format: `feedback`
 
-* A message containing the hyperlink to the feedback page will be displayed.
-* The prompt `Opened Feedback Window` is also displayed on screen.
-* `Unknown command` appears when the user does not type the correct feedback command.
-    * Examples of invalid commands: `feedbacks`, `FEEDBACK` etc.
-
 ![feedback message](images/feedbackMessage.png)
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+</div>
+
+
+### Exiting the program : `exit`
+> "The pain of parting is nothing to the joy of meeting again."
+> — Charles Dickens
+
+When you're ready to take a break or end your session, simply use the `exit` command.
+Alternatively, you can also click the close button on the window to exit. It's like closing the door on your way out, knowing that your friends will be right here when you return.
+
+Format: `exit`
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* Your data would be saved automatically, feel free to exit anytime!
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`."
+</div>
+
 
 ### Saving the data
 
@@ -438,3 +467,4 @@ _Details coming soon ..._
 | **Sort**         | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
 | **List**         | `list`                                                                                                                                                                                                                                                                         |
 | **Help**         | `help`                                                                                                                                                                                                                                                                         |
+| **Feedback**     | `feedback`                                                                                                                                                                                                                                                                     |
