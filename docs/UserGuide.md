@@ -154,7 +154,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 </div>
 
 ## Basic Administration
-This subsection covers the basic processes that you will encounter when adding student to NUSCoursemates.
+This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
 
 ### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
