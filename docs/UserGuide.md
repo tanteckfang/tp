@@ -256,7 +256,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Pro Tip: **<br>
+**:information_source: Pro Tip:**<br>
 * You can include `t/` in your edit command to remove all of a person's tags.
 * You can include `c/` your edit command to remove all of a peron's courses.
 </div>
