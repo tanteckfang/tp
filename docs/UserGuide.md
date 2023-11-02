@@ -137,26 +137,20 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
     
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
      <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/jarDownload.png" alt="jarDownload" width="725"/> 
+        <img src="images/jarDownload.png" alt="jarDownload" width="600"/> 
      </div>  
-3. Copy the file to the folder you want to use as the _home folder_ for your NUSCoursemates.
-4. Double-click the file and an interface similar to the image below should appear.
+3. Copy the file to the folder you want to use as the _home folder_, such as the **Desktop** folder, for your NUSCoursemates. 
+4. Open the command terminal in Step 1.
+5. `cd` into the folder with the `NUSCoursemates.jar` file. For example, if your file is in the **Desktop** folder, simply type `cd Desktop`. 
+6. Enter the next command, `java -jar NUSCoursemates.jar`. Your commands should look like this:
+     <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/ChangeDirectory.png" alt="Change Directory" width="600"/>  
+     </div>  
+7. Hit '**Enter**'. An interface similar to the image below should appear:
      <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/Ui.png" alt="Ui"/>
      </div>
-5. You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-). **Absolutely well done!**
-
-<div markdown="block" class="alert alert-warning">
-**:exclamation: Error messages shown** <br>
-
-Some MacOS users may see an error message when attempting to open the file. Do not be alarmed.
-To resolve this, simply: 
-* Open the command terminal in Step 1. <br> 
-* `cd` into the folder with the NUSCoursemates.jar file.  <br> 
-For example, if the jar file is in your 'Desktop' folder, type `cd Desktop`. <br> 
-* Then, type `java -jar NUSCoursemates.jar`. <br>
-* The file should now run normally. <br>
-</div>
+8. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-).
 
 ## Using the Command Line Interface (CLI)  
 **NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
