@@ -656,3 +656,21 @@ _Details coming soon ..._
 | **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
 
 [Back to Table of Contents](#table-of-contents)
+
+
+TESTING:
+
+> [!NOTE]
+> IS THIS GOOD?
+> how about this?
+> * hellp
+> * hello hi <br> hi </br> hi
+
+> [!TIP]
+> IS THIS GOOD?
+
+> [!IMPORTANT]
+> IS THIS GOOD?
+
+> [!WARNING]
+> IS THIS GOOD?
