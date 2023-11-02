@@ -8,14 +8,29 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.util.CourseUtil;
 
 public class CourseUtilTest {
+
     @Test
-    public void containsValidCourse() {
-        assertTrue(CourseUtil.contains("CS1101S"));
+    public void containsCourseWithSpaces() {
+        assertFalse(CourseUtil.contains("CS 1101S"));
     }
 
     @Test
-    public void containsInvalidCourse() {
+    public void containsAdditionalValidCourses() {
+        assertTrue(CourseUtil.contains("MA1521"));
+        assertTrue(CourseUtil.contains("CS2103T"));
+        assertTrue(CourseUtil.contains("IS2218"));
+    }
+
+    @Test
+    public void containsInvalidCourses() {
         assertFalse(CourseUtil.contains("CS9999"));
+        assertFalse(CourseUtil.contains("MA210"));
+        assertFalse(CourseUtil.contains("ENG10101"));
+    }
+
+    @Test
+    public void containsCourseWithSpecialCharacters() {
+        assertFalse(CourseUtil.contains("CS-1101S"));
     }
 
     @Test
@@ -24,16 +39,15 @@ public class CourseUtilTest {
     }
 
     @Test
-    public void containsMultipleCourses() {
-        assertTrue(CourseUtil.contains("CS1101S"));
-        assertTrue(CourseUtil.contains("MA1521"));
-        assertFalse(CourseUtil.contains("CS9999"));
+    public void containsEmptyCourse() {
+        assertFalse(CourseUtil.contains(""));
     }
 
     @Test
-    public void containsCourseWithSpecialCharacters() {
-        assertFalse(CourseUtil.contains("CS-1101S"));
+    public void containsVeryLongCourse() {
+        assertFalse(CourseUtil.contains("CS1101S" + "A".repeat(1000))); // A very long course code
     }
+
 
 }
 
