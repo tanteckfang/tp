@@ -87,4 +87,30 @@ public class TagTest {
         Tag secondTag = new Tag(mixedCaseTagName);
         assertEquals(expectedTagName, secondTag.toString());
     }
+
+    @Test
+    public void equals_sameObject_returnsTrue() {
+        Tag tag = new Tag("Friend");
+        assertTrue(tag.equals(tag));
+    }
+
+    @Test
+    public void equals_sameTagName_returnsTrue() {
+        Tag firstTag = new Tag("Friend");
+        Tag secondTag = new Tag("Friend");
+        assertTrue(firstTag.equals(secondTag));
+    }
+
+    @Test
+    public void equals_differentTagType_returnsFalse() {
+        Tag firstTag = new Tag("Friend");
+        Tag secondTag = new Tag("Close Friend");
+        assertFalse(firstTag.equals(secondTag));
+    }
+
+    @Test
+    public void equals_differentObjectType_returnsFalse() {
+        Tag tag = new Tag("Friend");
+        assertFalse(tag.equals(new Object()));
+    }
 }
