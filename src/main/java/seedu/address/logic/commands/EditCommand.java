@@ -103,7 +103,7 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        if (!TagUtil.canAddOrEditEmergencyTag(editPersonDescriptor, model.getFilteredPersonList())) {
+        if (!TagUtil.canAddOrEditEmergencyTag(editPersonDescriptor, model.getFilteredPersonList(), personToEdit)) {
             throw new CommandException(TagUtil.EMERGENCY_TAG_LIMIT_MESSAGE);
         }
 
