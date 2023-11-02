@@ -27,27 +27,40 @@ public class PersonTagSorterTest {
     }
 
     @Test
-    public void compareTo_sameTagsSortedByName_returnsTrue() {
+    public void compareTo_noTags_returnsSortedByName() {
+        PersonTagSorter sorter = new PersonTagSorter();
+
+        // EP: same person without tags
+        assertTrue(sorter.compare(CARL, CARL) == 0);
+
+        // EP: Person 1's name comes before Person 2's name, both do not have tags
+        assertTrue(sorter.compare(CARL, GEORGE) < 0);
+
+        // EP: Person 1's name comes after Person 2's name, both do not have tags
+        assertTrue(sorter.compare(GEORGE, CARL) > 0);
+    }
+
+    @Test
+    public void compareTo_sameTag_returnsSortedByName() {
         Person closeFriendGeorge = new PersonBuilder(GEORGE).withTags("Close Friend").build();
         Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend").build();
         Person closeFriendCarl = new PersonBuilder(CARL).withTags("Close Friend").build();
         PersonTagSorter sorter = new PersonTagSorter();
 
+        // EP: same person
         assertTrue(sorter.compare(closeFriendCarl, closeFriendCarl) == 0);
-        assertTrue(sorter.compare(closeFriendCarl, closeFriendGeorge) < 0);
-        assertTrue(sorter.compare(closeFriendCarl, closeFriendHoon) < 0);
 
-        assertTrue(sorter.compare(closeFriendGeorge, closeFriendCarl) > 0);
-        assertTrue(sorter.compare(closeFriendGeorge, closeFriendGeorge) == 0);
+        // EP: Person 1's name comes before Person 2's name
+        assertTrue(sorter.compare(closeFriendCarl, closeFriendGeorge) < 0);
         assertTrue(sorter.compare(closeFriendGeorge, closeFriendHoon) < 0);
 
-        assertTrue(sorter.compare(closeFriendHoon, closeFriendCarl) > 0);
+        // EP: Person 2's name comes before Person 1's name
+        assertTrue(sorter.compare(closeFriendGeorge, closeFriendCarl) > 0);
         assertTrue(sorter.compare(closeFriendHoon, closeFriendGeorge) > 0);
-        assertTrue(sorter.compare(closeFriendHoon, closeFriendHoon) == 0);
     }
 
     @Test
-    public void compareTo_sameNameSortedByTags_returnsTrue() {
+    public void compareTo_differentTag_returnsSortedByTags() {
         Person hoon = new PersonBuilder(HOON).build();
         Person friendHoon = new PersonBuilder(HOON).withTags("Friend").build();
         Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend").build();
@@ -55,43 +68,95 @@ public class PersonTagSorterTest {
 
         PersonTagSorter sorter = new PersonTagSorter();
 
-        assertTrue(sorter.compare(hoon, hoon) == 0);
-        assertTrue(sorter.compare(hoon, closeFriendHoon) > 0);
-        assertTrue(sorter.compare(hoon, friendHoon) > 0);
-        assertTrue(sorter.compare(hoon, emergencyHoon) > 0);
-
+        // EP: same tags
         assertTrue(sorter.compare(closeFriendHoon, closeFriendHoon) == 0);
+        assertTrue(sorter.compare(friendHoon, friendHoon) == 0);
+        assertTrue(sorter.compare(emergencyHoon, emergencyHoon) == 0);
+
+        // EP: Person 1 has lower priority tag
+        assertTrue(sorter.compare(friendHoon, closeFriendHoon) > 0);
+        assertTrue(sorter.compare(emergencyHoon, friendHoon) > 0);
+        assertTrue(sorter.compare(emergencyHoon, closeFriendHoon) > 0);
+
+        // EP: Person 2 has lower priority tag
         assertTrue(sorter.compare(closeFriendHoon, friendHoon) < 0);
         assertTrue(sorter.compare(closeFriendHoon, emergencyHoon) < 0);
-
-        assertTrue(sorter.compare(friendHoon, closeFriendHoon) > 0);
-        assertTrue(sorter.compare(friendHoon, friendHoon) == 0);
         assertTrue(sorter.compare(friendHoon, emergencyHoon) < 0);
-
-        assertTrue(sorter.compare(emergencyHoon, closeFriendHoon) > 0);
-        assertTrue(sorter.compare(emergencyHoon, friendHoon) > 0);
-        assertTrue(sorter.compare(emergencyHoon, emergencyHoon) == 0);
     }
 
     @Test
-    public void compare_differentTagsAndNames_returnsTrue() {
+    public void compareTo_withAndWithoutTags_returnsSortedByTags() {
         Person hoon = new PersonBuilder(HOON).build();
         Person friendHoon = new PersonBuilder(HOON).withTags("Friend").build();
         Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend").build();
         Person emergencyHoon = new PersonBuilder(HOON).withTags("Emergency").build();
-        Person carl = new PersonBuilder(CARL).withTags("Friend", "Emergency").build();
-        Person george = new PersonBuilder(GEORGE).withTags("Close Friend", "Friend", "Emergency").build();
 
         PersonTagSorter sorter = new PersonTagSorter();
 
-        // Close Friend > Friend > Emergency > No Tags
-        // Sort by highest priority tag
-        assertTrue(sorter.compare(george, carl) < 0);
-        assertTrue(sorter.compare(george, friendHoon) < 0);
-        assertTrue(sorter.compare(george, closeFriendHoon) < 0);
-        assertTrue(sorter.compare(carl, emergencyHoon) < 0);
-        assertTrue(sorter.compare(carl, hoon) < 0);
-        assertTrue(sorter.compare(carl, friendHoon) < 0);
+        // EP: Person 1 does not have tags, Person 2 has tags
+        assertTrue(sorter.compare(hoon, emergencyHoon) > 0);
+        assertTrue(sorter.compare(hoon, friendHoon) > 0);
+        assertTrue(sorter.compare(hoon, closeFriendHoon) > 0);
+
+        // EP: Person 1 has tags, Person 2 does not have a tag
+        assertTrue(sorter.compare(emergencyHoon, hoon) < 0);
+        assertTrue(sorter.compare(friendHoon, hoon) < 0);
+        assertTrue(sorter.compare(closeFriendHoon, hoon) < 0);
+    }
+
+    @Test
+    public void compare_sameNumberOfTags_returnsSortedByHighestPriorityTag() {
+        Person friendHoon = new PersonBuilder(HOON).withTags("Friend", "Emergency").build();
+        Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend", "Emergency").build();
+        Person secondCloseFriendHoon = new PersonBuilder(HOON).withTags("Close Friend", "Friend").build();
+
+        PersonTagSorter sorter = new PersonTagSorter();
+
+        // EP: Different highest priority tags
+        assertTrue(sorter.compare(closeFriendHoon, friendHoon) < 0);
+
+        // EP: Same highest priority tag
+        assertTrue(sorter.compare(closeFriendHoon, secondCloseFriendHoon) == 0);
+    }
+
+    @Test
+    public void compare_differentNumberOfTags_returnsSortedByHighestPriorityTag() {
+
+        Person friendHoon = new PersonBuilder(HOON).withTags("Friend", "Emergency").build();
+        Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend").build();
+        Person secondCloseFriendHoon = new PersonBuilder(HOON).withTags("Close Friend", "Friend", "Emergency").build();
+
+        PersonTagSorter sorter = new PersonTagSorter();
+
+        // EP: Person 1 has fewer tags, but tags are higher priority
+        assertTrue(sorter.compare(closeFriendHoon, friendHoon) < 0);
+
+        // EP: Person 1 has more tags, and also higher priority tags
+        assertTrue(sorter.compare(secondCloseFriendHoon, friendHoon) < 0);
+
+        // EP: Person 1 and Person 2 have different number of tags, but same highest priority tag
+        assertTrue(sorter.compare(secondCloseFriendHoon, closeFriendHoon) == 0);
+    }
+
+    @Test
+    public void compare_differentNames_returnsSortedByHighestPriorityTag() {
+
+        Person friendCarl = new PersonBuilder(CARL).withTags("Friend", "Emergency").build();
+        Person closeFriendCarl = new PersonBuilder(CARL).withTags("Close Friend", "Emergency").build();
+        Person friendGeorge = new PersonBuilder(GEORGE).withTags("Friend", "Emergency").build();
+        Person closeFriendGeorge = new PersonBuilder(GEORGE).withTags("Close Friend", "Emergency").build();
+        Person closeFriendHoon = new PersonBuilder(HOON).withTags("Close Friend", "Friend").build();
+
+        PersonTagSorter sorter = new PersonTagSorter();
+
+        // EP: Person 1's name comes first, and has the higher priority tag
+        assertTrue(sorter.compare(closeFriendCarl, friendGeorge) < 0);
+
+        // EP: Person 1's name comes after, and has the higher priority tag
+        assertTrue(sorter.compare(closeFriendGeorge, friendCarl) < 0);
+
+        // EP: Person 1 and Person 2 have different names, but same highest priority tag
+        assertTrue(sorter.compare(closeFriendCarl, closeFriendHoon) < 0);
     }
 
     @Test
@@ -119,7 +184,7 @@ public class PersonTagSorterTest {
     }
 
     @Test
-    public void compareTags_mixedNumberOfSameTags_highestPriority() {
+    public void compareTags_differentTagsSameNumber_highestPriority() {
         Set<Tag> tags1 = new HashSet<>();
         tags1.add(new Tag("Emergency"));
         tags1.add(new Tag("Friend"));
@@ -131,11 +196,11 @@ public class PersonTagSorterTest {
         PersonTagSorter sorter = new PersonTagSorter();
 
         int tagComparison = sorter.compareTags(tags1, tags2);
-        assertEquals(1, tagComparison); // tags2 has a higher-priority tag
+        assertEquals(1, tagComparison);
     }
 
     @Test
-    public void compareTags_mixedNumberOfDifferentTags_highestPriority() {
+    public void compareTags_differentNumberOfTags_highestPriority() {
         Set<Tag> tags1 = new HashSet<>();
 
         Set<Tag> tags2 = new HashSet<>();

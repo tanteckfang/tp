@@ -33,25 +33,38 @@ public class PersonNameAscendingSorterTest {
     public void compareTo_differentName_returnsTrue() {
         PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
 
+        // EP: Person 1's name comes before Person 2's name
         assertTrue(sorter.compare(ALICE, BOB) < 0);
+
+        // EP: Person 2's name comes after Person 1's name
         assertTrue(sorter.compare(BOB, ALICE) > 0);
+    }
+
+    @Test
+    public void compareTo_differentLength_returnsTrue() {
+        Person shortNameHoon = new PersonBuilder().withName("Hoon").withPhone("8482424").build();
+        Person longNameHoon = new PersonBuilder().withName("Hoon Meier Tan").withPhone("8482424").build();
+
+        PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
+
+        assertTrue(sorter.compare(shortNameHoon, longNameHoon) < 0);
     }
 
     @Test
     public void equals() {
         PersonNameAscendingSorter personNameAscendingSorter = new PersonNameAscendingSorter();
 
-        // same class -> returns true
+        // EP: same class -> returns true
         assertTrue(personNameAscendingSorter
                 .equals(new PersonNameAscendingSorter()));
 
-        // same object -> returns true
+        // EP: same object -> returns true
         assertTrue(personNameAscendingSorter.equals(personNameAscendingSorter));
 
-        // null -> returns false
+        // EP: null -> returns false
         assertFalse(personNameAscendingSorter.equals(null));
 
-        // different types -> returns false
+        // EP: different types -> returns false
         assertFalse(personNameAscendingSorter.equals(5.0f));
     }
 }
