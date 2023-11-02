@@ -9,6 +9,7 @@ Hello, School of Computing (SoC) students in the National University of Singapor
 A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our application, **NUSCoursemates**.
 
 ### Table of Contents
+
 * Table of Contents
 {:toc}
 
@@ -53,6 +54,8 @@ In addition, here are some symbols that will give you a more enjoyable time usin
 **:information_source: Notes about the command format:**<br>
 * These symbols will be encapsulated in a box as such.
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 ## User Interface
@@ -115,6 +118,8 @@ e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA
 The Tag List Panel allows you to personalize your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorize and manage your contacts with ease.
 
 e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
+
+[Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 ## Quick start
@@ -217,6 +222,8 @@ You could try typing one of the following commands in the command box. Afterward
 * It is beneficial for you to start learning the CLI early!
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 ## Features
 
@@ -233,6 +240,9 @@ You could try typing one of the following commands in the command box. Afterward
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
+----------
 ## Basic Administration
 This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
 
@@ -512,7 +522,9 @@ Examples:
 * Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
 
+--------
 ## Additional Features
 Congratulations, you've reached the end of our core features to modify NUSCoursemates, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
@@ -584,6 +596,8 @@ NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/
 
 _Details coming soon ..._
 
+[Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -599,6 +613,8 @@ _Details coming soon ..._
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSCoursemates home folder.
 
+[Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Glossary
@@ -612,10 +628,14 @@ _Details coming soon ..._
 | JAR       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
 | Integer   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
 
+[Back to Table of Contents](#table-of-contents)
+
 -----
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+[Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -634,3 +654,23 @@ _Details coming soon ..._
 | **Help**          | `help`                                                                                                                                                                                                                                                                         |
 | **Feedback**      | `feedback`                                                                                                                                                                                                                                                                     |
 | **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
+
+[Back to Table of Contents](#table-of-contents)
+
+
+TESTING:
+
+> [!NOTE]
+> IS THIS GOOD?
+> how about this?
+> * hellp
+> * hello hi <br> hi </br> hi
+
+> [!TIP]
+> IS THIS GOOD?
+
+> [!IMPORTANT]
+> IS THIS GOOD?
+
+> [!WARNING]
+> IS THIS GOOD?

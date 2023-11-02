@@ -1,4 +1,4 @@
-package seedu.address.model.course;
+package seedu.address.testutil;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.model.util.CourseUtil;
 
-public class CourseListTest {
+public class CourseUtilTest {
     @Test
     public void containsValidCourse() {
         assertTrue(CourseUtil.contains("CS1101S"));

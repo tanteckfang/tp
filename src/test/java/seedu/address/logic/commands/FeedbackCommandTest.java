@@ -15,7 +15,7 @@ public class FeedbackCommandTest {
     @Test
     public void execute_feedback_success() {
         CommandResult expectedCommandResult = new CommandResult(SHOWING_FEEDBACK_MESSAGE,
-                false, false, true);
+                false, false, true, false, false);
         assertCommandSuccess(new FeedbackCommand(), model, expectedCommandResult, expectedModel);
     }
 }
