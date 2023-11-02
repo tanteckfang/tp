@@ -66,6 +66,36 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_edit_withBoundaryValues() throws Exception {
+        Person person = new PersonBuilder().build();
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
+        int validIndex = 1; // Smallest valid index
+        int invalidIndex = -1; // Invalid index
+        int largeIndex = Integer.MAX_VALUE; // Large index
+        int lastIndex = Integer.MAX_VALUE - 1; // Largest valid index
+
+        // Smallest valid index with minimum changes
+        EditCommand validCommand = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
+                + validIndex + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+        assertTrue(validCommand instanceof EditCommand);
+
+        // Invalid index (should throw ParseException)
+        assertThrows(ParseException.class, MESSAGE_INVALID_COMMAND_FORMAT, ()
+                -> parser.parseCommand(EditCommand.COMMAND_WORD + " " + invalidIndex
+                + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor)));
+
+        // Large index (should throw ParseException)
+        assertThrows(ParseException.class, MESSAGE_INVALID_COMMAND_FORMAT, ()
+                -> parser.parseCommand(EditCommand.COMMAND_WORD + " " + largeIndex
+                + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor)));
+
+        // Largest valid index with maximum changes
+        EditCommand lastValidCommand = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
+                + lastIndex + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+        assertTrue(lastValidCommand instanceof EditCommand);
+    }
+
+    @Test
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + " 3") instanceof ExitCommand);
