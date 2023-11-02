@@ -564,6 +564,22 @@ Format: `feedback`
 * If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
+### Changing themes : `theme`
+> "The measure of intelligence is the ability to change."
+> — Albert Einstein
+
+With the theme command, you have the power to choose your preferred visual theme, ensuring your user interface aligns with your taste. We offer two options: the sleek and elegant "dark" theme and the clean and minimalistic "light" theme.
+
+Format: `theme THEME`
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about Themes:**<br>
+* Two types of themes currently supported, light and dark.
+* Eg: `theme dark`, `theme light`.
+* The terms "dark" and "light" are both case-insensitive.
+</div>
+
+![theme message](images/themeMessage.png)
 
 ### Exiting the program : `exit`
 > "The pain of parting is nothing to the joy of meeting again."
@@ -656,5 +672,5 @@ _Details coming soon ..._
 | **Help**          | `help`                                                                                                                                                                                                                                                                         |
 | **Feedback**      | `feedback`                                                                                                                                                                                                                                                                     |
 | **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
-
+| **Theme**         | `theme THEME`<br> e.g., `theme dark`                                                                                                                                                                                                                                           |
 [Back to Table of Contents](#table-of-contents)
