@@ -243,8 +243,12 @@ You could try typing one of the following commands in the command box. Afterward
 [Back to Table of Contents](#table-of-contents)
 
 ----------
-## Basic Administration
-This subsection covers the basic processes that you will encounter when adding students to NUSCoursemates.
+## Managing Student Profiles
+In the realm of student profiles, NUSCoursemates redefines the way you manage and connect with fellow students. It's not just about data; it's about fostering meaningful connections and streamlining your student network. NUSCoursemates offers a range of features designed with you, the student, in mind. 
+
+These features make it easy to add new friends, maintain your contact list, and engage with your academic community. All your student profiles are neatly organized for a seamless and user-centric experience.
+
+Let's dive into the details of each feature to enhance your student profile management.
 
 ### Adding a student: `add`  
 > "Every new friend is a new adventure…the start of more memories."
@@ -287,18 +291,6 @@ Examples:
 * `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/Tom Lee p/81289900`
-
-### Listing all students : `list`
-
-Discover the power of the "List" feature – your ultimate tool for staying organized and in the know about your student contacts. It's like having your address book at your fingertips, ready to provide you with a clear, comprehensive view of your network.
-
-**How to do it:** With the straightforward `list` command, you can effortlessly generate a list of all the students in your address book. It's as simple as typing "list."
-
-Format: `list`
-
-Examples:
-![list](images/ListFeature.png)
-
 
 ### Editing a student : `edit`
 
@@ -365,21 +357,46 @@ After:
 
 * `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
 
+### Deleting a student : `delete`
 
-### Clearing courses of all students: `clear-courses`
+> "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
+> — Unknown
 
-A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
+In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your address book. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat address book.
 
-**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
+Format: `delete INDEX`
 
-Before:
+* `INDEX`: Deletes the student at the specified mark.
 
-![clear-courses_before](images/ClearCoursesBefore.png)
+<div markdown="block" class="alert alert-info">
 
-After:
+**:information_source: Note:**<br>
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+* The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
+</div>
 
-![clear-courses_after](images/ClearCoursesAfter.png)
+Examples:
+* `list` followed by `delete 2` deletes the 2nd person in the address book.
+* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+![delete student](images/deleteFeature.png)
+
+## Viewing Student Profiles
+In NUSCoursemates, your journey begins with exploring student profiles. Our user-centric approach puts you in control, making it a breeze to view and connect with your fellow students. 
+
+Let's delve into the specifics of how to effortlessly access and make the most of student profiles.
+
+### Listing all students : `list`
+
+Discover the power of the "List" feature – your ultimate tool for staying organized and in the know about your student contacts. It's like having your address book at your fingertips, ready to provide you with a clear, comprehensive view of your network.
+
+**How to do it:** With the straightforward `list` command, you can effortlessly generate a list of all the students in your address book. It's as simple as typing "list."
+
+Format: `list`
+
+Examples:
+![list](images/ListFeature.png)
 
 ### Locating students by name: `findstudent`
 
@@ -418,33 +435,6 @@ Examples:
 * `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
 
   ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
-
-
-### Deleting a student : `delete`
-
-> "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
-> — Unknown
-
-In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your address book. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat address book.
-
-Format: `delete INDEX`
-
-* `INDEX`: Deletes the student at the specified mark.
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Note:**<br>
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-* The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
-</div>
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
-![delete student](images/deleteFeature.png)
-
 
 ### Sorting by Course: `sort course`
 
@@ -490,11 +480,11 @@ Examples:
 
 
 ### Sorting by Tags: `sort tags`
-The greatest joy in university is, without a doubt, to attend boring classes with your close friends. 
+The greatest joy in university is, without a doubt, to attend boring classes with your close friends.
 
-With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book. 
+With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book.
 
-These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.  
+These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.
 
 Format: `sort tags`
 
@@ -503,6 +493,24 @@ Format: `sort tags`
 Students with multiple tags will be sorted by the tag with the greatest importance.  
 For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
 </div>
+
+## Clearing Student Profiles
+
+In NUSCoursemates, we understand the need for flexibility and ease when it comes to managing your student profiles. Clearing profiles should be a straightforward process, and we've designed it to be just that. Let's explore how you can effortlessly clear profiles when necessary.
+
+### Clearing courses of all students: `clear-courses`
+
+A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
+
+**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
+
+Before:
+
+![clear-courses_before](images/ClearCoursesBefore.png)
+
+After:
+
+![clear-courses_after](images/ClearCoursesAfter.png)
 
 ### Clearing all students : `clear`
 >"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
@@ -525,7 +533,7 @@ Examples:
 [Back to Table of Contents](#table-of-contents)
 
 --------
-## Additional Features
+## General Features
 Congratulations, you've reached the end of our core features to modify NUSCoursemates, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
 But before you go, let's talk about a few extra features that can make your NUSCoursemates experience even better. We've designed these features with you in mind, making sure your journey with us is as seamless as it gets.
