@@ -673,4 +673,5 @@ _Details coming soon ..._
 | **Feedback**      | `feedback`                                                                                                                                                                                                                                                                     |
 | **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
 | **Theme**         | `theme THEME`<br> e.g., `theme dark`                                                                                                                                                                                                                                           |
+
 [Back to Table of Contents](#table-of-contents)
