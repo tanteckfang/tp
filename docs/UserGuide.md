@@ -448,7 +448,7 @@ Before Sorting:
 After `sort course`:
 ![sourse_course](images/SortCourse.png)
 
-#### Format: `sort course size-ascending`:
+#### Format: `sort course size-ascending`
 * Highlight the newcomers, those with the fewest courses, arranged in ascending order.
 
 Example:
