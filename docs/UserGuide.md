@@ -262,6 +262,17 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
 * `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
 
+**Here's an input table with different inputs**
+
+| Field        | Valid Input                     | Invalid Input                      |
+|--------------|---------------------------------|------------------------------------|
+| Name         | Alex the 3rd, John Doe          | (Empty)                            |
+| Phone Number | 98765432, 988888998989898899898 | ABC123                             |
+| Email        | johnd@example.com               | invalid_email                      |
+| Address      | 123 Main St                     |                                    |
+| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe |
+| Tag          | Friend                          | Colleague, Lecturer, Family        |
+| Course       | CS2101                          | CS2103S, CS9999                    |
 
 <div markdown="block" class="alert alert-info">
 
@@ -271,6 +282,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * To add a 'Close Friend' tag, use t/cf (case-insensitive).
 * Tags and Courses are case-insensitive when entered.
 * Telehandles must start with '@', cannot contain spaces, and should consist of letters, numbers, and underscores only. No other special characters are allowed.
+* Valid Courses are based on NUSMods 2023/2024 Sem 1 and Sem 2.
 </div>
 
 <div markdown="block" class="alert alert-warning">
@@ -646,6 +658,7 @@ _Details coming soon ..._
 | JSON      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
 | JAR       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
 | Integer   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
+| Field     | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organize and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
 
 [Back to Table of Contents](#table-of-contents)
 
