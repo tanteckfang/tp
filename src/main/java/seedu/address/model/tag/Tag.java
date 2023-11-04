@@ -10,7 +10,7 @@ import static java.util.Objects.requireNonNull;
 public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Only three kinds of tag names are allowed: Friend, Close Friend (or cf), and Emergency'";
+            "Only three kinds of tag names are allowed: Friend, Close Friend (or cf), and Emergency";
 
     private final TagType tagType;
 
