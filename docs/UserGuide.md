@@ -270,6 +270,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * Only three tag types are allowed: 'Friend,' 'Close Friend,' and 'Emergency.'
 * To add a 'Close Friend' tag, use t/cf (case-insensitive).
 * Tags and Courses are case-insensitive when entered.
+* Telehandles must start with '@', cannot contain spaces, and should consist of letters, numbers, and underscores only. No other special characters are allowed.
 </div>
 
 <div markdown="block" class="alert alert-warning">
