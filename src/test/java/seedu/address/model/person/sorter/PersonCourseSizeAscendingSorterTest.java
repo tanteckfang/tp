@@ -22,17 +22,27 @@ public class PersonCourseSizeAscendingSorterTest {
     }
 
     @Test
-    public void compareTo_differentCourseSizeSameName_returnsTrue() {
+    public void compareTo_sameCourseSizeSameName_returnsTrue() {
+        Person oneCourseAlice = new PersonBuilder(ALICE).withCourses("MA2001").build();
+        Person anotherOneCourseAlice = new PersonBuilder(ALICE).withCourses("EC2101").build();
 
+        PersonCourseSizeAscendingSorter sorter = new PersonCourseSizeAscendingSorter();
+
+        // EP: Person 1 has the same number of courses as Person 2
+        assertTrue(sorter.compare(oneCourseAlice, anotherOneCourseAlice) == 0);
+    }
+
+    @Test
+    public void compareTo_differentCourseSizeSameName_returnsTrue() {
         Person oneCourseAlice = new PersonBuilder(ALICE).withCourses("MA2001").build();
         Person twoCourseAlice = new PersonBuilder(ALICE).withCourses("MA2001", "EC2101").build();
 
         PersonCourseSizeAscendingSorter sorter = new PersonCourseSizeAscendingSorter();
 
-        // oneCourseAlice has fewer courses than twoCourseAlice, so it should come before twoCourseAlice
+        // EP: Person 1 has fewer courses than Person 2
         assertTrue(sorter.compare(oneCourseAlice, twoCourseAlice) < 0);
 
-        // twoCourseAlice has more courses than oneCourseAlice, so it should come after oneCourseAlice
+        // EP: Person 2 has fewer courses than Person 1
         assertTrue(sorter.compare(twoCourseAlice, oneCourseAlice) > 0);
     }
 
@@ -44,25 +54,25 @@ public class PersonCourseSizeAscendingSorterTest {
 
         PersonCourseSizeAscendingSorter sorter = new PersonCourseSizeAscendingSorter();
 
-        // oneCourseAlice has fewer courses than twoCourseBob, so it should come before twoCourseBob
+        // EP: Person 1 has fewer courses than Person 2, so it should come before Person 2
         assertTrue(sorter.compare(oneCourseAlice, twoCourseBob) < 0);
 
-        // twoCourseBob has more courses than oneCourseAlice, so it should come after oneCourseAlice
+        // EP: Person 1 has more courses than Person 2, so it should come after Person 2
         assertTrue(sorter.compare(twoCourseBob, oneCourseAlice) > 0);
     }
 
     @Test
-    public void compareTo_courseSizeIsZero_returnsTrue() {
+    public void compareTo_zeroCourseSizeForOnePerson_returnsTrue() {
 
         Person zeroCourseAlice = new PersonBuilder(ALICE).withCourses().build();
         Person twoCourseBob = new PersonBuilder(BOB).withCourses("MA2001", "EC2101").build();
 
         PersonCourseSizeAscendingSorter sorter = new PersonCourseSizeAscendingSorter();
 
-        // zeroCourseAlice has fewer courses than twoCourseBob, so it should come before twoCourseBob
+        // EP: Person 1 has fewer courses than Person 2, so it should come before Person 2
         assertTrue(sorter.compare(zeroCourseAlice, twoCourseBob) < 0);
 
-        // twoCourseBob has more courses than zeroCourseAlice, so it should come after zeroCourseAlice
+        // EP: Person 2 has more courses than Person 1, so it should come after Person 1
         assertTrue(sorter.compare(twoCourseBob, zeroCourseAlice) > 0);
     }
 
@@ -85,12 +95,10 @@ public class PersonCourseSizeAscendingSorterTest {
 
         PersonCourseSizeAscendingSorter sorter = new PersonCourseSizeAscendingSorter();
 
-        // oneCourseAlice has the same number of courses as oneCourseBob,
-        // so it should come before oneCourseBob (sort by lexicographic order)
+        // EP: Person 1 has the same number of courses as Person 2, but Person 1's name comes first.
         assertTrue(sorter.compare(oneCourseAlice, oneCourseBob) < 0);
 
-        // oneCourseBob has the same number of courses as oneCourseAlice,
-        // so it should come after oneCourseAlice (sort by lexicographic order)
+        // EP: Person 1 has the same number of courses as Person 2, but Person 2's name comes first.
         assertTrue(sorter.compare(oneCourseBob, oneCourseAlice) > 0);
     }
 
@@ -98,17 +106,17 @@ public class PersonCourseSizeAscendingSorterTest {
     public void equals() {
         PersonCourseSizeAscendingSorter personCourseSizeAscendingSorter = new PersonCourseSizeAscendingSorter();
 
-        // same class -> returns true
+        // EP: same class -> returns true
         assertTrue(personCourseSizeAscendingSorter
                 .equals(new PersonCourseSizeAscendingSorter()));
 
-        // same object -> returns true
+        // EP: same object -> returns true
         assertTrue(personCourseSizeAscendingSorter.equals(personCourseSizeAscendingSorter));
 
-        // null -> returns false
+        // EP: null -> returns false
         assertFalse(personCourseSizeAscendingSorter.equals(null));
 
-        // different types -> returns false
+        // EP: different types -> returns false
         assertFalse(personCourseSizeAscendingSorter.equals(5.0f));
     }
 }

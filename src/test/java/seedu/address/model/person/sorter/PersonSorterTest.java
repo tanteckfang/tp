@@ -16,8 +16,9 @@ public class PersonSorterTest {
 
         // empty criterion
         assertNull(PersonSorter.createPersonSorter(""));
+        assertNull(PersonSorter.createPersonSorter("                  "));
 
-        // invalid criterion
+        // EP: invalid criterion
         assertNull(PersonSorter.createPersonSorter("number"));
 
         // ascending lexicographic order
