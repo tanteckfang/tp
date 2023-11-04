@@ -11,7 +11,7 @@ public class Telehandle {
 
     public static final String MESSAGE_CONSTRAINTS = "Telehandles must start with '@', cannot contain spaces, and "
             + "should consist of letters, numbers, and underscores only. No other special characters are allowed. "
-            + "Additionally, telehandles cannot consist of only numbers."
+            + "Additionally, telehandles cannot consist of only numbers.";
 
     /*
      * The first character of the telehandle must be a @,
