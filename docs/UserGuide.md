@@ -421,14 +421,14 @@ Format: `findcourse KEYWORD [MORE_KEYWORDS]`
 * Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
 * Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
 * Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
-* Multiple Course Searches: Use multiple keywords, and we'll show you students who have enrolled in any of the courses. For instance, 'cs210' will reveal students who took 'CS2103' or 'CS2106'.
+* Multiple Course Searches: Use multiple keywords, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
 
 
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
-* `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
+* `findcourse cs2100 ma1521` returns `CS2100` and `MA1521`
 
-  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
+  ![result for 'findcourse CS2100 MA1521'](images/FindcourseCS2100MA1521.png)
 
 ### Sorting by Course: `sort course`
 
@@ -469,8 +469,8 @@ Plus, you have the flexibility to specify whether you would like to sort their n
 Format: `sort name-SORT_CRITERION`
 
 Examples:
-* `sort name-descending` sorts students by their names in descending order.
-* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
+* `sort name-descending` sorts students by their names in lexicographical descending order.
+* `sort name` or `sort name-ascending` sorts students by their names in lexicographical ascending order.
 
 
 ### Sorting by Tags: `sort tags`
