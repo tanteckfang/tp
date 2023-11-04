@@ -16,6 +16,6 @@ public class FeedbackCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
-        return new CommandResult(SHOWING_FEEDBACK_MESSAGE, false, false, true);
+        return new CommandResult(SHOWING_FEEDBACK_MESSAGE, false, false, true, false, false);
     }
 }
