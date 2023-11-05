@@ -264,15 +264,15 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 **Here's an input table with different inputs**
 
-| Field        | Valid Input                     | Invalid Input                      |
-|--------------|---------------------------------|------------------------------------|
-| Name         | Alex the 3rd, John Doe          | (Empty)                            |
-| Phone Number | 98765432, 988888998989898899898 | ABC123                             |
-| Email        | johnd@example.com               | invalid_email                      |
-| Address      | 123 Main St                     |                                    |
-| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe |
-| Tag          | Friend                          | Colleague, Lecturer, Family        |
-| Course       | CS2101                          | CS2103S, CS9999                    |
+| Field        | Valid Input                     | Invalid Input                      | Special Notes                                      |
+|--------------|---------------------------------|------------------------------------|----------------------------------------------------|
+| Name         | Alex the 3rd, John Doe          | (Empty)                            |                                                    |
+| Phone Number | 98765432, 988888998989898899898 | ABC123                             |                                                    |
+| Email        | johnd@example.com               | invalid_email                      |                                                    |
+| Address      | 123 Main St                     |                                    |                                                    |
+| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe | Cannot start with a number                         |
+| Tag          | Friend                          | Colleague, Lecturer, Family        | Only have 3 types: Friend, Close Friend, Emergency |
+| Course       | CS2101                          | CS2103S, CS9999                    | Valid Course are based on NUSMods                  |
 
 <div markdown="block" class="alert alert-info">
 
@@ -282,7 +282,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * To add a 'Close Friend' tag, use t/cf (case-insensitive).
 * Tags and Courses are case-insensitive when entered.
 * Telehandles must start with '@', cannot contain spaces, and should consist of letters, numbers, and underscores only. No other special characters are allowed.
-* Valid Courses are based on NUSMods 2023/2024 Sem 1 and Sem 2.
+* Valid Courses are based on [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 and Sem 2.
 </div>
 
 <div markdown="block" class="alert alert-warning">
