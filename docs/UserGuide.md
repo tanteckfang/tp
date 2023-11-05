@@ -417,18 +417,18 @@ Ever wondered who in your address book has taken the same courses as you? With `
 
 Here’s how to make the most of this handy tool:
 
-Format: `findcourse KEYWORD [MORE_KEYWORDS]`
+Format: `findcourse MOUDLE_ID [MORE_MODULE_ID]`
 * Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
 * Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
 * Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
-* Multiple Course Searches: Use multiple keywords, and we'll show you students who have enrolled in any of the courses. For instance, 'cs210' will reveal students who took 'CS2103' or 'CS2106'.
+* Multiple Course Searches: Use multiple module ID, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
 
 
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
-* `findcourse cs2103t ma1521` returns `CS2103T` and `MA1521`
+* `findcourse cs2100 ma1521` returns `CS2100` and `MA1521`
 
-  ![result for 'findcourse CS2103T MA1521'](images/FindCourseCS2103TMA1521.png)
+  ![result for 'findcourse CS2100 MA1521'](images/FindcourseCS2100MA1521.png)
 
 ### Sorting by Course: `sort course`
 
@@ -666,7 +666,7 @@ _Details coming soon ..._
 | **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
 | **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
 | **Find Student**  | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                                                                                       |
-| **Find Course**   | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                   |
+| **Find Course**   | `findcourse MODULE_ID [MORE_MODULE_ID]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                |
 | **Sort**          | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
 | **List**          | `list`                                                                                                                                                                                                                                                                         |
 | **Help**          | `help`                                                                                                                                                                                                                                                                         |
