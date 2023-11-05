@@ -22,14 +22,22 @@ public class CommandResult {
     /** Feedback information should be shown to the user. */
     private final boolean showFeedback;
 
+    /** The application should change to Light theme. */
+    private final boolean isLight;
+
+    /** The application should change to Dark theme. */
+    private final boolean isDark;
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean showFeedback) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean showFeedback, boolean isLight, boolean isDark) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.showFeedback = showFeedback;
         this.exit = exit;
+        this.isLight = isLight;
+        this.isDark = isDark;
     }
 
     /**
@@ -37,7 +45,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -56,6 +64,14 @@ public class CommandResult {
         return showFeedback;
     }
 
+    public boolean isLight() {
+        return isLight;
+    }
+
+    public boolean isDark() {
+        return isDark;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -71,7 +87,9 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
-                && showFeedback == otherCommandResult.showFeedback;
+                && showFeedback == otherCommandResult.showFeedback
+                && isLight == otherCommandResult.isLight
+                && isDark == otherCommandResult.isDark;
     }
 
     @Override
@@ -86,6 +104,8 @@ public class CommandResult {
                 .add("showHelp", showHelp)
                 .add("exit", exit)
                 .add("showFeedback", showFeedback)
+                .add("isLight", isLight)
+                .add("isDark", isDark)
                 .toString();
     }
 

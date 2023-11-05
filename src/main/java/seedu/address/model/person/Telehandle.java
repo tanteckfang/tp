@@ -15,7 +15,7 @@ public class Telehandle {
     /*
      * The first character of the telehandle must be a @,
      */
-    public static final String VALIDATION_REGEX = "@[a-zA-Z0-9_]+";
+    public static final String VALIDATION_REGEX = "@[a-zA-Z0-9_]*[a-zA-Z]+[a-zA-Z0-9_]*";
     public static final Telehandle EMPTY_TELEHANDLE = new Telehandle("");
 
     public final String value;

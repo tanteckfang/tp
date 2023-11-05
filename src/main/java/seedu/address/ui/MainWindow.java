@@ -276,6 +276,14 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
+            if (commandResult.isLight()) {
+                handleTheme("LIGHT");
+            }
+
+            if (commandResult.isDark()) {
+                handleTheme("DARK");
+            }
+
             updateTotalStudents();
             updateTotalCourses();
             updateCourses();
@@ -286,6 +294,26 @@ public class MainWindow extends UiPart<Stage> {
             logger.info("An error occurred while executing command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
             throw e;
+        }
+    }
+
+    /**
+     * Handles the application's theme based on the specified theme string.
+     * This method allows switching between "DARK" and "LIGHT" themes by setting the appropriate mode.
+     *
+     * @param theme The theme to apply. It must be either "DARK" or "LIGHT".
+     * @throws AssertionError if the provided theme is neither "DARK" nor "LIGHT".
+     */
+    public void handleTheme(String theme) {
+        assert theme == "DARK" || theme == "LIGHT" : "Invalid theme input";
+        switch (theme) {
+        case "DARK":
+            setDarkMode();
+            break;
+        case "LIGHT":
+            setLightMode();
+            break;
+        default:
         }
     }
 
