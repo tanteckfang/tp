@@ -417,11 +417,11 @@ Ever wondered who in your address book has taken the same courses as you? With `
 
 Here’s how to make the most of this handy tool:
 
-Format: `findcourse KEYWORD [MORE_KEYWORDS]`
+Format: `findcourse MOUDLE_ID [MORE_MODULE_ID]`
 * Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
 * Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
 * Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
-* Multiple Course Searches: Use multiple keywords, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
+* Multiple Course Searches: Use multiple module ID, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
 
 
 Examples:
@@ -469,8 +469,8 @@ Plus, you have the flexibility to specify whether you would like to sort their n
 Format: `sort name-SORT_CRITERION`
 
 Examples:
-* `sort name-descending` sorts students by their names in lexicographical descending order.
-* `sort name` or `sort name-ascending` sorts students by their names in lexicographical ascending order.
+* `sort name-descending` sorts students by their names in descending order.
+* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
 
 
 ### Sorting by Tags: `sort tags`
@@ -666,7 +666,7 @@ _Details coming soon ..._
 | **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
 | **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
 | **Find Student**  | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                                                                                       |
-| **Find Course**   | `findcourse KEYWORD [MORE_KEYWORDS]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                   |
+| **Find Course**   | `findcourse MODULE_ID [MORE_MODULE_ID]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                |
 | **Sort**          | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
 | **List**          | `list`                                                                                                                                                                                                                                                                         |
 | **Help**          | `help`                                                                                                                                                                                                                                                                         |
