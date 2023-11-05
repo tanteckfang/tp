@@ -421,7 +421,7 @@ Format: `findcourse MOUDLE_ID [MORE_MODULE_ID]`
 * Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
 * Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
 * Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
-* Multiple Course Searches: Use multiple module id, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
+* Multiple Course Searches: Use multiple module ID, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
 
 
 Examples:
