@@ -106,14 +106,14 @@ You will be able to view each student's details such as:
 * Tags
 
 ### 5. Course List Panel
-<img src="images/CourseListPanel.png" alt="CourseListPanel"/>
+<img src="images/CourseListPanel.png" alt="CourseListPanel" width="400"/>
 
 The Course List Panel is your academic overview. It presents a summary of all the courses in your address book, along with the total number of students in each course. It's your academic compass.
 
 e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
 
 ### 6. Tag List Panel
-<img src="images/TagListPanel.png" alt="TagListPanel"/>
+<img src="images/TagListPanel.png" alt="TagListPanel" width="400"/>
 
 The Tag List Panel allows you to personalize your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorize and manage your contacts with ease.
 
