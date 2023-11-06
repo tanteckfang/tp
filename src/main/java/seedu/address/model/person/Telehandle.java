@@ -9,8 +9,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Telehandle {
 
-    public static final String MESSAGE_CONSTRAINTS = "Telehandle can take any values, "
-            + "but it has to start with @ and no spaces in between.";
+    public static final String MESSAGE_CONSTRAINTS = "Telehandles must start with '@', cannot contain spaces, and "
+            + "should consist of letters, numbers, and underscores only. No other special characters are allowed. "
+            + "Additionally, telehandles cannot consist of only numbers.";
 
     /*
      * The first character of the telehandle must be a @,
