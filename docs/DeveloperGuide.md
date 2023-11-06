@@ -885,3 +885,32 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix C: Planned Enhancements**
+
+1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name, which can be problematic when there are indeed multiple students with identical names.
+   * Proposed Enhancement:
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even in cases of common names.
+   * Implementation Details:
+   The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
+2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
+   * Proposed Enhancement:
+   To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+   * Implementation Details:
+   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+3. The current implementation of the system allows any email address containing the "@" symbol, which may not align with our specific user base of NUS SoC students. To ensure accurate and secure data, we aim to implement a check that requires email addresses to end with "@u.nus.edu".
+   * Proposed Enhancement:
+   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of incorrect email addresses.
+   * Implementation Details:
+   The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
+4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
+   * Proposed Enhancement:
+   To improve user understanding and minimize confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+   * Possible Error Message:
+   `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
+     'dark' for dark mode
+     'light' for light mode
+     Example: theme dark`
+   
