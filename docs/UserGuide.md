@@ -34,11 +34,14 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Novice Users:** For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Novice Users:** <br>
+For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
+**Amateur Users:** <br>
+You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
+**Seasoned Users:** <br>
+We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
 
@@ -166,78 +169,96 @@ Do not worry! CLI is definitely less scary than it sounds. In fact, this is all 
 
 Recall that the image above shows the [Command Box](#2-command-box) of **NUSCoursemates**. It is the _heart_ of **NUSCoursemates**. 
 
-Therefore, it is no surprise that you will be keying in commands, which are text-based inputs, in the [Command Box](#2-command-box) to execute different tasks. 
+Therefore, it is no surprise that you will be keying in **commands**, which are text-based inputs, in the Command Box to execute different tasks.
 
-While we know that you cannot wait to try out some new commands, let us first learn what a command consists of:
+The CLI offers several advantages, including:
+* **Faster** and more **efficient** operation
+* **Reduced memory usage** compared to non-CLI applications
 
- <div style="margin-top: 10px; margin-bottom: 10px">
-    <img src="images/CommandFormat2.png" alt="Command Format" width="650"/>
- </div>
+However, to fully benefit from the advantages of the CLI, you will have to:
+* Familiarise yourself with the various commands and their formats
+* Ensure **accuracy** in spelling and formatting
 
-A command is made up of multiple components: 
+Nevertheless, with this comprehensive user guide, you will be a proficient CLI user in no time.
 
-| Component    | Example    | Description                                                                                                                                                     |
-|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command Word | `add`      | Specifies the task to be performed                                                                                                                              |
-| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
-| Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
-
-Additionally, certain symbols in the command format are used to indicate additional properties.
-For example (with reference to the `add` command above): 
-
-| Prefix/Field Format | Example             | Description                                                                         |
-|---------------------|---------------------|-------------------------------------------------------------------------------------|
-| `n/NAME`            | `n/John Doe`        | Denotes a compulsory `name` field                                                   |
-| `[e/EMAIL]`         | `e/johnd@gmail.com` | Denotes an optional `email` field with a maximum of one email for the student       |
-| `[t/TAG]…​`         | `t/friend`          | Denotes an optional `tag` field with no limit on the number of tags for the student |
-
-Let us look at an example for the `add` command:
- <div style="margin-top: 10px; margin-bottom: 10px">
-    <img src="images/CommandFormat.png" alt="Command Format Example" width="650"/>
- </div>
-
-When adding your new connections, you would modify the fields accordingly. Note that the command words and prefixes are case-sensitive, and their spelling must be accurate. 
-
-Now that you have learnt about the components of a command, you are ready to use our application! Admittedly, we are as excited as you are! 
-
-You could try typing one of the following commands in the command box. Afterwards, press **'Enter'** to see the magic happen!
-
-* `list` : Lists all contacts.
-
-* `add n/John Doe p/98765432 e/johnd@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a contact named `John Doe` to the Address Book.
-
-* `delete 3` : Deletes the 3rd contact shown in the current list.
-
-**Great job!** You are now ready to learn about the exciting [features](#features) we have designed for you. Enjoy!
+While we know that you cannot wait to try out some exciting commands, let us learn about commands in the [Command Format](#command-format) section.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes about CLI:**<br>
 * As a SoC student, you will encounter the CLI in some SoC courses.
-* It is beneficial for you to start learning the CLI early!
+* Therefore, it is beneficial for you to start learning the CLI early!
+</div>
+
+[Back to Table of Contents](#table-of-contents)
+
+## Command Format
+
+In the [previous section](#using-the-command-line-interface--cli-), we learnt that commands must be spelt and formatted correctly.
+
+In this section, let us explore the components that constitute a command in **NUSCoursemates**:
+
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command word | `add`      | Specifies the task to be performed                                                                                                                              |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
+| Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
+Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features) section below.
+
+Using the format for `add` command as an example, we can deconstruct it into the three components:
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormat2.png" alt="Command Format" width="650"/>
+ </div> 
+
+Additionally, notice how symbols surrounding the prefixes and fields are used to indicate additional properties for the respective fields.
+
+For example (with reference to the `add` command above): 
+
+| Symbol  | Description                                           | Example        | Interpretation                                    |
+|---------|-------------------------------------------------------|----------------|---------------------------------------------------|
+| None    | Compulsory field                                      | `n/NAME`       | The student's name is required                    |
+| `[ ]`   | Optional field with a maximum of one entry            | `[e/EMAIL]`    | The student can have at most one email            |
+| `[ ]…​` | Optional field with no limit on the number of entries | `[c/COURSE]…​` | The student can have a variable number of courses |
+
+You would be happy to learn that the various `prefix/field` can be entered in any order.<br>
+For example, if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
+Now that you know what constitutes a command, you can proceed to add your new connections to **NUSCoursemates**.
+
+If you have made a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormatExample.png" alt="Command Format Example" width="650"/>
+ </div>
+
+Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen!
+
+You are now ready to use our application. Admittedly, we are as excited as you are!
+
+Practice makes perfect! Here are more commands you should try:
+
+* `list` : Lists all contacts.
+
+* `delete 3` : Deletes the 3rd contact shown in the current list.
+
+* `add n/Mary Tan p/98865432 e/marytan@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a student named `Mary Tan`.
+
+**Great job!** You may proceed to learn about the exciting [features](#features) we have designed for you. Enjoy!
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: More notes about the command format:**<br>
+
+* Extraneous characters for commands made up of a command word only (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines! Space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
-## Features
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format:**<br>
-
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</div>
-
-[Back to Table of Contents](#table-of-contents)
-
-----------
-## Managing Student Profiles
+## Features - Managing Student Profiles
 In the realm of student profiles, NUSCoursemates redefines the way you manage and connect with fellow students. It's not just about data; it's about fostering meaningful connections and streamlining your student network. NUSCoursemates offers a range of features designed with you, the student, in mind. 
 
 These features make it easy to add new friends, maintain your contact list, and engage with your academic community. All your student profiles are neatly organized for a seamless and user-centric experience.
@@ -332,7 +353,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 | Required Format                    | Description                                               | Special Notes                                                                     |
 |------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.        |
-| `c/add-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
+| `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
 | `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.    |
 
 <div markdown="block" class="alert alert-warning">
@@ -389,7 +410,7 @@ Examples:
 
 ![delete student](images/deleteFeature.png)
 
-## Viewing Student Profiles
+## Features - Viewing Student Profiles
 In NUSCoursemates, your journey begins with exploring student profiles. Our user-centric approach puts you in control, making it a breeze to view and connect with your fellow students. 
 
 Let's delve into the specifics of how to effortlessly access and make the most of student profiles.
@@ -501,7 +522,7 @@ Students with multiple tags will be sorted by the tag with the greatest importan
 For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
 </div>
 
-## Clearing Student Profiles
+## Features - Clearing Student Profiles
 
 In NUSCoursemates, we understand the need for flexibility and ease when it comes to managing your student profiles. Clearing profiles should be a straightforward process, and we've designed it to be just that. Let's explore how you can effortlessly clear profiles when necessary.
 
