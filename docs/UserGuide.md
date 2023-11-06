@@ -299,6 +299,12 @@ Examples:
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/Tom Lee p/81289900`
 
+| Before    | ![BeforeAddCommand](images/BeforeAddCommand.png) |
+|-----------|--------------------------------------------------|
+| **After** | ![AfterAddCommand](images/AfterAddCommand.png)   | 
+
+[Back to Table of Contents](#table-of-contents)
+
 ### Editing a student : `edit`
 
 Picture this: your best friend has changed his phone number, and you want to ensure his details are updated. With the "edit" feature, modifying any of your contact's details is a piece of cake.
@@ -332,7 +338,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 | Required Format                    | Description                                               | Special Notes                                                                     |
 |------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
 | `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.        |
-| `c/add-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
+| `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
 | `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.    |
 
 <div markdown="block" class="alert alert-warning">
@@ -352,17 +358,15 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in the address book, which as seen in the "Before" picture below, is John. 
-  * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below. 
-
-Before:
-
-![edit student](images/editFeatureBefore.png)
-
-After:
-
-![edit student](images/editFeatureAfter.png)
-
+  * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below.
+  * The Course List Panel will also be updated accordingly. 
 * `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
+
+| Before    | ![edit student](images/editFeatureBefore.png)   |
+|-----------|-------------------------------------------------|
+| **After** | ![edit student](images/editFeatureAfter.png)    |
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Deleting a student : `delete`
 
@@ -389,6 +393,8 @@ Examples:
 
 ![delete student](images/deleteFeature.png)
 
+[Back to Table of Contents](#table-of-contents)
+
 ## Viewing Student Profiles
 In NUSCoursemates, your journey begins with exploring student profiles. Our user-centric approach puts you in control, making it a breeze to view and connect with your fellow students. 
 
@@ -404,6 +410,8 @@ Format: `list`
 
 Examples:
 ![list](images/ListFeature.png)
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Locating students by name: `findstudent`
 
@@ -422,7 +430,10 @@ Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findstudent John` returns `john` and `John Doe`
 * `findstudent alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'findstudent alex david'](images/findAlexDavidResult.png)
+
+![result for 'findstudent alex david'](images/findAlexDavidResult.png)
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Discover Coursemates with `findcourse`
 
@@ -442,7 +453,9 @@ Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
 * `findcourse cs2100 ma1521` returns `CS2100` and `MA1521`
 
-  ![result for 'findcourse CS2100 MA1521'](images/FindcourseCS2100MA1521.png)
+![result for 'findcourse CS2100 MA1521'](images/FindcourseCS2100MA1521.png)
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Sorting by Course: `sort course`
 
@@ -456,22 +469,23 @@ For a twist in perspective, and to cheer on those just embarking on their academ
 * Revel in the contacts who've ventured into many courses, displayed in **descending order**.
 
 Example:
-Before Sorting:
-![initial](images/BeforeSorting.png)
 
-After `sort course`:
-![sourse_course](images/SortCourse.png)
+| Before    | ![initial](images/BeforeSorting.png)     |
+|-----------|------------------------------------------|
+| **After** | ![sourse_course](images/SortCourse.png)  |
+
+[Back to Table of Contents](#table-of-contents)
 
 #### Format: `sort course size-ascending`
 * Highlight the newcomers, those with the fewest courses, arranged in ascending order.
 
 Example:
-Before Sorting:
-![initial](images/BeforeSorting.png)
 
-After `sort course size-ascending`:
-![sort_course_size_ascending](images/SortCourseAscending.png)
+| Before    | ![sort course before ascending](images/BeforeSortingAscending.png) |
+|-----------|--------------------------------------------------------------------|
+| **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
 
+[Back to Table of Contents](#table-of-contents)
 
 ### Sorting by Name: `sort name`
 As time passes, you might encounter students with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
@@ -486,6 +500,7 @@ Examples:
 * `sort name-descending` sorts students by their names in descending order.
 * `sort name` or `sort name-ascending` sorts students by their names in ascending order.
 
+[Back to Table of Contents](#table-of-contents)
 
 ### Sorting by Tags: `sort tags`
 The greatest joy in university is, without a doubt, to attend boring classes with your close friends.
@@ -502,6 +517,8 @@ Students with multiple tags will be sorted by the tag with the greatest importan
 For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ## Clearing Student Profiles
 
 In NUSCoursemates, we understand the need for flexibility and ease when it comes to managing your student profiles. Clearing profiles should be a straightforward process, and we've designed it to be just that. Let's explore how you can effortlessly clear profiles when necessary.
@@ -512,13 +529,14 @@ A new semester has begun, and you want to reset all the courses of all your frie
 
 **How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
 
-Before:
+Examples:
 
-![clear-courses_before](images/ClearCoursesBefore.png)
+| Before    | ![clear-courses_before](images/ClearCoursesBefore.png) |
+|-----------|--------------------------------------------------------|
+| **After** | ![clear-courses_after](images/ClearCoursesAfter.png)   |
 
-After:
 
-![clear-courses_after](images/ClearCoursesAfter.png)
+[Back to Table of Contents](#table-of-contents)
 
 ### Clearing all students : `clear`
 >"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
@@ -530,12 +548,12 @@ This feature helps you start fresh or declutter your address book with a single 
 
 Format: `clear`
 
-Examples:
+Example:
 ![result for 'clear'](images/Clear.png)
 
-<div markdown="block" class="alert alert-info">
-**:exclamation: This action cannot be undone!:**<br>
-* Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Caution: This action cannot be undone!**<br>
+Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -560,7 +578,7 @@ Format: `help`
 
 <div markdown="block" class="alert alert-warning">
 **:exclamation: Caution:** <br>
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
 </div>
 
 ### Providing Valuable Feedback : `feedback`
@@ -575,7 +593,7 @@ Format: `feedback`
 
 <div markdown="block" class="alert alert-warning">
 **:exclamation: Caution:** <br>
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
 ### Changing themes : `theme`
@@ -621,7 +639,7 @@ NUSCoursemates data is saved in the hard disk automatically after any command th
 NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-* If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 ### Archiving data files `[coming in v2.0]`
@@ -679,7 +697,7 @@ _Details coming soon ..._
 | **Add**           | `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t`                                                                         |
 | **Clear**         | `clear`                                                                                                                                                                                                                                                                        |
 | **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
-| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/add-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
+| **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/del-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
 | **Find Student**  | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                                                                                       |
 | **Find Course**   | `findcourse MODULE_ID [MORE_MODULE_ID]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                |
 | **Sort**          | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
