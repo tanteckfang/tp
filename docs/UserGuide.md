@@ -407,16 +407,17 @@ Examples:
 
 ### Locating students by name: `findstudent`
 
-Finds students whose names contain any of the given keywords.
+Searching for a specific friend or classmate in your address book? Or maybe you're trying to figure out who to form a study group with? Look no further, because `findstudent` is your go-to feature for locating fellow NUS SoC students in your contacts by name.
+
+Unlock the potential of your network with these simple steps:
 
 Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Case Flexibility: Whether you input `john` or `JOHN`, we'll make sure you find your friend John.
+* You can search `Hans Bo` it will still match `Bo Hans` ; we understand it's about the people, not the sequence.
+* Focus on Names: Dive straight into finding individuals by their names, nothing else gets in the way.
+* Complete Words Matter: To keep it accurate, we search for complete words, only—`Han` will not match `Hans`.
+* Flexible 'OR' Search: It’s like casting a wider net – enter `Hans Bo`, and you’ll catch `Hans Gruber`, `Bo Yang`, or any name that contains `Hans` or `Bo`.
 
 Examples:
 * `findstudent John` returns `john` and `John Doe`
