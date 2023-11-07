@@ -42,12 +42,12 @@ As students can have multiple tags, only the highest priority tag will be taken 
 Credits: None
 
 #### Project management
-* to be added soon
+* I was in charge of the deadlines for tasks. 
 
 #### Documentation
 * User Guide
   * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#sorting-by-tags-sort-tags). 
-  * Added the [Command Line Interface (CLI) tutorial](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#using-the-command-line-interface-cli) 
+  * Added the [Command Line Interface (CLI) tutorial](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#using-the-command-line-interface-cli) to enable users to use the CLI efficiently. 
   * Added the [Command Format section](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#command-format)
 * Developer's Guide
   * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#45-sort-feature). 
@@ -55,8 +55,9 @@ Credits: None
   * Modify various sections (such as Product Scope). 
 
 #### Review/mentoring contributions
-* Bugs
-
+* I did some pull request reviews in the project. 
+* Some critical bugs were found when reviewing the pull requests of others. For example, for [this] pull request, I found a [bug](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863) which incorrectly prevented contacts from being added.
+* In addition, bugs for another group's project were also found by me during the Practical Examination dry run. 
 
 #### Community
 * to be added soon
