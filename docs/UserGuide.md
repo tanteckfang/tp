@@ -554,11 +554,11 @@ Examples:
 
 **:information_source: Note:**<br>
 * Names are temporarily converted to uppercase letters for the sorting process. 
-* Once the sorting process is completed, the original names will be restored.
+* Once completed, the original names will be restored.
 * Hence, as an example for `sort name`, `john` will appear before `JOHN doe`. 
+* In contrast, for `sort name-descending`, `john` will appear after `JOHN doe`.  
 
 </div>
-
 
 [Back to Table of Contents](#table-of-contents)
 
