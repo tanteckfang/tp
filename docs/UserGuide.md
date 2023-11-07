@@ -479,64 +479,108 @@ Examples:
 
 [Back to Table of Contents](#table-of-contents)
 
-### Sorting by Course: `sort course`
 
-Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
+### Sort
 
-At its core, the `sort course` command rearranges your address book, bringing those with the most courses to the forefront in **descending order**.
+NUSCoursemates may get a little disorganised as you add more students. This is where the sorting feature comes to the rescue! 
 
-For a twist in perspective, and to cheer on those just embarking on their academic journey, use `size-ascending`. This flips the narrative, showcasing contacts with fewer courses in **ascending** order.
+There are numerous ways you can sort your NUSCoursemates, and these options are summarised here:
 
-#### Format: `sort course`
-* Revel in the contacts who've ventured into many courses, displayed in **descending order**.
+| Required Format | Description                                        | Special Notes                                                                                     |
+|-----------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `sort name`     | Sorts students by their **names**.                 | Students' names are temporarily converted to uppercase letters for the sorting process.           |
+| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names.                       |
+| `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the highest importance is taken into account. |
 
-Example:
+The details for each `sort` command are specified below. For seasoned users of NUSCoursemates, you can further customise the sorting criteria. Read on to learn more!
 
-| Before    | ![initial](images/BeforeSorting.png)     |
-|-----------|------------------------------------------|
-| **After** | ![sourse_course](images/SortCourse.png)  |
+#### Sorting by Course: `sort course`
+
+Do you need help in deciding which courses to take? Are you curious about who has taken on the most courses or who is just starting out? 
+
+The `sort course` command helps you rearrange your NUSCoursemates application by bringing those with the most courses to the top.
+
+For seasoned users looking to cheer on those just embarking on their academic journey, use `sort course size-ascending`. This flips the narrative, showcasing contacts with fewer courses in **ascending** order.
+
+**Format:** `sort course` or `sort course size-descending`
+
+Examples:
+
+| Before    | ![initial](images/BeforeSorting.png)  |
+|-----------|---------------------------------------|
+| **After** | ![sort_course](images/SortCourse.png) |
 
 [Back to Table of Contents](#table-of-contents)
 
-#### Format: `sort course size-ascending`
-* Highlight the newcomers, those with the fewest courses, arranged in ascending order.
+**Format:** `sort course size-ascending`
+* Highlight the newcomers (those with the fewest courses), arranged in **ascending order**.
 
-Example:
+Examples:
 
 | Before    | ![sort course before ascending](images/BeforeSortingAscending.png) |
 |-----------|--------------------------------------------------------------------|
 | **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
 
+In both cases, students with the same number of courses taken are arranged by their names in alphabetical order.
+
 [Back to Table of Contents](#table-of-contents)
 
-### Sorting by Name: `sort name`
+#### Sorting by Name: `sort name`
 As time passes, you might encounter students with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
 
-Here's the good news: The sort name command neatly **arranges the students** in your address book **by their names**, making it easier than ever to look up a student.
+Here's the good news: The `sort name` command neatly **arranges the students** in your NUSCoursemates application **by their names**, making it easier than ever to look up a student.
 
-Plus, you have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** lexicographic order.
+For seasoned users, you also have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** order.
 
-Format: `sort name-SORT_CRITERION`
+**Format:** `sort name` or `sort name-ascending`
+* Sorts students by their names in ascending order.
 
 Examples:
-* `sort name-descending` sorts students by their names in descending order.
-* `sort name` or `sort name-ascending` sorts students by their names in ascending order.
+
+| Before    | ![initial](images/BeforeSortName.png)  |
+|-----------|----------------------------------------|
+| **After** | ![sort_name](images/AfterSortName.png) |
+
+**Format:** `sort name-descending` 
+* Sorts students by their names in descending order.
+
+Examples:
+
+| Before    | ![initial](images/BeforeSortNameDescending.png)             |
+|-----------|-------------------------------------------------------------|
+| **After** | ![sort_name descending](images/AfterSortNameDescending.png) |
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Note:**<br>
+* Names are temporarily converted to uppercase letters for the sorting process. 
+* Once the sorting process is completed, the original names will be restored.
+* Hence, as an example for `sort name`, `john` will appear before `JOHN doe`. 
+
+</div>
+
 
 [Back to Table of Contents](#table-of-contents)
 
-### Sorting by Tags: `sort tags`
+#### Sorting by Tags: `sort tags`
 The greatest joy in university is, without a doubt, to attend boring classes with your close friends.
 
-With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top of the address book.
+With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top.
 
 These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.
 
-Format: `sort tags`
+**Format:** `sort tags`
+
+Examples:
+
+| Before    | ![initial](images/BeforeSortTags.png)  |
+|-----------|----------------------------------------|
+| **After** | ![sort tags](images/AfterSortTags.png) |
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Note on students with multiple tags:**<br>
+**:information_source: Note:**<br>
 Students with multiple tags will be sorted by the tag with the greatest importance.  
-For example, a student with both 'Friend' and 'Emergency' tags will be placed in the address book with other students tagged as 'Friend'
+For example, a student with both 'Friend' and 'Emergency' tags will be placed in NUSCoursemates with other students tagged as 'Friend'. 
 </div>
 
 [Back to Table of Contents](#table-of-contents)
