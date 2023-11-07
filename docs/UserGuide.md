@@ -210,8 +210,8 @@ You could try typing one of the following commands in the command box. Afterward
 
 **Great job!** You are now ready to learn about the exciting [features](#features) we have designed for you. Enjoy!
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes about CLI:**<br>
+<div markdown="block" class="alert alert-tip">
+**:bulb: Tips for CLI:**<br>
 * As a SoC student, you will encounter the CLI in some SoC courses.
 * It is beneficial for you to start learning the CLI early!
 </div>
@@ -236,7 +236,7 @@ You could try typing one of the following commands in the command box. Afterward
 
 [Back to Table of Contents](#table-of-contents)
 
-----------
+--------------------------------------------------------------------------------------------------------------------
 ## Managing Student Profiles
 In the realm of student profiles, NUSCoursemates redefines the way you manage and connect with fellow students. It's not just about data; it's about fostering meaningful connections and streamlining your student network. NUSCoursemates offers a range of features designed with you, the student, in mind. 
 
@@ -264,15 +264,15 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 **Here's an input table with different inputs**
 
-| Field        | Valid Input                     | Invalid Input                      | Special Notes                                      |
-|--------------|---------------------------------|------------------------------------|----------------------------------------------------|
-| Name         | Alex the 3rd, John Doe          | (Empty)                            |                                                    |
-| Phone Number | 98765432, 988888998989898899898 | ABC123                             |                                                    |
-| Email        | johnd@example.com               | invalid_email                      |                                                    |
-| Address      | 123 Main St                     |                                    |                                                    |
-| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe | Cannot start with a number                         |
-| Tag          | Friend                          | Colleague, Lecturer, Family        | Only have 3 types: Friend, Close Friend, Emergency |
-| Course       | CS2101                          | CS2103S, CS9999                    | Valid Course are based on NUSMods                  |
+| Field        | Valid Input                     | Invalid Input                      | Special Notes                                                                      |
+|--------------|---------------------------------|------------------------------------|------------------------------------------------------------------------------------|
+| Name         | Alex the 3rd, John Doe          | (Empty)                            |                                                                                    |
+| Phone Number | 98765432, 988888998989898899898 | ABC123, (Empty)                    |                                                                                    |
+| Email        | johnd@example.com               | invalid_email                      |                                                                                    |
+| Address      | 123 Main St                     |                                    |                                                                                    |
+| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe | Cannot start with a number                                                         |
+| Tag          | Friend                          | Colleague, Lecturer, Family        | Only have 3 types: Friend, Close Friend, Emergency                                 |
+| Course       | CS2101                          | CS2103S, CS9999                    | Valid Course are based on [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) |
 
 <div markdown="block" class="alert alert-info">
 
@@ -389,11 +389,13 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ![delete student](images/deleteFeature.png)
 
 [Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Viewing Student Profiles
 In NUSCoursemates, your journey begins with exploring student profiles. Our user-centric approach puts you in control, making it a breeze to view and connect with your fellow students. 
@@ -424,7 +426,7 @@ Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 * Case Flexibility: Whether you input `john` or `JOHN`, we'll make sure you find your friend John.
 * You can search `Hans Bo` it will still match `Bo Hans` ; we understand it's about the people, not the sequence.
 * Focus on Names: Dive straight into finding individuals by their names, nothing else gets in the way.
-* Complete Words Matter: To keep it accurate, we search for complete words, only—`Han` will not match `Hans`.
+* Complete Words Matter: For accuracy, we search for complete words only. Searching `Han` won't match `Hans`, ensuring that you find exactly what you're looking for.
 * Flexible 'OR' Search: It’s like casting a wider net – enter `Hans Bo`, and you’ll catch `Hans Gruber`, `Bo Yang`, or any name that contains `Hans` or `Bo`.
 
 Examples:
@@ -459,7 +461,7 @@ Examples:
 
 ### Sorting by Course: `sort course`
 
-Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who's taken on the most courses or who's just starting out?
+Picture this: Your NUS address book is teeming with contacts, each with their unique set of courses. Curious about who has taken on the most courses or who's just starting out?
 
 At its core, the `sort course` command rearranges your address book, bringing those with the most courses to the forefront in **descending order**.
 
@@ -519,6 +521,8 @@ For example, a student with both 'Friend' and 'Emergency' tags will be placed in
 
 [Back to Table of Contents](#table-of-contents)
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Clearing Student Profiles
 
 In NUSCoursemates, we understand the need for flexibility and ease when it comes to managing your student profiles. Clearing profiles should be a straightforward process, and we've designed it to be just that. Let's explore how you can effortlessly clear profiles when necessary.
@@ -527,7 +531,9 @@ In NUSCoursemates, we understand the need for flexibility and ease when it comes
 
 A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
 
-**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses."
+**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses".
+
+Format: `clear-courses`
 
 Examples:
 
@@ -542,9 +548,11 @@ Examples:
 >"Every sunset is an opportunity to reset. Every sunrise begins with new eyes."
 > — Richie Norton
 
-Clearing all entries is your path to a new chapter in your NUSCoursemates. In NUSCoursemates, we've made it easy for you to clear all student entries when needed.
+Are you looking to do more than just clearing student courses? If you want to make a fresh start and clear your entire 
+NUSCoursemates, you're in the right place. NUSCoursemates offers a simple way to clear all student entries when the need
+arises. 
 
-This feature helps you start fresh or declutter your address book with a single command. Follow the simple steps below to clear all entries from your address book:
+**How to do it:** With the straightforward `clear` command, you can begin anew and declutter your address book effortlessly. It's as simple as typing "clear".
 
 Format: `clear`
 
@@ -558,7 +566,7 @@ Only enter the `clear` command if you are sure that you wish to remove all exist
 
 [Back to Table of Contents](#table-of-contents)
 
---------
+--------------------------------------------------------------------------------------------------------------------
 ## General Features
 Congratulations, you've reached the end of our core features to modify NUSCoursemates, and that's a job well done! We know it's a lot of information to digest, but don't worry. We've got your back.
 
