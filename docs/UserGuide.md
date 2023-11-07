@@ -228,7 +228,7 @@ Now that you know what constitutes a command, you can proceed to add your new co
 If you have made a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
 
  <div style="margin-top: 10px; margin-bottom: 10px">
-    <img src="images/CommandFormatExample.png" alt="Command Format Example" width="650"/>
+    <img src="images/CommandFormatExample.png" alt="Command Format Example" width="720"/>
  </div>
 
 Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen!
