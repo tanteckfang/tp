@@ -8,7 +8,7 @@ title: Tan Jia Liang Leon's Project Portfolio Page
 ### Overview
 NUSCourseMates is a desktop address book application used for keeping track of the courses your contacts are taking.
 The user interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
-It is written in Java, and has about 10 kLoC.
+It is written in Java, and has about 19 kLoC.
 
 ### Summary of Contributions
 Given below are my contributions to the project.
