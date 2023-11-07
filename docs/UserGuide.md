@@ -42,17 +42,21 @@ We will walk you through every step, from the basics of setting up your profile 
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
 
-In addition, here are some symbols that will give you a more enjoyable time using our guide:
-
-| Symbol               | Meaning                                                                                        |
-|----------------------|------------------------------------------------------------------------------------------------|
-| :information_source: | Note. Provides additional information.                                                         |
-| :bulb:               | Helpful tip that will improve your experience.                                                 |
-| :exclamation:        | Warning. Attempting to perform an action with a warning will lead to undesirable consequences. |
+In addition, there wil be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes about the command format:**<br>
-* These symbols will be encapsulated in a box as such.
+**:information_source: Notes:**<br>
+* Provides additional information.
+</div>
+
+<div markdown="block" class="alert alert-warning">
+**:exclamation: Cautions:**<br>
+* Attempting to perform an action with a warning will lead to undesirable consequences.
+</div>
+
+<div markdown="block" class="alert alert-tip">
+**:bulb: Pro Tips:**<br>
+* Helpful tips that will improve your experience.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -274,6 +278,15 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 | Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No        | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts.                                                                                                                                                 |
 | Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No        | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.                                                                                                                                                              |
 
+Examples:
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
+* `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
+* `add n/John Doe 2 p/5136850137`
+
+| Before    | ![BeforeAddCommand](images/BeforeAddCommand.png) |
+|-----------|--------------------------------------------------|
+| **After** | ![AfterAddCommand](images/AfterAddCommand.png)   |
+
 <div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
@@ -284,20 +297,11 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 </div>
 
 
-<div markdown="block" class="alert alert-info">
+<div markdown="block" class="alert alert-tip">
 
 **:bulb: Pro Tip:**<br>
-* To add a 'Close Friend' tag, use t/cf (case-insensitive).
+* To save time, you can add a 'Close Friend' tag by simply using t/cf (case-insensitive) instead of t/Close Friend.
 </div>
-
-Examples:
-* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
-* `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
-* `add n/John Doe 2 p/5136850137`
-
-| Before    | ![BeforeAddCommand](images/BeforeAddCommand.png) |
-|-----------|--------------------------------------------------|
-| **After** | ![AfterAddCommand](images/AfterAddCommand.png)   | 
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -337,20 +341,6 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 | `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
 | `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.    |
 
-<div markdown="block" class="alert alert-warning">
-
-**:exclamation: Caution:** <br>
-* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
-* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1.<br> 
-* An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid. 
-</div>
-
-<div markdown="block" class="alert alert-info">
-
-**:bulb: Pro Tip:**<br>
-* You can include `t/` in your edit command to remove all of a person's tags.
-* You can include `c/` your edit command to remove all of a peron's courses.
-</div>
 
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in the address book, which as seen in the "Before" picture below, is John. 
@@ -361,6 +351,21 @@ Examples:
 | Before    | ![edit student](images/editFeatureBefore.png)   |
 |-----------|-------------------------------------------------|
 | **After** | ![edit student](images/editFeatureAfter.png)    |
+
+<div markdown="block" class="alert alert-warning">
+
+**:exclamation: Caution:** <br>
+* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
+* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1.<br>
+* An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid.
+</div>
+
+<div markdown="block" class="alert alert-tip">
+
+**:bulb: Pro Tip:**<br>
+* You can include `t/` in your edit command to remove all of a person's tags.
+* You can include `c/` your edit command to remove all of a peron's courses.
+</div>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -375,6 +380,12 @@ Format: `delete INDEX`
 
 * `INDEX`: Deletes the student at the specified mark.
 
+Examples:
+* `list` followed by `delete 2` deletes the 2nd person in the address book.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+
+![delete student](images/deleteFeature.png)
+
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
@@ -382,12 +393,6 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 * The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
 </div>
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
-![delete student](images/deleteFeature.png)
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -585,6 +590,8 @@ Format: `help`
 If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Providing Valuable Feedback : `feedback`
 > "Your voice is the most powerful tool you have. Be the change you want to see."
 > — Anonymous
@@ -600,6 +607,8 @@ Format: `feedback`
 If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Changing themes : `theme`
 > "The measure of intelligence is the ability to change."
 > — Albert Einstein
@@ -608,14 +617,14 @@ With the theme command, you have the power to choose your preferred visual theme
 
 Format: `theme THEME`
 
+![theme message](images/themeMessage.png)
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes about Themes:**<br>
 * Two types of themes currently supported, light and dark.
 * Eg: `theme dark`, `theme light`.
 * The terms "dark" and "light" are both case-insensitive.
 </div>
-
-![theme message](images/themeMessage.png)
 
 ### Exiting the program : `exit`
 > "The pain of parting is nothing to the joy of meeting again."
@@ -633,10 +642,13 @@ Format: `exit`
 * If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`." <br>
 </div>
 
+[Back to Table of Contents](#table-of-contents)
 
 ### Saving the data
 
 NUSCoursemates data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Editing the data file
 
@@ -645,6 +657,8 @@ NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Archiving data files `[coming in v2.0]`
 
