@@ -255,7 +255,7 @@ Embrace the opportunity to expand your circle and make lasting connections by ad
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
 * `n/NAME`: Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!
-* `p/PHONE_NUMBER`:  Stay connected with their contact number, ensuring you're just a call or message away. For our international friends with overseas numbers, we've got you covered – you can add phone numbers of any length. 
+* `p/PHONE_NUMBER`:  Stay connected with their contact number, ensuring you're just a call or message away. For our international friends with overseas numbers, we've got you covered – you can add phone numbers of at least 3 digits. 
 * `e/EMAIL` (optional): Include their email address, making digital connections seamless.
 * `a/ADDRESS` (optional): Specify their physical address, ideal for planning meetups.
 * `th/TELEHANDLE` (optional): Provide their telehandle, ensuring quick and easy communication.
