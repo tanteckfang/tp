@@ -45,6 +45,7 @@ If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#fa
 In addition, there will be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
 
 <div markdown="block" class="alert alert-info">
+
 **:information_source: Notes:**<br>
 * Provides additional information.
 </div>
@@ -56,6 +57,7 @@ In addition, there will be symbols encapsulated in boxes to give you a more enjo
 </div>
 
 <div markdown="block" class="alert alert-tip">
+
 **:bulb: Pro Tip:**<br>
 * Helpful tips that will improve your experience.
 </div>
