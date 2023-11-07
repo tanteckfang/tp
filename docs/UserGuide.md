@@ -42,7 +42,7 @@ We will walk you through every step, from the basics of setting up your profile 
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
 
-In addition, there wil be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
+In addition, there will be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -50,12 +50,13 @@ In addition, there wil be symbols encapsulated in boxes to give you a more enjoy
 </div>
 
 <div markdown="block" class="alert alert-warning">
-**:exclamation: Cautions:**<br>
+
+**:exclamation: Caution:**<br>
 * Attempting to perform an action with a warning will lead to undesirable consequences.
 </div>
 
 <div markdown="block" class="alert alert-tip">
-**:bulb: Pro Tips:**<br>
+**:bulb: Pro Tip:**<br>
 * Helpful tips that will improve your experience.
 </div>
 
@@ -362,7 +363,7 @@ Examples:
 
 <div markdown="block" class="alert alert-tip">
 
-**:bulb: Pro Tip:**<br>
+**:bulb: Pro Tips:**<br>
 * You can include `t/` in your edit command to remove all of a person's tags.
 * You can include `c/` your edit command to remove all of a peron's courses.
 </div>
@@ -561,8 +562,9 @@ Example:
 ![result for 'clear'](images/Clear.png)
 
 <div markdown="block" class="alert alert-warning">
+
 **:exclamation: Caution: This action cannot be undone!**<br>
-Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
+* Only enter the `clear` command if you are sure that you wish to remove all existing contacts. Once you run this command, you lose all data immediately. 
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -586,8 +588,9 @@ Format: `help`
 ![help message](images/helpMessage.png)
 
 <div markdown="block" class="alert alert-warning">
+
 **:exclamation: Caution:** <br>
-If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -603,8 +606,9 @@ Format: `feedback`
 ![feedback message](images/feedbackMessage.png)
 
 <div markdown="block" class="alert alert-warning">
+
 **:exclamation: Caution:** <br>
-If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -654,8 +658,9 @@ NUSCoursemates data is saved in the hard disk automatically after any command th
 
 NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:** <br>
+
+* If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
