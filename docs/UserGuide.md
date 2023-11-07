@@ -255,35 +255,24 @@ Embrace the opportunity to expand your circle and make lasting connections by ad
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
 * `n/NAME`: Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!
-* `p/PHONE_NUMBER`:  Stay connected with their contact number, ensuring you're just a call or message away. For our international friends with overseas numbers, we've got you covered – you can add phone numbers of any length. 
+* `p/PHONE_NUMBER`:  Stay connected with their contact number, ensuring you're just a call or message away. For our international friends with overseas numbers, we've got you covered – you can add phone numbers of at least 3 digits. 
 * `e/EMAIL` (optional): Include their email address, making digital connections seamless.
 * `a/ADDRESS` (optional): Specify their physical address, ideal for planning meetups.
 * `th/TELEHANDLE` (optional): Provide their telehandle, ensuring quick and easy communication.
 * `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
 * `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
 
-**Here's an input table with different inputs**
+#### Input Table
 
-| Field        | Valid Input                     | Invalid Input                      | Special Notes                                                                      |
-|--------------|---------------------------------|------------------------------------|------------------------------------------------------------------------------------|
-| Name         | Alex the 3rd, John Doe          | (Empty)                            |                                                                                    |
-| Phone Number | 98765432, 988888998989898899898 | ABC123, (Empty)                    |                                                                                    |
-| Email        | johnd@example.com               | invalid_email                      |                                                                                    |
-| Address      | 123 Main St                     |                                    |                                                                                    |
-| Telehandle   | @johndoe                        | @111, @!@#$@#$, johndoe, @john doe | Cannot start with a number                                                         |
-| Tag          | Friend                          | Colleague, Lecturer, Family        | Only have 3 types: Friend, Close Friend, Emergency                                 |
-| Course       | CS2101                          | CS2103S, CS9999                    | Valid Course are based on [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) |
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Note:**<br>
-* You can include any number of tags or courses (including none).
-* Only three tag types are allowed: 'Friend,' 'Close Friend,' and 'Emergency.'
-* To add a 'Close Friend' tag, use t/cf (case-insensitive).
-* Tags and Courses are case-insensitive when entered.
-* Telehandles must start with '@', cannot contain spaces, and should consist of letters, numbers, and underscores only. No other special characters are allowed.
-* Valid Courses are based on [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 and Sem 2.
-</div>
+| Field        | Valid Input(s)                                                               | Invalid Input(s)                   | Compulsory? | Case sensitive? | Requirement(s)                                                                                                                                                                                                                                                                                                                                                            |
+|--------------|------------------------------------------------------------------------------|------------------------------------|-------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name         | Alex the 3rd, John Doe                                                       | (Empty)                            | Yes         | Yes             | The name must not already exist in the address book.                                                                                                                                                                                                                                                                                                                      |
+| Phone Number | 98765432, 988888998989898899898                                              | ABC123                             | Yes         | -               | At least 3 digits.                                                                                                                                                                                                                                                                                                                                                        |
+| Email        | johnd@example.com                                                            | joe@g                              | No          | Yes             | Format: local-part@domain-name <br/> - local-part must: <br/> &nbsp;&nbsp;1. Contain alphanumeric characters or these special characters: +, _, ., -. <br/> &nbsp;&nbsp;2. Not start or end with any special characters. <br/> - domain-name must: <br/> &nbsp;&nbsp; 1. Be at least 2 characters long. <br/> &nbsp;&nbsp; 2. Begin and end with alphanumeric characters. |
+| Address      | 123 Main St                                                                  |                                    | No          | Yes             | N.A.                                                                                                                                                                                                                                                                                                                                                                      |
+| Telehandle   | @johndoe, @a12                                                               | @111, @!@#$@#$, johndoe, @john doe | No          | Yes             | Must start with a "@". The first character preceding the "@" cannot be a number. It should consist of letters, numbers, and underscores only. No other special characters are allowed.                                                                                                                                                                                    |
+| Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No          | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts.                                                                                                                                                 |
+| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No          | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.                                                                                                                                                              |
 
 <div markdown="block" class="alert alert-warning">
 
@@ -292,6 +281,13 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * Duplicate students are identified by their names; ensure the name is unique. <br>
 * Make sure the courses you add exist and are valid. <br>
 * You can tag up to two contacts with the 'Emergency' tag. <br>
+</div>
+
+
+<div markdown="block" class="alert alert-tip">
+
+**:bulb: Pro Tip:**<br>
+* To add a 'Close Friend' tag, use t/cf (case-insensitive).
 </div>
 
 Examples:
@@ -315,18 +311,18 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 - Provide the **index number** of the student based on the **student list currently displayed**, along with the updated details you wish to change to.
 - At least one of the optional fields must be provided.
 - Existing values will be updated to the input values. The values of the unspecified fields will remain unchanged. 
+- The [constraints specified](#input-table) for the values of the fields in the `add` command are also enforced for the updated values that you provide in the `edit` command.
 
-| Field            | Tag | Description                                | Requirement | Special Notes                                                                                                                                                               |
-|------------------|-----|--------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `INDEX`          | -   | Index of contact in displayed list         | Compulsory  | -                                                                                                                                                                           |
-| `NAME`           | n/  | Updated name of contact                    | Optional    | Cannot provide a name that already exists in the address book.                                                                                                              |
-| `PHONE`          | p/  | Updated phone number of contact            | Optional    | -                                                                                                                                                                           |
-| `EMAIL`          | e/  | Updated email of contact                   | Optional    | -                                                                                                                                                                           |
-| `ADDRESS`        | a/  | Updated address of contact                 | Optional    | -                                                                                                                                                                           |
-| `TELEHANDLE`     | th/ | Updated telehandle of contact              | Optional    | - A student can only have one telehandle. <br/> - Telehandles must start with "@".                                                                                          |
-| `TAG`            | t/  | Updated tag of contact                     | Optional    | - Only 3 types of tags (Friend, Close Friend and Emergency) are allowed. <br/> -The rule that there is a maximum of 2 persons with emergency tags is enforced here as well. |
-| `COURSE_CHANGE`  | c/  | Course change to be performed for contact  | Optional    | See below for more information.                                                                                                                                             |
-
+| Field            | Tag | Description                                | Requirement |
+|------------------|-----|--------------------------------------------|-------------|
+| `INDEX`          | -   | Index of contact in displayed list         | Compulsory  |
+| `NAME`           | n/  | Updated name of contact                    | Optional    |
+| `PHONE`          | p/  | Updated phone number of contact            | Optional    |
+| `EMAIL`          | e/  | Updated email of contact                   | Optional    |
+| `ADDRESS`        | a/  | Updated address of contact                 | Optional    |
+| `TELEHANDLE`     | th/ | Updated telehandle of contact              | Optional    |
+| `TAG`            | t/  | Updated tag of contact                     | Optional    |
+| `COURSE_CHANGE`  | c/  | Course change to be performed for contact  | Optional    |
 
 
 **More information about the `COURSE_CHANGE` field:**
