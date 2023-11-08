@@ -33,17 +33,21 @@ Given below are my contributions to the project.
 #### Enhancements to existing features
 * to be added soon
 
-#### Documentation
-* User Guide
-    * [To be added soon]
-* Developer's Guide
-    * [To be added soon]
+* **Documentation**:
+  * User Guide:
+    * Added the introduction to the user guide. (Pull Request: [#132](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/132))
+    * Added the Using this Guide section. (Pull Request: [#132](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/132))
+    * Added the User Interface section. (Pull Request: [#144](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/144))
+    * Updated the Adding a student feature. (Pull Request: [#144](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/144))
+    * Updated the list feature. (Pull Request: [#144](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/144))
+    * Add Glossary section. (Pull Request: [#156](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/156))
+  * Developer Guide:
+    * Added Use Cases. (Pull Request: [#60](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/60))
+    * Updated UI Class diagram. (Pull Request: [#126](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/126))
+    * Added AddCommand feature implementation. (Pull Request: [#126](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/126))
+    * Added Planned Enhancements. (Pull Request: [#232](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/232))
 
-#### Review/mentoring contributions
-* to be added soon
-
-#### Community
-* to be added soon
-
-#### Tools
-* to be added soon
+* **Community**:
+  * Reviewed [29](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Aleontan2) Pull Requests
+  * Some notable PR reviews: Found several critical bugs in the PR [#94](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/94), gave some positive in PR [#99](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/99) 
+  * Other reviewed PRs: [#70](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/70), [#71](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/71), [#71](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/71), [#72](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/72), [#82](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/82), [#90](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/90), [#105](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/105), [#126](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/126), [#129](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/129), [#130](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/130), [#134](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/134), [#136](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/136), [#143](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/143), [#144](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/144), [#150](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/150), [#153](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/153), [#156](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/156), [#160](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/160), [#164](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/164), [#167](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/167), [#168](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/168), [#169](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/169), [#221](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/221), [#223](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/223), [#224](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/224), [#234](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/234), [#239](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/239)
