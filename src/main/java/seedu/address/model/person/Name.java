@@ -38,17 +38,6 @@ public class Name {
         return test.matches(VALIDATION_REGEX);
     }
 
-    /**
-     * Compares the name lexicographically.
-     */
-    public int compareTo(Name name) {
-        assert name != null;
-
-        String thisUpperCaseName = this.fullName.toUpperCase();
-        String otherUpperCaseName = name.fullName.toUpperCase();
-        return thisUpperCaseName.compareTo(otherUpperCaseName);
-    }
-
     @Override
     public String toString() {
         return fullName;
