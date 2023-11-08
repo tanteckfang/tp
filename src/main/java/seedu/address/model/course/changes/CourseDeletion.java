@@ -39,22 +39,12 @@ public class CourseDeletion extends CourseChange {
         return matcher.matches();
     }
 
-    /**
-     * Returns true if a given description contains valid courses, given that it already fulfills the "del-" template.
-     * @param description the description i.e. "del-CS2103T"
-     * @return whether the course to delete is valid
-     */
     public static boolean checkIfValidCourse(String description) {
-        matcher = COURSE_DELETION_PATTERN.matcher(description);
-        if (matcher.find()) {
-            return Course.isExistingCourseName(matcher.group("course"));
-        }
-        return false;
+        return CourseChange.checkIfValidCourse(matcher, COURSE_DELETION_PATTERN, description, "course");
     }
 
     public static String getParsedCourseName(String description) {
-        matcher = COURSE_DELETION_PATTERN.matcher(description);
-        return matcher.find() ? matcher.group("course") : null;
+        return CourseChange.getParsedCourseName(matcher, COURSE_DELETION_PATTERN, description, "course");
     }
 
     public Course getCourseToDelete() {
