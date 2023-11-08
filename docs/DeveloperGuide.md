@@ -381,7 +381,7 @@ Format: `sort CRITERION`
 There are 3 ways to sort the students in the address book:
 
 1. **Sort by Name**
-    - Function: Sorts students by name lexicographically
+    - Function: Sorts students by name in alphabetical order (Aa Bb ... Zz)
     - Criterion: name, name-ascending, name-descending
     - Example usage: `sort name-ascending`
 
@@ -409,7 +409,7 @@ The following UML Sequence diagram shows what happens when `sort name` is entere
 
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
-The following UML Activity diagram shows the workflow of sorting students in the address book:
+The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
 
 #### 4.5.2 Design considerations:
