@@ -21,7 +21,10 @@ public class PersonCourseSizeDescendingSorter extends PersonSorter {
     @Override
     public int compare(Person person1, Person person2) {
         requireAllNonNull(person1, person2);
-        int courseSizeComparison = Integer.compare(person2.getCourses().size(), person1.getCourses().size());
+
+        int person1CourseSize = person1.getCourses().size();
+        int person2CourseSize = person2.getCourses().size();
+        int courseSizeComparison = Integer.compare(person2CourseSize, person1CourseSize);
 
         if (courseSizeComparison != 0) {
             return courseSizeComparison;

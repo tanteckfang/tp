@@ -42,10 +42,10 @@ public class Name {
      * Compares the name lexicographically.
      */
     public int compareTo(Name name) {
+        assert name != null;
 
         String thisUpperCaseName = this.fullName.toUpperCase();
         String otherUpperCaseName = name.fullName.toUpperCase();
-
         return thisUpperCaseName.compareTo(otherUpperCaseName);
     }
 

@@ -22,7 +22,9 @@ public class PersonCourseSizeAscendingSorter extends PersonSorter {
     public int compare(Person person1, Person person2) {
         requireAllNonNull(person1, person2);
 
-        int courseSizeComparison = Integer.compare(person1.getCourses().size(), person2.getCourses().size());
+        int person1CourseSize = person1.getCourses().size();
+        int person2CourseSize = person2.getCourses().size();
+        int courseSizeComparison = Integer.compare(person1CourseSize, person2CourseSize);
 
         if (courseSizeComparison != 0) {
             return courseSizeComparison;
