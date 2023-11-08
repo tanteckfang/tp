@@ -30,6 +30,53 @@ public class PersonNameAscendingSorterTest {
     }
 
     @Test
+    public void compareTo_sameNameDifferentCase_returnsSortedInDictionaryOrder() {
+        Person lowercaseHoon = new PersonBuilder().withName("hoon").withPhone("8482424").build();
+        Person uppercaseHoon = new PersonBuilder().withName("HOON").withPhone("8482424").build();
+        Person mixedCaseHoon = new PersonBuilder().withName("hoOn").withPhone("8482424").build();
+        Person secondMixedCaseHoon = new PersonBuilder().withName("HOoN").withPhone("8482424").build();
+
+        PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
+
+        // Name in the same case should be treated equally
+        assertTrue(sorter.compare(uppercaseHoon, uppercaseHoon) == 0);
+        assertTrue(sorter.compare(mixedCaseHoon, mixedCaseHoon) == 0);
+
+        // Name in uppercase should come before lowercase
+        assertTrue(sorter.compare(uppercaseHoon, lowercaseHoon) < 0);
+
+        // Name that has an uppercase character in between should come before the same name in lower case
+        assertTrue(sorter.compare(mixedCaseHoon, lowercaseHoon) < 0);
+
+        // Name that has lowercase characters in between should come after the same name in upper case
+        assertTrue(sorter.compare(secondMixedCaseHoon, uppercaseHoon) > 0);
+
+        // Negative test: Names in different cases should not be treated equally.
+        assertFalse(sorter.compare(lowercaseHoon, mixedCaseHoon) == 0);
+    }
+
+    @Test
+    public void compareTo_sameNameWithNumbers_returnsSortedInDictionaryOrder() {
+        Person lowercaseHoon = new PersonBuilder().withName("hoon 1").withPhone("8482424").build();
+        Person secondLowercaseHoon = new PersonBuilder().withName("hoon 2").withPhone("8482424").build();
+        Person lowercaseHoonT = new PersonBuilder().withName("hoon t").withPhone("8482424").build();
+
+        PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
+
+        // Same names with numbers should be treated equally
+        assertTrue(sorter.compare(lowercaseHoon, lowercaseHoon) == 0);
+
+        // Name with the smaller number should come before name with larger number.
+        assertTrue(sorter.compare(lowercaseHoon, secondLowercaseHoon) < 0);
+
+        // Numbers should come before characters
+        assertTrue(sorter.compare(lowercaseHoon, lowercaseHoonT) < 0);
+
+        // Negative test: Names with different numbers should not be treated equally.
+        assertFalse(sorter.compare(lowercaseHoon, secondLowercaseHoon) == 0);
+    }
+
+    @Test
     public void compareTo_differentName_returnsTrue() {
         PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
 
