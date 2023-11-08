@@ -11,6 +11,7 @@ import seedu.address.model.person.sorter.PersonNameAscendingSorter;
 
 public class SortCommandParserTest {
     private final SortCommandParser parser = new SortCommandParser();
+
     @Test
     public void parse_emptyArg_throwsParseException() {
         assertParseFailure(parser, "  ",

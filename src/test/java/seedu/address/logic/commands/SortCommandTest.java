@@ -17,7 +17,6 @@ import seedu.address.model.person.sorter.PersonSorter;
 public class SortCommandTest {
 
     public static final String NAME_ASCENDING = "name-ascending";
-    public static final String NAME_DESCENDING = "name-descending";
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
