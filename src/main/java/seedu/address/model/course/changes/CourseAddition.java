@@ -42,10 +42,20 @@ public class CourseAddition extends CourseChange {
         return matcher.matches();
     }
 
+    /**
+     * Checks if the description provided contains a valid course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid course.
+     */
     public static boolean checkIfValidCourse(String description) {
         return CourseChange.checkIfValidCourse(matcher, COURSE_ADDITION_PATTERN, description, "course");
     }
 
+    /**
+     * Parses the course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed course name from the given description.
+     */
     public static String getParsedCourseName(String description) {
         return CourseChange.getParsedCourseName(matcher, COURSE_ADDITION_PATTERN, description, "course");
     }

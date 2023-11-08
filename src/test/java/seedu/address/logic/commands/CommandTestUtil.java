@@ -28,7 +28,6 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String EMPTY_INPUT = "";
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -74,14 +73,10 @@ public class CommandTestUtil {
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
-    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "jonhhy"; // missing '@' symbol
 
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "MA0!0"; // '!' not allowed in tags
     public static final String INVALID_EXISTING_COURSE_DESC = " " + PREFIX_COURSE + "MA9999"; // Non-existence course
-    // TODO: add in these constants once we have course validation:
-    // public static final String INVALID_COURSE_ADDITION = " " + PREFIX_COURSE + "ard-CS2103T"; // 'and', not 'ard'
-    // public static final String INVALID_COURSE_DELETION = " " + PREFIX_COURSE + "de-CS2103T"; // 'del', not 'de'
     public static final String INVALID_COURSE_EDIT = " " + PREFIX_COURSE + "-CS2103T"; // missing original course
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";

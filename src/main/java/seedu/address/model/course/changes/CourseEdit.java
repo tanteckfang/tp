@@ -49,19 +49,38 @@ public class CourseEdit extends CourseChange {
         return matcher.matches();
     }
 
+    /**
+     * Checks if the description provided contains a valid original course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid original course.
+     */
     public static boolean checkIfValidOriginalCourse(String description) {
         return CourseChange.checkIfValidCourse(matcher, COURSE_EDIT_PATTERN, description, "originalCourse");
     }
 
+    /**
+     * Checks if the description provided contains a valid new course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid new course.
+     */
     public static boolean checkIfValidNewCourse(String description) {
         return CourseChange.checkIfValidCourse(matcher, COURSE_EDIT_PATTERN, description, "newCourse");
     }
 
-
+    /**
+     * Parses the original course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed original course name from the given description.
+     */
     public static String getParsedOriginalCourseName(String description) {
         return CourseChange.getParsedCourseName(matcher, COURSE_EDIT_PATTERN, description, "originalCourse");
     }
 
+    /**
+     * Parses the new course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed new course name from the given description.
+     */
     public static String getParsedNewCourseName(String description) {
         return CourseChange.getParsedCourseName(matcher, COURSE_EDIT_PATTERN, description, "newCourse");
     }
