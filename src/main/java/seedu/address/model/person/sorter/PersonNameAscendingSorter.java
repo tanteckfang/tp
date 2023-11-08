@@ -2,6 +2,8 @@ package seedu.address.model.person.sorter;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Comparator;
+
 import seedu.address.model.person.Person;
 
 /**
@@ -20,10 +22,30 @@ public class PersonNameAscendingSorter extends PersonSorter {
     @Override
     public int compare(Person person1, Person person2) {
         requireAllNonNull(person1, person2);
-        // Convert to uppercase so as to compare ASCII values
-        String person1UpperCaseName = person1.getName().fullName.toUpperCase();
-        String person2UpperCaseName = person2.getName().fullName.toUpperCase();
-        return person1UpperCaseName.compareTo(person2UpperCaseName);
+
+        Comparator<String> caseInsensitiveThenNaturalOrder = String
+                .CASE_INSENSITIVE_ORDER
+                .thenComparing(Comparator.naturalOrder());
+
+        String person1Name = person1.getName().fullName;
+        String person2Name = person2.getName().fullName;
+
+        requireAllNonNull(person1Name, person2Name);
+
+        int person1NameLength = person1Name.length();
+        int person2NameLength = person2Name.length();
+
+        for (int i = 0; i < Math.min(person1NameLength, person2NameLength); i++) {
+            // Compare each character in the string until a difference in character is found.
+            int compare = caseInsensitiveThenNaturalOrder
+                    .compare(person1Name.substring(i, i + 1), person2Name.substring(i, i + 1));
+            if (compare != 0) {
+                return compare;
+            }
+        }
+        // If we have reached the end of the shorter string, but no differences have been found, then
+        // the longer string should come after the shorter string.
+        return Integer.compare(person1Name.length(), person2Name.length());
     }
 
     @Override
