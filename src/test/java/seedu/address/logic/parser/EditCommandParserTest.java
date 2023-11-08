@@ -8,7 +8,14 @@ import static seedu.address.logic.commands.CommandTestUtil.COURSE_CHANGE_DESC_DE
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_CHANGE_DESC_EDIT;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_EDIT;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_ADDITION_INVALID_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_ADDITION_MISSING_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_CS2103X;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_DELETION_INVALID_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_DELETION_MISSING_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_EDIT_INVALID_NEW_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_EDIT_INVALID_ORIGINAL_COURSE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_EDIT_MISSING_COURSE;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
@@ -35,6 +42,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.model.course.Course.MESSAGE_INVALID_COURSE_WITH_NAME;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
@@ -95,10 +103,25 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
-        // add in these once we have course validation
-        // assertParseFailure(parser, "1" + INVALID_COURSE_ADDITION, CourseChange.MESSAGE_CONSTRAINTS);
-        // assertParseFailure(parser, "1" + INVALID_COURSE_DELETION, CourseChange.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + INVALID_COURSE_EDIT, CourseChange.MESSAGE_CONSTRAINTS);
+
+        // course addition
+        assertParseFailure(parser, "1" + INVALID_COURSE_ADDITION_MISSING_COURSE,
+            CourseChange.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_COURSE_ADDITION_INVALID_COURSE,
+                String.format(MESSAGE_INVALID_COURSE_WITH_NAME, INVALID_COURSE_CS2103X));
+
+        // course deletion
+        assertParseFailure(parser, "1" + INVALID_COURSE_DELETION_MISSING_COURSE,
+                CourseChange.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_COURSE_DELETION_INVALID_COURSE,
+                String.format(MESSAGE_INVALID_COURSE_WITH_NAME, INVALID_COURSE_CS2103X));
+
+        // course edit
+        assertParseFailure(parser, "1" + INVALID_COURSE_EDIT_MISSING_COURSE, CourseChange.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_COURSE_EDIT_INVALID_ORIGINAL_COURSE,
+                String.format(MESSAGE_INVALID_COURSE_WITH_NAME, INVALID_COURSE_CS2103X));
+        assertParseFailure(parser, "1" + INVALID_COURSE_EDIT_INVALID_NEW_COURSE,
+                String.format(MESSAGE_INVALID_COURSE_WITH_NAME, INVALID_COURSE_CS2103X));
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_AMY, Phone.MESSAGE_CONSTRAINTS);

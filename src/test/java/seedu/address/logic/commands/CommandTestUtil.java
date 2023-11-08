@@ -43,6 +43,7 @@ public class CommandTestUtil {
     public static final String VALID_COURSE_CS2103T = "CS2103T";
     public static final String VALID_COURSE_MA1521 = "MA1521";
     public static final String VALID_COURSE_MA2001 = "MA2001";
+    public static final String INVALID_COURSE_CS2103X = "CS2103X";
     public static final String VALID_COURSE_ADDITION_CS2103T = "add-" + VALID_COURSE_CS2103T;
     public static final String VALID_COURSE_DELETION_MA2001 = "del-" + VALID_COURSE_MA2001;
     public static final String VALID_COURSE_EDIT_CS1231S_TO_MA1521 = "CS1231S-MA1521";
@@ -77,7 +78,17 @@ public class CommandTestUtil {
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "MA0!0"; // '!' not allowed in tags
     public static final String INVALID_EXISTING_COURSE_DESC = " " + PREFIX_COURSE + "MA9999"; // Non-existence course
-    public static final String INVALID_COURSE_EDIT = " " + PREFIX_COURSE + "-CS2103T"; // missing original course
+    public static final String INVALID_COURSE_ADDITION_MISSING_COURSE = " " + PREFIX_COURSE + "add-";
+    public static final String INVALID_COURSE_ADDITION_INVALID_COURSE = " " + PREFIX_COURSE + "add-"
+            + INVALID_COURSE_CS2103X;
+    public static final String INVALID_COURSE_DELETION_MISSING_COURSE = " " + PREFIX_COURSE + "del-";
+    public static final String INVALID_COURSE_DELETION_INVALID_COURSE = " " + PREFIX_COURSE + "del-"
+            + INVALID_COURSE_CS2103X;
+    public static final String INVALID_COURSE_EDIT_MISSING_COURSE = " " + PREFIX_COURSE + "-CS2103T";
+    public static final String INVALID_COURSE_EDIT_INVALID_ORIGINAL_COURSE = " " + PREFIX_COURSE
+            + INVALID_COURSE_CS2103X + "-" + VALID_COURSE_CS2103T;
+    public static final String INVALID_COURSE_EDIT_INVALID_NEW_COURSE = " " + PREFIX_COURSE + "CS2103T-"
+            + INVALID_COURSE_CS2103X;
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
