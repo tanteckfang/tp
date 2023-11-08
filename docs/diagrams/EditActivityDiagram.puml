@@ -28,7 +28,6 @@ repeat
                 :The second course is not added again;
             else ([user does not have the second course])
                 :The second course is added;
-                stop
             endif
         else ([user does not have the first course])
             :Invalid command;

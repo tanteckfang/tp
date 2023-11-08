@@ -33,7 +33,9 @@ public class CourseAddition extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course addition.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course addition.
      */
     public static boolean isValidCourseAddition(String test) {
         matcher = COURSE_ADDITION_PATTERN.matcher(test);

@@ -32,7 +32,9 @@ public class CourseDeletion extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course deletion.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course deletion.
      */
     public static boolean isValidCourseDeletion(String test) {
         matcher = COURSE_DELETION_PATTERN.matcher(test);

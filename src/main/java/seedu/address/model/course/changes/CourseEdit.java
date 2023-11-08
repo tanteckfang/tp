@@ -40,7 +40,9 @@ public class CourseEdit extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course edit.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course edit.
      */
     public static boolean isValidCourseEdit(String test) {
         matcher = COURSE_EDIT_PATTERN.matcher(test);
