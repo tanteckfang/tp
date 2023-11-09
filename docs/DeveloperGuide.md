@@ -606,6 +606,55 @@ The following activity diagram summarizes what happens when a user executes the 
     * Cons: Lack of Control. There would be lesser control over the structure and organization of feedback compared to a 
       dedicated feedback form.
 
+### 4.9 Theme feature
+
+#### 4.9.1 Implementation
+
+The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` which overrides the following operation:
+* `ThemeCommand#execute():` Changes the Theme of NUSCoursemates
+
+Given below is an example usage scenario and how the theme mechanism behaves at each step.
+
+Step 1. The user will input the theme command along with the desired THEME (Light or Dark).
+
+Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
+
+Step 3. This results in a `ThemeCommand` object which is executed by the `LogicManager`.
+
+Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+Step 5. The `CommandResult` object will have either `isLight` or `isDark` to be set as `true`. 
+
+Step 6. The `CommandResult` object will be executed which calls the `handleTheme` method in `MainWindow`.
+
+Step 7. The UI will then be updated accordingly to either DARK or LIGHT theme.
+
+The following sequence diagram shows how the add operation works:
+
+![ThemeSequenceDiagram](images/ThemeSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes the `Feedback` command:
+
+![ThemeActivityDiagram](images/ThemeActivityDiagram.png)
+
+#### 4.9.2 Design considerations:
+
+**Aspect:  Storage medium for the logging of feedback received**
+
+* **Alternative 1 (current choice):** Use Google forms to store feedback of the users.
+    * Pros: Google Forms are quick and easy to set up. No need for extensive development efforts.
+    * Pros: Google Forms are user-friendly, making it simple for app users to submit feedback without any technical knowledge or app-specific requirements.
+    * Pros: Data Organization. Google Forms automatically organize and store feedback responses in a Google Sheets
+      spreadsheet, making it convenient for review and analysis.
+
+    * Cons: Data Security. Storing feedback data on external platforms like Google Forms introduces security and privacy concerns.
+
+* **Alternative 2:** Link to an online forum where users can post feedback.
+    * Pros: Peer Support. In addition to providing feedback, users can help each other by sharing solutions to
+      common issues.
+
+    * Cons: Lack of Control. There would be lesser control over the structure and organization of feedback compared to a
+      dedicated feedback form.
 
 --------------------------------------------------------------------------------------------------------------------
 

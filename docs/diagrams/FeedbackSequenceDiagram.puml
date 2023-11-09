@@ -40,7 +40,7 @@ create CommandResult
 FeedbackCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> FeedbackCommand
+CommandResult --> FeedbackCommand : result
 deactivate CommandResult
 
 FeedbackCommand --> LogicManager : result
