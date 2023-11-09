@@ -21,10 +21,8 @@ public class PersonNameDescendingSorter extends PersonSorter {
     public int compare(Person person1, Person person2) {
         requireAllNonNull(person1, person2);
 
-        // Convert to uppercase so as to compare ASCII values
-        String person1UpperCaseName = person1.getName().fullName.toUpperCase();
-        String person2UpperCaseName = person2.getName().fullName.toUpperCase();
-        return person2UpperCaseName.compareTo(person1UpperCaseName);
+        PersonNameAscendingSorter nameAscendingSorter = new PersonNameAscendingSorter();
+        return -1 * nameAscendingSorter.compare(person1, person2);
     }
 
     @Override

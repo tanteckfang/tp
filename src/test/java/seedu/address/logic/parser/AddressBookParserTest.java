@@ -111,6 +111,7 @@ public class AddressBookParserTest {
 
         assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " name") instanceof SortCommand);
         assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " course") instanceof SortCommand);
+        assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " tags") instanceof SortCommand);
     }
 
     @Test

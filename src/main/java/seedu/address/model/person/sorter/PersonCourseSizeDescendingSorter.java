@@ -21,17 +21,17 @@ public class PersonCourseSizeDescendingSorter extends PersonSorter {
     @Override
     public int compare(Person person1, Person person2) {
         requireAllNonNull(person1, person2);
-        int courseSizeComparison = Integer.compare(person2.getCourses().size(), person1.getCourses().size());
+
+        int person1CourseSize = person1.getCourses().size();
+        int person2CourseSize = person2.getCourses().size();
+        int courseSizeComparison = Integer.compare(person2CourseSize, person1CourseSize);
 
         if (courseSizeComparison != 0) {
             return courseSizeComparison;
         } else {
             // Sort by name when course sizes are similar.
-            // Convert to uppercase to compare ASCII values
-            String person1UpperCaseName = person1.getName().fullName.toUpperCase();
-            String person2UpperCaseName = person2.getName().fullName.toUpperCase();
-
-            return person1UpperCaseName.compareTo(person2UpperCaseName);
+            PersonNameAscendingSorter nameAscendingSorter = new PersonNameAscendingSorter();
+            return nameAscendingSorter.compare(person1, person2);
         }
     }
 

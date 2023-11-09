@@ -492,7 +492,7 @@ There are numerous ways you can sort your NUSCoursemates, and these options are 
 
 | Required Format | Description                                        | Special Notes                                                                                     |
 |-----------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `sort name`     | Sorts students by their **names**.                 | Students' names are temporarily converted to uppercase letters for the sorting process.           |
+| `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                |
 | `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names.                       |
 | `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the highest importance is taken into account. |
 
@@ -525,7 +525,7 @@ Examples:
 |-----------|--------------------------------------------------------------------|
 | **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
 
-In both cases, students with the same number of courses taken are arranged by their names in alphabetical order.
+In both cases, students with the same number of courses taken are arranged by their names similar to the `sort name` command below.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -537,7 +537,7 @@ Here's the good news: The `sort name` command neatly **arranges the students** i
 For seasoned users, you also have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** order.
 
 **Format:** `sort name` or `sort name-ascending`
-* Sorts students by their names in ascending order.
+* Sorts students by their names in the alphabetical order.
 
 Examples:
 
@@ -545,8 +545,22 @@ Examples:
 |-----------|----------------------------------------|
 | **After** | ![sort_name](images/AfterSortName.png) |
 
+
+Case-sensitivity is considered when sorting similar names. This table shows how similar names of different cases are sorted:
+
+| Sorted Order |   Name    | Justification                                                                                |
+|:------------:|:---------:|----------------------------------------------------------------------------------------------|
+|   1 (Top)    |   JOHN    | Uppercase letters come before lowercase letters. <br/> Therefore, 'JOHN' precedes 'john'     |
+|      2       |   john    | Lowercase letters come after uppercase letters                                               |
+|      3       |  JOHN 1   | 'JOHN 1' is longer, so it comes after its prefix 'JOHN' (case sensitivity is not considered) |
+|      4       |  JOHN 2   | Numbers are sorted in order, so '2' comes after '1'                                          |
+|      5       |  JOhN 2   | The third character, 'h', is a lowercase letter that comes after 'H' in 'JOHN 2'             |
+|      6       | john cena | The characters in the alphabet come after numbers                                            |
+|  7 (Bottom)  |   join    | As 'i' comes after 'h', 'join' comes after all names with 'h' as the third character         |
+
 **Format:** `sort name-descending` 
-* Sorts students by their names in descending order.
+* Sorts students by their names in reverse alphabetical order. 
+* The result is the reverse of entering the `sort name` command. 
 
 Examples:
 
@@ -557,10 +571,7 @@ Examples:
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Note:**<br>
-* Names are temporarily converted to uppercase letters for the sorting process. 
-* Once completed, the original names will be restored.
-* Hence, for `sort name`, `john` will appear before `JOHN doe`. 
-* In contrast, for `sort name-descending`, `john` will appear after `JOHN doe`.  
+* Be careful when typing names as the process of sorting names is case-sensitive!   
 
 </div>
 
