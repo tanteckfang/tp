@@ -32,7 +32,9 @@ public class CourseDeletion extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course deletion.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course deletion.
      */
     public static boolean isValidCourseDeletion(String test) {
         matcher = COURSE_DELETION_PATTERN.matcher(test);
@@ -40,21 +42,21 @@ public class CourseDeletion extends CourseChange {
     }
 
     /**
-     * Returns true if a given description contains valid courses, given that it already fulfills the "del-" template.
-     * @param description the description i.e. "del-CS2103T"
-     * @return whether the course to delete is valid
+     * Checks if the description provided contains a valid course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid course.
      */
     public static boolean checkIfValidCourse(String description) {
-        matcher = COURSE_DELETION_PATTERN.matcher(description);
-        if (matcher.find()) {
-            return Course.isExistingCourseName(matcher.group("course"));
-        }
-        return false;
+        return CourseChange.checkIfValidCourse(matcher, COURSE_DELETION_PATTERN, description, "course");
     }
 
+    /**
+     * Parses the course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed course name from the given description.
+     */
     public static String getParsedCourseName(String description) {
-        matcher = COURSE_DELETION_PATTERN.matcher(description);
-        return matcher.find() ? matcher.group("course") : null;
+        return CourseChange.getParsedCourseName(matcher, COURSE_DELETION_PATTERN, description, "course");
     }
 
     public Course getCourseToDelete() {

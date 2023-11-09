@@ -13,9 +13,6 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":CourseAddition" as CourseAddition MODEL_COLOR
-participant ":CourseDeletion" as CourseDeletion MODEL_COLOR
-participant ":CourseEdit" as CourseEdit MODEL_COLOR
 participant "editedPerson:Person" as EditedPerson MODEL_COLOR
 end box
 [-> LogicManager : execute("edit 2 c/MA2001-MA1521")
@@ -30,27 +27,8 @@ return
 
 AddressBookParser -> EditCommandParser ++: parse("2 c/MA2001-MA1521")
 
-create ParserUtil
-group
-    opt if there are course  modifications
-    EditCommandParser -> ParserUtil ++: parseCourseChanges("MA2001-MA1521")
-    loop number of course modifications
-    ParserUtil -> ParserUtil ++: parseCourseChange("MA2001-MA1521")
-    create CourseAddition
-    ParserUtil -> CourseAddition ++: isValidCourseAddition("MA2001-MA1521")
-    return false
-
-    create CourseDeletion
-    ParserUtil -> CourseDeletion ++: isValidCourseDeletion("MA2001-MA1521")
-    return false
-
-    create CourseEdit
-    ParserUtil -> CourseEdit ++: isValidCourseEdit("MA2001-MA1521")
-    return true
-    return
-    end
-    return
-end
+EditCommandParser -> ParserUtil ++: parseCourseChanges("MA2001-MA1521")
+return
 
 create EditCommand
 EditCommandParser -> EditCommand ++

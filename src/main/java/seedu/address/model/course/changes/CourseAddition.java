@@ -33,7 +33,9 @@ public class CourseAddition extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course addition.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course addition.
      */
     public static boolean isValidCourseAddition(String test) {
         matcher = COURSE_ADDITION_PATTERN.matcher(test);
@@ -41,21 +43,21 @@ public class CourseAddition extends CourseChange {
     }
 
     /**
-     * Returns true if a given description contains valid courses, given that it already fulfills the "add-" template.
-     * @param description the description i.e. "add-CS2103T"
-     * @return whether the course to add is valid
+     * Checks if the description provided contains a valid course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid course.
      */
     public static boolean checkIfValidCourse(String description) {
-        matcher = COURSE_ADDITION_PATTERN.matcher(description);
-        if (matcher.find()) {
-            return Course.isExistingCourseName(matcher.group("course"));
-        }
-        return false;
+        return CourseChange.checkIfValidCourse(matcher, COURSE_ADDITION_PATTERN, description, "course");
     }
 
+    /**
+     * Parses the course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed course name from the given description.
+     */
     public static String getParsedCourseName(String description) {
-        matcher = COURSE_ADDITION_PATTERN.matcher(description);
-        return matcher.find() ? matcher.group("course") : null;
+        return CourseChange.getParsedCourseName(matcher, COURSE_ADDITION_PATTERN, description, "course");
     }
 
     public Course getCourseToAdd() {

@@ -39,7 +39,7 @@ Given below are my contributions to the project.
     * Added implementation details of the `edit` feature ([\#125](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/125))
 
 * **Community**:
-  * PRs reviewed ([\#52](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/52), [\#82](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/82), [\#94](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/94))
+  * PRs reviewed with constructive feedback provided ([\#52](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/52), [\#82](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/82), [\#94](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/94))
   * Contributed to forum discussions [\#86](https://github.com/nus-cs2103-AY2324S1/forum/issues/86)
 
 * **Contributions beyond the project team:**

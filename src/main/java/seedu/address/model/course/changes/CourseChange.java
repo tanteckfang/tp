@@ -2,6 +2,11 @@ package seedu.address.model.course.changes;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import seedu.address.model.course.Course;
+
 /**
  * Represents a course change.
  */
@@ -28,6 +33,32 @@ public abstract class CourseChange {
         } else {
             return null;
         }
+    }
+
+    /**
+     * Checks whether a given description contains valid course(s).
+     * @param matcher the matcher object for a particular course change.
+     * @param pattern the pattern for a particular course change.
+     * @param description the given description.
+     * @param matchGroup the group to match in the given description.
+     * @return whether a given description contains valid course(s).
+     */
+    public static boolean checkIfValidCourse(Matcher matcher, Pattern pattern, String description, String matchGroup) {
+        matcher = pattern.matcher(description);
+        return matcher.find() && Course.isExistingCourseName(matcher.group(matchGroup));
+    }
+
+    /**
+     * Parses a course name from a given description.
+     * @param matcher the matcher object for a particular course change.
+     * @param pattern the pattern for a particular course change.
+     * @param description the given description.
+     * @param matchGroup the group to match in the given description.
+     * @return the parsed course name if the given description contains it, else return null.
+     */
+    public static String getParsedCourseName(Matcher matcher, Pattern pattern, String description, String matchGroup) {
+        matcher = pattern.matcher(description);
+        return matcher.find() ? matcher.group(matchGroup) : null;
     }
 
     public String getCourseChangeDescription() {

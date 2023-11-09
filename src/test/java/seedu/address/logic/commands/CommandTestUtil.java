@@ -28,7 +28,6 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String EMPTY_INPUT = "";
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -44,6 +43,7 @@ public class CommandTestUtil {
     public static final String VALID_COURSE_CS2103T = "CS2103T";
     public static final String VALID_COURSE_MA1521 = "MA1521";
     public static final String VALID_COURSE_MA2001 = "MA2001";
+    public static final String INVALID_COURSE_CS2103X = "CS2103X";
     public static final String VALID_COURSE_ADDITION_CS2103T = "add-" + VALID_COURSE_CS2103T;
     public static final String VALID_COURSE_DELETION_MA2001 = "del-" + VALID_COURSE_MA2001;
     public static final String VALID_COURSE_EDIT_CS1231S_TO_MA1521 = "CS1231S-MA1521";
@@ -74,15 +74,21 @@ public class CommandTestUtil {
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
-    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "jonhhy"; // missing '@' symbol
 
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "MA0!0"; // '!' not allowed in tags
     public static final String INVALID_EXISTING_COURSE_DESC = " " + PREFIX_COURSE + "MA9999"; // Non-existence course
-    // TODO: add in these constants once we have course validation:
-    // public static final String INVALID_COURSE_ADDITION = " " + PREFIX_COURSE + "ard-CS2103T"; // 'and', not 'ard'
-    // public static final String INVALID_COURSE_DELETION = " " + PREFIX_COURSE + "de-CS2103T"; // 'del', not 'de'
-    public static final String INVALID_COURSE_EDIT = " " + PREFIX_COURSE + "-CS2103T"; // missing original course
+    public static final String INVALID_COURSE_ADDITION_MISSING_COURSE = " " + PREFIX_COURSE + "add-";
+    public static final String INVALID_COURSE_ADDITION_INVALID_COURSE = " " + PREFIX_COURSE + "add-"
+            + INVALID_COURSE_CS2103X;
+    public static final String INVALID_COURSE_DELETION_MISSING_COURSE = " " + PREFIX_COURSE + "del-";
+    public static final String INVALID_COURSE_DELETION_INVALID_COURSE = " " + PREFIX_COURSE + "del-"
+            + INVALID_COURSE_CS2103X;
+    public static final String INVALID_COURSE_EDIT_MISSING_COURSE = " " + PREFIX_COURSE + "-CS2103T";
+    public static final String INVALID_COURSE_EDIT_INVALID_ORIGINAL_COURSE = " " + PREFIX_COURSE
+            + INVALID_COURSE_CS2103X + "-" + VALID_COURSE_CS2103T;
+    public static final String INVALID_COURSE_EDIT_INVALID_NEW_COURSE = " " + PREFIX_COURSE + "CS2103T-"
+            + INVALID_COURSE_CS2103X;
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
