@@ -40,7 +40,9 @@ public class CourseEdit extends CourseChange {
     }
 
     /**
-     * Returns true if a given string follows the specified pattern.
+     * Checks whether test string follows the format of a valid course edit.
+     * @param test the specified string to check.
+     * @return true if the test string follows the format of a valid course edit.
      */
     public static boolean isValidCourseEdit(String test) {
         matcher = COURSE_EDIT_PATTERN.matcher(test);
@@ -48,39 +50,39 @@ public class CourseEdit extends CourseChange {
     }
 
     /**
-     * Checks if original course is valid
-     * @param description the description
-     * @return whether the original course is valid
+     * Checks if the description provided contains a valid original course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid original course.
      */
     public static boolean checkIfValidOriginalCourse(String description) {
-        matcher = COURSE_EDIT_PATTERN.matcher(description);
-        if (matcher.find()) {
-            return Course.isExistingCourseName(matcher.group("originalCourse"));
-        }
-        return false;
+        return CourseChange.checkIfValidCourse(matcher, COURSE_EDIT_PATTERN, description, "originalCourse");
     }
 
     /**
-     * Checks if the new course is valid
-     * @param description the description
-     * @return whether the new course is valid
+     * Checks if the description provided contains a valid new course.
+     * @param description the description to check.
+     * @return true if the description provided contains a valid new course.
      */
     public static boolean checkIfValidNewCourse(String description) {
-        matcher = COURSE_EDIT_PATTERN.matcher(description);
-        if (matcher.find()) {
-            return Course.isExistingCourseName(matcher.group("newCourse"));
-        }
-        return false;
+        return CourseChange.checkIfValidCourse(matcher, COURSE_EDIT_PATTERN, description, "newCourse");
     }
 
+    /**
+     * Parses the original course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed original course name from the given description.
+     */
     public static String getParsedOriginalCourseName(String description) {
-        matcher = COURSE_EDIT_PATTERN.matcher(description);
-        return matcher.find() ? matcher.group("originalCourse") : null;
+        return CourseChange.getParsedCourseName(matcher, COURSE_EDIT_PATTERN, description, "originalCourse");
     }
 
+    /**
+     * Parses the new course name from the given description.
+     * @param description the description to parse.
+     * @return the parsed new course name from the given description.
+     */
     public static String getParsedNewCourseName(String description) {
-        matcher = COURSE_EDIT_PATTERN.matcher(description);
-        return matcher.find() ? matcher.group("newCourse") : null;
+        return CourseChange.getParsedCourseName(matcher, COURSE_EDIT_PATTERN, description, "newCourse");
     }
 
     public Course getOriginalCourse() {

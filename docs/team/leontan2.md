@@ -30,7 +30,7 @@ Given below are my contributions to the project.
   * What it does: Change the Feedback and Help window pop-ups to fit the GUI theme.
   * Justification: Ensuring that the theme of the feedback window matches the overall GUI theme is crucial for maintaining visual consistency. Inconsistencies in design elements can create a disjointed appearance that may confuse or distract users.
   * Highlights: This feature necessitates a in-depth understanding of GUI principles and the intricate dependencies involved in modifying the appearance of a simple popup window. The primary focus of this feature is to align with the user's chosen GUI theme, thereby ensuring the functionality of the entire interface.
-  * Credits: The implementation of the Feedback Feature involved referencing the seedu AB3 code.
+  * Credits: Referenced the seedu AB3 code.
 
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=leontan2&breakdown=true)
@@ -42,16 +42,15 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * User Guide:
-    * Changed the language use in the User Guide to ensure consistency. (Pull Request: [#145](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/145))
-    * Sectioned the User Guide into different parts for better readability. (Pull Request: [#165](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/165))
+    * Changed the language use in the User Guide. (Pull Request: [#145](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/145))
+    * Sectioned the User Guide into different parts. (Pull Request: [#165](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/165))
     * Updated the following features: Clear, Clear Course, Exit, Delete, Feedback, Help and Theme in the User Guide. (Pull Requests: [#145](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/145), [#152](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/152))
     * Updated the colour schemes of the tips and warning blocks. [#242](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/242))
     * Updated the Glossary section. (Pull Request: [#224](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/224))
     * Updated the Command Summary section. (Pull Request: [#51](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/51))
     
   * Developer Guide:
-    * Added Telehandle feature implementation. (Pull Request: [#131](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/131))
-    * Added Feedback feature implementation. (Pull Request: [#131](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/131))
+    * Added Telehandle and Feedback feature implementation. (Pull Request: [#131](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/131))
     * Added the User stories section. (Pull Request: [#47](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/47))
     * Updated UI Class diagram and Model Class diagram. (Pull Request: [#131](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/131))
 

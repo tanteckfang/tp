@@ -131,6 +131,14 @@ public class EditCommand extends Command {
     }
 
 
+    /**
+     * Returns a set of courses that personToEdit should have after taking account the course
+     * changes provided by editPersonDescriptor.
+     * @param personToEdit the person to edit.
+     * @param editPersonDescriptor the provided edit descriptor, which contains the course changes.
+     * @return a set of courses that personToEdit should have after the specified modifications.
+     * @throws CommandException when the command specifies the deletion of a course, but the person does not have it.
+     */
     private Set<Course> getUpdatedCourses(Person personToEdit, EditPersonDescriptor editPersonDescriptor)
             throws CommandException {
         Set<Course> originalCourses = personToEdit.getCourses();
@@ -142,19 +150,31 @@ public class EditCommand extends Command {
             return new HashSet<>();
         }
         Set<Course> updatedCourses = new HashSet<>(originalCourses);
+        String personName = personToEdit.getName().fullName;
         for (CourseChange courseChange: courseChanges) {
-            updateCourseSet(personToEdit.getName().fullName, courseChange, updatedCourses);
+            updateCourseSet(personName, courseChange, updatedCourses);
         }
         return updatedCourses;
     }
 
+    /**
+     * Updates the set of courses belonging to the person with name personName from a single course change.
+     * @param personName the name of the person to modify.
+     * @param courseChange the single course change specified.
+     * @param updatedCourses the set of courses belonging to the person to modify.
+     * @throws CommandException when the command specifies the deletion of a course, but the person does not have it.
+     */
     private void updateCourseSet(String personName, CourseChange courseChange, Set<Course> updatedCourses)
             throws CommandException {
         if (courseChange instanceof CourseAddition) {
-            updatedCourses.add(((CourseAddition) courseChange).getCourseToAdd());
+            CourseAddition courseAddition = (CourseAddition) courseChange;
+            Course courseToAdd = courseAddition.getCourseToAdd();
+            assert courseToAdd != null;
+            updatedCourses.add(courseToAdd);
         } else if (courseChange instanceof CourseDeletion) {
             CourseDeletion courseDeletion = (CourseDeletion) courseChange;
             Course courseToDelete = courseDeletion.getCourseToDelete();
+            assert courseToDelete != null;
             if (!updatedCourses.contains(courseToDelete)) {
                 throw new CommandException(String.format(MESSAGE_COURSE_DOES_NOT_EXIST, personName,
                         courseToDelete.courseName));
@@ -163,12 +183,15 @@ public class EditCommand extends Command {
         } else {
             CourseEdit courseEdit = (CourseEdit) courseChange;
             Course originalCourse = courseEdit.getOriginalCourse();
+            assert originalCourse != null;
+            Course newCourse = courseEdit.getNewCourse();
+            assert newCourse != null;
             if (!updatedCourses.contains(originalCourse)) {
                 throw new CommandException(String.format(MESSAGE_COURSE_DOES_NOT_EXIST, personName,
                         originalCourse.courseName));
             }
             updatedCourses.remove(originalCourse);
-            updatedCourses.add(courseEdit.getNewCourse());
+            updatedCourses.add(newCourse);
         }
     }
 

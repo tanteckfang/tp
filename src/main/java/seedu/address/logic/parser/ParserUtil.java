@@ -144,30 +144,34 @@ public class ParserUtil {
     public static CourseChange parseCourseChange(String courseChangeDescription) throws ParseException {
         requireNonNull(courseChangeDescription);
         boolean isValidCourseAddition = CourseAddition.isValidCourseAddition(courseChangeDescription);
-        if (isValidCourseAddition && !CourseAddition.checkIfValidCourse(courseChangeDescription)) {
-            String courseName = CourseAddition.getParsedCourseName(courseChangeDescription);
-            throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+        if (isValidCourseAddition) {
+            if (!CourseAddition.checkIfValidCourse(courseChangeDescription)) {
+                String courseName = CourseAddition.getParsedCourseName(courseChangeDescription);
+                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+            }
+            return CourseChange.createCourseChange(courseChangeDescription);
         }
         boolean isValidCourseDeletion = CourseDeletion.isValidCourseDeletion(courseChangeDescription);
-        if (isValidCourseDeletion && !CourseDeletion.checkIfValidCourse(courseChangeDescription)) {
-            String courseName = CourseDeletion.getParsedCourseName(courseChangeDescription);
-            throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+        if (isValidCourseDeletion) {
+            if (!CourseDeletion.checkIfValidCourse(courseChangeDescription)) {
+                String courseName = CourseDeletion.getParsedCourseName(courseChangeDescription);
+                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+            }
+            return CourseChange.createCourseChange(courseChangeDescription);
         }
         boolean isValidCourseEdit = CourseEdit.isValidCourseEdit(courseChangeDescription);
-        if (!isValidCourseAddition && !isValidCourseDeletion && isValidCourseEdit) {
+        if (isValidCourseEdit) {
             if (!CourseEdit.checkIfValidOriginalCourse(courseChangeDescription)) {
-                String courseName = CourseEdit.getParsedOriginalCourseName(courseChangeDescription);
-                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+                String originalCourseName = CourseEdit.getParsedOriginalCourseName(courseChangeDescription);
+                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, originalCourseName));
             }
             if (!CourseEdit.checkIfValidNewCourse(courseChangeDescription)) {
-                String courseName = CourseEdit.getParsedNewCourseName(courseChangeDescription);
-                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, courseName));
+                String newCourseName = CourseEdit.getParsedNewCourseName(courseChangeDescription);
+                throw new ParseException(String.format(Course.MESSAGE_INVALID_COURSE_WITH_NAME, newCourseName));
             }
+            return CourseChange.createCourseChange(courseChangeDescription);
         }
-        if (!isValidCourseAddition && !isValidCourseDeletion && !isValidCourseEdit) {
-            throw new ParseException(CourseChange.MESSAGE_CONSTRAINTS);
-        }
-        return CourseChange.createCourseChange(courseChangeDescription);
+        throw new ParseException(CourseChange.MESSAGE_CONSTRAINTS);
     }
 
     /**
