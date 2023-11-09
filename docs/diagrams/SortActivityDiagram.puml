@@ -2,6 +2,8 @@
 skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
+scale 1000 width
+scale 1000 height
 
 start
 :User executes Sort command;
