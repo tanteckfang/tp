@@ -44,6 +44,7 @@ Given below are my contributions to the project.
 * Developer's Guide
   * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#45-sort-feature). 
   * Added UML diagrams (Activity diagram, Sequence diagram) for the various sort features.
+  * Added [Manual Testing](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#appendix-b-instructions-for-manual-testing). 
   * Modify [Product Scope](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#a1-product-scope). 
 
 #### Review/mentoring contributions
