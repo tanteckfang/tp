@@ -639,22 +639,25 @@ The following activity diagram summarizes what happens when a user executes the 
 
 #### 4.9.2 Design considerations:
 
-**Aspect:  Storage medium for the logging of feedback received**
+**Aspect: User Interaction for Theme Change**
 
-* **Alternative 1 (current choice):** Use Google forms to store feedback of the users.
-    * Pros: Google Forms are quick and easy to set up. No need for extensive development efforts.
-    * Pros: Google Forms are user-friendly, making it simple for app users to submit feedback without any technical knowledge or app-specific requirements.
-    * Pros: Data Organization. Google Forms automatically organize and store feedback responses in a Google Sheets
-      spreadsheet, making it convenient for review and analysis.
+* **Alternative 1:** CLI Command.
+    * Pros: Consistency. Aligns with the CLI nature of the application, providing a consistent interface for users accustomed to command-based interactions.
+    * Pros: Efficiency. Users familiar with CLI commands can quickly change the theme without navigating through graphical menus.
 
-    * Cons: Data Security. Storing feedback data on external platforms like Google Forms introduces security and privacy concerns.
+    * Cons: Learning Curve. Users unfamiliar with CLI commands may face a learning curve.
 
-* **Alternative 2:** Link to an online forum where users can post feedback.
-    * Pros: Peer Support. In addition to providing feedback, users can help each other by sharing solutions to
-      common issues.
+* **Alternative 2:** Menu Bar Button
+    * Pros: Intuitiveness. A graphical button on the menu bar may be more intuitive for users who prefer visual interactions.
 
-    * Cons: Lack of Control. There would be lesser control over the structure and organization of feedback compared to a
-      dedicated feedback form.
+    * Cons: Inconsistency. May deviate from the overall CLI theme of the application.
+
+* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button
+    * Pros: Flexibility. Providing both options caters to a wider audience, accommodating users with different preferences.
+    * Pros: User Preference. Users can choose their preferred method of interaction, enhancing the overall user experience. 
+    * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
+
+   * Cons: Development Effort. Implementing and maintaining both CLI and graphical options may require additional development effort.
 
 --------------------------------------------------------------------------------------------------------------------
 
