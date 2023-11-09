@@ -537,7 +537,7 @@ Here's the good news: The `sort name` command neatly **arranges the students** i
 For seasoned users, you also have the flexibility to specify whether you would like to sort their names in **ascending** or **descending** order.
 
 **Format:** `sort name` or `sort name-ascending`
-* Sorts students by their names in the alphabetical order (Aa Bb Cc ... Yy Zz).
+* Sorts students by their names in the alphabetical order.
 
 Examples:
 
@@ -545,21 +545,21 @@ Examples:
 |-----------|----------------------------------------|
 | **After** | ![sort_name](images/AfterSortName.png) |
 
-Note that the sorting process is also case-sensitive. Names are sorted from left to right in alphabetical order (Aa Bb ... Yy Zz). 
 
-Refer to this table for an example on how similar names of different cases are sorted:
+Case-sensitivity is considered when sorting similar names. This table shows how similar names of different cases are sorted:
 
-| Sorted Order |   Name    | Justification                                                                                                           |
-|:------------:|:---------:|-------------------------------------------------------------------------------------------------------------------------|
-|   1 (Top)    |   JOhn    | Uppercase letters come before lowercase letters. <br/> Therefore, 'JOhn' precedes all names starting with lowercase 'j' |
-|      2       |   John    | 'John' follows 'JOhn' because the second character, 'o', comes after 'O'                                                |
-|      3       |  John 1   | 'John 1' is longer, so it comes after its prefix 'John'                                                                 |
-|      4       |   john    | 'john', which starts with lowercase 'j', follows all uppercase 'J' names.                                               |
-|      5       |  john 1   | 'john 1' is longer, so it comes after its prefix 'john'                                                                 |
-|  6 (Bottom)  | john cena | Both uppercase and lowercase letters come after numbers.                                                                |
+| Sorted Order |   Name    | Justification                                                                                |
+|:------------:|:---------:|----------------------------------------------------------------------------------------------|
+|   1 (Top)    |   JOHN    | Uppercase letters come before lowercase letters. <br/> Therefore, 'JOHN' precedes 'john'     |
+|      2       |   john    | Lowercase letters come after uppercase letters                                               |
+|      3       |  JOHN 1   | 'JOHN 1' is longer, so it comes after its prefix 'JOHN' (case sensitivity is not considered) |
+|      4       |  JOHN 2   | Numbers are sorted in order, so '2' comes after '1'                                          |
+|      5       |  JOhN 2   | The third character, 'h', is a lowercase letter that comes after 'H' in 'JOHN 2'             |
+|      6       | john cena | The characters in the alphabet come after numbers                                            |
+|  7 (Bottom)  |   join    | As 'i' comes after 'h', 'join' comes after all names with 'h' as the third character         |
 
 **Format:** `sort name-descending` 
-* Sorts students by their names in reverse alphabetical order (zZ yY ... bB aA). 
+* Sorts students by their names in reverse alphabetical order. 
 * The result is the reverse of entering the `sort name` command. 
 
 Examples:
