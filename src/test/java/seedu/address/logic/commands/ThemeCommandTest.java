@@ -26,4 +26,17 @@ public class ThemeCommandTest {
                 false, true);
         assertCommandSuccess(new ThemeCommand(false), model, expectedCommandResult, expectedModel);
     }
+
+    @Test
+    public void execute_mutlipleThemes_success() {
+        CommandResult expectedDarkCommandResult = new CommandResult(MESSAGE_SUCCESS, false, false, false,
+                false, true);
+        assertCommandSuccess(new ThemeCommand(false), model, expectedDarkCommandResult, expectedModel);
+        CommandResult expectedLightCommandResult = new CommandResult(MESSAGE_SUCCESS, false, false, false,
+                true, false);
+        assertCommandSuccess(new ThemeCommand(true), model, expectedLightCommandResult, expectedModel);
+    }
+
+
+
 }

@@ -18,7 +18,15 @@ public class ThemeCommand extends Command {
 
     public final boolean isLight;
 
+    /**
+     * Constructs a ThemeCommand to change the theme of NUSCoursemates.
+     *
+     * @param isLight A boolean indicating whether the theme should be set to light mode.
+     *                If true, the theme will be set to light mode; if false, it will be set to dark mode.
+     * @throws AssertionError if isLight is not a valid boolean value (either true or false).
+     */
     public ThemeCommand(boolean isLight) {
+        assert (isLight == true || isLight == false) : "isLight should be a valid boolean value";
         this.isLight = isLight;
     }
 
@@ -27,6 +35,21 @@ public class ThemeCommand extends Command {
         return new CommandResult(MESSAGE_SUCCESS, false, false, false,
                 isLight, !isLight);
 
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ThemeCommand)) {
+            return false;
+        }
+
+        ThemeCommand otherThemeCommand = (ThemeCommand) other;
+        return isLight == otherThemeCommand.isLight;
     }
 
 }

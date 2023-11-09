@@ -20,22 +20,17 @@ public class ThemeCommandParser implements Parser<ThemeCommand> {
      */
     public ThemeCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim().toUpperCase();
-        if (trimmedArgs.isEmpty()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ThemeCommand.MESSAGE_USAGE));
-        } else if (trimmedArgs == null) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ThemeCommand.MESSAGE_USAGE));
-        }
 
-        if (trimmedArgs.equals(darkTheme)) {
+        boolean isDarkTheme = trimmedArgs.equals(darkTheme);
+        boolean isLightTheme = trimmedArgs.equals(lightTheme);
+        if (isDarkTheme) {
             return new ThemeCommand(false);
-        } else if (trimmedArgs.equals(lightTheme)) {
+        } else if (isLightTheme) {
             return new ThemeCommand(true);
         } else {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ThemeCommand.MESSAGE_USAGE));
         }
     }
-
 }
+
