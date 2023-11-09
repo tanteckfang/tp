@@ -846,45 +846,273 @@ testers are expected to do more *exploratory* testing.
 
 ### B.1 Launch and shutdown
 
-1. Initial launch
+1. Initial launch:
 
-   1. Download the jar file and copy into an empty folder
+   1. Download the jar file and copy into an empty folder.
+   2. Double-click the jar file. <br> If nothing happens after double-clicking the jar file, run `java -jar NUSCoursemates.jar` in the folder containing the jar file. <br> 
+      **Expected Outcome**: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
-
+2. Saving window preferences:
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+   2. Re-launch the app by double-clicking the jar file. <br>
+   **Expected Outcome**: The most recent window size and location is retained.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### B.2 List all students
+**Prerequisites:**  There should be at least one student in NUSCoursemates.
+1. Listing all students:
+   1. **Test case:** `list` <br>
+      **Expected Outcome:** All students are listed in the left panel. 
+   2. **Test case:** `list 1`, `list 3h4fk4hr` <br>
+   **Expected Outcome:** Same as before.
 
-### B.2 Deleting a person
 
-1. Deleting a person while all persons are being shown
+### B.3 Help
+1. Seeking help:
+    1. **Test case:** `help` <br>
+       **Expected Outcome:** A new window is opened. A link to the help page is provided. An acknowledgement message "Opened help window." is shown. 
+    2. **Test case:** `help 1`, `help 3h4fk4hr` <br>
+       **Expected Outcome:** Same as before.
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+       
+### B.4 Feedback
+1. Providing feedback:
+    1. **Test case:** `feedback` <br>
+       **Expected Outcome:** A new window is opened. A link to the feedback page is provided. An acknowledgement message "Opened feedback window." is shown.
+    2. **Test case:** `feedback 1`, `feedback qefjhbcvhj` <br>
+       **Expected Outcome:** Same as before.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+### B.5 Adding a student
+1. Adding a student with only compulsory fields specified:
+   1. **Test case:** `add n/John Doe p/81234567` <br>
+      **Expected Outcome:** A new student with the provided name and phone number is added to the bottom of the left panel. All optional fields such as address, email, and course are left blank.  
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. Adding a student with all compulsory fields and some optional fields specified:
+   1. **Test case:** `add n/Mary Tan p/81234567 e/mtan@gmail.com a/123 NUS Rd th/@maryyy c/CS1231S c/CS2103T` <br>
+         **Expected Outcome:** A new student with the provided details is added to the bottom of the left panel. Only some fields are populated with the provided details.  
 
-### B.3 Saving data
 
-1. Dealing with missing/corrupted data files
+3. Adding a student with all compulsory and optional fields specified:
+   1. **Test case:** `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee t/close friend c/CS2030S c/CS2040S` <br>
+   **Expected Outcome:** A new student with the provided details is added to the bottom of the left panel. All fields are populated with the provided details. 
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+4. Adding a student with compulsory fields missing:
+   1. **Test case:** `add n/Bobby Lim` <br>
+      **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
+   2. **Test case:** `add n/` <br>
+   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
+
+
+5. Adding a student with an invalid field:
+    1. **Test case:** `add n/!@#$%#$#$ p/91234567` <br>
+       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the format for the name is invalid. The correct command format and an example is also shown in the error message.
+   
+
+
+### B.6 Editing a student
+**Prerequisites:**  Completed all steps in [the previous section](#b2-adding-a-student) and have at least 3 student records stored. Afterwards, enter the `list` command to view the student records. Repeat this for every test case.
+
+1. Editing a student with a valid index and at least one field specified:
+
+   1. **Test case:** `edit 1 e/random@gmail.com a/123 Clementi Rd` <br>
+      **Expected Outcome:** The email and address fields for the first student in the left panel is updated with the new information provided. All other fields remain unchanged. 
+   
+   2. **Test case:** `edit 2 e/ a/ th/` <br>
+   **Expected Outcome:** The email, address and telehandle fields for the second student in the left panel are cleared. All other fields are left unchanged.
+   
+   3. **Test case:** `edit 3 c/add-ec2101 c/add-ec2102` <br>
+   **Expected Outcome:** These 2 courses are listed in the record of the third student. All other fields are unchanged.
+
+
+2. Editing a student with a valid index but invalid fields are specified:
+   1. **Test case:** `edit 2 n/` <br>
+   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating the correct format of the name field. 
+   2. **Additional prerequisite:** The first student does not take course `EC2101`. <br>
+   **Test case:** `edit 1 c/del-ec2101` <br>
+      **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the student does not have course `EC2101`.
+
+
+3. Editing a student with an invalid index specified:
+   1. **Test case:** `edit x n/Johnny Tan`, where `x` is larger than the total count of students.  <br>
+      **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the person index provided is invalid.
+
+
+4. Editing a student with only a valid index specified:
+   1. **Test case:** `edit 3` <br>
+     **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that at least one field to edit must be provided.
+
+
+### B.7 Deleting a student
+**Prerequisites:**  There should be at least 3 student records stored. 
+Enter the `list` command to view the student records. Repeat this for every test case.
+
+1. Deleting a student with a valid index:
+   1.  **Test case:** `delete 1` <br>
+       **Expected Outcome:** First student in the list is deleted. Details of the deleted student are shown in the status message. 
+   
+
+2. Deleting a student with an invalid index:
+   1.  **Test case:** `delete 0` <br>
+       **Expected Outcome:** No student is deleted. An error message is displayed, stating that the command format is invalid. 
+   2. **Test case:** `delete x`, where `x` is larger than the total student count. <br>
+      **Expected Outcome:** No student is deleted. An error message is displayed, stating that the person index provided is invalid.
+
+
+3. Deleting a student with no index provided:
+   1.  **Test case:** `delete` <br>
+       **Expected Outcome:** No student is deleted. An error message is displayed, stating that the command format is invalid.
+
+
+### B.8 Finding a student
+**Prerequisites:** Enter the `list` command to view the student records. Repeat this for every test case.
+
+1. Finding students that exist:
+    1.  **Additional prerequisite:** There exists at least one student whose name contains `John` <br>
+        **Test case:** `findstudent john` <br>
+        **Expected Outcome:** The left panel shows the list of students whose names include `john` (case-insensitive). 
+
+
+2. Finding multiple students by name:
+    1.  **Additional prerequisite:** There exist students named `Bob` and `Doe` <br>
+        **Test case:** `findstudent bob doe` <br>
+        **Expected Outcome:** The left panel shows the list of students whose names include either `Bob`, `Doe`, or both (case-insensitive). 
+
+
+3. Finding a student that does not exist:
+    1.  **Additional prerequisite:** All students' names do not contain `Mary` <br>
+        **Test case:** `findstudent mary` <br>
+        **Expected Outcome:** The left panel is empty.
+
+
+### B.9 Finding coursemates 
+**Prerequisites:** Enter the `list` command to view the student records. Repeat this for every test case.
+
+1. The course is taken by at least one student:
+    1.  **Additional prerequisite:** There exists a course `MA1521` which is taken by at least one student <br>
+        **Test case:** `findcourse ma1521` <br>
+        **Expected Outcome:** The left panel shows the list of students who are taking the specified course.
+
+   2. **Additional prerequisite:** There exists at least one course starting with `MA15` which is taken by at least one student <br>
+      **Test case:** `findcourse ma15` <br>
+      **Expected Outcome:** The left panel shows the list of students who are taking any course that starts with `MA15`.
+
+
+2. Finding students enrolled in multiple courses: 
+    1.  **Additional prerequisite:** There exist courses `MA1521` and `MA1522` which are each taken by at least one student
+        **Test case:** `findcourse ma1521 ma1522` <br>
+        **Expected Outcome:** The left panel shows the list of students who are taking any of the specified courses.
+
+
+3. The course is not taken by any student: 
+    1.  **Additional prerequisite:** All students do not take `EC3102` <br>
+        **Test case:** `findcourse ec3102` <br>
+        **Expected Outcome:** The left panel is empty.
+
+### B.10 Sort by name
+**Prerequisites:** There should be at least 3 student records stored.
+
+1. Valid sort criterion is provided:
+   1. **Test case:** `sort name` or `sort name-ascending` <br>
+       **Expected Outcome:** The left panel shows the students' names arranged in alphabetical order.
+
+
+2. Additional sort criterion is specified:
+   1. **Test case:** `sort name-descending` <br>
+        **Expected Outcome:** The left panel shows the students' names arranged in reverse alphabetical order.
+
+
+3. Invalid or missing sort criterion:  
+    1. **Test case:** `sort name-random` <br>
+       **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example. 
+   2. **Test case:** `sort` <br>
+      **Expected Outcome:** Same as above.
+
+
+### B.11 Sort by course size
+**Prerequisites:** There should be at least 3 student records stored, with varying number of courses taken for each student.
+
+1. Valid sort criterion is provided:
+    1. **Test case:** `sort course` or `sort course size-descending` <br>
+       **Expected Outcome:** The left panel shows the students' arranged in decreasing number of courses taken.
+
+
+2. Additional sort criterion is specified:
+    1. **Test case:** `sort course size-ascending` <br>
+       **Expected Outcome:** The left panel shows the students' arranged in increasing number of courses taken.
+
+
+3. Invalid sort criterion is provided:
+    1. **Test case:** `sort course random` <br>
+       **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example.
+   
+### B.12 Sort by tags
+**Prerequisites:** There should be at least 3 student records stored, with different tags attached to each student.
+
+1. Valid sort criterion is provided:
+    1. **Test case:** `sort tags` <br>
+       **Expected Outcome:** The left panel shows the students' arranged in order of decreasing tag importance.
+
+
+2. Invalid sort criterion is provided:
+    1. **Test case:** `sort tags random` <br>
+       **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example.
+
+### B.13 Clearing courses
+**Prerequisites:** There should be multiple students with at least one course added. Otherwise, add courses for these students with `edit` command. Repeat this for every test case.
+
+1. Valid command
+   1. **Test case:** `clear-courses` <br>
+          **Expected Outcome:** Courses are removed for every student. A message is displayed, stating that all courses have been cleared. 
+   2. **Test case:** `clear-courses ekvbe` <br>
+   **Expected Outcome:** Same as above. 
+
+### B.14 Changing themes
+1. Valid theme:
+    1. **Test case:** `theme dark` <br>
+       **Expected Outcome:** The GUI enters the dark theme. Student records remain unchanged. 
+    2. **Test case:** `theme light` <br>
+       **Expected Outcome:** The GUI enters the light theme. Student records remain unchanged.
+
+
+2. Invalid theme specified:
+   1. **Test case:** `theme yellow` <br>
+         **Expected Outcome:** An error message is displayed, stating that the command format is invalid. The command format and an example are provided. 
+   2. **Test case:** `theme dark 123` <br>
+      **Expected Outcome:** Same as above.
+
+### B.15 Clearing all students
+**Prerequisites:** There should be multiple students already stored.
+
+1. Clearing students:
+    1. **Test case:** `clear` <br>
+       **Expected Outcome:** All students are cleared, and NUSCoursemates is now empty.
+    2. **Test case:** `clear 1`, `clear qefjhbcvhj` <br>
+       **Expected Outcome:** Same as before.
+
+
+### B.16 Issues with saving data
+
+1. Dealing with missing data file: <br>  
+
+   **Test case:** Remove the data file to simulate a missing file
+   1. Go to the location of the data file indicated in the bottom left corner of the application. 
+   2. Delete the file named `addressbook.json`. 
+   3. Relaunch NUSCoursemates. <br>
+   **Expected Outcome:** A new file with sample student records is created. Sample student records are shown in the application. 
+
+
+2. Dealing with corrupted file: <br>
+   **Test case:** Modify the data file to simulate a corrupted data file
+   1. Go to the location of the data file indicated in the bottom left corner of the application.
+   2. Open the file named `addressbook.json`.
+   3. Modify the file. For example, you could remove the first few lines of the file. 
+   4. Relaunch NUSCoursemates. <br>
+      **Expected Outcome:** The left panel is now empty. No student records are shown in the application. 
+
 
 --------------------------------------------------------------------------------------------------------------------
 
