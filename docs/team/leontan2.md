@@ -30,7 +30,7 @@ Given below are my contributions to the project.
   * What it does: Change the Feedback and Help window pop-ups to fit the GUI theme.
   * Justification: Ensuring that the theme of the feedback window matches the overall GUI theme is crucial for maintaining visual consistency. Inconsistencies in design elements can create a disjointed appearance that may confuse or distract users.
   * Highlights: This feature necessitates a in-depth understanding of GUI principles and the intricate dependencies involved in modifying the appearance of a simple popup window. The primary focus of this feature is to align with the user's chosen GUI theme, thereby ensuring the functionality of the entire interface.
-  * Credits: The implementation of the Feedback Feature involved referencing the seedu AB3 code.
+  * Credits: Referenced the seedu AB3 code.
 
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=leontan2&breakdown=true)
