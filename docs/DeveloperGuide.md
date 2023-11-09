@@ -950,19 +950,19 @@ testers are expected to do more *exploratory* testing.
 **Prerequisites:**  There should be at least 3 student records stored. 
 Enter the `list` command to view the student records. Repeat this for every test case.
 
-1. Deleting a student with a valid index
+1. Deleting a student with a valid index:
    1.  **Test case:** `delete 1` <br>
        **Expected Outcome:** First student in the list is deleted. Details of the deleted student are shown in the status message. 
    
 
-2. Deleting a student with an invalid index
+2. Deleting a student with an invalid index:
    1.  **Test case:** `delete 0` <br>
        **Expected Outcome:** No student is deleted. An error message is displayed, stating that the command format is invalid. 
    2. **Test case:** `delete x`, where `x` is larger than the total student count. <br>
       **Expected Outcome:** No student is deleted. An error message is displayed, stating that the person index provided is invalid.
 
 
-3. Deleting a student with no index provided
+3. Deleting a student with no index provided:
    1.  **Test case:** `delete` <br>
        **Expected Outcome:** No student is deleted. An error message is displayed, stating that the command format is invalid.
 
@@ -970,19 +970,19 @@ Enter the `list` command to view the student records. Repeat this for every test
 ### B.8 Finding a student
 **Prerequisites:** Enter the `list` command to view the student records. Repeat this for every test case.
 
-1. Finding students that exist
+1. Finding students that exist:
     1.  **Additional prerequisite:** There exists at least one student whose name contains `John` <br>
         **Test case:** `findstudent john` <br>
         **Expected Outcome:** The left panel shows the list of students whose names include `john` (case-insensitive). 
 
 
-2. Finding multiple students by name
+2. Finding multiple students by name:
     1.  **Additional prerequisite:** There exist students named `Bob` and `Doe` <br>
         **Test case:** `findstudent bob doe` <br>
         **Expected Outcome:** The left panel shows the list of students whose names include either `Bob`, `Doe`, or both (case-insensitive). 
 
 
-3. Finding a student that does not exist
+3. Finding a student that does not exist:
     1.  **Additional prerequisite:** All students' names do not contain `Mary` <br>
         **Test case:** `findstudent mary` <br>
         **Expected Outcome:** The left panel is empty.
@@ -991,7 +991,7 @@ Enter the `list` command to view the student records. Repeat this for every test
 ### B.9 Finding coursemates 
 **Prerequisites:** Enter the `list` command to view the student records. Repeat this for every test case.
 
-1. The course is taken by at least one student
+1. The course is taken by at least one student:
     1.  **Additional prerequisite:** There exists a course `MA1521` which is taken by at least one student <br>
         **Test case:** `findcourse ma1521` <br>
         **Expected Outcome:** The left panel shows the list of students who are taking the specified course.
@@ -1001,13 +1001,13 @@ Enter the `list` command to view the student records. Repeat this for every test
       **Expected Outcome:** The left panel shows the list of students who are taking any course that starts with `MA15`.
 
 
-2. Finding students enrolled in multiple courses 
+2. Finding students enrolled in multiple courses: 
     1.  **Additional prerequisite:** There exist courses `MA1521` and `MA1522` which are each taken by at least one student
         **Test case:** `findcourse ma1521 ma1522` <br>
         **Expected Outcome:** The left panel shows the list of students who are taking any of the specified courses.
 
 
-3. The course is not taken by any student. 
+3. The course is not taken by any student: 
     1.  **Additional prerequisite:** All students do not take `EC3102` <br>
         **Test case:** `findcourse ec3102` <br>
         **Expected Outcome:** The left panel is empty.
@@ -1015,17 +1015,17 @@ Enter the `list` command to view the student records. Repeat this for every test
 ### B.10 Sort by name
 **Prerequisites:** There should be at least 3 student records stored.
 
-1. Valid sort criterion is provided
+1. Valid sort criterion is provided:
    1. **Test case:** `sort name` or `sort name-ascending` <br>
        **Expected Outcome:** The left panel shows the students' names arranged in alphabetical order.
 
 
-2. Additional sort criterion is specified
+2. Additional sort criterion is specified:
    1. **Test case:** `sort name-descending` <br>
         **Expected Outcome:** The left panel shows the students' names arranged in reverse alphabetical order.
 
 
-3. Invalid or missing sort criterion  
+3. Invalid or missing sort criterion:  
     1. **Test case:** `sort name-random` <br>
        **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example. 
    2. **Test case:** `sort` <br>
@@ -1035,29 +1035,29 @@ Enter the `list` command to view the student records. Repeat this for every test
 ### B.11 Sort by course size
 **Prerequisites:** There should be at least 3 student records stored, with varying number of courses taken for each student.
 
-1. Valid sort criterion is provided
+1. Valid sort criterion is provided:
     1. **Test case:** `sort course` or `sort course size-descending` <br>
        **Expected Outcome:** The left panel shows the students' arranged in decreasing number of courses taken.
 
 
-2. Additional sort criterion is specified
+2. Additional sort criterion is specified:
     1. **Test case:** `sort course size-ascending` <br>
        **Expected Outcome:** The left panel shows the students' arranged in increasing number of courses taken.
 
 
-3. Invalid sort criterion is provided
+3. Invalid sort criterion is provided:
     1. **Test case:** `sort course random` <br>
        **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example.
    
 ### B.12 Sort by tags
 **Prerequisites:** There should be at least 3 student records stored, with different tags attached to each student.
 
-1. Valid sort criterion is provided
+1. Valid sort criterion is provided:
     1. **Test case:** `sort tags` <br>
        **Expected Outcome:** The left panel shows the students' arranged in order of decreasing tag importance.
 
 
-2. Invalid sort criterion is provided
+2. Invalid sort criterion is provided:
     1. **Test case:** `sort tags random` <br>
        **Expected Outcome:** The list of students remains unchanged. An error message is displayed, stating that the command format is invalid. It also provides the command format and an example.
 
@@ -1071,14 +1071,14 @@ Enter the `list` command to view the student records. Repeat this for every test
    **Expected Outcome:** Same as above. 
 
 ### B.14 Changing themes
-1. Valid theme
+1. Valid theme:
     1. **Test case:** `theme dark` <br>
        **Expected Outcome:** The GUI enters the dark theme. Student records remain unchanged. 
     2. **Test case:** `theme light` <br>
        **Expected Outcome:** The GUI enters the light theme. Student records remain unchanged.
 
 
-2. Invalid theme specified
+2. Invalid theme specified:
    1. **Test case:** `theme yellow` <br>
          **Expected Outcome:** An error message is displayed, stating that the command format is invalid. The command format and an example are provided. 
    2. **Test case:** `theme dark 123` <br>
@@ -1096,7 +1096,7 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ### B.16 Issues with saving data
 
-1. Dealing with missing data file <br>  
+1. Dealing with missing data file: <br>  
 
    **Test case:** Remove the data file to simulate a missing file
    1. Go to the location of the data file indicated in the bottom left corner of the application. 
@@ -1105,7 +1105,7 @@ Enter the `list` command to view the student records. Repeat this for every test
    **Expected Outcome:** A new file with sample student records is created. Sample student records are shown in the application. 
 
 
-2. Dealing with corrupted file <br>
+2. Dealing with corrupted file: <br>
    **Test case:** Modify the data file to simulate a corrupted data file
    1. Go to the location of the data file indicated in the bottom left corner of the application.
    2. Open the file named `addressbook.json`.
