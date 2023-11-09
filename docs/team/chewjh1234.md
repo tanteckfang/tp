@@ -17,8 +17,8 @@ Given below are my contributions to the project.
 #### New Feature - Sort by Name
 * **What it does:** Allows users of the application to sort the student contacts by name. 
 * **Justification:** Before this feature was implemented, new contacts were added to the bottom of the address book which meant that the address book could get messy very easily. With this feature, contacts are sorted by name, and it will take the user much less time to search for the contact they want by name, thereby improving user experience. 
-* **Highlights:** The user is also able to specify whether the contacts are to be sorted in an **ascending** or a **descending** alphabetical order with the `sort name-ascending` and `sort name-descending` commands respectively. The names are first converted to upper case names before they are being compared using a comparator. 
-* **Credits:** None
+* **Highlights:** The user is also able to specify whether the contacts are to be sorted in an **ascending** or a **descending** alphabetical order with the `sort name-ascending` and `sort name-descending` commands respectively. The names are sorted in the alphabetical order (AaBbCc...Zz) from left to right. 
+* **Credits:** Referenced Stack Overflow [forum](https://stackoverflow.com/questions/57277475/sort-results-in-ascending-return-in-the-form-a-a-b-b-in-java). 
 
 #### New Feature - Sort by Course
 * **What it does:** Allows users of the application to sort the student contacts by the number of courses taken. 
@@ -50,4 +50,4 @@ Given below are my contributions to the project.
 * I did some [pull request reviews](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Achewjh1234) in the project. 
 * Some critical bugs were found when reviewing the pull requests of others. For example, I found a [bug](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863) which incorrectly prevented contacts from being added.
 * Some notable PR reviews: [#57](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/57#pullrequestreview-1642578187), [#106](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/106#pullrequestreview-1685497544), [#107](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863), [#132](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/132#pullrequestreview-1697943613).   
-* In addition, bugs for another group's project were also found by me during the Practical Examination dry run.
+* In addition, bugs for another group's project were also found during the Practical Examination dry run.

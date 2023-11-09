@@ -32,10 +32,8 @@ public class PersonTagSorter extends PersonSorter {
             return tagComparison;
         } else {
             // If the highest priority tag for both persons are similar, sort by name
-            String person1UpperCaseName = person1.getName().fullName.toUpperCase();
-            String person2UpperCaseName = person2.getName().fullName.toUpperCase();
-
-            return person1UpperCaseName.compareTo(person2UpperCaseName);
+            PersonNameAscendingSorter nameAscendingSorter = new PersonNameAscendingSorter();
+            return nameAscendingSorter.compare(person1, person2);
         }
     }
 

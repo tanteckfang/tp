@@ -2,42 +2,40 @@
 skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
+scale 1000 width
+scale 1000 height
 
 start
 :User executes Sort command;
-
-if () then ([valid input])
-  :Input is parsed;
+:Input is parsed;
   if () then ([sort by name])
-    :Make a copy of names in uppercase;
-    if () then ([ascending order])
-      :Sort students by names in \nascending lexicographic order;
-    else ([descending order])
-      :Sort students by names in \ndescending lexicographic order;
+    :Sort students \nby names \n(case-insensitive);
+    :Sort students \nby names \n(natural sort order);
+    if () then ([descending order])
+      :Reverse result;
+    else ([ascending order])
     endif
   else if () then ([sort by course])
     if () then ([ascending size])
-      :Sort students by the number \nof courses in ascending order;
+      :Sort students in \nincreasing number \nof courses taken;
     else ([descending size])
-      :Sort students by the number \nof courses in descending order;
+      :Sort students in \ndecreasing number \nof courses taken;
     endif
-    if () then ([some students have same number of courses])
-      :Sort students with the same number of courses by name;
+    if () then ([some students have \nsame number of courses])
+      :Sort them by name;
     else ([else])
     endif
   else if () then ([sort by tags])
-    :Get tag with the highest priority;
-    :Sort students by the highest priority tag;
-     if () then ([some students have same highest priority tag])
-       :Sort students with same highest priority tag by name;
+    :Get highest priority tag;
+    :Sort students by the \nhighest priority tag;
+     if () then ([some students have \nsame highest priority tag])
+       :Sort them by name;
      else ([else])
      endif
   else ([invalid sorting criterion])
     :Display error message;
   endif
-else ([invalid input])
-  :Display error message;
-endif
+
 
 stop
 @enduml
