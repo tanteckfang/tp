@@ -173,7 +173,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      </div>
 8. **Absolutely well done!** You are now ready to move on to the next section to learn about the Command Line Interface (CLI).
 
-## Using the Command Line Interface  
+## Using the Command Line Interface (CLI) 
 **NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
 Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
@@ -206,7 +206,7 @@ While we know that you cannot wait to try out some exciting commands, let us lea
 
 ## Command Format
 
-In the [previous section](#using-the-command-line-interface), we learnt that commands must be spelt and formatted correctly.
+In the [previous section](#using-the-command-line-interface-cli), we learnt that commands must be spelt and formatted correctly.
 
 In this section, let us explore the components that constitute a command in **NUSCoursemates**:
 
