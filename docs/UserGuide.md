@@ -34,13 +34,13 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Novice Users:** <br>
+> **Novice Users:** <br>
 For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** <br>
+> **Amateur Users:** <br>
 You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** <br>
+> **Seasoned Users:** <br>
 We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at _NUSCoursemates@gmail.com_. 
@@ -138,6 +138,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 [Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
 ## Quick start
 
 1. Ensure you have **Java 11** installed in your Computer.
@@ -150,31 +151,36 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
    * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
    * The application should state your Java version, as shown in the red circle below:
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/javaVersion.png" alt="javaVersion" width="600"/> 
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/javaVersion.png" alt="javaVersion"/> 
      </div>
     
     * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to download **Java 11**. 
     
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/jarDownload.png" alt="jarDownload" width="600"/> 
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/jarDownload.png" alt="jarDownload"/> 
      </div>  
 3. Copy the file to the folder you want to use as the _home folder_, such as the **Desktop** folder, for your NUSCoursemates. 
 4. Open the command terminal in Step 1.
 5. `cd` into the folder with the `NUSCoursemates.jar` file. For example, if your file is in the **Desktop** folder, simply type `cd Desktop`. 
 6. Enter the next command, `java -jar NUSCoursemates.jar`. Your commands should look like this:
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/ChangeDirectory.png" alt="Change Directory" width="600"/>  
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/ChangeDirectory.png" alt="Change Directory"/>  
      </div>  
 7. Hit '**Enter**'. An interface similar to the image below should appear:
-     <div style="margin-top: 10px; margin-bottom: 10px">
+     <div style="margin-top: 20px; margin-bottom: 20px">
         <img src="images/Ui.png" alt="Ui"/>
      </div>
 8. **Absolutely well done!** You are now ready to move on to the next section to learn about the Command Line Interface (CLI).
 
-## Using the Command Line Interface (CLI) 
-**NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
+[Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Using the Command Line Interface (CLI)
+**NUSCoursemates** uses the [Command Line Interface (CLI)](#glossary). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks.
+
 
 Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
@@ -203,6 +209,8 @@ While we know that you cannot wait to try out some exciting commands, let us lea
 </div>
 
 [Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command Format
 
@@ -233,31 +241,6 @@ For example (with reference to the `add` command above):
 | `[ ]`   | Optional field with a maximum of one entry            | `[e/EMAIL]`    | The student can have at most one email            |
 | `[ ]…​` | Optional field with no limit on the number of entries | `[c/COURSE]…​` | The student can have a variable number of courses |
 
-You would be happy to learn that the various `prefix/field` can be entered in any order.<br>
-For example, if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-
-Now that you know what constitutes a command, you can proceed to add your new connections to **NUSCoursemates**.
-
-If you have made a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
-
- <div style="margin-top: 10px; margin-bottom: 10px">
-    <img src="images/CommandFormatExample.png" alt="Command Format Example" width="720"/>
- </div>
-
-Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen!
-
-You are now ready to use our application. Admittedly, we are as excited as you are!
-
-Practice makes perfect! Here are more commands you should try:
-
-* `list` : Lists all contacts.
-
-* `delete 3` : Deletes the 3rd contact shown in the current list.
-
-* `add n/Mary Tan p/98865432 e/marytan@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a student named `Mary Tan`.
-
-**Great job!** You may proceed to learn about the exciting [features](#features---managing-student-profiles) we have designed for you. Enjoy!
-
 <div markdown="block" class="alert alert-info">
 
 **:information_source: More notes about the command format:**<br>
@@ -267,6 +250,100 @@ Practice makes perfect! Here are more commands you should try:
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines! Space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
+
+
+### Input Table
+Moreover, you should also take note of the specific requirements for each field as outlined by the table below.
+
+| Field        | Valid Input(s)                                                               | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                                                                                                            |
+|--------------|------------------------------------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name         | Alex the 3rd, John Doe                                                       | (Empty)                            | Yes             | Name must be [alphanumeric](#glossary) and unique.                                                                                                                                                                        |
+| Phone Number | 98765432, 5136850137                                                         | ABC123                             | -               | At least 3 digits and only contain numbers.                                                                                                                                                                               |
+| Email        | e01234567@u.nus.edu, jinHeng@gmail.com, asd@asd                              | joe@g, asdas@@!#!@                 | Yes             | Must be in [local-part@domain format](#email-format-requirement) and cannot be left blank.                                                                                                                                |
+| Address      | 123 Main St                                                                  |                                    | Yes             | N.A.                                                                                                                                                                                                                      |
+| Telehandle   | @johndoe, @a12                                                               | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must be in the [telehandle format](#telehandle-format-requirement).                                                                                                                                                       |
+| Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts. |
+| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.              |
+
+Now that you know what constitutes a command, you can head over to our [tutorial section](#nuscoursemates-tutorial) to quickly learn how to navigate
+and utilise the various features of NUSCoursemates. Happy learning!
+
+[Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## NUSCoursemates Tutorial
+Embark on this tutorial journey with us, whether you're a newcomer eager to explore or someone looking to sharpen your 
+skills. We've tailored the tutorial to cater to all levels, ensuring everyone can make the most of NUSCoursemates. 
+
+Firstly, let's try to open the app, and if you have forgotten on how to do so, you can refer to our [Quick Start](#quick-start).
+
+Upon opening the app for the first time, you'll be greeted with sample data ready for you to experiment with, as depicted below!
+
+![SampleUi](images/Ui.png)
+
+Before we dive into our tutorial, ensure you have understood the following:
+* How the [command line interface](#using-the-command-line-interface-cli) works
+* How to utilize the [command format](#command-format) for inputting instructions into our application
+
+### Clearing the sample data!
+Not a fan of the imaginary friends we've set up for you? No problem! Simply use the `clear` command to start with a clean 
+slate before adding your own friends in the upcoming sections. 
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/Clear.png" alt="Clear"/>
+ </div>
+
+### Adding your new friend!
+
+If you want to add a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormatExample.png" alt="Add Command Format Example" width="720"/>
+ </div>
+
+Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen!
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/AddTutorialAfter.png" alt="Add Tutorial After"/>
+ </div>
+
+Poof! You've successfully added your new friend, `John Doe`. Congratulations! 
+
+### Making changes to your friends' details
+
+Oops! Made some typos in the details while using the add command? No worries! In this section, we'll guide you on
+quickly correcting those errors.
+
+For example, suppose you made typos in his name and forgot one of his courses; no worries! You can easily correct it 
+using the `edit` command, as shown below:
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/EditCommandFormat.png" alt="Edit Tutorial After"/>
+ </div>
+
+Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen once again!
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/TutorialEditAfter.png" alt="Edit Tutorial After"/>
+ </div>
+
+Congratulations! You've successfully made the changes, and now your friend's information is now saved correctly!
+
+<div markdown="block" class="alert alert-tip">
+
+**:bulb: Practice makes perfect! Here are more commands you should try:**<br>
+
+* `list` : Lists all contacts.
+
+* `delete 1` : Deletes the 1st contact shown in the current list.
+
+* `add n/Mary Tan p/98865432 e/marytan@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a student named `Mary Tan`.
+
+</div>
+
+You are now well-equipped to navigate our application. **Great job!** Feel free to explore the exciting [features](#features---managing-student-profiles)
+we've crafted for you. Enjoy!
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -284,7 +361,7 @@ Let's dive into the details of each feature to enhance your student profile mana
 
 Embrace the opportunity to expand your circle and make lasting connections by adding new friends to your address book. Our user-friendly "Add" feature makes it simple and convenient to do just that.
 
-**How to do it:** With the `add` command, you can include a variety of details to create a comprehensive profile for your new friend. Here's what each element represents:
+With the `add` command, you can include a variety of details to create a comprehensive profile for your new friend. Here's what each field represents:
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
@@ -296,17 +373,12 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 * `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
 * `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
 
-#### Input Table
+<div markdown="block" class="alert alert-tip">
 
-| Field        | Valid Input(s)                                                               | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                                                                                                                                                                                                                                                            |
-|--------------|------------------------------------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name         | Alex the 3rd, John Doe                                                       | (Empty)                            | Yes             | The name must not already exist in the address book.                                                                                                                                                                                                                                                                                                                      |
-| Phone Number | 98765432, 5136850137                                                         | ABC123                             | -               | At least 3 digits.                                                                                                                                                                                                                                                                                                                                                        |
-| Email        | john@eg.com                                                                  | joe@g                              | Yes             | Format: local-part@domain-name <br/> - local-part must: <br/> &nbsp;&nbsp;1. Contain alphanumeric characters or these special characters: +, _, ., -. <br/> &nbsp;&nbsp;2. Not start or end with any special characters. <br/> - domain-name must: <br/> &nbsp;&nbsp; 1. Be at least 2 characters long. <br/> &nbsp;&nbsp; 2. Begin and end with alphanumeric characters. |
-| Address      | 123 Main St                                                                  |                                    | Yes             | N.A.                                                                                                                                                                                                                                                                                                                                                                      |
-| Telehandle   | @johndoe, @a12                                                               | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must start with a "@". The first character preceding the "@" cannot be a number. It should consist of letters, numbers, and underscores only. No other special characters are allowed.                                                                                                                                                                                    |
-| Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts.                                                                                                                                                 |
-| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.                                                                                                                                                              |
+**:bulb: Quick Tip:** <br>
+* You can always refer back to the [Input Table]() provided previously to see the constraints of each field.
+</div>
+
 
 Examples:
 * `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
@@ -329,8 +401,10 @@ Examples:
 
 <div markdown="block" class="alert alert-tip">
 
-**:bulb: Pro Tip:**<br>
+**:bulb: Pro Tips:**<br>
 * To save time, you can add a 'Close Friend' tag by simply using t/cf (case-insensitive) instead of t/Close Friend.
+* You would be happy to learn that the various `prefix/field` can be entered in any order.<br>
+  For example, if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -774,15 +848,31 @@ _Details coming soon ..._
 
 ## Glossary
 
-| Term      | Description                                                                                                                                                                                                                                                                                            |
-|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CLI       | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
-| Parameter | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customize the behavior of the function or command.                                                                                            |
-| GUI       | **Graphical User Interface (GUI):** A user interface that utilizes graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
-| JSON      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
-| JAR       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
-| Integer   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
-| Field     | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organize and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
+| Term         | Description                                                                                                                                                                                                                                                                                            |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CLI          | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
+| Parameter    | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customize the behavior of the function or command.                                                                                            |
+| GUI          | **Graphical User Interface (GUI):** A user interface that utilizes graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
+| JSON         | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
+| JAR          | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
+| Integer      | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
+| Field        | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organize and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
+| Alphanumeric | **Alphanumeric:** Consists of letters and/or numerals                                                                                                                                                                                                                                                  |
+
+### Email Format Requirement
+Emails should be of the format `local-part@domain` and adhere to the following constraints:
+1. The `local-part` should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The `local-part` should not start or end with any special characters.
+2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.
+   The domain name must:
+    - end with a domain label at least 2 characters long
+    - have each domain label start and end with alphanumeric characters
+    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+
+### Telehandle Format Requirement
+1. Must start with a "@". The first character preceding the "@" cannot be a number. 
+2. It should consist of letters, numbers, and underscores only. 
+3. No other special characters are allowed.
+
 
 [Back to Table of Contents](#table-of-contents)
 
