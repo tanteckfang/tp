@@ -171,9 +171,9 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/Ui.png" alt="Ui"/>
      </div>
-8. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-).
+8. **Absolutely well done!** You are now ready to move on to the next section to learn about the Command Line Interface (CLI).
 
-## Using the Command Line Interface (CLI)  
+## Using the Command Line Interface  
 **NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
 Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
@@ -206,7 +206,7 @@ While we know that you cannot wait to try out some exciting commands, let us lea
 
 ## Command Format
 
-In the [previous section](#using-the-command-line-interface--cli-), we learnt that commands must be spelt and formatted correctly.
+In the [previous section](#using-the-command-line-interface), we learnt that commands must be spelt and formatted correctly.
 
 In this section, let us explore the components that constitute a command in **NUSCoursemates**:
 
@@ -216,7 +216,7 @@ In this section, let us explore the components that constitute a command in **NU
 | Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
 | Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
 
-Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features) section below.
+Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features---managing-student-profiles) section below.
 
 Using the format for `add` command as an example, we can deconstruct it into the three components:
  <div style="margin-top: 10px; margin-bottom: 10px">
@@ -256,7 +256,7 @@ Practice makes perfect! Here are more commands you should try:
 
 * `add n/Mary Tan p/98865432 e/marytan@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a student named `Mary Tan`.
 
-**Great job!** You may proceed to learn about the exciting [features](#features) we have designed for you. Enjoy!
+**Great job!** You may proceed to learn about the exciting [features](#features---managing-student-profiles) we have designed for you. Enjoy!
 
 <div markdown="block" class="alert alert-info">
 
