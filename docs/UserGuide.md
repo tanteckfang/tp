@@ -154,7 +154,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
         <img src="images/javaVersion.png" alt="javaVersion" width="600"/> 
      </div>
     
-    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.) to download **Java 11**. 
+    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to download **Java 11**. 
     
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
      <div style="margin-top: 10px; margin-bottom: 10px">
