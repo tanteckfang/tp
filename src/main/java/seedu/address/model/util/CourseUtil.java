@@ -815,12 +815,19 @@ public class CourseUtil {
      * @return true if the course is in the list, false otherwise.
      */
     public static boolean contains(String course) {
+        assert course != null : "Course ID should not be null.";
         if (courseList == null) {
             instantiateCourseList();
         }
         return courseList.contains(course);
     }
 
+    /**
+     * Instantiates the course list by parsing a comma-separated string of course names.
+     * If the course list is not initialized, it populates it with the course names from the predefined string.
+     * The course names are trimmed to remove leading and trailing whitespaces before being added to the set.
+     *
+     */
     private static void instantiateCourseList() {
         String[] courseStringList = courses.split(",");
         Set<String> courseList = new HashSet<>();

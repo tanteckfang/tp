@@ -34,11 +34,6 @@ public class CourseUtilTest {
     }
 
     @Test
-    public void containsNullCourse() {
-        assertFalse(CourseUtil.contains(null));
-    }
-
-    @Test
     public void containsEmptyCourse() {
         assertFalse(CourseUtil.contains(""));
     }
