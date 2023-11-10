@@ -44,7 +44,7 @@ public class PersonNameAscendingSorter extends PersonSorter {
         if (compareInsensitive == 0) {
             for (int i = 0; i < Math.min(person1NameLength, person2NameLength); i++) {
                 // Compare each character in the string until a difference in character is found.
-                int compare = caseInsensitiveThenNaturalOrder
+                int compare = -1 * caseInsensitiveThenNaturalOrder
                         .compare(person1Name.substring(i, i + 1), person2Name.substring(i, i + 1));
                 if (compare != 0) {
                     return compare;
