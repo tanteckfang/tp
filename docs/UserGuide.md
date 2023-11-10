@@ -35,11 +35,11 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
 **Novice Users:** <br>
-> For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
-
+> For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking. <br>
+<br>
 **Amateur Users:** <br>
-> You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
-
+> You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents). <br>
+<br>
 **Seasoned Users:** <br>
 > We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
@@ -72,14 +72,14 @@ In addition, there will be symbols encapsulated in boxes to give you a more enjo
 In NUSCoursemates, we've designed our user interface with your convenience and ease of use in mind. Let's take a closer look at the key components of our user interface:
 ![Labelled GUI](images/LabelledUI.png)
 
-| No  | Component          | Description                                                                                                                                       |
-|-----|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                   |
+| No  | Component          | Description                                                                                                                                           |
+|-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
 | 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
-| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                |
-| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                            |
-| 5   | Course List Panel  | Displays a summary of all the courses in your NUSCoursemates, along with the total number of students in each course.                             |
-| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                |
+| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
+| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
+| 5   | Course List Panel  | Displays a summary of all the courses in your NUSCoursemates, along with the total number of students in each course.                                 |
+| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                    |
 
 ### 1. Menu Bar
 <img src="images/MenuBar.png" alt="MenuBar" height="30"/>
@@ -250,6 +250,12 @@ Moreover, you should also take note of the specific requirements for each field 
 | Tag          | friend, close friend, cf, emergency             | Colleague, Lecturer, Family        | No              | Must be in the [tag format](#tag-format-requirement) and only a maximum of 2 emergency contacts allowed.                            |
 | Course       | CS2101, MA2001                                  | CS2103X, CS9999                    | No              | Course offered in [NUSMods 2023/2024 Sem 1 or Sem 2](https://nusmods.com/courses?sem[0]=1&sem[1]=2) (Updated as of 4 October 2023). |
 
+<div markdown="block" class="alert alert-warning">
+
+**:exclamation: Caution:**<br>
+* Some courses were added after 4 October 2023 and is deemed invalid by NUSCoursemates. e.g. ABM5002, ABM5101, ABM5106
+</div>
+
 Now that you know what constitutes a command, you can head over to our [tutorial section](#nuscoursemates-tutorial) to quickly learn how to navigate
 and utilise the various features of NUSCoursemates. Happy learning!
 
@@ -313,7 +319,7 @@ Type the command above into the [Command Box](#2-command-box) and press **'Enter
     <img src="images/TutorialEditAfter.png" alt="Edit Tutorial After"/>
  </div>
 
-Congratulations! You've successfully made the changes, and now your friend's information is now saved correctly!
+Congratulations! You've successfully made the changes, and your friend's information is now saved correctly!
 
 <div markdown="block" class="alert alert-tip">
 
@@ -364,7 +370,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 <div markdown="block" class="alert alert-tip">
 
 **:bulb: Quick Tip:** <br>
-* You can always refer back to the [Input Table]() provided previously to see the constraints of each field.
+* You can always refer back to the [Input Table](#input-table) provided previously to see the constraints of each field.
 </div>
 
 
@@ -404,41 +410,53 @@ Picture this: your best friend has changed his phone number, and you want to ens
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
 [c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
-- Provide the **index number** of the student based on the **student list currently displayed**, along with the updated details you wish to change to.
-- At least one of the optional fields must be provided.
-- Existing values will be updated to the input values. The values of the unspecified fields will remain unchanged. 
-- The [constraints specified](#input-table) for the values of the fields in the `add` command are also enforced for the updated values that you provide in the `edit` command.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
 
-| Field            | Tag | Description                                | Requirement |
-|------------------|-----|--------------------------------------------|-------------|
-| `INDEX`          | -   | Index of contact in displayed list         | Compulsory  |
-| `NAME`           | n/  | Updated name of contact                    | Optional    |
-| `PHONE`          | p/  | Updated phone number of contact            | Optional    |
-| `EMAIL`          | e/  | Updated email of contact                   | Optional    |
-| `ADDRESS`        | a/  | Updated address of contact                 | Optional    |
-| `TELEHANDLE`     | th/ | Updated telehandle of contact              | Optional    |
-| `TAG`            | t/  | Updated tag of contact                     | Optional    |
-| `COURSE_CHANGE`  | c/  | Course change to be performed for contact  | Optional    |
+| Field             | Requirement | Description                               |
+|-------------------|-------------|-------------------------------------------|
+| `INDEX`           | Compulsory  | Index of contact in displayed list        |
+| `n/NAME`          | Optional    | Updated name of contact                   |
+| `p/PHONE_NUMBER`  | Optional    | Updated phone number of contact           |
+| `e/EMAIL`         | Optional    | Updated email of contact                  |
+| `a/ADDRESS`       | Optional    | Updated address of contact                |
+| `th/TELEHANDLE`   | Optional    | Updated telehandle of contact             |
+| `t/TAG`           | Optional    | Updated tag of contact                    |
+| `c/COURSE_CHANGE` | Optional    | Course change to be performed for contact |
 
+<div markdown="block" class="alert alert-warning">
+
+**:exclamation: Caution:** <br>
+* At least one of the optional fields must be present.
+</div>
+
+<div markdown="block" class="alert alert-tip">
+
+**:bulb: Quick Tip:** <br>
+* You can always refer back to the [Input Table](#input-table) provided previously to see the constraints of each field. 
+* You can include `t/` in your edit command to remove all of a student's tags.
+* You can include `c/` in your edit command to remove all of a student's courses.
+</div>
 
 **More information about the `COURSE_CHANGE` field:**
-- As mentioned above, course changes are specified using the `c/` tag. In addition, they need to be in one of three formats specified below.
-- All course names specified must be valid. For example, `CS2103T` is valid while `CS210333` is invalid. 
-- You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.
-  - E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command. 
+Making changes to your friends' courses is like a walk in a park with the `c/` prefix in NUSCoursemates. 
+This prefix empowers you to easily modify your enrolled courses in one of three user-friendly formats:
 
-| Required Format                    | Description                                               | Special Notes                                                                     |
-|------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.        |
-| `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.      |
-| `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not `ORIGINAL_COURSE`, an error message will be displayed.    |
+| Required Format                    | Description                                               | Special Notes                                                                         |
+|------------------------------------|-----------------------------------------------------------|---------------------------------------------------------------------------------------|
+| `c/add-[COURSE_TO_ADD]`            | Adds a course for the student                             | If the student already has the course, the course will not be added again.            |
+| `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.          |
+| `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not have `ORIGINAL_COURSE`, an error message will be displayed.   |
 
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes:**<br>
+* You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.<br>
+E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command.
+</div>
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in NUSCoursemates, which as seen in the "Before" picture below, is John. 
-  * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below.
-  * The Course List Panel will also be updated accordingly. 
-* `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
+* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`
+* `edit 2 n/Betsy Crower t/`
 
 | Before    | ![edit student](images/editFeatureBefore.png)   |
 |-----------|-------------------------------------------------|
@@ -446,17 +464,9 @@ Examples:
 
 <div markdown="block" class="alert alert-warning">
 
-**:exclamation: Caution:** <br>
-* Although it is very convenient to be able to chain together multiple types of modifications, please be mindful when trying to delete or change a course even though the specified student does not possess it.<br>
-* For example, if Student 1 has `CS2103T`, and you perform `edit 1 c/del-CS2103T c/del-CS2103T`, while the first delete is valid, the second delete is not - because you are trying to remove a course that no longer exists for Student 1.<br>
-* An error message will be displayed if such errors occur and all changes in the chain of modifications will not be performed if any one of them are deemed to be invalid.
-</div>
-
-<div markdown="block" class="alert alert-tip">
-
-**:bulb: Pro Tips:**<br>
-* You can include `t/` in your edit command to remove all of a person's tags.
-* You can include `c/` your edit command to remove all of a peron's courses.
+**:exclamation: Caution: Chaining of multiple modifications** <br>
+* When chaining multiple modifications, attempting to delete or change a course that the specified student does not possess will lead to an error.
+* If such an error occur, an error message is displayed, and all changes in the chain of modifications will be invalidated.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -473,8 +483,8 @@ Format: `delete INDEX`
 * `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in NUSCoursemates.
-* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `findstudent` command.
+* `list` followed by `delete 2` deletes the 2nd student in NUSCoursemates.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st student in the results of the `findstudent` command.
 
 ![delete student](images/deleteFeature.png)
 
@@ -592,12 +602,12 @@ Case-sensitivity is considered when sorting similar names. This table shows how 
 
 | Sorted Order |   Name    | Justification                                                                                |
 |:------------:|:---------:|----------------------------------------------------------------------------------------------|
-|   1 (Top)    |   JOHN    | Uppercase letters come before lowercase letters. <br/> Therefore, 'JOHN' precedes 'john'     |
-|      2       |   john    | Lowercase letters come after uppercase letters                                               |
+|   1 (Top)    |   john    | Lowercase letters come before uppercase letters. <br/> Therefore, 'john' precedes 'JOHN'     |
+|      2       |   JOHN    | Uppercase letters come after lowercase letters                                               |
 |      3       |  JOHN 1   | 'JOHN 1' is longer, so it comes after its prefix 'JOHN' (case sensitivity is not considered) |
-|      4       |  JOHN 2   | Numbers are sorted in order, so '2' comes after '1'                                          |
-|      5       |  JOhN 2   | The third character, 'h', is a lowercase letter that comes after 'H' in 'JOHN 2'             |
-|      6       | john cena | The characters in the alphabet come after numbers                                            |
+|      4       |  JOhN 2   | Numbers are sorted in order, so '2' comes after '1'                                          |
+|      5       |  JOHN 2   | The third character, 'H', is an uppercase letter that comes after 'h' in 'JOhN 2'            |
+|      6       | john cena | The letters in the alphabet come after numbers                                               |
 |  7 (Bottom)  |   join    | As 'i' comes after 'h', 'join' comes after all names with 'h' as the third character         |
 
 **Format:** `sort name-descending` 
@@ -644,7 +654,7 @@ Examples:
 |-----------|--------------------------------------------------------------------|
 | **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
 
-In both cases, students with the same number of courses taken are arranged by their names similar to the [`sort name`](#sorting-by-name--sort-name) command.
+In both cases, students with the same number of courses taken are arranged by their names similar to the [`sort name`](#sorting-by-name-sort-name) command.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -863,15 +873,17 @@ Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
 
 | Term                      | Description                                                                                                                                                                                                                                                                                            |
 |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CLI                       | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
-| Parameter                 | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customise the behavior of the function or command.                                                                                            |
-| GUI                       | **Graphical User Interface (GUI):** A user interface that utilises graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
-| JSON                      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
-| JAR                       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
-| Integer                   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
-| Field                     | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organise and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
 | Alphanumeric              | **Alphanumeric:** Consists of letters and/or numerals                                                                                                                                                                                                                                                  |
+| CLI                       | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
+| Field                     | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organise and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
+| GUI                       | **Graphical User Interface (GUI):** A user interface that utilises graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
+| Integer                   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
+| JAR                       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
+| JSON                      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
+| Parameter                 | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customise the behavior of the function or command.                                                                                            |
+| Prefix                    | **Prefix:** The initial letter followed by a slash ("/"), indicating specific operations like "n/" for name, "p/" for phone number, "e/" for email, etc.                                                                                                                                               |
 | Unsigned Positive Integer | **Unsigned Positive Integer:** An integer without the positive or negative sign. e.g. 1, 2, 3, 4                                                                                                                                                                                                       |
+
 
 ### Email Format Requirement
 Emails should be of the format `local-part@domain` and adhere to the following constraints:
