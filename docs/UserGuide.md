@@ -43,7 +43,7 @@ You will find the answers you seek and step-by-step instructions for customizing
 > **Seasoned Users:** <br>
 We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
-If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
+If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at _NUSCoursemates@gmail.com_. 
 
 In addition, there will be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
 
@@ -155,7 +155,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
         <img src="images/javaVersion.png" alt="javaVersion"/> 
      </div>
     
-    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.) to download **Java 11**. 
+    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to download **Java 11**. 
     
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
      <div style="margin-top: 20px; margin-bottom: 20px">
@@ -172,14 +172,15 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      <div style="margin-top: 20px; margin-bottom: 20px">
         <img src="images/Ui.png" alt="Ui"/>
      </div>
-8. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-).
+8. **Absolutely well done!** You are now ready to move on to the next section to learn about the Command Line Interface (CLI).
 
 [Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Using the Command Line Interface (CLI)  
-**NUSCoursemates** uses the [Command Line Interface (CLI)](#glossary). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
+## Using the Command Line Interface (CLI)
+**NUSCoursemates** uses the [Command Line Interface (CLI)](#glossary). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks.
+
 
 Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
@@ -213,7 +214,7 @@ While we know that you cannot wait to try out some exciting commands, let us lea
 
 ## Command Format
 
-In the [previous section](#using-the-command-line-interface--cli-), we learnt that commands must be spelt and formatted correctly.
+In the [previous section](#using-the-command-line-interface-cli), we learnt that commands must be spelt and formatted correctly.
 
 In this section, let us explore the components that constitute a command in **NUSCoursemates**:
 
@@ -223,7 +224,7 @@ In this section, let us explore the components that constitute a command in **NU
 | Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
 | Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
 
-Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features) section below.
+Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features---managing-student-profiles) section below.
 
 Using the format for `add` command as an example, we can deconstruct it into the three components:
  <div style="margin-top: 10px; margin-bottom: 10px">
@@ -304,7 +305,7 @@ Practice makes perfect! Here are more commands you should try:
 
 * `add n/Mary Tan p/98865432 e/marytan@example.com a/15 Computing Ave, #01-01 c/cs2101` : Adds a student named `Mary Tan`.
 
-**Great job!** You may proceed to learn about the exciting [features](#features) we have designed for you. Enjoy!
+**Great job!** You may proceed to learn about the exciting [features](#features---managing-student-profiles) we have designed for you. Enjoy!
 
 <div markdown="block" class="alert alert-info">
 
