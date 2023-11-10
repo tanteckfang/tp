@@ -35,11 +35,15 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
 **Novice Users:** <br>
-> For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking. <br>
+> For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+
 <br>
+
 **Amateur Users:** <br>
-> You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents). <br>
+> You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
+
 <br>
+
 **Seasoned Users:** <br>
 > We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
@@ -431,13 +435,13 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 
 <div markdown="block" class="alert alert-tip">
 
-**:bulb: Quick Tip:** <br>
+**:bulb: Quick Tips:** <br>
 * You can always refer back to the [Input Table](#input-table) provided previously to see the constraints of each field. 
 * You can include `t/` in your edit command to remove all of a student's tags.
 * You can include `c/` in your edit command to remove all of a student's courses.
 </div>
 
-**More information about the `COURSE_CHANGE` field:**
+**More information about the `COURSE_CHANGE` field:**<br>
 Making changes to your friends' courses is like a walk in a park with the `c/` prefix in NUSCoursemates. 
 This prefix empowers you to easily modify your enrolled courses in one of three user-friendly formats:
 
@@ -865,6 +869,9 @@ Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous NUSCoursemates home folder.
 
+**Q**: I think I found a bug! How should I report it?<br>
+**A**: Thank you for finding a bug! You can email us at _NUSCoursemates@gmail.com_, or make a report in our Github repository [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/issues). Your contributions will make NUSCoursemates an even better application for everyone.
+
 [Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -921,16 +928,17 @@ Only 3 types of tags are accepted:<br/>
 | Action            | Format, Examples                                                                                                                                                                                                                                                               |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**           | `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/cs2101 c/cs2103t`                                                                         |
-| **Clear**         | `clear`                                                                                                                                                                                                                                                                        |
-| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
 | **Edit**          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG] [c/add-COURSE_TO_ADD] [c/del-COURSE_TO_DELETE] [c/ORIGINAL_COURSE-NEW_COURSE]…​`<br> e.g.,`edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-MA1521 c/add-MA2001 c/MA2001-ST2334` |
+| **Delete**        | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                                                                                                            |
+| **List**          | `list`                                                                                                                                                                                                                                                                         |
 | **Find Student**  | `findstudent KEYWORD [MORE_KEYWORDS]`<br> e.g., `findstudent James Jake`                                                                                                                                                                                                       |
 | **Find Course**   | `findcourse MODULE_ID [MORE_MODULE_ID]`<br> e.g., `findcourse CS2103T CS2040S `                                                                                                                                                                                                |
 | **Sort**          | `sort SORT_CRITERION`<br> e.g., `sort name`                                                                                                                                                                                                                                    |
-| **List**          | `list`                                                                                                                                                                                                                                                                         |
+| **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
+| **Clear**         | `clear`                                                                                                                                                                                                                                                                        |
 | **Help**          | `help`                                                                                                                                                                                                                                                                         |
 | **Feedback**      | `feedback`                                                                                                                                                                                                                                                                     |
-| **Clear Courses** | `clear-courses`                                                                                                                                                                                                                                                                |
 | **Theme**         | `theme THEME`<br> e.g., `theme dark`                                                                                                                                                                                                                                           |
+| **Exit**          | `exit`                                                                                                                                                                                                                                                                         |
 
 [Back to Table of Contents](#table-of-contents)
