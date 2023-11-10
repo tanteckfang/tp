@@ -43,13 +43,13 @@ public class PersonNameAscendingSorterTest {
         assertTrue(sorter.compare(mixedCaseHoon, mixedCaseHoon) == 0);
 
         // Name in uppercase should come after lowercase
-        assertTrue(sorter.compare(uppercaseHoon, lowercaseHoon) < 0);
+        assertTrue(sorter.compare(uppercaseHoon, lowercaseHoon) > 0);
 
-        // Name that has an uppercase character in between should come before the same name in lower case
-        assertTrue(sorter.compare(mixedCaseHoon, lowercaseHoon) < 0);
+        // Name that has an uppercase character in between should come after the same name in lower case
+        assertTrue(sorter.compare(mixedCaseHoon, lowercaseHoon) > 0);
 
-        // Name that has lowercase characters in between should come after the same name in upper case
-        assertTrue(sorter.compare(secondMixedCaseHoon, uppercaseHoon) > 0);
+        // Name that has lowercase characters in between should come before the same name in upper case
+        assertTrue(sorter.compare(secondMixedCaseHoon, uppercaseHoon) < 0);
 
         // Negative test: Names in different cases should not be treated equally.
         assertFalse(sorter.compare(lowercaseHoon, mixedCaseHoon) == 0);
@@ -78,8 +78,8 @@ public class PersonNameAscendingSorterTest {
         // The letters are arranged in order
         assertTrue(sorter.compare(johnCena, johnDena) < 0);
 
-        // The same letters are arranged in order of their cases
-        assertTrue(sorter.compare(johnCena, johncena) < 0);
+        // The same letters are arranged in order of their cases. Uppercase comes after lowercase characters.
+        assertTrue(sorter.compare(johnCena, johncena) > 0);
 
         // Regardless of case, if names are different, they should be sorted in alphabetical order.
         assertTrue(sorter.compare(lowerCaseJohn, lowerCaseJoin2) < 0);
@@ -94,7 +94,7 @@ public class PersonNameAscendingSorterTest {
 
         PersonNameAscendingSorter sorter = new PersonNameAscendingSorter();
 
-        // If a name is a prefix of another name, it should come first
+        // If a name is a prefix of another name, it should come first regardless of case.
         assertTrue(sorter.compare(mixedCaseJohnC, johnCena) < 0);
         assertTrue(sorter.compare(upperCaseJohn, secondUppercaseJohn) < 0);
 

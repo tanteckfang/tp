@@ -63,14 +63,14 @@ public class PersonNameDescendingSorterTest {
         assertTrue(sorter.compare(uppercaseHoon, uppercaseHoon) == 0);
         assertTrue(sorter.compare(mixedCaseHoon, mixedCaseHoon) == 0);
 
-        // Name in uppercase should come after lowercase
-        assertTrue(sorter.compare(uppercaseHoon, lowercaseHoon) > 0);
+        // Name in uppercase should come before lowercase
+        assertTrue(sorter.compare(uppercaseHoon, lowercaseHoon) < 0);
 
-        // Name that has an uppercase character in between should come after the same name in lower case
-        assertTrue(sorter.compare(mixedCaseHoon, lowercaseHoon) > 0);
+        // Name that has an uppercase character in between should come before the same name in lower case
+        assertTrue(sorter.compare(mixedCaseHoon, lowercaseHoon) < 0);
 
-        // Name that has lowercase characters in between should come before the same name in upper case
-        assertTrue(sorter.compare(secondMixedCaseHoon, uppercaseHoon) < 0);
+        // Name that has lowercase characters in between should come after the same name in upper case
+        assertTrue(sorter.compare(secondMixedCaseHoon, uppercaseHoon) > 0);
 
         // Negative test: Names in different cases should not be treated equally.
         assertFalse(sorter.compare(lowercaseHoon, mixedCaseHoon) == 0);
@@ -100,7 +100,7 @@ public class PersonNameDescendingSorterTest {
         assertTrue(sorter.compare(johnCena, johnDena) > 0);
 
         // The same letters are arranged in reverse order of their cases
-        assertTrue(sorter.compare(johnCena, johncena) > 0);
+        assertTrue(sorter.compare(johnCena, johncena) < 0);
 
         // Regardless of case, if names are different, they should be sorted in reverse alphabetical order.
         assertTrue(sorter.compare(lowerCaseJohn, lowerCaseJoin2) > 0);
