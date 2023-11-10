@@ -37,12 +37,10 @@ We will walk you through every step, from the basics of setting up your profile 
 **Novice Users:** <br>
 > For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-<br>
 
 **Amateur Users:** <br>
 > You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-<br>
 
 **Seasoned Users:** <br>
 > We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
