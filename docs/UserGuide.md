@@ -43,7 +43,7 @@ You will find the answers you seek and step-by-step instructions for customizing
 **Seasoned Users:** <br>
 We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
-If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
+If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at _NUSCoursemates@gmail.com_. 
 
 In addition, there will be symbols encapsulated in boxes to give you a more enjoyable time using our guide:
 
