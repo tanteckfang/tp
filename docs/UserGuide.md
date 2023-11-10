@@ -6,7 +6,7 @@ title: User Guide
 
 Hello, School of Computing (SoC) students in the National University of Singapore (NUS)! 
 
-A warm welcome to this user guide, your essential companion for navigating and maximizing the full potential of our application, **NUSCoursemates**.
+A warm welcome to this user guide, your essential companion for navigating and maximising the full potential of our application, **NUSCoursemates**.
 
 ### Table of Contents
 
@@ -34,14 +34,14 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-> **Novice Users:** <br>
-For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
+**Novice Users:** <br>
+> For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-> **Amateur Users:** <br>
-You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
+**Amateur Users:** <br>
+> You will find the answers you seek and step-by-step instructions for customising **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-> **Seasoned Users:** <br>
-We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
+**Seasoned Users:** <br>
+> We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at _NUSCoursemates@gmail.com_. 
 
@@ -72,14 +72,14 @@ In addition, there will be symbols encapsulated in boxes to give you a more enjo
 In NUSCoursemates, we've designed our user interface with your convenience and ease of use in mind. Let's take a closer look at the key components of our user interface:
 ![Labelled GUI](images/LabelledUI.png)
 
-| No  | Component          | Description                                                                                                                                           |
-|-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
+| No  | Component          | Description                                                                                                                                       |
+|-----|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                   |
 | 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
-| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
-| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
-| 5   | Course List Panel  | Displays a summary of all the courses in your address book, along with the total number of students in each course.                                   |
-| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                    |
+| 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                |
+| 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                            |
+| 5   | Course List Panel  | Displays a summary of all the courses in your NUSCoursemates, along with the total number of students in each course.                             |
+| 6   | Tag List Panel     | Displays a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.'                                                |
 
 ### 1. Menu Bar
 <img src="images/MenuBar.png" alt="MenuBar" height="30"/>
@@ -124,14 +124,14 @@ You will be able to view each student's details such as:
 ### 5. Course List Panel
 <img src="images/CourseListPanel.png" alt="CourseListPanel" width="400"/>
 
-The Course List Panel is your academic overview. It presents a summary of all the courses in your address book, along with the total number of students in each course. It's your academic compass.
+The Course List Panel is your academic overview. It presents a summary of all the courses in your NUSCoursemates, along with the total number of students in each course. It's your academic compass.
 
 e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
 
 ### 6. Tag List Panel
 <img src="images/TagListPanel.png" alt="TagListPanel" width="400"/>
 
-The Tag List Panel allows you to personalize your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorize and manage your contacts with ease.
+The Tag List Panel allows you to personalise your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorise and manage your contacts with ease.
 
 e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
 
@@ -141,22 +141,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 
 ## Quick start
 
-1. Ensure you have **Java 11** installed in your Computer.
-   * The method to check the Java version you use will be different for every operating system. 
-     * **Windows** users: <br>
-     Click on the '**Windows**' key and search for '**Command Prompt**' <br> 
-     * **Mac** users: <br> 
-     Click on '**F4**' and search for '**Terminal**'
-     * **Linux** users: <br>
-     Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
-   * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
-   * The application should state your Java version, as shown in the red circle below:
-     <div style="margin-top: 20px; margin-bottom: 20px">
-        <img src="images/javaVersion.png" alt="javaVersion"/> 
-     </div>
-    
-    * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to download **Java 11**. 
-    
+1. Ensure you have **Java 11** installed in your Computer. Click [here](#faq) to check how. 
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
      <div style="margin-top: 20px; margin-bottom: 20px">
         <img src="images/jarDownload.png" alt="jarDownload"/> 
@@ -255,15 +240,15 @@ For example (with reference to the `add` command above):
 ### Input Table
 Moreover, you should also take note of the specific requirements for each field as outlined by the table below.
 
-| Field        | Valid Input(s)                                                               | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                                                                                                            |
-|--------------|------------------------------------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name         | Alex the 3rd, John Doe                                                       | (Empty)                            | Yes             | Name must be [alphanumeric](#glossary) and unique.                                                                                                                                                                        |
-| Phone Number | 98765432, 5136850137                                                         | ABC123                             | -               | At least 3 digits and only contain numbers.                                                                                                                                                                               |
-| Email        | e01234567@u.nus.edu, jinHeng@gmail.com, asd@asd                              | joe@g, asdas@@!#!@                 | Yes             | Must be in [local-part@domain format](#email-format-requirement) and cannot be left blank.                                                                                                                                |
-| Address      | 123 Main St                                                                  |                                    | Yes             | N.A.                                                                                                                                                                                                                      |
-| Telehandle   | @johndoe, @a12                                                               | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must be in the [telehandle format](#telehandle-format-requirement).                                                                                                                                                       |
-| Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts. |
-| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.              |
+| Field        | Valid Input(s)                                  | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                      |
+|--------------|-------------------------------------------------|------------------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Name         | Alex the 3rd, John Doe                          | (Empty)                            | Yes             | Name must be [alphanumeric](#glossary) and unique.                                                                                  |
+| Phone Number | 98765432, 5136850137                            | ABC123                             | -               | At least 3 digits and only contain numbers.                                                                                         |
+| Email        | e01234567@u.nus.edu, jinHeng@gmail.com, asd@asd | joe@g, asdas@@!#!@                 | Yes             | Must be in [local-part@domain format](#email-format-requirement) and cannot be left blank.                                          |
+| Address      | 123 Main St                                     |                                    | Yes             | N.A.                                                                                                                                |
+| Telehandle   | @johndoe, @a12                                  | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must be in the [telehandle format](#telehandle-format-requirement).                                                                 |
+| Tag          | friend, close friend, cf, emergency             | Colleague, Lecturer, Family        | No              | Must be in the [tag format](#tag-format-requirement) and only a maximum of 2 emergency contacts allowed.                            |
+| Course       | CS2101, MA2001                                  | CS2103X, CS9999                    | No              | Course offered in [NUSMods 2023/2024 Sem 1 or Sem 2](https://nusmods.com/courses?sem[0]=1&sem[1]=2) (Updated as of 4 October 2023). |
 
 Now that you know what constitutes a command, you can head over to our [tutorial section](#nuscoursemates-tutorial) to quickly learn how to navigate
 and utilise the various features of NUSCoursemates. Happy learning!
@@ -284,7 +269,7 @@ Upon opening the app for the first time, you'll be greeted with sample data read
 
 Before we dive into our tutorial, ensure you have understood the following:
 * How the [command line interface](#using-the-command-line-interface-cli) works
-* How to utilize the [command format](#command-format) for inputting instructions into our application
+* How to utilise the [command format](#command-format) for inputting instructions into our application
 
 ### Clearing the sample data!
 Not a fan of the imaginary friends we've set up for you? No problem! Simply use the `clear` command to start with a clean 
@@ -312,7 +297,7 @@ Poof! You've successfully added your new friend, `John Doe`. Congratulations!
 
 ### Making changes to your friends' details
 
-Oops! Made some typos in the details while using the add command? No worries! In this section, we'll guide you on
+Oops! Made some typos in the details while using the `add` command? No worries! In this section, we'll guide you on
 quickly correcting those errors.
 
 For example, suppose you made typos in his name and forgot one of his courses; no worries! You can easily correct it 
@@ -351,7 +336,7 @@ we've crafted for you. Enjoy!
 ## Features - Managing Student Profiles
 In the realm of student profiles, NUSCoursemates redefines the way you manage and connect with fellow students. It's not just about data; it's about fostering meaningful connections and streamlining your student network. NUSCoursemates offers a range of features designed with you, the student, in mind. 
 
-These features make it easy to add new friends, maintain your contact list, and engage with your academic community. All your student profiles are neatly organized for a seamless and user-centric experience.
+These features make it easy to add new friends, maintain your contact list, and engage with your academic community. All your student profiles are neatly organised for a seamless and user-centric experience.
 
 Let's dive into the details of each feature to enhance your student profile management.
 
@@ -359,19 +344,22 @@ Let's dive into the details of each feature to enhance your student profile mana
 > "Every new friend is a new adventure…the start of more memories."
 > — Patrick Lindsay
 
-Embrace the opportunity to expand your circle and make lasting connections by adding new friends to your address book. Our user-friendly "Add" feature makes it simple and convenient to do just that.
+Embrace the opportunity to expand your circle and make lasting connections by adding new friends to your NUSCoursemates. Our user-friendly "Add" feature makes it simple and convenient to do just that.
 
 With the `add` command, you can include a variety of details to create a comprehensive profile for your new friend. Here's what each field represents:
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
-* `n/NAME`: Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!
-* `p/PHONE_NUMBER`:  Stay connected with their contact number, ensuring you're just a call or message away. For our international friends with overseas numbers, we've got you covered – you can add phone numbers of at least 3 digits. 
-* `e/EMAIL` (optional): Include their email address, making digital connections seamless.
-* `a/ADDRESS` (optional): Specify their physical address, ideal for planning meetups.
-* `th/TELEHANDLE` (optional): Provide their telehandle, ensuring quick and easy communication.
-* `t/TAG` (optional): Categorize your friend with relevant tags, simplifying your contact management.
-* `c/COURSE` (optional): Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.
+| Field            | Requirement | Description                                                                                                                                           |
+|------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| n/NAME           | Compulsory  | Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so! |
+| p/PHONE_NUMBER   | Compulsory  | Stay connected with your local and overseas friends whose phone numbers may be of different lengths.                                                  |
+| e/EMAIL          | Optional    | Make digital connections seamless with their email address.                                                                                           |
+| a/ADDRESS        | Optional    | Specify their physical address, ideal for planning meetups.                                                                                           |
+| th/TELEHANDLE    | Optional    | Provide their telehandle, ensuring quick and easy communication.                                                                                      |
+| t/TAG            | Optional    | Categorise your friend with relevant tags, simplifying your contact management.                                                                       |
+| c/COURSE         | Optional    | Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.                                             |
+
 
 <div markdown="block" class="alert alert-tip">
 
@@ -447,7 +435,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/
 
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in the address book, which as seen in the "Before" picture below, is John. 
+* `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`. This command is targeted at the first person in NUSCoursemates, which as seen in the "Before" picture below, is John. 
   * This command edits his phone number and email address to be `91234567` and `johndoe@example.com` respectively, and performs the following course modifications in order - add MA1521, delete CS2103T (valid because John has CS2103T), change MA2001 to ST2334 (valid because John has MA2001). John now has courses MA1521 and ST2334, as shown in "After" below.
   * The Course List Panel will also be updated accordingly. 
 * `edit 2 n/Betsy Crower t/` Edits the name of Person 2 to be `Betsy Crower` and clears all existing tags.
@@ -478,23 +466,22 @@ Examples:
 > "It's really amazing when two strangers become the best of friends, but it's really sad when the best of friends become two strangers."
 > — Unknown
 
-In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your address book. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat address book.
+In your journey with NUSCoursemates, you may find it necessary to part ways with a student entry in your NUSCoursemates. Maybe a friend has graduated or you've made an error. Whatever the reason, the delete command is your tool for decluttering and maintaining a neat NUSCoursemates.
 
 Format: `delete INDEX`
 
-* `INDEX`: Deletes the student at the specified mark.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list` followed by `delete 2` deletes the 2nd person in NUSCoursemates.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st person in the results of the `findstudent` command.
 
 ![delete student](images/deleteFeature.png)
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Note:**<br>
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+**:information_source: Notes:**<br>
+* The index refers to the index number shown in the displayed student list.
 * The deleted student will no longer appear when the `findcourse`, `findstudent` or `list` commands are entered.
 </div>
 
@@ -510,9 +497,9 @@ Let's delve into the specifics of how to effortlessly access and make the most o
 
 ### Listing all students : `list`
 
-Discover the power of the "List" feature – your ultimate tool for staying organized and in the know about your student contacts. It's like having your address book at your fingertips, ready to provide you with a clear, comprehensive view of your network.
+Discover the power of the "List" feature – your ultimate tool for staying organised and in the know about your student contacts. It's like having your NUSCoursemates at your fingertips, ready to provide you with a clear, comprehensive view of your network.
 
-**How to do it:** With the straightforward `list` command, you can effortlessly generate a list of all the students in your address book. It's as simple as typing "list."
+With the straightforward `list` command, you can effortlessly generate a list of all the students in your NUSCoursemates. It's as simple as typing "list."
 
 Format: `list`
 
@@ -523,17 +510,21 @@ Examples:
 
 ### Locating students by name: `findstudent`
 
-Searching for a specific friend or classmate in your address book? Or maybe you're trying to figure out who to form a study group with? Look no further, because `findstudent` is your go-to feature for locating fellow NUS SoC students in your contacts by name.
-
-Unlock the potential of your network with these simple steps:
+When you're in search of specific details about a friend or coursemate, 
+`findstudent` is your reliable command. Say goodbye to endless scrolling and let this feature 
+guide you to your fellow NUS SoC students.
 
 Format: `findstudent KEYWORD [MORE_KEYWORDS]`
 
-* Case Flexibility: Whether you input `john` or `JOHN`, we'll make sure you find your friend John.
-* You can search `Hans Bo` it will still match `Bo Hans` ; we understand it's about the people, not the sequence.
-* Focus on Names: Dive straight into finding individuals by their names, nothing else gets in the way.
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes:**<br>
+* Case-Insensitivity: Inputting `john` or `JOHN`, you will find your friend John.
 * Complete Words Matter: For accuracy, we search for complete words only. Searching `Han` won't match `Hans`, ensuring that you find exactly what you're looking for.
-* Flexible 'OR' Search: It’s like casting a wider net – enter `Hans Bo`, and you’ll catch `Hans Gruber`, `Bo Yang`, or any name that contains `Hans` or `Bo`.
+* Flexible Search: It’s like casting a wider net – enter `Hans Bo`, and you’ll catch any name that contains `Hans` or `Bo`.
+* You can search `Hans Bo` it will still match `Bo Hans` ; we understand it's about the people, not the sequence.
+</div>
+
 
 Examples:
 * `findstudent John` returns `john` and `John Doe`
@@ -545,17 +536,19 @@ Examples:
 
 ### Discover Coursemates with `findcourse`
 
-Ever wondered who in your address book has taken the same courses as you? With `findcourse`, you can effortlessly locate fellow NUS SoC students you've saved who have enrolled in specific courses.
-
-
-Here’s how to make the most of this handy tool:
+Attempting to connect with students sharing similar courses? Utilise the `findcourse` feature in 
+NUSCoursemates to discover fellow NUS SoC students enrolled in specific courses. 
+Simplify your study connections and academic network with ease!
 
 Format: `findcourse MOUDLE_ID [MORE_MODULE_ID]`
-* Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and we'll find a match.
-* Search By Course Names: This tool zeroes in on the course names associated with your contacts, giving you precise results.
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes:**<br>
+* Case-Insensitive: Type in any case, like 'cs2030s' or 'CS2030S', and you'll be searching for 'CS2030S'.
 * Partial Words Are Okay: Entering 'CS2030' will identify students who have taken both 'CS2030' and 'CS2030S'.
 * Multiple Course Searches: Use multiple module ID, and we'll show you students enrolled in any of the related courses. For instance, entering 'cs2100 ma1521' will reveal students who took either 'CS2100', 'MA1521', or both.
-
+</div>
 
 Examples:
 * `findcourse cs2030s` returns `CS2030` and `CS2030S`
@@ -573,41 +566,10 @@ There are numerous ways you can sort your NUSCoursemates, and these options are 
 | Required Format | Description                                        | Special Notes                                                                                     |
 |-----------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                |
-| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names.                       |
+| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names alphabetically.        |
 | `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the highest importance is taken into account. |
 
 The details for each `sort` command are specified below. For seasoned users of NUSCoursemates, you can further customise the sorting criteria. Read on to learn more!
-
-#### Sorting by Course: `sort course`
-
-Do you need help in deciding which courses to take? Are you curious about who has taken on the most courses or who is just starting out? 
-
-The `sort course` command helps you rearrange your NUSCoursemates application by bringing those with the most courses to the top.
-
-For seasoned users looking to cheer on those just embarking on their academic journey, use `sort course size-ascending`. This flips the narrative, showcasing contacts with fewer courses in **ascending** order.
-
-**Format:** `sort course` or `sort course size-descending`
-
-Examples:
-
-| Before    | ![initial](images/BeforeSorting.png)  |
-|-----------|---------------------------------------|
-| **After** | ![sort_course](images/SortCourse.png) |
-
-[Back to Table of Contents](#table-of-contents)
-
-**Format:** `sort course size-ascending`
-* Highlight the newcomers (those with the fewest courses), arranged in **ascending order**.
-
-Examples:
-
-| Before    | ![sort course before ascending](images/BeforeSortingAscending.png) |
-|-----------|--------------------------------------------------------------------|
-| **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
-
-In both cases, students with the same number of courses taken are arranged by their names similar to the `sort name` command below.
-
-[Back to Table of Contents](#table-of-contents)
 
 #### Sorting by Name: `sort name`
 As time passes, you might encounter students with incredibly hard-to-spell names. You might vaguely recall the first letter of the name but struggle to spell it out completely.
@@ -657,6 +619,35 @@ Examples:
 
 [Back to Table of Contents](#table-of-contents)
 
+#### Sorting by Course: `sort course`
+
+Do you need help in deciding which courses to take? Are you curious about who has taken on the most courses or who is just starting out?
+
+The `sort course` command helps you rearrange your NUSCoursemates application by bringing those with the most courses to the top.
+
+**Format:** `sort course` or `sort course size-descending`
+
+Examples:
+
+| Before    | ![initial](images/BeforeSorting.png)  |
+|-----------|---------------------------------------|
+| **After** | ![sort_course](images/SortCourse.png) |
+
+For seasoned users looking to cheer on those just embarking on their academic journey, use `sort course size-ascending`. This flips the narrative, showcasing contacts with fewer courses in **ascending** order.
+
+**Format:** `sort course size-ascending`
+* Highlight the newcomers (those with the fewest courses), arranged in **ascending order**.
+
+Examples:
+
+| Before    | ![sort course before ascending](images/BeforeSortingAscending.png) |
+|-----------|--------------------------------------------------------------------|
+| **After** | ![sort_course_size_ascending](images/SortCourseAscending.png)      |
+
+In both cases, students with the same number of courses taken are arranged by their names similar to the [`sort name`](#sorting-by-name--sort-name) command.
+
+[Back to Table of Contents](#table-of-contents)
+
 #### Sorting by Tags: `sort tags`
 The greatest joy in university is, without a doubt, to attend boring classes with your close friends.
 
@@ -673,8 +664,9 @@ Examples:
 | **After** | ![sort tags](images/AfterSortTags.png) |
 
 <div markdown="block" class="alert alert-info">
+
 **:information_source: Note:**<br>
-Students with multiple tags will be sorted by the tag with the greatest importance.  
+* Students with multiple tags will be sorted by the tag with the greatest importance.  
 For example, a student with both 'Friend' and 'Emergency' tags will be placed in NUSCoursemates with other students tagged as 'Friend'. 
 </div>
 
@@ -686,9 +678,9 @@ In NUSCoursemates, we understand the need for flexibility and ease when it comes
 
 ### Clearing courses of all students: `clear-courses`
 
-A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from the address book? We've got you covered - this `clear-courses` command is extremely simple and fast.
+A new semester has begun, and you want to reset all the courses of all your friends - but you don't want to remove your friends from NUSCoursemates? We've got you covered - this `clear-courses` command is extremely simple and fast.
 
-**How to do it:** With the straightforward `clear-courses` command, you can effortlessly clear the courses of all your contacts in the address book. It's as simple as typing "clear-courses".
+With the straightforward `clear-courses` command, you can clear the courses of all your contacts in NUSCoursemates. It's as simple as typing "clear-courses".
 
 Format: `clear-courses`
 
@@ -709,7 +701,7 @@ Are you looking to do more than just clearing student courses? If you want to ma
 NUSCoursemates, you're in the right place. NUSCoursemates offers a simple way to clear all student entries when the need
 arises. 
 
-**How to do it:** With the straightforward `clear` command, you can begin anew and declutter your address book effortlessly. It's as simple as typing "clear".
+With the straightforward `clear` command, you can begin anew and declutter your NUSCoursemates effortlessly. It's as simple as typing "clear".
 
 Format: `clear`
 
@@ -745,7 +737,7 @@ Format: `help`
 <div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
+* If your command isn't recognised and you see "Unknown command," simply check your spelling and try again. Avoid variants like "helps" or "HELP."
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -763,7 +755,7 @@ Format: `feedback`
 <div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:** <br>
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
+* If your command isn't recognised and you see "Unknown command," simply check your spelling and try again. Avoid variants like `feedbacks` or `FEEDBACK`."
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -798,7 +790,12 @@ Format: `exit`
 
 **:information_source: Note:**<br>
 * Your data would be saved automatically, feel free to exit anytime! <br>
-* If your command isn't recognized and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`." <br>
+</div>
+
+<div markdown="block" class="alert alert-warning">
+
+**:exclamation: Caution:** <br>
+* If your command isn't recognised and you see "Unknown command," simply check your spelling and try again. Avoid variants like `exits` or `EXIT`."
 </div>
 
 [Back to Table of Contents](#table-of-contents)
@@ -833,6 +830,22 @@ _Details coming soon ..._
 **Q**: How do I install Java 11, the Java version required by NUSCourseMates?<br>
 **A**: You may download Java 11 from this [link](https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html).  
 
+**Q**: How do I check if I am using Java 11? <br>
+**A**: The method to check the Java version you use will be different for every operating system.
+* **Windows** users: <br>
+Click on the '**Windows**' key and search for '**Command Prompt**' <br>
+* **Mac** users: <br>
+Click on '**F4**' and search for '**Terminal**'
+* **Linux** users: <br>
+Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+* Once the application is open, type `java -version` and hit '**Enter/ Return**'.
+* The application should state your Java version, as shown in the red circle below:
+  <div style="margin-top: 20px; margin-bottom: 20px">
+     <img src="images/javaVersion.png" alt="javaVersion"/> 
+  </div>
+* If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk) to download **Java 11**. 
+
+
 **Q**: I accidentally closed the application. Is my data lost?<br>
 **A**: Fret not! NUSCoursemates saves your data after every change you make, so you won't lose any data.
 
@@ -848,16 +861,17 @@ _Details coming soon ..._
 
 ## Glossary
 
-| Term         | Description                                                                                                                                                                                                                                                                                            |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CLI          | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
-| Parameter    | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customize the behavior of the function or command.                                                                                            |
-| GUI          | **Graphical User Interface (GUI):** A user interface that utilizes graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
-| JSON         | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
-| JAR          | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
-| Integer      | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
-| Field        | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organize and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
-| Alphanumeric | **Alphanumeric:** Consists of letters and/or numerals                                                                                                                                                                                                                                                  |
+| Term                      | Description                                                                                                                                                                                                                                                                                            |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CLI                       | **Command Line Interface (CLI):** A text-based interface that allows users to interact with a computer or software by entering text commands. It's often preferred by power users and developers for its efficiency and scriptability.                                                                 |
+| Parameter                 | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customise the behavior of the function or command.                                                                                            |
+| GUI                       | **Graphical User Interface (GUI):** A user interface that utilises graphical elements such as icons, buttons, windows, and menus to allow users to interact with software or applications. GUIs are known for their visual appeal and user-friendliness.                                               |
+| JSON                      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
+| JAR                       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
+| Integer                   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
+| Field                     | **Field:** In the context of data, a field refers to a specific piece of information within a record or data structure. Fields are used to organise and store data in a structured manner, and they are often associated with a particular type or attribute.                                          |
+| Alphanumeric              | **Alphanumeric:** Consists of letters and/or numerals                                                                                                                                                                                                                                                  |
+| Unsigned Positive Integer | **Unsigned Positive Integer:** An integer without the positive or negative sign. e.g. 1, 2, 3, 4                                                                                                                                                                                                       |
 
 ### Email Format Requirement
 Emails should be of the format `local-part@domain` and adhere to the following constraints:
@@ -873,6 +887,11 @@ Emails should be of the format `local-part@domain` and adhere to the following c
 2. It should consist of letters, numbers, and underscores only. 
 3. No other special characters are allowed.
 
+### Tag Format Requirement
+Only 3 types of tags are accepted:<br/>
+1. Friend ("friend") 
+2. Close Friend ("close friend" or "cf")
+3. Emergency ("emergency")
 
 [Back to Table of Contents](#table-of-contents)
 
