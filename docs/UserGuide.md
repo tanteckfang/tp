@@ -34,13 +34,13 @@ Whether you're a novice just beginning your journey into the world of NUS SoC st
 
 We will walk you through every step, from the basics of setting up your profile to advanced features that empower you to make the most of your SoC connections.
 
-**Novice Users:** <br>
+> **Novice Users:** <br>
 For those taking their first steps with **NUSCoursemates**, our [Quick Start Guide](#quick-start) will be your trusted ally, providing a seamless entry into the world of SoC networking.
 
-**Amateur Users:** <br>
+> **Amateur Users:** <br>
 You will find the answers you seek and step-by-step instructions for customizing **NUSCoursemates** to your preferences in our comprehensive [table of contents](#table-of-contents).
 
-**Seasoned Users:** <br>
+> **Seasoned Users:** <br>
 We have streamlined your access to crucial information with our [command summary](#command-summary) and prefix summary, allowing you to find the commands you need with ease.
 
 If you have any doubts while using **NUSCoursemates**, do head over to [FAQ](#faq) to view comprehensive answers to some frequently asked questions. You may also contact us at [_NUSCoursemates@gmail.com_](mailto:NUSCoursemates@gmail.com). 
@@ -138,6 +138,7 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
 [Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
 ## Quick start
 
 1. Ensure you have **Java 11** installed in your Computer.
@@ -150,31 +151,35 @@ e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Fr
      Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
    * Once the application is open, type `java -version` and hit '**Enter/ Return**'. 
    * The application should state your Java version, as shown in the red circle below:
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/javaVersion.png" alt="javaVersion" width="600"/> 
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/javaVersion.png" alt="javaVersion"/> 
      </div>
     
     * If you do not see `11`, or if you do not have Java installed, follow the instructions [here](https://www.codejava.net/java-se/download-and-install-java-11-openjdk-and-oracle-jdk.) to download **Java 11**. 
     
 2. Download the latest `NUSCoursemates.jar` from [here](https://github.com/AY2324S1-CS2103T-T17-4/tp/releases).
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/jarDownload.png" alt="jarDownload" width="600"/> 
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/jarDownload.png" alt="jarDownload"/> 
      </div>  
 3. Copy the file to the folder you want to use as the _home folder_, such as the **Desktop** folder, for your NUSCoursemates. 
 4. Open the command terminal in Step 1.
 5. `cd` into the folder with the `NUSCoursemates.jar` file. For example, if your file is in the **Desktop** folder, simply type `cd Desktop`. 
 6. Enter the next command, `java -jar NUSCoursemates.jar`. Your commands should look like this:
-     <div style="margin-top: 10px; margin-bottom: 10px">
-        <img src="images/ChangeDirectory.png" alt="Change Directory" width="600"/>  
+     <div style="margin-top: 20px; margin-bottom: 20px">
+        <img src="images/ChangeDirectory.png" alt="Change Directory"/>  
      </div>  
 7. Hit '**Enter**'. An interface similar to the image below should appear:
-     <div style="margin-top: 10px; margin-bottom: 10px">
+     <div style="margin-top: 20px; margin-bottom: 20px">
         <img src="images/Ui.png" alt="Ui"/>
      </div>
 8. **Absolutely well done!** You are now ready to move on to the next section to learn about the [Command Line Interface (CLI)](#using-the-command-line-interface--cli-).
 
+[Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## Using the Command Line Interface (CLI)  
-**NUSCoursemates** uses the Command Line Interface (CLI). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
+**NUSCoursemates** uses the [Command Line Interface (CLI)](#glossary). CLI is a means of interacting with a computer program that runs on **text-based inputs** to execute different tasks. 
 
 Do not worry! CLI is definitely less scary than it sounds. In fact, this is all there is to it: 
 
@@ -203,6 +208,8 @@ While we know that you cannot wait to try out some exciting commands, let us lea
 </div>
 
 [Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command Format
 
@@ -236,6 +243,47 @@ For example (with reference to the `add` command above):
 You would be happy to learn that the various `prefix/field` can be entered in any order.<br>
 For example, if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
+Now that you know what constitutes a command, you can head over to our [tutorial section](#nuscoursemates-tutorial) to quickly learn how to navigate
+and utilize the various features of NUSCoursemates. Happy learning!
+
+[Back to Table of Contents](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## NUSCoursemates Tutorial
+Embark on this tutorial journey with us, whether you're a newcomer eager to explore or someone looking to sharpen your 
+skills. We've tailored the tutorial to cater to all levels, ensuring everyone can make the most of NUSCoursemates. 
+
+Firstly, let's try to open the app, and if you have forgotten on how to do so, you can refer to our [Quick Start](#quick-start).
+
+Upon opening the app for the first time, you'll be greeted with sample data ready for you to experiment with, as depicted below!
+
+![SampleUi](images/Ui.png)
+
+Before we dive into our tutorial, ensure you have understood the following:
+* 
+* 
+
+
+### Adding your new friend!
+
+If you have made a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/CommandFormatExample.png" alt="Command Format Example" width="720"/>
+ </div>
+
+Type the command above into the [Command Box](#2-command-box) and press **'Enter'** to see the magic happen!
+
+ <div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/AddTutorialAfter.png" alt="Command Format Example"/>
+ </div>
+
+You are now ready to use our application. Admittedly, we are as excited as you are!
+
+Practice makes perfect! Here are more commands you should try:
+
+### Making changes to your friends' details
 Now that you know what constitutes a command, you can proceed to add your new connections to **NUSCoursemates**.
 
 If you have made a new friend, `John Doe`, you would modify the fields accordingly. The resulting command should look like this:
@@ -306,7 +354,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 | Address      | 123 Main St                                                                  |                                    | Yes             | N.A.                                                                                                                                                                                                                                                                                                                                                                      |
 | Telehandle   | @johndoe, @a12                                                               | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must start with a "@". The first character preceding the "@" cannot be a number. It should consist of letters, numbers, and underscores only. No other special characters are allowed.                                                                                                                                                                                    |
 | Tag          | friend, close friend, cf, emergency, Friend, frIend, close fRiend, EMERGENCY | Colleague, Lecturer, Family        | No              | - Only 3 types of tags are accepted:<br/>1. Friend ("friend") <br/>2. Close Friend ("close friend" or "cf") <br/>3. Emergency ("emergency") <br/> - A maximum of two contacts be can be designated as emergency contacts.                                                                                                                                                 |
-| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2. Courses offered in Special Term (ST) 1 or 2 are not considered valid.                                                                                                                                                              |
+| Course       | CS2101, MA2001                                                               | CS2103X, CS9999                    | No              | A course is deemed valid if it is offered in either [NUSMods](https://nusmods.com/courses?sem[0]=1&sem[1]=2) 2023/2024 Sem 1 or Sem 2 (updated as of 4th Oct 2023). Courses offered in Special Term (ST) 1 or 2 are not considered valid.                                                                                                                                 |
 
 Examples:
 * `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
