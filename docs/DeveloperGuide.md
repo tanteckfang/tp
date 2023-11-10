@@ -606,6 +606,58 @@ The following activity diagram summarizes what happens when a user executes the 
     * Cons: Lack of Control. There would be lesser control over the structure and organization of feedback compared to a 
       dedicated feedback form.
 
+### 4.9 Theme feature
+
+#### 4.9.1 Implementation
+
+The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` which overrides the following operation:
+* `ThemeCommand#execute():` Changes the Theme of NUSCoursemates
+
+Given below is an example usage scenario and how the theme mechanism behaves at each step.
+
+Step 1. The user will input the theme command along with the desired THEME (Light or Dark).
+
+Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
+
+Step 3. This results in a `ThemeCommand` object which is executed by the `LogicManager`.
+
+Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+Step 5. The `CommandResult` object will have either `isLight` or `isDark` to be set as `true`. 
+
+Step 6. The `CommandResult` object will be executed which calls the `handleTheme` method in `MainWindow`.
+
+Step 7. The UI will then be updated accordingly to either DARK or LIGHT theme.
+
+The following sequence diagram shows how the add operation works:
+
+![ThemeSequenceDiagram](images/ThemeSequenceDiagram.png)
+
+The following activity diagram summarizes what happens when a user executes the `Feedback` command:
+
+![ThemeActivityDiagram](images/ThemeActivityDiagram.png)
+
+#### 4.9.2 Design considerations:
+
+**Aspect: User Interaction for Theme Change**
+
+* **Alternative 1:** CLI Command.
+    * Pros: Consistency. Aligns with the CLI nature of the application, providing a consistent interface for users accustomed to command-based interactions.
+    * Pros: Efficiency. Users familiar with CLI commands can quickly change the theme without navigating through graphical menus.
+
+    * Cons: Learning Curve. Users unfamiliar with CLI commands may face a learning curve.
+
+* **Alternative 2:** Menu Bar Button
+    * Pros: Intuitiveness. A graphical button on the menu bar may be more intuitive for users who prefer visual interactions.
+
+    * Cons: Inconsistency. May deviate from the overall CLI theme of the application.
+
+* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button
+    * Pros: Flexibility. Providing both options caters to a wider audience, accommodating users with different preferences.
+    * Pros: User Preference. Users can choose their preferred method of interaction, enhancing the overall user experience. 
+    * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
+
+   * Cons: Development Effort. Implementing and maintaining both CLI and graphical options may require additional development effort.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -988,7 +1040,7 @@ Enter the `list` command to view the student records. Repeat this for every test
         **Expected Outcome:** The left panel is empty.
 
 
-### B.9 Finding coursemates 
+### B.9 Finding a course 
 **Prerequisites:** Enter the `list` command to view the student records. Repeat this for every test case.
 
 1. The course is taken by at least one student:
@@ -1123,16 +1175,19 @@ Enter the `list` command to view the student records. Repeat this for every test
    To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even in cases of common names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
+   
 2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
    To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+   
 3. The current implementation of the system allows any email address containing the "@" symbol, which may not align with our specific user base of NUS SoC students. To ensure accurate and secure data, we aim to implement a check that requires email addresses to end with "@u.nus.edu".
    * Proposed Enhancement:
    We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of incorrect email addresses.
    * Implementation Details:
    The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
+
 4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
    To improve user understanding and minimize confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
