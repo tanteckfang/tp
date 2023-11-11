@@ -86,6 +86,18 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
+#### 3.2.1 List Panel
+
+In the UI of the `MainWindow`, three major List Panels—`PersonListPanel`, `CourseListPanel`, and `TagListPanel`—implement the Observer Design Pattern using the `ObservableList` class. 
+Each panel observes changes in its associated data, enabling dynamic updates in response to modifications. 
+
+For instance, the `CourseListPanel`, observing the `ObservableList<Course>`, triggers updates to the `CourseListCard` upon any changes in the courses.
+This implementation is replicated for `PersonListPanel` and `TagListPanel`. 
+
+The following class diagram illustrates the relationships:
+
+![Panel Class Diagram](images/PanelClassDiagram.png)
+
 ### 3.3 Logic component
 
 **API** : [`Logic.java`](https://github.com/AY2324S1-CS2103T-T17-4/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
@@ -240,6 +252,8 @@ Step 6. `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
 The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
