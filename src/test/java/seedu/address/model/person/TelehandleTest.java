@@ -23,24 +23,26 @@ public class TelehandleTest {
     @Test
     public void isValidTelehandle() {
         // invalid telehandle
-        assertFalse(Telehandle.isValidTelehandle("@_")); // no alphabet
-        assertFalse(Telehandle.isValidTelehandle("marylovejinheng")); // no @
-        assertFalse(Telehandle.isValidTelehandle("asdasd@asdasd")); // @ in the middle
-        assertFalse(Telehandle.isValidTelehandle("@marylove jinheng")); // white spaces
-        assertFalse(Telehandle.isValidTelehandle("@A*!@~")); // no other special characters apart from underscores
+        assertFalse(Telehandle.isValidTelehandle("marylovejinheng")); // no @.
+        assertFalse(Telehandle.isValidTelehandle("asdasd@asdasd")); // @ in the middle.
+        assertFalse(Telehandle.isValidTelehandle("@marylove jinheng")); // white spaces.
+        assertFalse(Telehandle.isValidTelehandle(" ")); // empty telehandle.
+        assertFalse(Telehandle.isValidTelehandle("@")); // cannot consist of only @ sign.
+        assertFalse(Telehandle.isValidTelehandle("@A*!@~")); // no other special characters apart from underscores.
+        assertFalse(Telehandle.isValidTelehandle("@_")); // telehandle cannot consist of only underscores.
+        assertFalse(Telehandle.isValidTelehandle("@111")); // telehandle cannot consist of only numbers.
+        assertFalse(Telehandle.isValidTelehandle("@_11")); // cannot consist of only numbers and underscores.
 
         // valid telehandles
-        assertTrue(Telehandle.isValidTelehandle("@nice")); //default
+        assertTrue(Telehandle.isValidTelehandle("@1nice")); // numbers at the start of a telehandle
         assertTrue(Telehandle.isValidTelehandle("@nice_")); // underscore as a special character are allowed.
         assertTrue(Telehandle.isValidTelehandle("@HiIamACSstudenthihihiilonggggggname")); // long telehandle
+        assertTrue(Telehandle.isValidTelehandle("@_nice_")); // underscore at the start of telehandle are allowed.
+        assertTrue(Telehandle.isValidTelehandle("@_1nice_")); // combination of underscore and numbers are allowed.
 
         // Boundary Value Testing
         Telehandle minBoundaryTelehandle = new Telehandle("@A");
         assertTrue(Telehandle.isValidTelehandle(minBoundaryTelehandle.toString())); // Minimum length Telehandle
-
-        String maxBoundaryTelehandleString = "@ABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890";
-        Telehandle maxBoundaryTelehandle = new Telehandle(maxBoundaryTelehandleString);
-        assertTrue(Telehandle.isValidTelehandle(maxBoundaryTelehandle.toString())); // Maximum length Telehandle
 
         Telehandle singleCharWithUnderscoreTelehandle = new Telehandle("@A_");
         assertTrue(Telehandle.isValidTelehandle(singleCharWithUnderscoreTelehandle

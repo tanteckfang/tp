@@ -14,7 +14,7 @@ public class Telehandle {
             + "Additionally, telehandles cannot consist of only numbers and underscores.";
 
     /*
-     * The first character of the telehandle must be a @,
+     * Regular expression for validating a telehandle.
      */
     public static final String VALIDATION_REGEX = "@[a-zA-Z0-9_]*[a-zA-Z]+[a-zA-Z0-9_]*";
     public static final Telehandle EMPTY_TELEHANDLE = new Telehandle("");
