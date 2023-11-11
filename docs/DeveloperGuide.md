@@ -401,7 +401,7 @@ Format: `sort CRITERION`
 There are 3 ways to sort the students in the address book:
 
 1. **Sort by Name**
-    - Function: Sorts students by name in alphabetical order (Aa Bb ... Zz)
+    - Function: Sorts students by name in alphabetical order
     - Criterion: name, name-ascending, name-descending
     - Example usage: `sort name-ascending`
 
@@ -417,17 +417,34 @@ There are 3 ways to sort the students in the address book:
 
 Given below is an example usage scenario and how the sort mechanism behaves at each step.
 
-Step 1. The user launches the application. The `AddressBook` will be initialized with the initial address book state.
+Step 1. The user will input `sort name`, where `sort` is the command word and `name` is a valid sort criterion.
 
-Step 2. The user executes `sort name` command to sort the contacts in the address book by name (in lexicographic order). New `SortCommand` and `PersonNameAscendingSorter` objects are created.
+Step 2. When `LogicManager` is called upon to execute the command, it will call `parseCommand()` of an `AddressBookParser` object which creates a `SortCommandParser` object.
 
-Step 3. The `SortCommand` object will call `Model#sortPersonList()`, which will then call `#AddressBook.sortPersonList()` with the newly created `PersonNameAscendingSorter` object as well.
+Step 3. `SortCommandParser` will then parse the sort criterion, which in this case, is `name`.
 
-Step 4. Finally, `UniquePersonList#sortPersons` is called with the `PersonNameAscendingSorter` object and the students in the list will be sorted by the comparator.
+Step 4. The static `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
+
+Step 5. A new `PersonNameAscendingSorter` object is constructed. 
+
+Step 6. A new `SortCommand` object is constructed with the `PersonNameAscendingSorter` object created in the previous step. 
+
+Step 7. The `SortCommand` object is then executed by the `LogicManager`.
+
+Step 8. As a result, the `SortCommand` object will call `Model#sortPersonList()` with the `PersonNameAscendingSorter` object created in the earlier steps.  
+
+Step 9. Afterwards, `#AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
+
+Step 10. Finally, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
 
 The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
 
-![SortSequenceDiagram](images/SortSequenceDiagram.png)
+![SortSequenceDiagram](images/SortSequenceDiagram.png) 
+
+<div>
+**Note:**
+* The lifeline for `SortCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
 The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
@@ -1263,9 +1280,9 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ## **Appendix C: Planned Enhancements**
 
-1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name, which can be problematic when there are indeed multiple students with identical names.
+1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even in cases of common names.
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
    
@@ -1273,21 +1290,55 @@ Enter the `list` command to view the student records. Repeat this for every test
    * Proposed Enhancement:
    To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
    
-3. The current implementation of the system allows any email address containing the "@" symbol, which may not align with our specific user base of NUS SoC students. To ensure accurate and secure data, we aim to implement a check that requires email addresses to end with "@u.nus.edu".
-   * Proposed Enhancement:
-   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of incorrect email addresses.
+3. The current implementation of the system allows any email address domain after the '@' character. To better suit the needs of NUS SoC students, we could implement a check which requires email addresses to end with "@u.nus.edu" instead. This would help to improve the security and accuracy of these data. 
+    * Proposed Enhancement:
+   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of users entering incorrect email addresses.
    * Implementation Details:
    The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
 
 4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
-   To improve user understanding and minimize confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+   To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
    * Possible Error Message:
    `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
      'dark' for dark mode
      'light' for light mode
      Example: theme dark`
-5. SPECIAL TERM COURSES
-6. 
+
+5. Currently, when a very large positive integer is entered as the INDEX for commands which take in an INDEX (these include commands such as `delete` and `edit`) as an argument, the error message displayed suggests that there is a problem with the command format. However, this may not be the case. The inaccurate error message is shown because the number entered for INDEX is simply too big for the computer to parse. 
+   * Proposed Enhancement:
+   We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
+   * Possible Error Message:
+       `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
+   
+6. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+* Proposed Enhancement:
+  We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
+* Implementation Details:
+We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix D: Effort**
+
+Overall, we felt that the difficulty level for NUSCoursemates was moderate. When creating NUSCoursemates, which evolved from AB-3, we meticulously considered the overall design, architecture, and testing aspects to ensure the development of meaningful features for our intended users, SoC students. 
+
+  Justification for effort: 
+* **Changing existing commands** - While some commands, such as `list`, were adapted from AB-3, there were many cases where the code for these commands had to be rewritten or tweaked for NUSCoursemates. For example, the `find` feature was heavily modified and separated into new `findcourse` and `findstudent` commands.
+* **Creating new classes** - We created multiple new classes (such as `course`, `tags` and `telehandle`) which are common and important attributes of our target users. 
+* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and `c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
+* **Huge improvement in UI** - With JavaFX AND FXML, we are able to create the current NUSCoursemates UI which is made up of different components and gives users the option to switch between different themes.
+* ...and many more!
+
+We faced numerous challenges in this project:
+* **Learning new technologies** - Adjusting and familiarising ourselves to new technologies such as Git and GitHub were difficult for us. For example, we often made edits to the same piece of code which resulted in messy merge conflicts that took up valuable time to resolve. 
+* **Time constraint** - We were also faced with tight deadlines for the various milestones and submissions. This also meant that we had to learn these new technologies in order to implement new features fast. 
+* **Immediately applying what we learnt** - Juggling between the project and the concepts taught in the course was particularly difficult. For example, although heuristics for test cases were only taught towards the end of the course, we were already expected to apply them in the testing component of our project.
+
+Achievements: 
+We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we hadn't anticipated at the project's onset.
+
+It has been a wonderful (but really tiring) journey for all of us! 
+
