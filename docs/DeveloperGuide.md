@@ -543,7 +543,7 @@ The Telehandle mechanism is facilitated by the `Telehandle` and `AddCommand` cla
 
 Given below is an example usage scenario and how the `Telehandle` mechanism behaves at each step.
 
-Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: add n/john p/98765432 th/@john2.
+Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: `add n/john p/98765432 th/@john2`.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
@@ -580,9 +580,9 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
 
-The following activity diagram summarizes what happens when a user executes the `Add` command with a valid `Telehandle`:
+The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle` as shown in step 1.
 
-![TelehandleActivityDiagram](images/TelehandleActivityDiagram.png)
+![TelehandleObjectDiagram](images/TelehandleObjectDiagram.png) 
 
 #### 4.7.2 Design considerations:
 

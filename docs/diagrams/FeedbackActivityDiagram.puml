@@ -5,18 +5,23 @@ skinparam ArrowFontSize 12
 
 start
 
-:User inputs "feedback";
+:User inputs feedback command;
 
-:LogicManager processes the input;
+if () then ([input is valid])
 
-:AddressBookParser identifies the command type;
+    :LogicManager processes the input;
 
-:Execute FeedbackCommand;
+    :AddressBookParser identifies the command type;
 
-:A Feedback popup window appears;
+    :Execute FeedbackCommand;
 
-:User sends a feedback through the link provided;
+    :A Feedback popup window appears;
 
+    :User sends a feedback through the link provided;
+else ([else])
+:Display invalid \ninput error message;
+
+endif
 stop
 
 @enduml
