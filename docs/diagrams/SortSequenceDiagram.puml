@@ -68,13 +68,13 @@ deactivate AddressBookParser
 LogicManager -> SortCommand : execute()
 activate SortCommand
 
-SortCommand -> Model : sortPersonList(s)
+SortCommand -> Model : sortPersonList(ps)
 activate Model
 
-Model -> AddressBook : sortPersonList(s)
+Model -> AddressBook : sortPersonList(ps)
 activate AddressBook
 
-AddressBook -> UniquePersonList : sortPersons(s)
+AddressBook -> UniquePersonList : sortPersons(ps)
 activate UniquePersonList
 
 UniquePersonList --> AddressBook
