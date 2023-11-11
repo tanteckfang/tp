@@ -167,18 +167,38 @@ Given below is an example usage scenario and how the add mechanism behaves at ea
 
 Step 1. The user will input the add command along with the person's name and the course that the person is taking.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` and uses it to parse the command.
+Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
-Step 3. This results in a `AddCommand` object which is executed by the `LogicManager`.
+Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The course will be indicated by the `c/` prefix.
+For this scenario, we will be focusing on the `Course`.
 
-Step 4. The command will communicate with the `Model` to add a person with the inputted course. The course will be indicated by the `c/` prefix. 
+Step 4: The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
 
-Step 5. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+Step 5: After parsing each course input, a `Course` object is constructed.
 
+Step 6: During the construction of the `Course` object, the validity of the course string is verified by checking with the `CourseUtil.contains()` method to ensure it is a valid input.
+
+Step 7: The constructed `Course` object is returned to `ParserUtil`. It is then combined with other `Course` inputs into a `Set<Course>`.
+
+Step 8: The `Set<Course>` is returned from `ParserUtil` to `AddCommandParser`.
+
+Step 9: Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
+
+Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
+
+Step 11. The command will communicate with the `Model` to add a person with the inputted course. 
+
+Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+
+For example, let's say the user inputs `add n/John p/81234567 c/CS2103T`.
 The following sequence diagram shows how the add operation works:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">:information_source: 
+
+**Note:** 
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
 
 The following activity diagram shows how the add operation works:
@@ -1223,4 +1243,5 @@ Enter the `list` command to view the student records. Repeat this for every test
      'dark' for dark mode
      'light' for light mode
      Example: theme dark`
-
+5. SPECIAL TERM COURSES
+6. 
