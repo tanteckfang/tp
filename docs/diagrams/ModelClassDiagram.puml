@@ -44,7 +44,7 @@ Person *--> Phone
 Person *--> "0..1"Email
 Person *--> "0..1"Address
 Person *--> "0..1"Telehandle
-Person *--> "*" Tag
+Person *--> "0..3" Tag
 Person *--> "*" Course
 
 Person -[hidden]up--> I
