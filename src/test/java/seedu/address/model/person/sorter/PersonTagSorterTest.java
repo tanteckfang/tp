@@ -1,6 +1,7 @@
 package seedu.address.model.person.sorter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.CARL;
@@ -257,5 +258,23 @@ public class PersonTagSorterTest {
         tags.add(new Tag("Friend"));
         int maxPriority = sorter.getMaxTagPriority(tags);
         assertEquals(1, maxPriority);
+    }
+
+    @Test
+    public void equals() {
+        PersonTagSorter sorter = new PersonTagSorter();
+
+        // EP: same class -> returns true
+        assertTrue(sorter
+                .equals(new PersonTagSorter()));
+
+        // EP: same object -> returns true
+        assertTrue(sorter.equals(sorter));
+
+        // EP: null -> returns false
+        assertFalse(sorter.equals(null));
+
+        // EP: different types -> returns false
+        assertFalse(sorter.equals(5.0f));
     }
 }
