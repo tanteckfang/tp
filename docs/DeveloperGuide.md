@@ -742,7 +742,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Use Case: UC02 - Adding a Student**
+**Use Case: UC02 - Accessing the Feedback Page**
+
+**MSS**
+
+1. User enters the command feedback
+2. AddressBook displays a message with a link to the feedback page
+
+   Use case ends.
+
+
+**Use Case: UC03 - Adding a Student**
 
 **MSS**
 
@@ -756,7 +766,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. User enters an invalid command format.
   * 2a1. AddressBook shows an error message.
 
-**Use Case: UC03 - Deleting a Student**
+**Use Case: UC04 - Deleting a Student**
 
 1. User requests to list persons
 2. AddressBook shows a list of persons
@@ -776,7 +786,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case resumes at step 2.
 
-**Use Case: UC04 - Editing a Student**
+**Use Case: UC05 - Editing a Student**
 
 **MSS**
 
@@ -796,7 +806,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case resumes at step 2.
 
-**Use Case: UC05 - Locating Students by Name**
+**Use Case: UC06 - Locating Students by Name**
 
 **MSS**
 
@@ -812,7 +822,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. The given index is invalid.
     * 1b1. AddressBook shows an error message.
 
-**Use Case: UC06 - Locating Students by Course**
+**Use Case: UC07 - Locating Students by Course**
 
 **MSS**
 
@@ -829,7 +839,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. AddressBook shows an error message.
 
 
-**Use Case: UC07 - Clearing All Entries**
+**Use Case: UC08 - Clearing All Entries**
 
 **MSS**
 
@@ -841,7 +851,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. The given command is invalid.
     * 1a1. AddressBook shows an error message.
 
-**Use Case: UC08 - Listing All Students**
+**Use Case: UC09 - Listing All Students**
 
 **MSS**
 
@@ -857,7 +867,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. The given command is invalid.
     * 1b1. AddressBook shows an error message.
 
-**Use Case: UC09 - Exiting the Program**
+
+**Use Case: UC10 - Changing Themes**
+
+**MSS**
+
+1. User enters the list command.
+2. AddressBook displays a list of all students in the address book along with their details.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 1b. The given command is invalid.
+    * 1b1. AddressBook shows an error message.
+
+**Use Case: UC11 - Exiting the Program**
 
 **MSS**
 
