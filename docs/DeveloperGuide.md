@@ -1239,9 +1239,12 @@ Enter the `list` command to view the student records. Repeat this for every test
    We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
    * Possible Error Message:
        `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
-    
    
-6. SPECIAL TERM COURSES
+6. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+* Proposed Enhancement:
+  We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
+* Implementation Details:
+We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
 
 --------------------------------------------------------------------------------------------------------------------
 
