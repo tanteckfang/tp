@@ -167,18 +167,38 @@ Given below is an example usage scenario and how the add mechanism behaves at ea
 
 Step 1. The user will input the add command along with the person's name and the course that the person is taking.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` and uses it to parse the command.
+Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
-Step 3. This results in a `AddCommand` object which is executed by the `LogicManager`.
+Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The course will be indicated by the `c/` prefix.
+For this scenario, we will be focusing on the `Course`.
 
-Step 4. The command will communicate with the `Model` to add a person with the inputted course. The course will be indicated by the `c/` prefix. 
+Step 4. The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
 
-Step 5. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil.contains()` method to ensure it is a valid input.
 
+Step 6. After parsing each course input, a `Course` object is constructed.
+
+Step 7. The constructed `Course` object is returned to `ParserUtil`. It is then combined with other `Course` inputs into a `Set<Course>`.
+
+Step 8. The `Set<Course>` is returned from `ParserUtil` to `AddCommandParser`.
+
+Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
+
+Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
+
+Step 11. The command will communicate with the `Model` to add a person with the inputted course. 
+
+Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+
+For example, let's say the user inputs `add n/John p/81234567 c/CS2103T`.
 The following sequence diagram shows how the add operation works:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
 
 The following activity diagram shows how the add operation works:
@@ -206,16 +226,16 @@ Step 1. An existing user launches the application and the second person listed i
 
 Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
-Step 3: If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+Step 3. If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
 
-Step 4: The `EditCommand` is created, and then executed by `EditCommand#execute`.
+Step 4. The `EditCommand` is created, and then executed by `EditCommand#execute`.
 
-Step 5: `EditCommand#execute` calls the following methods from `Model`:
+Step 5. `EditCommand#execute` calls the following methods from `Model`:
 * `Model#hasPerson(editedPerson)` which checks if the address book contains a duplicate person (a person with the same name).
 * `Model#setPerson(personToEdit, editedPerson)` replaces `personToEdit` with `editPerson`
 * `Model#updateFilteredPersonList(predicate)` updates the address book list with the edited person.
 
-Step 6: `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
+Step 6. `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
 
 The following sequence diagram shows how the edit operation works:
 
@@ -1209,6 +1229,9 @@ Enter the `list` command to view the student records. Repeat this for every test
      'light' for light mode
      Example: theme dark`
 
+5. SPECIAL TERM COURSES
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix D: Effort**
@@ -1232,3 +1255,4 @@ Achievements:
 We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we hadn't anticipated at the project's onset.
 
 It has been a wonderful (but really tiring) journey for all of us! 
+
