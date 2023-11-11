@@ -19,6 +19,10 @@ public class CourseUtilTest {
         assertTrue(CourseUtil.contains("MA1521"));
         assertTrue(CourseUtil.contains("CS2103T"));
         assertTrue(CourseUtil.contains("IS2218"));
+        assertTrue(CourseUtil.contains("ABM5002"));
+        assertTrue(CourseUtil.contains("ABM5101"));
+        assertTrue(CourseUtil.contains("ABM5102"));
+        assertTrue(CourseUtil.contains("ABM5106"));
     }
 
     @Test

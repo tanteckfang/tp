@@ -242,20 +242,21 @@ For example (with reference to the `add` command above):
 ### Input Table
 Moreover, you should also take note of the specific requirements for each field as outlined by the table below.
 
-| Field        | Valid Input(s)                                  | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                      |
-|--------------|-------------------------------------------------|------------------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Name         | Alex the 3rd, John Doe                          | (Empty)                            | Yes             | Name must be [alphanumeric](#glossary) and unique.                                                                                  |
-| Phone Number | 98765432, 5136850137                            | ABC123                             | -               | At least 3 digits and only contain numbers.                                                                                         |
-| Email        | e01234567@u.nus.edu, jinHeng@gmail.com, asd@asd | joe@g, asdas@@!#!@                 | Yes             | Must be in [local-part@domain format](#email-format-requirement) and cannot be left blank.                                          |
-| Address      | 123 Main St                                     |                                    | Yes             | N.A.                                                                                                                                |
-| Telehandle   | @johndoe, @a12                                  | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must be in the [telehandle format](#telehandle-format-requirement).                                                                 |
-| Tag          | friend, close friend, cf, emergency             | Colleague, Lecturer, Family        | No              | Must be in the [tag format](#tag-format-requirement) and only a maximum of 2 emergency contacts allowed.                            |
-| Course       | CS2101, MA2001                                  | CS2103X, CS9999                    | No              | Course offered in [NUSMods 2023/2024 Sem 1 or Sem 2](https://nusmods.com/courses?sem[0]=1&sem[1]=2) (Updated as of 4 October 2023). |
+| Field        | Valid Input(s)                                  | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                        |
+|--------------|-------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Name         | Alex the 3rd, John Doe                          | (Empty)                            | Yes             | Name must be [alphanumeric](#glossary) and unique.                                                                                    |
+| Phone Number | 98765432, 5136850137                            | ABC123                             | -               | At least 3 digits and only contain numbers.                                                                                           |
+| Email        | e01234567@u.nus.edu, jinHeng@gmail.com, asd@asd | joe@g, asdas@@!#!@                 | Yes             | Must be in [local-part@domain format](#email-format-requirement) and cannot be left blank.                                            |
+| Address      | 123 Main St                                     |                                    | Yes             | N.A.                                                                                                                                  |
+| Telehandle   | @johndoe, @a12                                  | @111, @!@#$@#$, johndoe, @john doe | Yes             | Must be in the [telehandle format](#telehandle-format-requirement).                                                                   |
+| Tag          | friend, close friend, cf, emergency             | Colleague, Lecturer, Family        | No              | Must be in the [tag format](#tag-format-requirement) and only a maximum of 2 emergency contacts allowed.                              |
+| Course       | CS2101, MA2001                                  | CS2103X, CS9999                    | No              | Course offered in [NUSMods 2023/2024 Sem 1 or Sem 2](https://nusmods.com/courses?sem[0]=1&sem[1]=2) (Updated as of 11 November 2023). |
 
 <div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution:**<br>
-* Some courses were added after 4 October 2023 and is deemed invalid by NUSCoursemates. e.g. ABM5002, ABM5101, ABM5106
+* Courses that are added after 11 November 2023 are deemed invalid by NUSCoursemates.
+* Live update of courses will be made available in v2.0.
 </div>
 
 Now that you know what constitutes a command, you can head over to our [tutorial section](#nuscoursemates-tutorial) to quickly learn how to navigate
@@ -827,12 +828,6 @@ NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/
 **:exclamation: Caution:** <br>
 * If your changes to the data file makes its format invalid, NUSCoursemates will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
-
-[Back to Table of Contents](#table-of-contents)
-
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
 
 [Back to Table of Contents](#table-of-contents)
 
