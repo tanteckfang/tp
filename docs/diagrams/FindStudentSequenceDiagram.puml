@@ -31,16 +31,16 @@ deactivate FindCommandParser
 AddressBookParser -> FindCommandParser : parse("alice bob")
 activate FindCommandParser
 
-create FindCommand
-FindCommandParser -> FindCommand
-activate FindCommand
-
 create NamePredicate
 FindCommandParser -> NamePredicate : ["alice", "bob"]
 activate NamePredicate
 
 NamePredicate --> FindCommandParser
 deactivate NamePredicate
+
+create FindCommand
+FindCommandParser -> FindCommand
+activate FindCommand
 
 FindCommand --> FindCommandParser : fc
 deactivate FindCommand

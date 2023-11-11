@@ -31,17 +31,16 @@ deactivate FindCourseCommandParser
 AddressBookParser -> FindCourseCommandParser : parse("MA2001")
 activate FindCourseCommandParser
 
-
-create FindCourseCommand
-FindCourseCommandParser -> FindCourseCommand
-activate FindCourseCommand
-
 create CoursePredicate
 FindCourseCommandParser -> CoursePredicate : "MA2001"
 activate CoursePredicate
 
 CoursePredicate --> FindCourseCommandParser
 deactivate CoursePredicate
+
+create FindCourseCommand
+FindCourseCommandParser -> FindCourseCommand
+activate FindCourseCommand
 
 FindCourseCommand --> FindCourseCommandParser : fc
 deactivate FindCourseCommand
