@@ -54,7 +54,7 @@ ParserUtil --> AddCommandParser : th
 deactivate ParserUtil
 
 create Person
-AddCommandParser -> Person : Person("john", "98765432", th)
+AddCommandParser -> Person : Person("john", "98765432", ... ,th)
 activate Person
 
 Person --> AddCommandParser : p

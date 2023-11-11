@@ -543,23 +543,42 @@ The Telehandle mechanism is facilitated by the `Telehandle` and `AddCommand` cla
 
 Given below is an example usage scenario and how the `Telehandle` mechanism behaves at each step.
 
-Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: add n/John Doe p/98765432 th/@johnndoee.
+Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: add n/john p/98765432 th/@john2.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
 
-Step 4. The `AddCommandParser` processes the input, and if a `Telehandle` is provided, a new `Telehandle` object is created, else an empty `Telehandle` would be created instead.
+Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The telehandle will be indicated by the `th/` prefix.
+For this scenario, we will be focusing on the `Telehandle`.
 
-Step 5. Before the `Person` object is created, the `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If a valid `Telehandle` is provided, a new `Person` object is created with the telehandle and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
+Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
 
-Step 7. The result, a successful addition or an error message, is displayed to the user.
+Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
+
+Step 8. The `Telehandle` is returned from `ParserUtil` to `AddCommandParser`.
+
+Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
+
+Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
+
+Step 11. The command will communicate with the `Model` to add a person with the inputted course.
+
+Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+
 
 The following sequence diagram shows how the `Telehandle` works through the `AddCommand`:
 
 ![TelehandleSequenceDiagram](images/TelehandleSequenceDiagram.png)
+
+<div markdown="block" class="alert alert-info">:information_source: 
+
+**Note:**
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
+</div>
 
 The following activity diagram summarizes what happens when a user executes the `Add` command with a valid `Telehandle`:
 
@@ -786,6 +805,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. User enters an invalid command format.
   * 2a1. AddressBook shows an error message.
 
+    Use case ends.
+
 **Use Case: UC04 - Deleting a Student**
 
 1. User requests to list persons
@@ -804,7 +825,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
     * 3a1. AddressBook shows an error message.
 
-    Use case resumes at step 2.
+      Use case resumes at step 2.
 
 **Use Case: UC05 - Editing a Student**
 
@@ -815,6 +836,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. User requests to edit a specific person in the list
 4. AddressBook edits the person
 
+   Use case ends.
+
 **Extensions**
 
 * 2a. The list is empty.
@@ -824,7 +847,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
     * 3a1. AddressBook shows an error message.
 
-  Use case resumes at step 2.
+      Use case resumes at step 2.
 
 **Use Case: UC06 - Locating Students by Name**
 
@@ -833,6 +856,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters a valid findstudent command with one or more keywords.
 2. AddressBook displays a list of matching students with their details.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The list is empty.
@@ -841,6 +866,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1b. The given index is invalid.
     * 1b1. AddressBook shows an error message.
+
+      Use case ends.
 
 **Use Case: UC07 - Locating Students by Course**
 
@@ -849,6 +876,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters a valid findcourse command with one or more keywords.
 2. AddressBook displays a list of matching students with their details.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The list is empty.
@@ -857,7 +886,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1b. The given index is invalid.
     * 1b1. AddressBook shows an error message.
-
+     
+       Use case ends.
 
 **Use Case: UC08 - Clearing All Entries**
 
@@ -866,10 +896,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters the clear command.
 2. AddresBook clears all entries from the address book.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The given command is invalid.
     * 1a1. AddressBook shows an error message.
+      
+       Use case ends.
 
 **Use Case: UC09 - Listing All Students**
 
@@ -878,6 +912,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters the list command.
 2. AddressBook displays a list of all students in the address book along with their details.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The list is empty.
@@ -887,22 +923,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. The given command is invalid.
     * 1b1. AddressBook shows an error message.
 
+       Use case ends.  
 
 **Use Case: UC10 - Changing Themes**
 
 **MSS**
 
-1. User enters the list command.
-2. AddressBook displays a list of all students in the address book along with their details.
+1. User enters the theme dark command.
+2. GUI of the AddressBook changes from light to dark theme.
+
+    Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. The theme of the AddressBook is already dark.
+  * 1a.1 GUI of the AddressBook does not change.
 
-  Use case ends.
+    Use case ends.
 
-* 1b. The given command is invalid.
-    * 1b1. AddressBook shows an error message.
+  * 1b. The given command is invalid.
+      * 1b1. AddressBook shows an error message.
+
+        Use case ends.
 
 **Use Case: UC11 - Exiting the Program**
 
@@ -911,10 +953,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User enters the exit command.
 2. AddressBook exits the program.
 
+   Use case ends.
+
 **Extensions**
 
 * 1a. The given command is invalid.
     * 1a1. AddressBook shows an error message.
+  
+        Use case ends.
 
 ### A.4 Non-Functional Requirements
 
