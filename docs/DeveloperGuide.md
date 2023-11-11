@@ -86,6 +86,18 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
+#### 3.2.1 List Panel
+
+In the UI of the `MainWindow`, three major List Panels—`PersonListPanel`, `CourseListPanel`, and `TagListPanel`—implement the Observer Design Pattern using the `ObservableList` class. 
+Each panel observes changes in its associated data, enabling dynamic updates in response to modifications. 
+
+For instance, the `CourseListPanel`, observing the `ObservableList<Course>`, triggers updates to the `CourseListCard` upon any changes in the courses.
+This implementation is replicated for `PersonListPanel` and `TagListPanel`. 
+
+The following class diagram illustrates the relationships:
+
+![Panel Class Diagram](images/PanelClassDiagram.png)
+
 ### 3.3 Logic component
 
 **API** : [`Logic.java`](https://github.com/AY2324S1-CS2103T-T17-4/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
@@ -240,6 +252,8 @@ Step 6. `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
 The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
@@ -591,9 +605,9 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 
 ![TelehandleSequenceDiagram](images/TelehandleSequenceDiagram.png)
 
-<div markdown="block" class="alert alert-info">:information_source: 
+<div markdown="block" class="alert alert-info">
 
-**Note:**
+:information_source:**Note:**
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
@@ -760,7 +774,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* * *`  | First-time user of the app            | easily handle the various commands                                                          | smoothly navigate the address book                                                           |
  | `* * *`  | SoC Student                           | add contact details (telehandle, phone number) of student into the student's profile        | contact the student in another way                                                           |
  | `* * `   | Blur SoC student                      | read the user guide                                                                         | learn to use the application.                                                                |
- | `* * `   | Unorganised SoC student               | sort the courses by alphabetical order                                                      | find a specific course easily                                                                | 
+ | `* * `   | Unorganised SoC student               | sort the courses by sizes                                                                   | find a student with more similar courses                                                     | 
  | `* * `   | SoC Student                           | sort my friends by alphabetical order                                                       | find a specific friend easily                                                                |
  | `* * `   | Unorganised SoC student               | filter the address book by course                                                           | find and track other students taking the same course as me                                   |
  | `* * `   | SoC Student                           | leave some data fields blank when adding a friend                                           | add my friend even if I do not have all their personal details                               | 
@@ -771,18 +785,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* * `   | Careless SoC Student                  | undo commands I made                                                                        | have a better user experience                                                                |
  | `* * `   | SoC student with a huge social circle | view the total number of users in the address book                                          | have a good idea of how many users are in the address book                                   | 
  | `* * `   | SoC Student                           | give feedback to the developers                                                             | feedback any bugs or problems I faced while using the app                                    | 
- | `* `     | Confused SoC student                  | look at the common FAQs in the settings page                                                | get a better understanding of some of the features of the app to use the app more seamlessly | 
+ | `* `     | Confused SoC student                  | look at the common FAQs in the User Guide                                                   | get a better understanding of some of the features of the app to use the app more seamlessly | 
  | `* `     | SoC Student                           | add email address of students                                                               | easily access the email address of the student                                               | 
  | `* `     | SoC Student                           | edit the background of my address book                                                      | make my address book looks nicer and personalized                                            | 
  | `* `     | SoC Student                           | separate friends list from close friends list                                               | prioritize which class to take                                                               | 
  | `* `     | SoC Student                           | see my close friends' courses displayed first before other friends' courses                 | easily see which are the classes I should take                                               | 
  | `* `     | SoC Student                           | check the history of what contacts have been added                                          | make amendments to the contact list easily                                                   | 
  | `* `     | SoC Student with poor vision          | Edit the font size of my address book                                                       | see clearer                                                                                  | 
- | `* `     | SoC Student                           | change the theme of the app                                                                 | customize between dark and light themes                                                      | 
- | `* `     | SoC student with disability           | use the app seamlessly                                                                      | get to enjoy using this app too!                                                             | 
+ | `* `     | SoC Student                           | change the theme of the app                                                                 | customize between dark and light themes                                                      |  
  | `* `     | Lazy SoC Student                      | get recommendations about what course(s) I should take without doing any computation myself | know which classes to take at one glance                                                     | 
  | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
- | `* `     | SoC Student                           | set a profile picture for my address book                                                   | personalize the address book                                                                 | 
+
 
 *{More to be added}*
 
@@ -820,14 +833,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. User enters an invalid command format.
-  * 2a1. AddressBook shows an error message.
+* 1a. User enters an invalid command format.
+  * 1a1. AddressBook shows an error message.
 
     Use case ends.
 
-**Use Case: UC04 - Deleting a Student**
+**Use Case: UC04 - Listing All Students**
 
-1. User requests to list persons
+**MSS**
+
+1. User enters the list command.
+2. AddressBook displays a list of all students in the address book along with their details.
+
+   Use case ends.
+
+**Use Case: UC05 - Deleting a Student**
+
+1. User requests to <u>list persons (UC04)</u>
 2. AddressBook shows a list of persons
 3. User requests to delete a specific person in the list
 4. AddressBook deletes the person
@@ -845,11 +867,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use Case: UC05 - Editing a Student**
+**Use Case: UC06 - Editing a Student**
 
 **MSS**
 
-1. User requests to list persons
+1. User requests to <u>list persons (UC04)</u>
 2. AddressBook shows a list of persons
 3. User requests to edit a specific person in the list
 4. AddressBook edits the person
@@ -867,7 +889,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use Case: UC06 - Locating Students by Name**
+* 3b. The fields are invalid.
+    * 3b1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+* 3c. The command format is invalid.
+    * 3c1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use Case: UC07 - Locating Students by Name**
 
 **MSS**
 
@@ -882,12 +914,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 1b. The given index is invalid.
-    * 1b1. AddressBook shows an error message.
-
-      Use case ends.
-
-**Use Case: UC07 - Locating Students by Course**
+**Use Case: UC08 - Locating Students by Course**
 
 **MSS**
 
@@ -902,12 +929,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 1b. The given index is invalid.
-    * 1b1. AddressBook shows an error message.
-     
-       Use case ends.
-
-**Use Case: UC08 - Clearing All Entries**
+**Use Case: UC09 - Clearing All Entries**
 
 **MSS**
 
@@ -923,25 +945,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       
        Use case ends.
 
-**Use Case: UC09 - Listing All Students**
 
-**MSS**
-
-1. User enters the list command.
-2. AddressBook displays a list of all students in the address book along with their details.
-
-    Use case ends.
-
-**Extensions**
-
-* 1a. The list is empty.
-
-  Use case ends.
-
-* 1b. The given command is invalid.
-    * 1b1. AddressBook shows an error message.
-
-       Use case ends.  
 
 **Use Case: UC10 - Changing Themes**
 
@@ -955,14 +959,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. The theme of the AddressBook is already dark.
-  * 1a.1 GUI of the AddressBook does not change.
+  * 1a1. GUI of the AddressBook does not change.
 
     Use case ends.
 
-  * 1b. The given command is invalid.
-      * 1b1. AddressBook shows an error message.
+* 1b. The given command is invalid.
+    * 1b1. AddressBook shows an error message.
 
-        Use case ends.
+      Use case ends.
 
 **Use Case: UC11 - Exiting the Program**
 
@@ -1002,8 +1006,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
-testers are expected to do more *exploratory* testing.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**
+* These instructions only provide a starting point for testers to work on; testers are expected to do more *exploratory* testing. 
 
 </div>
 
