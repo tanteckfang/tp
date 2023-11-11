@@ -1,8 +1,7 @@
 @startuml
-skinparam activityBackgroundColor LightYellow
-skinparam activityBorderColor LightBlue
-skinparam activityArrowColor Black
-skinparam activityArrowFontSize 15
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
 
 start
 
