@@ -32,7 +32,7 @@ start
        :Sort them by name;
      else ([else])
      endif
-  else ([invalid sorting criterion])
+  else ([else])
     :Display error message;
   endif
 
