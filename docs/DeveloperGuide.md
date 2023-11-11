@@ -605,9 +605,9 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 
 ![TelehandleSequenceDiagram](images/TelehandleSequenceDiagram.png)
 
-<div markdown="block" class="alert alert-info">:information_source: 
+<div markdown="block" class="alert alert-info">
 
-**Note:**
+:information_source:**Note:**
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
@@ -1006,8 +1006,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
-testers are expected to do more *exploratory* testing.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**
+* These instructions only provide a starting point for testers to work on; testers are expected to do more *exploratory* testing. 
 
 </div>
 
