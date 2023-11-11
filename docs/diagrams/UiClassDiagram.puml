@@ -46,7 +46,7 @@ MainWindow --> "0..1" FeedbackWindow
 
 PersonListPanel -down-> "*" PersonCard
 CourseListPanel -down-> "*" CourseListCard
-TagListPanel -down-> "0..3" TagListCard
+TagListPanel -down-> "3" TagListCard
 
 MainWindow -left-|> UiPart
 
