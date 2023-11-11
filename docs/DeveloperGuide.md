@@ -441,6 +441,11 @@ The following UML Sequence diagram shows what happens when `sort name` is entere
 
 ![SortSequenceDiagram](images/SortSequenceDiagram.png) 
 
+<div>
+**Note:**
+* The lifeline for `SortCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+
 The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
 
@@ -1202,9 +1207,9 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ## **Appendix C: Planned Enhancements**
 
-1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name, which can be problematic when there are indeed multiple students with identical names.
+1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even in cases of common names.
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
    
@@ -1212,24 +1217,31 @@ Enter the `list` command to view the student records. Repeat this for every test
    * Proposed Enhancement:
    To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
    
-3. The current implementation of the system allows any email address containing the "@" symbol, which may not align with our specific user base of NUS SoC students. To ensure accurate and secure data, we aim to implement a check that requires email addresses to end with "@u.nus.edu".
-   * Proposed Enhancement:
-   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of incorrect email addresses.
+3. The current implementation of the system allows any email address domain after the '@' character. To better suit the needs of NUS SoC students, we could implement a check which requires email addresses to end with "@u.nus.edu" instead. This would help to improve the security and accuracy of these data. 
+    * Proposed Enhancement:
+   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of users entering incorrect email addresses.
    * Implementation Details:
    The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
 
 4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
-   To improve user understanding and minimize confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+   To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
    * Possible Error Message:
    `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
      'dark' for dark mode
      'light' for light mode
      Example: theme dark`
 
-5. SPECIAL TERM COURSES
+5. Currently, when a very large positive integer is entered as the INDEX for commands which take in an INDEX (these include commands such as `delete` and `edit`) as an argument, the error message displayed suggests that there is a problem with the command format. However, this may not be the case. The inaccurate error message is shown because the number entered for INDEX is simply too big for the computer to parse. 
+   * Proposed Enhancement:
+   We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
+   * Possible Error Message:
+       `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
+    
+   
+6. SPECIAL TERM COURSES
 
 --------------------------------------------------------------------------------------------------------------------
 
