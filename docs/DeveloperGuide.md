@@ -1231,7 +1231,6 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 5. SPECIAL TERM COURSES
 
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix D: Effort**
@@ -1249,7 +1248,6 @@ We faced numerous challenges in this project:
 * **Learning new technologies** - Adjusting and familiarising ourselves to new technologies such as Git and GitHub were difficult for us. For example, we often made edits to the same piece of code which resulted in messy merge conflicts that took up valuable time to resolve. 
 * **Time constraint** - We were also faced with tight deadlines for the various milestones and submissions. This also meant that we had to learn these new technologies in order to implement new features fast. 
 * **Immediately applying what we learnt** - Juggling between the project and the concepts taught in the course was particularly difficult. For example, although heuristics for test cases were only taught towards the end of the course, we were already expected to apply them in the testing component of our project.
-
 
 Achievements: 
 We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we hadn't anticipated at the project's onset.
