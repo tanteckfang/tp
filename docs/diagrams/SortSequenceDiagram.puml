@@ -9,7 +9,7 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBook\nParser" as AddressBookParser LOGIC_COLOR
 participant ":SortCommand\nParser" as SortCommandParser LOGIC_COLOR
 participant "s:SortCommand" as SortCommand LOGIC_COLOR
-participant "<<class>>\nPersonSorter" as PersonSorter LOGIC_COLOR
+participant ":PersonSorter" as PersonSorter LOGIC_COLOR
 participant "ps:PersonName\nAscendingSorter" as PersonNameAscendingSorter LOGIC_COLOR
 participant "result\n:Command\nResult" as CommandResult LOGIC_COLOR
 end box

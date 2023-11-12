@@ -186,7 +186,7 @@ For this scenario, we will be focusing on the `Course`.
 
 Step 4. The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
 
-Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil.contains()` method to ensure it is a valid input.
+Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil#contains()` method to ensure it is a valid input.
 
 Step 6. After parsing each course input, a `Course` object is constructed.
 
@@ -449,7 +449,7 @@ Step 7. The `SortCommand` object is then executed by the `LogicManager`.
 
 Step 8. As a result, the `SortCommand` object will call `Model#sortPersonList()` with the `PersonNameAscendingSorter` object created in the earlier steps.  
 
-Step 9. Afterwards, `#AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
+Step 9. Afterwards, `AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
 
 Step 10. Finally, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
 
@@ -836,9 +836,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. User enters an invalid command format.
   * 1a1. NUSCoursemates shows an error message.
+  
     Use case ends.
 * 1b. User enters an invalid parameter.
   * 1b1. NUSCoursemates shows an error message.
+  
     Use case ends.
 
 **Use Case: UC04 - Listing All Students**
