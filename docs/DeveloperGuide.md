@@ -1428,4 +1428,3 @@ Achievements:
 We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we had not anticipated at the project's onset.
 
 It has been a wonderful (but really tiring) journey for all of us! 
-
