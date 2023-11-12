@@ -292,16 +292,16 @@ Given below is an example usage scenario and how the findcourse mechanism behave
 Step 1. The user wants to filter the list of persons to show only those enrolled in the course "MA2001". They execute the command "findcourse MA2001".
 
 
-Step 2. The LogicManager receives this command string and passes it to the AddressBookParser.
+Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 
-Step 3. The AddressBookParser identifies the type of command and invokes the FindCourseCommandParser to parse the course keyword.
+Step 3. The `AddressBookParser` identifies the type of command and invokes the `FindCourseCommandParser` to parse the course keyword.
 
 
-Step 4. The FindCourseCommandParser creates a CourseContainsKeywordsPredicate object with the keyword "MA2001" and then creates a FindCourseCommand object with this predicate.
+Step 4. The `FindCourseCommandParser` creates a `CourseContainsKeywordsPredicate` object with the keyword "MA2001" and then creates a `FindCourseCommand` object with this predicate.
 
 
-Step 5. The FindCourseCommand is executed, and it uses the predicate to filter the list of persons in the model. The filtered list in the model is updated to only show persons enrolled in "MA2001".
+Step 5. The `FindCourseCommand` is executed, and it uses the predicate to filter the list of persons in the model. The filtered list in the model is updated to only show persons enrolled in "MA2001".
 
 
 Step 6. The result, which is the number of persons listed, is then shown to the user.
