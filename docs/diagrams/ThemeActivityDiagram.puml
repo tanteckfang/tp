@@ -2,20 +2,21 @@
 skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
+
 start
-:User executes ThemeCommand;
+:User inputs theme command;
+:Parse input into light or dark;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
 if () then ([input is valid])
-    :Parse input into light or dark;
     :Constructs ThemeCommand object;
     :Returns back to LogicManager;
     :LogicManager executes ThemeCommand;
     :Update UI to either light or dark;
 else ([else])
-:Display error message;
+:Display invalid input message;
 
 endif
 stop

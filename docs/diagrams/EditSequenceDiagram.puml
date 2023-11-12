@@ -36,6 +36,10 @@ return e
 return e
 return e
 
+destroy EditCommandParser
+
+
+
 LogicManager -> EditCommand++ : execute()
 create EditedPerson
 EditCommand -> EditedPerson ++

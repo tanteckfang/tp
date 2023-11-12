@@ -20,10 +20,10 @@ Are you a SoC student looking to build new and meaningful connections with other
 
 **NUSCoursemates** steps in as the comprehensive solution, making it easier than ever for you to connect with your coursemates! 
 
-With this desktop application, you can effortlessly 
-* **find** fellow students in your courses, 
-* **add** their contacts into your own NUSCoursemates application, 
-* **sort** these contacts, 
+With this desktop application, you can easily  
+* **add** their contacts into your own NUSCoursemates application
+* **find** students saved in NUSCoursemates for their names or the courses they are enrolled
+* **sort** these contacts
 * and do **much more**!
 
 **NUSCoursemates** is purposefully designed for use via a [Command Line Interface (CLI)](https://www.w3schools.com/whatis/whatis_cli.asp), which is tailored to the needs of SoC students like you.
