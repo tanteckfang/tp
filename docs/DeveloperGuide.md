@@ -1298,14 +1298,15 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ### C.2 Don't allow duplicate Telehandles   
 
-The current implementation of the Address Book allows for duplicate Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
+The current implementation of the NUSCoursemates allows for duplicate Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
      * To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    
 
    * Implementation Details:
      * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
-     * Step 2: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated name.
+     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle);` <br>
+     * Step 3: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated `Name`.
 
 
 ### C.3 Improve Error Messaging for 'theme' Command
