@@ -836,9 +836,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. User enters an invalid command format.
   * 1a1. NUSCoursemates shows an error message.
+  
     Use case ends.
 * 1b. User enters an invalid parameter.
   * 1b1. NUSCoursemates shows an error message.
+  
     Use case ends.
 
 **Use Case: UC04 - Listing All Students**
