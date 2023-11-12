@@ -238,7 +238,9 @@ Step 1. An existing user launches the application and the second person listed i
 
 Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
-Step 3. If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+Step 3. `ParserUtil#parseCourseChanges(courseChanges)` is called, which parses the list of course changes supplied  
+for the second person. This method checks that the course changes are supplied in the correct format, and if so,
+it checks that all the supplied courses are valid.
 
 Step 4. The `EditCommand` is created, and then executed by `EditCommand#execute`.
 
