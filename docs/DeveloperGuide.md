@@ -136,7 +136,7 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
+* stores NUSCoursemates data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
@@ -155,7 +155,7 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save both NUSCoursemates data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -173,7 +173,7 @@ This section describes some noteworthy details on how certain features are imple
 
 #### 4.1.1 Implementation
 The add course mechanism is facilitated by `AddCommand`. It extends `Command` which overrides the following operation:
-* `AddCommand#execute():` Adds a person into the AddressBook
+* `AddCommand#execute():` Adds a person into NUSCoursemates
 
 Given below is an example usage scenario and how the add mechanism behaves at each step.
 
@@ -234,9 +234,9 @@ The edit person mechanism is facilitated by `EditCommand` and `EditCommandParser
 
 Given below is an example usage scenario and how the edit behaves at each step.
 
-Step 1. An existing user launches the application and the second person listed in his address book is John, and one of the courses he has is `MA2001`.
+Step 1. An existing user launches the application and the second person listed in NUSCoursemates is John, and one of the courses he has is `MA2001`.
 
-Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
+Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in NUSCoursemates. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
 Step 3. `ParserUtil#parseCourseChanges(courseChanges)` is called, which parses the list of course changes supplied 
 for the second person. This method checks that the course changes are supplied in the correct format, and if so,
@@ -336,8 +336,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 **Aspect: Case-sensitivity in search:**
 
 * **Alternative 1 (current choice):** Case-insensitive search.
-    * Pros: Offers flexibility and a better user experience. Users don't need to worry about the exact casing of course module IDs.
-    * Cons: Might yield results that the user wasn't expecting if there are course module IDs with varied casing.
+    * Pros: Offers flexibility and a better user experience. Users do not need to worry about the exact casing of course module IDs.
+    * Cons: Might yield results that the user was not expecting if there are course module IDs with varied casing.
 
 * **Alternative 2:** Case-sensitive search.
     * Pros: Precise search results based on exact casing.
@@ -395,8 +395,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 **Aspect: Case-sensitivity in search:**
 
 * **Alternative 1 (current choice):** Case-insensitive search.
-    * Pros: Offers flexibility and a better user experience. Users don't need to worry about the exact casing of student names.
-    * Cons: Might yield results that the user wasn't expecting if there are student names with varied casing.
+    * Pros: Offers flexibility and a better user experience. Users do not need to worry about the exact casing of student names.
+    * Cons: Might yield results that the user was not expecting if there are student names with varied casing.
 
 * **Alternative 2:** Case-sensitive search.
     * Pros: Precise search results based on exact casing.
@@ -410,11 +410,11 @@ The sort feature sorts the students in the `UniquePersonList` object in `Address
 The sorting mechanism is facilitated by `SortCommandParser` and `SortCommand`. The latter extends the existing `Command` class and overrides the following method: 
 * `Command#execute()`: Executes the command and returns the result message 
 
-After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts the AddressBook differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
+After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
 
 Format: `sort CRITERION`
 
-There are 3 ways to sort the students in the address book:
+There are 3 ways to sort the students in NUSCoursemates:
 
 1. **Sort by Name**
     - Function: Sorts students by name in alphabetical order
@@ -463,7 +463,7 @@ The following UML Sequence diagram shows what happens when `sort name` is entere
 * The lifeline for `SortCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
+The following UML Activity diagram shows the workflow of sorting students in NUSCoursemates, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
 
 #### 4.5.2 Design considerations:
@@ -802,14 +802,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### A.3 Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `NUSCoursemates` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use Case: UC01 - Accessing the Help Page**
 
 **MSS**
 
 1. User requests to view help window.
-2. AddressBook displays a message with a link to the help page.
+2. NUSCoursemates displays a message with a link to the help page.
 
    Use case ends.
 
@@ -818,7 +818,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to view feedback window.
-2. AddressBook displays a message with a link to the feedback form.
+2. NUSCoursemates displays a message with a link to the feedback form.
 
    Use case ends.
 
@@ -828,17 +828,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to add a student with their details.
-2. AddressBook adds the student and displays the updated details.
+2. NUSCoursemates adds the student and displays the updated details.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. User enters an invalid command format.
-  * 1a1. AddressBook shows an error message.
+  * 1a1. NUSCoursemates shows an error message.
     Use case ends.
 * 1b. User enters an invalid parameter.
-  * 1b1. AddressBook shows an error message.
+  * 1b1. NUSCoursemates shows an error message.
     Use case ends.
 
 **Use Case: UC04 - Listing All Students**
@@ -846,16 +846,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the list command.
-2. AddressBook displays a list of all students in the address book along with their details.
+2. NUSCoursemates displays a list of all students along with their details.
 
    Use case ends.
 
 **Use Case: UC05 - Deleting a Student**
 
 1. User requests to <u>list persons (UC04)</u>
-2. AddressBook shows a list of persons
+2. NUSCoursemates shows a list of persons
 3. User requests to delete a specific person in the list
-4. AddressBook deletes the person
+4. NUSCoursemates deletes the person
 
     Use case ends.
 
@@ -866,7 +866,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     Use case ends.
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
@@ -875,9 +875,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to <u>list persons (UC04)</u>
-2. AddressBook shows a list of persons
+2. NUSCoursemates shows a list of persons
 3. User requests to edit a specific person in the list
-4. AddressBook edits the person
+4. NUSCoursemates edits the person
 
    Use case ends.
 
@@ -888,23 +888,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
 * 3b. The fields are invalid.
-    * 3b1. AddressBook shows an error message.
+    * 3b1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
 * 3c. The command format is invalid.
-    * 3c1. AddressBook shows an error message.
+    * 3c1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
 **Use Case: UC07 - Searching for students by name**
 
 **MSS**
+
 
 1. User requests to find students by their names 
 2. NUSCoursemates displays matching students with their details.
@@ -937,7 +938,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to clear the entire NUSCoursemates.
-2. NUSCoursemates removes all students and displays the updated view. 
+2. NUSCoursemates removes all students and displays the updated view.
 
     Use case ends.
 
@@ -969,19 +970,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the theme dark command.
-2. GUI of the AddressBook changes from light to dark theme.
+2. GUI of the NUSCoursemates changes from light to dark theme.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The theme of the AddressBook is already dark.
-  * 1a1. GUI of the AddressBook does not change.
+* 1a. The theme of the NUSCoursemates is already dark.
+  * 1a1. GUI of the NUSCoursemates does not change.
 
     Use case ends.
 
 * 1b. The given command is invalid.
-    * 1b1. AddressBook shows an error message.
+    * 1b1. NUSCoursemates shows an error message.
 
       Use case ends.
 
@@ -990,16 +991,38 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the exit command.
-2. AddressBook exits the program.
+2. NUSCoursemates exits the program.
 
    Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
   
         Use case ends.
+
+
+**Use Case: UC12 - Sorting NUSCoursemates**
+
+**MSS**
+
+1. User requests for a sorted list of students based on a specified sort criterion.
+2. NUSCoursemates sorts the list of students.
+3. The updated list of students is shown to the user.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. NUSCoursemates displays an error message. 
+    
+      Use case ends.
+* 1b. The given sort criterion is invalid.
+    * 1b1. NUSCoursemates displays an error message.
+  
+      Use case ends.
 
 ### A.4 Non-Functional Requirements
 
@@ -1019,7 +1042,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
 * **NUS**: Abbreviation for the National University of Singapore
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Tag**: A label or keyword assigned to a contact in an address book, to categorize, annotate, or identify specific characteristics or affiliations of that person.
+* **Tag**: A label or keyword assigned to a contact in an NUSCoursemates, to categorize, annotate, or identify specific characteristics or affiliations of that person.
 * **Command Line Interface (CLI)**: A text-driven user interface used for program execution, file management, and overall computer interaction.
 * **Graphical User Interface (GUI)**: An operating system interface reliant on graphics, utilising icons, menus, and a mouse for user interaction.
 * **Main Success Scenario (MSS)**: Describes the most direct interaction path for a given use case, assuming no errors or complications.
@@ -1317,11 +1340,12 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their NUSCoursemates. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
+   The planned enhancement involves modifying the NUSCoursemates feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
 
-### C.2 Don't allow duplicate Telehandles   
+
+### C.2 Do not allow duplicate Telehandles   
 
 The current implementation of the NUSCoursemates allows for duplicate Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
@@ -1336,7 +1360,7 @@ The current implementation of the NUSCoursemates allows for duplicate Telegram h
 
 ### C.3 Improve Error Messaging for 'theme' Command
 
-Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
+Currently, our system's error message for invalid input related to the 'theme' command does not effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
      * To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
 
@@ -1352,18 +1376,34 @@ Currently, our system's error message for invalid input related to the 'theme' c
      'light' for light mode
      Example: theme dark`
 
-5. Currently, when a very large positive integer is entered as the INDEX for commands which take in an INDEX (these include commands such as `delete` and `edit`) as an argument, the error message displayed suggests that there is a problem with the command format. However, this may not be the case. The inaccurate error message is shown because the number entered for INDEX is simply too big for the computer to parse. 
+### C.4 Improve error message for commands which take in an INDEX
+Currently, when an unrealistically large positive integer is entered as the `INDEX` for commands such as `delete` and `edit`, the error message displayed suggests that there is a problem with the command format even if the command format is correct. The inaccurate error message is shown because `INDEX` is too big to be parsed, resulting in an integer overflow. 
    * Proposed Enhancement:
-   We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
-   * Possible Error Message:
-       `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
+     We plan to conduct validation checks on the positive integer input by ensuring that it is within an acceptable range imposed by us. Moreover, we will enhance the error messages returned from these features by providing clear guidance on the accepted inputs in the error message. 
+   * Implementation Details:
+     * Step 1: The user input is deconstructed into the various parts. 
+     * Step 2: The length of `INDEX` (a string) will be determined for commands which take in an `INDEX`.  
+     * Step 3: If the length of `INDEX` exceeds the length of the size of the student list, the string will not be passed into `ParserUtil#parseIndex()` for parsing. An error message will be returned, stating that the `INDEX` entered is invalid. 
+     * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
+     * Possible Error Message (in Step 3):
+         `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
    
-6. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+5. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
 We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
 The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
+
+### C.6 Customising the sort functions
+While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 
+* Proposed Enhancement:
+  We plan to allow users to customise the various sort functions to suit their preferences by introducing new parameters which increase the capabilities and versatility of these sort functions.
+* Implementation Details (with reference to the `sort tags` command):
+    * Step 1: The user determines the priority of tags. For example, the `Close Friend`, `Friend` and `Emergency` tags could have the priorities of 1, 2 and 3 respectively.  
+    * Step 2: The user enters the priorities of these tags in order, giving rise to the `sort tags 123` command. 
+    * Step 3: The command is parsed, and a priority is attached to each tag. 
+    * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1385,7 +1425,6 @@ We faced numerous challenges in this project:
 * **Immediately applying what we learnt** - Juggling between the project and the concepts taught in the course was particularly difficult. For example, although heuristics for test cases were only taught towards the end of the course, we were already expected to apply them in the testing component of our project.
 
 Achievements: 
-We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we hadn't anticipated at the project's onset.
+We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we had not anticipated at the project's onset.
 
 It has been a wonderful (but really tiring) journey for all of us! 
-

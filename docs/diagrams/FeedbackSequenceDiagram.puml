@@ -11,7 +11,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant "f:FeedbackCommand" as FeedbackCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "result\n:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 [-> MainWindow : "feedback"
@@ -49,14 +49,14 @@ deactivate FeedbackCommand
 LogicManager --> MainWindow
 deactivate LogicManager
 
-MainWindow --> CommandResult : isShowFeedback()
+MainWindow -> CommandResult : isShowFeedback()
 activate CommandResult
 
 CommandResult --> MainWindow
 deactivate CommandResult
 
 opt showFeedback
-  MainWindow --> FeedbackWindow : show()
+  MainWindow -> FeedbackWindow : show()
   activate FeedbackWindow
 
   FeedbackWindow --> MainWindow

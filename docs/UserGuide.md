@@ -576,11 +576,11 @@ NUSCoursemates may get a little disorganised as you add more students. This is w
 
 There are numerous ways you can sort your NUSCoursemates, and these options are summarised here:
 
-| Required Format | Description                                        | Special Notes                                                                                     |
-|-----------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                |
-| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names alphabetically.        |
-| `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the highest importance is taken into account. |
+| Required Format | Description                                        | Special Notes                                                                                      |
+|-----------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                 |
+| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names alphabetically.         |
+| `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the greatest importance is taken into account. |
 
 The details for each `sort` command are specified below. For seasoned users of NUSCoursemates, you can further customise the sorting criteria. Read on to learn more!
 
@@ -666,7 +666,7 @@ The greatest joy in university is, without a doubt, to attend boring classes wit
 
 With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top.
 
-These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.
+These will be followed by students tagged as 'Friend', 'Emergency', and those without tags.
 
 **Format:** `sort tags`
 
