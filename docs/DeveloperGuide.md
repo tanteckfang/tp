@@ -902,33 +902,33 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use Case: UC07 - Locating Students by Name**
+**Use Case: UC07 - Searching for students by name**
 
 **MSS**
 
-1. User enters a valid findstudent command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+1. User requests to find students by their names 
+2. NUSCoursemates displays matching students with their details.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. User requests to find students in an empty NUSCoursemates.
 
   Use case ends.
 
-**Use Case: UC08 - Locating Students by Course**
+**Use Case: UC08 - Searching for students by course**
 
 **MSS**
 
-1. User enters a valid findcourse command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+1. User requests to find students by their courses.
+2. NUSCoursemates displays matching students with their details.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. User requests to find students by courses in an empty NUSCoursemates.
 
   Use case ends.
 
@@ -936,21 +936,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the clear command.
-2. AddresBook clears all entries from the address book.
+1. User requests to clear the entire NUSCoursemates.
+2. NUSCoursemates removes all students and displays the updated view. 
 
     Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
       
        Use case ends.
 
+**Use Case: UC10 - Clearing All Courses**
 
+**MSS**
 
-**Use Case: UC10 - Changing Themes**
+1. User requests to clear all courses from students in NUSCoursemates.
+2. NUSCoursemates removes the courses from students and displays the updated view.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. NUSCoursemates shows an error message.
+
+      Use case ends.
+
+**Use Case: UC11 - Changing Themes**
 
 **MSS**
 
@@ -971,7 +985,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-**Use Case: UC11 - Exiting the Program**
+**Use Case: UC12 - Exiting the Program**
 
 **MSS**
 
