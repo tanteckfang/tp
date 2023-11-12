@@ -550,7 +550,7 @@ Examples:
 ### Discover Coursemates with `findcourse`
 
 Attempting to connect with students sharing similar courses? Utilise the `findcourse` feature in 
-NUSCoursemates to discover fellow NUS SoC students enrolled in specific courses. 
+NUSCoursemates to discover fellow NUS SoC students enrolled in specific courses in your contact. 
 Simplify your study connections and academic network with ease!
 
 Format: `findcourse MOUDLE_ID [MORE_MODULE_ID]`
