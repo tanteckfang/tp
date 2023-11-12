@@ -503,7 +503,7 @@ Step 3. The `AddressBookParser` identifies the type of command and invokes the r
 
 Step 4. The `AddCommandParser` processes the input, and if a tag is provided, a new `Tag` object is created.
 
-Step 5. Before the `Person` object is created, the `TagUtil#canAddOrEditEmergencyTag` method is called to ensure not more than two contacts have the "Emergency" tag.
+Step 5. Before the `Person` object is created, the `TagUtil#canAddOrEditEmergencyTag()` method is called to ensure not more than two contacts have the "Emergency" tag.
 
 Step 6. If the validation is successful, a new `Person` object is created with the provided details, including the tag, and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
 
@@ -585,7 +585,7 @@ For this scenario, we will be focusing on the `Telehandle`.
 
 Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle()` method is called to check on the validity of the `Telehandle` according to the input contraints.
 
 Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
 
@@ -1291,12 +1291,17 @@ Enter the `list` command to view the student records. Repeat this for every test
    To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
-   
-2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
+
+### C.2 Don't allow duplicate Telehandles   
+
+The current implementation of the Address Book allows for duplicate Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
-   To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+     * To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+   
+
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+     * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
+     * Step 2: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated name.
    
 3. The current implementation of the system allows any email address domain after the '@' character. To better suit the needs of NUS SoC students, we could implement a check which requires email addresses to end with "@u.nus.edu" instead. This would help to improve the security and accuracy of these data. 
     * Proposed Enhancement:
