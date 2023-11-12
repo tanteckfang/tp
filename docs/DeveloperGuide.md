@@ -238,7 +238,9 @@ Step 1. An existing user launches the application and the second person listed i
 
 Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
-Step 3. If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+Step 3. `ParserUtil#parseCourseChanges(courseChanges)` is called, which parses the list of course changes supplied 
+for the second person. This method checks that the course changes are supplied in the correct format, and if so,
+it checks that all the supplied courses within those course changes are valid.
 
 Step 4. The `EditCommand` is created, and then executed by `EditCommand#execute`.
 
@@ -806,8 +808,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the command help
-2. AddressBook displays a message with a link to the help page
+1. User requests to view help window.
+2. AddressBook displays a message with a link to the help page.
 
    Use case ends.
 
@@ -815,8 +817,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the command feedback
-2. AddressBook displays a message with a link to the feedback page
+1. User requests to view feedback window.
+2. AddressBook displays a message with a link to the feedback form.
 
    Use case ends.
 
@@ -825,8 +827,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters a valid add command with student information
-2. AddressBook adds the person
+1. User requests to add a student with their details.
+2. AddressBook adds the student and displays the updated details.
 
     Use case ends.
 
@@ -834,7 +836,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. User enters an invalid command format.
   * 1a1. AddressBook shows an error message.
-
+    Use case ends.
+* 1b. User enters an invalid parameter.
+  * 1b1. AddressBook shows an error message.
     Use case ends.
 
 **Use Case: UC04 - Listing All Students**
@@ -1297,16 +1301,15 @@ Enter the `list` command to view the student records. Repeat this for every test
    To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
-   
-3. The current implementation of the system allows any email address domain after the '@' character. To better suit the needs of NUS SoC students, we could implement a check which requires email addresses to end with "@u.nus.edu" instead. This would help to improve the security and accuracy of these data. 
-    * Proposed Enhancement:
-   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of users entering incorrect email addresses.
-   * Implementation Details:
-   The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
 
-4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
+### C.3 Improve Error Messaging for 'theme' Command
+
+Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
    To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+   * Implementation Details:
+     * Step 1: In the `ThemeCommand.java`, we will include a new `INVALID_PARAMETER` message string.
+     * Step 2: Afterwards, in the `ThemeCommandParser.java`, we will change the parameters of the thrown `ParseException` to the new `INVALID_PARAMETER` message string instead of the current implementation of `MESSAGE_INVALID_COMMAND_FORMAT`.
    * Possible Error Message:
    `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
      'dark' for dark mode
@@ -1330,6 +1333,7 @@ Currently, when an unrealistically large positive integer is entered as the `IND
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
 We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 ### C.7 Customising the sort functions
 While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 
@@ -1350,7 +1354,8 @@ Overall, we felt that the difficulty level for NUSCoursemates was moderate. When
   Justification for effort: 
 * **Changing existing commands** - While some commands, such as `list`, were adapted from AB-3, there were many cases where the code for these commands had to be rewritten or tweaked for NUSCoursemates. For example, the `find` feature was heavily modified and separated into new `findcourse` and `findstudent` commands.
 * **Creating new classes** - We created multiple new classes (such as `course`, `tags` and `telehandle`) which are common and important attributes of our target users. 
-* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and `c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
+* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and 
+  `edit c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
 * **Huge improvement in UI** - With JavaFX AND FXML, we are able to create the current NUSCoursemates UI which is made up of different components and gives users the option to switch between different themes.
 * ...and many more!
 
