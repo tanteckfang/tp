@@ -136,7 +136,7 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
+* stores NUSCoursemates data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
@@ -155,7 +155,7 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save both NUSCoursemates data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -173,7 +173,7 @@ This section describes some noteworthy details on how certain features are imple
 
 #### 4.1.1 Implementation
 The add course mechanism is facilitated by `AddCommand`. It extends `Command` which overrides the following operation:
-* `AddCommand#execute():` Adds a person into the AddressBook
+* `AddCommand#execute():` Adds a person into NUSCoursemates
 
 Given below is an example usage scenario and how the add mechanism behaves at each step.
 
@@ -234,9 +234,9 @@ The edit person mechanism is facilitated by `EditCommand` and `EditCommandParser
 
 Given below is an example usage scenario and how the edit behaves at each step.
 
-Step 1. An existing user launches the application and the second person listed in his address book is John, and one of the courses he has is `MA2001`.
+Step 1. An existing user launches the application and the second person listed in NUSCoursemates is John, and one of the courses he has is `MA2001`.
 
-Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
+Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in NUSCoursemates. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
 Step 3. `ParserUtil#parseCourseChanges(courseChanges)` is called, which parses the list of course changes supplied 
 for the second person. This method checks that the course changes are supplied in the correct format, and if so,
@@ -414,7 +414,7 @@ After the user specifies the sorting criterion, the corresponding subclass of `P
 
 Format: `sort CRITERION`
 
-There are 3 ways to sort the students in the address book:
+There are 3 ways to sort the students in NUSCoursemates:
 
 1. **Sort by Name**
     - Function: Sorts students by name in alphabetical order
@@ -463,7 +463,7 @@ The following UML Sequence diagram shows what happens when `sort name` is entere
 * The lifeline for `SortCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
+The following UML Activity diagram shows the workflow of sorting students in NUSCoursemates, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
 
 #### 4.5.2 Design considerations:
@@ -846,7 +846,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the list command.
-2. NUSCoursemates displays a list of all students in the address book along with their details.
+2. NUSCoursemates displays a list of all students along with their details.
 
    Use case ends.
 
@@ -937,7 +937,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the clear command.
-2. NUSCoursemates clears all entries from the address book.
+2. NUSCoursemates clears all entries.
 
     Use case ends.
 
@@ -1314,15 +1314,15 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their NUSCoursemates. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
+   The planned enhancement involves modifying the NUSCoursemates feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
    
-2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
+2. The current implementation of the NUSCoursemates allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
-   To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+   To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the NUSCoursemates. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+   The planned enhancement involves modifying the NUSCoursemates feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
 
 ### C.3 Improve Error Messaging for 'theme' Command
 
