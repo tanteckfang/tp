@@ -1313,17 +1313,33 @@ Enter the `list` command to view the student records. Repeat this for every test
      'light' for light mode
      Example: theme dark`
 
-5. Currently, when a very large positive integer is entered as the INDEX for commands which take in an INDEX (these include commands such as `delete` and `edit`) as an argument, the error message displayed suggests that there is a problem with the command format. However, this may not be the case. The inaccurate error message is shown because the number entered for INDEX is simply too big for the computer to parse. 
+### C.5 Improve error message for commands which take in an INDEX
+Currently, when an unrealistically large positive integer is entered as the `INDEX` for commands such as `delete` and `edit`, the error message displayed suggests that there is a problem with the command format even if the command format is correct. The inaccurate error message is shown because `INDEX` is too big to be parsed, resulting in an integer overflow. 
    * Proposed Enhancement:
-   We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
-   * Possible Error Message:
-       `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
+     We plan to conduct validation checks on the positive integer input by ensuring that it is within an acceptable range imposed by us. Moreover, we will enhance the error messages returned from these features by providing clear guidance on the accepted inputs in the error message. 
+   * Implementation Details:
+     * Step 1: The user input is deconstructed into the various parts. 
+     * Step 2: The length of `INDEX` (a string) will be determined for commands which take in an `INDEX`.  
+     * Step 3: If the length of `INDEX` exceeds the length of the size of the student list, the string will not be passed into `ParserUtil#parseIndex()` for parsing. An error message will be returned, stating that the `INDEX` entered is invalid. 
+     * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
+     * Possible Error Message (in Step 3):
+         `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
    
 6. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
 We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+
+### C.7 Customising the sort functions
+While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 
+* Proposed Enhancement:
+  We plan to allow users to customise the various sort functions to suit their preferences by introducing new parameters which increase the capabilities and versatility of these sort functions.
+* Implementation Details (with reference to the `sort tags` command):
+    * Step 1: The user determines the priority of tags. For example, the `Close Friend`, `Friend` and `Emergency` tags could have the priorities of 1, 2 and 3 respectively.  
+    * Step 2: The user enters the priorities of these tags in order, giving rise to the `sort tags 123` command. 
+    * Step 3: The command is parsed, and a priority is attached to each tag. 
+    * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
 
 --------------------------------------------------------------------------------------------------------------------
 
