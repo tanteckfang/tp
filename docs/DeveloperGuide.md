@@ -1324,6 +1324,7 @@ Enter the `list` command to view the student records. Repeat this for every test
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
 We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1334,7 +1335,8 @@ Overall, we felt that the difficulty level for NUSCoursemates was moderate. When
   Justification for effort: 
 * **Changing existing commands** - While some commands, such as `list`, were adapted from AB-3, there were many cases where the code for these commands had to be rewritten or tweaked for NUSCoursemates. For example, the `find` feature was heavily modified and separated into new `findcourse` and `findstudent` commands.
 * **Creating new classes** - We created multiple new classes (such as `course`, `tags` and `telehandle`) which are common and important attributes of our target users. 
-* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and `c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
+* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and 
+  `edit c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
 * **Huge improvement in UI** - With JavaFX AND FXML, we are able to create the current NUSCoursemates UI which is made up of different components and gives users the option to switch between different themes.
 * ...and many more!
 
