@@ -410,7 +410,7 @@ The sort feature sorts the students in the `UniquePersonList` object in `Address
 The sorting mechanism is facilitated by `SortCommandParser` and `SortCommand`. The latter extends the existing `Command` class and overrides the following method: 
 * `Command#execute()`: Executes the command and returns the result message 
 
-After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts the AddressBook differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
+After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
 
 Format: `sort CRITERION`
 
@@ -802,14 +802,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### A.3 Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `NUSCoursemates` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use Case: UC01 - Accessing the Help Page**
 
 **MSS**
 
 1. User requests to view help window.
-2. AddressBook displays a message with a link to the help page.
+2. NUSCoursemates displays a message with a link to the help page.
 
    Use case ends.
 
@@ -818,7 +818,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to view feedback window.
-2. AddressBook displays a message with a link to the feedback form.
+2. NUSCoursemates displays a message with a link to the feedback form.
 
    Use case ends.
 
@@ -828,17 +828,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to add a student with their details.
-2. AddressBook adds the student and displays the updated details.
+2. NUSCoursemates adds the student and displays the updated details.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. User enters an invalid command format.
-  * 1a1. AddressBook shows an error message.
+  * 1a1. NUSCoursemates shows an error message.
     Use case ends.
 * 1b. User enters an invalid parameter.
-  * 1b1. AddressBook shows an error message.
+  * 1b1. NUSCoursemates shows an error message.
     Use case ends.
 
 **Use Case: UC04 - Listing All Students**
@@ -846,16 +846,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the list command.
-2. AddressBook displays a list of all students in the address book along with their details.
+2. NUSCoursemates displays a list of all students in the address book along with their details.
 
    Use case ends.
 
 **Use Case: UC05 - Deleting a Student**
 
 1. User requests to <u>list persons (UC04)</u>
-2. AddressBook shows a list of persons
+2. NUSCoursemates shows a list of persons
 3. User requests to delete a specific person in the list
-4. AddressBook deletes the person
+4. NUSCoursemates deletes the person
 
     Use case ends.
 
@@ -866,7 +866,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     Use case ends.
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
@@ -875,9 +875,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to <u>list persons (UC04)</u>
-2. AddressBook shows a list of persons
+2. NUSCoursemates shows a list of persons
 3. User requests to edit a specific person in the list
-4. AddressBook edits the person
+4. NUSCoursemates edits the person
 
    Use case ends.
 
@@ -888,17 +888,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 3a. The given index is invalid.
-    * 3a1. AddressBook shows an error message.
+    * 3a1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
 * 3b. The fields are invalid.
-    * 3b1. AddressBook shows an error message.
+    * 3b1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
 * 3c. The command format is invalid.
-    * 3c1. AddressBook shows an error message.
+    * 3c1. NUSCoursemates shows an error message.
 
       Use case resumes at step 2.
 
@@ -907,7 +907,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters a valid findstudent command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+2. NUSCoursemates displays a list of matching students with their details.
 
     Use case ends.
 
@@ -922,7 +922,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters a valid findcourse command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+2. NUSCoursemates displays a list of matching students with their details.
 
     Use case ends.
 
@@ -937,14 +937,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the clear command.
-2. AddresBook clears all entries from the address book.
+2. NUSCoursemates clears all entries from the address book.
 
     Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
       
        Use case ends.
 
@@ -955,19 +955,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the theme dark command.
-2. GUI of the AddressBook changes from light to dark theme.
+2. GUI of the NUSCoursemates changes from light to dark theme.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The theme of the AddressBook is already dark.
-  * 1a1. GUI of the AddressBook does not change.
+* 1a. The theme of the NUSCoursemates is already dark.
+  * 1a1. GUI of the NUSCoursemates does not change.
 
     Use case ends.
 
 * 1b. The given command is invalid.
-    * 1b1. AddressBook shows an error message.
+    * 1b1. NUSCoursemates shows an error message.
 
       Use case ends.
 
@@ -976,16 +976,38 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the exit command.
-2. AddressBook exits the program.
+2. NUSCoursemates exits the program.
 
    Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
   
         Use case ends.
+
+
+**Use Case: UC12 - Sorting NUSCoursemates**
+
+**MSS**
+
+1. User requests for a sorted list of students based on a specified sort criterion.
+2. NUSCoursemates sorts the list of students.
+3. The updated list of students is shown to the user.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. NUSCoursemates displays an error message. 
+    
+      Use case ends.
+* 1b. The given sort criterion is invalid.
+    * 1b1. NUSCoursemates displays an error message.
+  
+      Use case ends.
 
 ### A.4 Non-Functional Requirements
 
@@ -1001,7 +1023,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Tag**: A label or keyword assigned to a contact in an address book, to categorize, annotate, or identify specific characteristics or affiliations of that person.
+* **Tag**: A label or keyword assigned to a contact in an NUSCoursemates, to categorize, annotate, or identify specific characteristics or affiliations of that person.
 
 --------------------------------------------------------------------------------------------------------------------
 
