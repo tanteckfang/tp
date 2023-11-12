@@ -89,7 +89,7 @@ create CommandResult
 AddCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> AddCommand
+CommandResult --> AddCommand : result
 deactivate CommandResult
 
 AddCommand --> LogicManager : result

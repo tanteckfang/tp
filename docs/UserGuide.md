@@ -895,9 +895,10 @@ Emails should be of the format `local-part@domain` and adhere to the following c
     - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
 
 ### Telehandle Format Requirement
-1. Must start with a "@". The first character preceding the "@" cannot be a number. 
+1. Telehandles must start with '@', cannot contain spaces. 
 2. It should consist of letters, numbers, and underscores only. 
 3. No other special characters are allowed.
+4. Additionally, telehandles cannot consist of only numbers and underscores.
 
 ### Tag Format Requirement
 Only 3 types of tags are accepted:<br/>
