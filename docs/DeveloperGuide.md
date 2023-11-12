@@ -749,7 +749,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 **Target user profile**:
 
-* is a NUS School of Computing (SoC) student
+* is a School of Computing (SoC) student in NUS
 * takes a number of courses in NUS
 * has a need to manage a significant number of contacts
 * prefer desktop apps over other types
@@ -1008,14 +1008,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  The application should load within 30 seconds upon initiation on a standard modern-day PC.
 5. The installed application should occupy no more than 100MB of disk space on the user's computer.
-*{More to be added}*
+6. The application should respond to user inputs within 5 seconds, ensuring a smooth and interactive user experience.
+7. The application should work on both 32-bit and 64-bit environments.
+8. The application should be usable by both novice and seasoned Command Line Interface (CLI) users.
+9.  Users should be able to view and edit existing data locally. Changes made are also saved offline and locally.
+10. The application should only work for a single user. It should not support simultaneous access or user accounts.
 
 ### A.5 Glossary
 
 * **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
+* **NUS**: Abbreviation for the National University of Singapore
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Tag**: A label or keyword assigned to a contact in an address book, to categorize, annotate, or identify specific characteristics or affiliations of that person.
+* **Command Line Interface (CLI)**: A text-driven user interface used for program execution, file management, and overall computer interaction.
+* **Graphical User Interface (GUI)**: An operating system interface reliant on graphics, utilising icons, menus, and a mouse for user interaction.
+* **Main Success Scenario (MSS)**: Describes the most direct interaction path for a given use case, assuming no errors or complications.
+* **Actor**: Within use cases, an actor represents the role a person assumes while interacting with the system.
+* **Application Programming Interface(API)**: Facilitates communication between distinct components of a program.
+* **Architecture**: In the realm of software, architecture illustrates the systematic organization of the entire system.
+* **Framework**: Comprises pre-written code with predefined classes and functions, aiding developers in constructing software.
 
 --------------------------------------------------------------------------------------------------------------------
 
