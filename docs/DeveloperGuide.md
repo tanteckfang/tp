@@ -505,7 +505,7 @@ Step 3. The `AddressBookParser` identifies the type of command and invokes the r
 
 Step 4. The `AddCommandParser` processes the input, and if a tag is provided, a new `Tag` object is created.
 
-Step 5. Before the `Person` object is created, the `TagUtil#canAddOrEditEmergencyTag` method is called to ensure not more than two contacts have the "Emergency" tag.
+Step 5. Before the `Person` object is created, the `TagUtil#canAddOrEditEmergencyTag()` method is called to ensure not more than two contacts have the "Emergency" tag.
 
 Step 6. If the validation is successful, a new `Person` object is created with the provided details, including the tag, and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
 
@@ -587,7 +587,7 @@ For this scenario, we will be focusing on the `Telehandle`.
 
 Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle()` method is called to check on the validity of the `Telehandle` according to the input contraints.
 
 Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
 
@@ -749,7 +749,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 **Target user profile**:
 
-* is a NUS School of Computing (SoC) student
+* is a School of Computing (SoC) student in NUS
 * takes a number of courses in NUS
 * has a need to manage a significant number of contacts
 * prefer desktop apps over other types
@@ -902,33 +902,33 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use Case: UC07 - Locating Students by Name**
+**Use Case: UC07 - Searching for students by name**
 
 **MSS**
 
-1. User enters a valid findstudent command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+1. User requests to find students by their names 
+2. NUSCoursemates displays matching students with their details.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. User requests to find students in an empty NUSCoursemates.
 
   Use case ends.
 
-**Use Case: UC08 - Locating Students by Course**
+**Use Case: UC08 - Searching for students by course**
 
 **MSS**
 
-1. User enters a valid findcourse command with one or more keywords.
-2. AddressBook displays a list of matching students with their details.
+1. User requests to find students by their courses.
+2. NUSCoursemates displays matching students with their details.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. User requests to find students by courses in an empty NUSCoursemates.
 
   Use case ends.
 
@@ -936,21 +936,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the clear command.
-2. AddresBook clears all entries from the address book.
+1. User requests to clear the entire NUSCoursemates.
+2. NUSCoursemates removes all students and displays the updated view. 
 
     Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
       
        Use case ends.
 
+**Use Case: UC10 - Clearing All Courses**
 
+**MSS**
 
-**Use Case: UC10 - Changing Themes**
+1. User requests to clear all courses from students in NUSCoursemates.
+2. NUSCoursemates removes the courses from students and displays the updated view.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. NUSCoursemates shows an error message.
+
+      Use case ends.
+
+**Use Case: UC11 - Changing Themes**
 
 **MSS**
 
@@ -971,7 +985,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-**Use Case: UC11 - Exiting the Program**
+**Use Case: UC12 - Exiting the Program**
 
 **MSS**
 
@@ -994,14 +1008,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  The application should load within 30 seconds upon initiation on a standard modern-day PC.
 5. The installed application should occupy no more than 100MB of disk space on the user's computer.
-*{More to be added}*
+6. The application should respond to user inputs within 5 seconds, ensuring a smooth and interactive user experience.
+7. The application should work on both 32-bit and 64-bit environments.
+8. The application should be usable by both novice and seasoned Command Line Interface (CLI) users.
+9.  Users should be able to view and edit existing data locally. Changes made are also saved offline and locally.
+10. The application should only work for a single user. It should not support simultaneous access or user accounts.
 
 ### A.5 Glossary
 
 * **SoC**: School of Computing, the computing faculty in National University of Singapore (NUS)
+* **NUS**: Abbreviation for the National University of Singapore
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Tag**: A label or keyword assigned to a contact in an address book, to categorize, annotate, or identify specific characteristics or affiliations of that person.
+* **Command Line Interface (CLI)**: A text-driven user interface used for program execution, file management, and overall computer interaction.
+* **Graphical User Interface (GUI)**: An operating system interface reliant on graphics, utilising icons, menus, and a mouse for user interaction.
+* **Main Success Scenario (MSS)**: Describes the most direct interaction path for a given use case, assuming no errors or complications.
+* **Actor**: Within use cases, an actor represents the role a person assumes while interacting with the system.
+* **Application Programming Interface(API)**: Facilitates communication between distinct components of a program.
+* **Architecture**: In the realm of software, architecture illustrates the systematic organization of the entire system.
+* **Framework**: Comprises pre-written code with predefined classes and functions, aiding developers in constructing software.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1295,21 +1320,32 @@ Enter the `list` command to view the student records. Repeat this for every test
    To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
-   
-2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
+
+### C.2 Don't allow duplicate Telehandles   
+
+The current implementation of the NUSCoursemates allows for duplicate Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
-   To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+     * To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
+   
+
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+     * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
+     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle);` <br>
+     * Step 3: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated `Name`.
+
 
 ### C.3 Improve Error Messaging for 'theme' Command
 
 Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
-   To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+     * To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+
+
    * Implementation Details:
      * Step 1: In the `ThemeCommand.java`, we will include a new `INVALID_PARAMETER` message string.
      * Step 2: Afterwards, in the `ThemeCommandParser.java`, we will change the parameters of the thrown `ParseException` to the new `INVALID_PARAMETER` message string instead of the current implementation of `MESSAGE_INVALID_COMMAND_FORMAT`.
+
+
    * Possible Error Message:
    `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
      'dark' for dark mode
