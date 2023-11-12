@@ -238,7 +238,9 @@ Step 1. An existing user launches the application and the second person listed i
 
 Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
-Step 3. If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+Step 3. `ParserUtil#parseCourseChanges(courseChanges)` is called, which parses the list of course changes supplied 
+for the second person. This method checks that the course changes are supplied in the correct format, and if so,
+it checks that all the supplied courses within those course changes are valid.
 
 Step 4. The `EditCommand` is created, and then executed by `EditCommand#execute`.
 
@@ -1324,6 +1326,7 @@ Enter the `list` command to view the student records. Repeat this for every test
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
 We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1334,7 +1337,8 @@ Overall, we felt that the difficulty level for NUSCoursemates was moderate. When
   Justification for effort: 
 * **Changing existing commands** - While some commands, such as `list`, were adapted from AB-3, there were many cases where the code for these commands had to be rewritten or tweaked for NUSCoursemates. For example, the `find` feature was heavily modified and separated into new `findcourse` and `findstudent` commands.
 * **Creating new classes** - We created multiple new classes (such as `course`, `tags` and `telehandle`) which are common and important attributes of our target users. 
-* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and `c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
+* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and 
+  `edit c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
 * **Huge improvement in UI** - With JavaFX AND FXML, we are able to create the current NUSCoursemates UI which is made up of different components and gives users the option to switch between different themes.
 * ...and many more!
 
