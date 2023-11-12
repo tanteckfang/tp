@@ -86,6 +86,18 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
+#### 3.2.1 List Panel
+
+In the UI of the `MainWindow`, three major List Panels—`PersonListPanel`, `CourseListPanel`, and `TagListPanel`—implement the Observer Design Pattern using the `ObservableList` class. 
+Each panel observes changes in its associated data, enabling dynamic updates in response to modifications. 
+
+For instance, the `CourseListPanel`, observing the `ObservableList<Course>`, triggers updates to the `CourseListCard` upon any changes in the courses.
+This implementation is replicated for `PersonListPanel` and `TagListPanel`. 
+
+The following class diagram illustrates the relationships:
+
+![Panel Class Diagram](images/PanelClassDiagram.png)
+
 ### 3.3 Logic component
 
 **API** : [`Logic.java`](https://github.com/AY2324S1-CS2103T-T17-4/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
@@ -167,18 +179,38 @@ Given below is an example usage scenario and how the add mechanism behaves at ea
 
 Step 1. The user will input the add command along with the person's name and the course that the person is taking.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` and uses it to parse the command.
+Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
-Step 3. This results in a `AddCommand` object which is executed by the `LogicManager`.
+Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The course will be indicated by the `c/` prefix.
+For this scenario, we will be focusing on the `Course`.
 
-Step 4. The command will communicate with the `Model` to add a person with the inputted course. The course will be indicated by the `c/` prefix. 
+Step 4. The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
 
-Step 5. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil.contains()` method to ensure it is a valid input.
 
+Step 6. After parsing each course input, a `Course` object is constructed.
+
+Step 7. The constructed `Course` object is returned to `ParserUtil`. It is then combined with other `Course` inputs into a `Set<Course>`.
+
+Step 8. The `Set<Course>` is returned from `ParserUtil` to `AddCommandParser`.
+
+Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
+
+Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
+
+Step 11. The command will communicate with the `Model` to add a person with the inputted course. 
+
+Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+
+For example, let's say the user inputs `add n/John p/81234567 c/CS2103T`.
 The following sequence diagram shows how the add operation works:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
 </div>
 
 The following activity diagram shows how the add operation works:
@@ -206,20 +238,22 @@ Step 1. An existing user launches the application and the second person listed i
 
 Step 2. The user executes `edit 2 c/MA2001-MA1521` command to edit the second person's MA2001 course to MA1521 in the address book. The `edit` command calls `LogicManager#execute()`. An `EditCommandParser` object is then created, and `EditCommandParser#parse` method is called on the object. `EditCommandParser#parse` makes sense of the arguments supplied by the user, where the types of arguments are distinguished by their prefixes.
 
-Step 3: If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
+Step 3. If there are course modifications present, as indicated by the presence of `c/` prefixes, the following methods will be called in order: `CourseAddition#isValidCourseAddition`, `CourseDeletion#isValidCourseDeletion`, `CourseEdit#isValidCourseEdit`. If any of these methods return true, the remaining method(s) following it will not be called. The purpose of this step is to check the signature of the sub-prefixes, ensuring they are in the correct format so they can be correctly parsed to their appropriate type. The order in which these methods are called must be adhered to, as one of the regex pattern matchers is a superset of the others.  
 
-Step 4: The `EditCommand` is created, and then executed by `EditCommand#execute`.
+Step 4. The `EditCommand` is created, and then executed by `EditCommand#execute`.
 
-Step 5: `EditCommand#execute` calls the following methods from `Model`:
+Step 5. `EditCommand#execute` calls the following methods from `Model`:
 * `Model#hasPerson(editedPerson)` which checks if the address book contains a duplicate person (a person with the same name).
 * `Model#setPerson(personToEdit, editedPerson)` replaces `personToEdit` with `editPerson`
 * `Model#updateFilteredPersonList(predicate)` updates the address book list with the edited person.
 
-Step 6: `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
+Step 6. `EditCommand#execute` returns a `CommandResult` to `LogicManager`.
 
 The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
@@ -381,7 +415,7 @@ Format: `sort CRITERION`
 There are 3 ways to sort the students in the address book:
 
 1. **Sort by Name**
-    - Function: Sorts students by name in alphabetical order (Aa Bb ... Zz)
+    - Function: Sorts students by name in alphabetical order
     - Criterion: name, name-ascending, name-descending
     - Example usage: `sort name-ascending`
 
@@ -397,17 +431,35 @@ There are 3 ways to sort the students in the address book:
 
 Given below is an example usage scenario and how the sort mechanism behaves at each step.
 
-Step 1. The user launches the application. The `AddressBook` will be initialized with the initial address book state.
+Step 1. The user will input `sort name`, where `sort` is the command word and `name` is a valid sort criterion.
 
-Step 2. The user executes `sort name` command to sort the contacts in the address book by name (in lexicographic order). New `SortCommand` and `PersonNameAscendingSorter` objects are created.
+Step 2. When `LogicManager` is called upon to execute the command, it will call `parseCommand()` of an `AddressBookParser` object which creates a `SortCommandParser` object.
 
-Step 3. The `SortCommand` object will call `Model#sortPersonList()`, which will then call `#AddressBook.sortPersonList()` with the newly created `PersonNameAscendingSorter` object as well.
+Step 3. `SortCommandParser` will then parse the sort criterion, which in this case, is `name`.
 
-Step 4. Finally, `UniquePersonList#sortPersons` is called with the `PersonNameAscendingSorter` object and the students in the list will be sorted by the comparator.
+Step 4. The static `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
+
+Step 5. A new `PersonNameAscendingSorter` object is constructed. 
+
+Step 6. A new `SortCommand` object is constructed with the `PersonNameAscendingSorter` object created in the previous step. 
+
+Step 7. The `SortCommand` object is then executed by the `LogicManager`.
+
+Step 8. As a result, the `SortCommand` object will call `Model#sortPersonList()` with the `PersonNameAscendingSorter` object created in the earlier steps.  
+
+Step 9. Afterwards, `#AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
+
+Step 10. Finally, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
 
 The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
 
-![SortSequenceDiagram](images/SortSequenceDiagram.png)
+![SortSequenceDiagram](images/SortSequenceDiagram.png) 
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**
+* The lifeline for `SortCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
 The following UML Activity diagram shows the workflow of sorting students in the address book, based on different sorting criterion:
 ![SortActivityDiagram](images/SortActivityDiagram.png)
@@ -523,27 +575,46 @@ The Telehandle mechanism is facilitated by the `Telehandle` and `AddCommand` cla
 
 Given below is an example usage scenario and how the `Telehandle` mechanism behaves at each step.
 
-Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: add n/John Doe p/98765432 th/@johnndoee.
+Step 1. The user wishes to add a new contact with their desired `Telehandle`. They execute the `add` command: `add n/john p/98765432 th/@john2`.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
 
-Step 4. The `AddCommandParser` processes the input, and if a `Telehandle` is provided, a new `Telehandle` object is created, else an empty `Telehandle` would be created instead.
+Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The telehandle will be indicated by the `th/` prefix.
+For this scenario, we will be focusing on the `Telehandle`.
 
-Step 5. Before the `Person` object is created, the `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If a valid `Telehandle` is provided, a new `Person` object is created with the telehandle and added to the model. Otherwise, a CommandException is thrown, notifying the user of the error.
+Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle` method is called to check on the validity of the `Telehandle` according to the input contraints.
 
-Step 7. The result, a successful addition or an error message, is displayed to the user.
+Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
+
+Step 8. The `Telehandle` is returned from `ParserUtil` to `AddCommandParser`.
+
+Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
+
+Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
+
+Step 11. The command will communicate with the `Model` to add a person with the inputted course.
+
+Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+
 
 The following sequence diagram shows how the `Telehandle` works through the `AddCommand`:
 
 ![TelehandleSequenceDiagram](images/TelehandleSequenceDiagram.png)
 
-The following activity diagram summarizes what happens when a user executes the `Add` command with a valid `Telehandle`:
+<div markdown="block" class="alert alert-info">
 
-![TelehandleActivityDiagram](images/TelehandleActivityDiagram.png)
+:information_source:**Note:**
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
+</div>
+
+The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle` as shown in step 1.
+
+![TelehandleObjectDiagram](images/TelehandleObjectDiagram.png) 
 
 #### 4.7.2 Design considerations:
 
@@ -703,7 +774,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* * *`  | First-time user of the app            | easily handle the various commands                                                          | smoothly navigate the address book                                                           |
  | `* * *`  | SoC Student                           | add contact details (telehandle, phone number) of student into the student's profile        | contact the student in another way                                                           |
  | `* * `   | Blur SoC student                      | read the user guide                                                                         | learn to use the application.                                                                |
- | `* * `   | Unorganised SoC student               | sort the courses by alphabetical order                                                      | find a specific course easily                                                                | 
+ | `* * `   | Unorganised SoC student               | sort the courses by sizes                                                                   | find a student with more similar courses                                                     | 
  | `* * `   | SoC Student                           | sort my friends by alphabetical order                                                       | find a specific friend easily                                                                |
  | `* * `   | Unorganised SoC student               | filter the address book by course                                                           | find and track other students taking the same course as me                                   |
  | `* * `   | SoC Student                           | leave some data fields blank when adding a friend                                           | add my friend even if I do not have all their personal details                               | 
@@ -714,18 +785,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* * `   | Careless SoC Student                  | undo commands I made                                                                        | have a better user experience                                                                |
  | `* * `   | SoC student with a huge social circle | view the total number of users in the address book                                          | have a good idea of how many users are in the address book                                   | 
  | `* * `   | SoC Student                           | give feedback to the developers                                                             | feedback any bugs or problems I faced while using the app                                    | 
- | `* `     | Confused SoC student                  | look at the common FAQs in the settings page                                                | get a better understanding of some of the features of the app to use the app more seamlessly | 
+ | `* `     | Confused SoC student                  | look at the common FAQs in the User Guide                                                   | get a better understanding of some of the features of the app to use the app more seamlessly | 
  | `* `     | SoC Student                           | add email address of students                                                               | easily access the email address of the student                                               | 
  | `* `     | SoC Student                           | edit the background of my address book                                                      | make my address book looks nicer and personalized                                            | 
  | `* `     | SoC Student                           | separate friends list from close friends list                                               | prioritize which class to take                                                               | 
  | `* `     | SoC Student                           | see my close friends' courses displayed first before other friends' courses                 | easily see which are the classes I should take                                               | 
  | `* `     | SoC Student                           | check the history of what contacts have been added                                          | make amendments to the contact list easily                                                   | 
  | `* `     | SoC Student with poor vision          | Edit the font size of my address book                                                       | see clearer                                                                                  | 
- | `* `     | SoC Student                           | change the theme of the app                                                                 | customize between dark and light themes                                                      | 
- | `* `     | SoC student with disability           | use the app seamlessly                                                                      | get to enjoy using this app too!                                                             | 
+ | `* `     | SoC Student                           | change the theme of the app                                                                 | customize between dark and light themes                                                      |  
  | `* `     | Lazy SoC Student                      | get recommendations about what course(s) I should take without doing any computation myself | know which classes to take at one glance                                                     | 
  | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
- | `* `     | SoC Student                           | set a profile picture for my address book                                                   | personalize the address book                                                                 | 
+
 
 *{More to be added}*
 
@@ -742,7 +812,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Use Case: UC02 - Adding a Student**
+**Use Case: UC02 - Accessing the Feedback Page**
+
+**MSS**
+
+1. User enters the command feedback
+2. AddressBook displays a message with a link to the feedback page
+
+   Use case ends.
+
+
+**Use Case: UC03 - Adding a Student**
 
 **MSS**
 
@@ -753,12 +833,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. User enters an invalid command format.
-  * 2a1. AddressBook shows an error message.
+* 1a. User enters an invalid command format.
+  * 1a1. AddressBook shows an error message.
 
-**Use Case: UC03 - Deleting a Student**
+    Use case ends.
 
-1. User requests to list persons
+**Use Case: UC04 - Listing All Students**
+
+**MSS**
+
+1. User enters the list command.
+2. AddressBook displays a list of all students in the address book along with their details.
+
+   Use case ends.
+
+**Use Case: UC05 - Deleting a Student**
+
+1. User requests to <u>list persons (UC04)</u>
 2. AddressBook shows a list of persons
 3. User requests to delete a specific person in the list
 4. AddressBook deletes the person
@@ -774,16 +865,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
     * 3a1. AddressBook shows an error message.
 
-    Use case resumes at step 2.
+      Use case resumes at step 2.
 
-**Use Case: UC04 - Editing a Student**
+**Use Case: UC06 - Editing a Student**
 
 **MSS**
 
-1. User requests to list persons
+1. User requests to <u>list persons (UC04)</u>
 2. AddressBook shows a list of persons
 3. User requests to edit a specific person in the list
 4. AddressBook edits the person
+
+   Use case ends.
 
 **Extensions**
 
@@ -794,80 +887,102 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3a. The given index is invalid.
     * 3a1. AddressBook shows an error message.
 
-  Use case resumes at step 2.
+      Use case resumes at step 2.
 
-**Use Case: UC05 - Locating Students by Name**
+* 3b. The fields are invalid.
+    * 3b1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+* 3c. The command format is invalid.
+    * 3c1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+**Use Case: UC07 - Locating Students by Name**
 
 **MSS**
 
 1. User enters a valid findstudent command with one or more keywords.
 2. AddressBook displays a list of matching students with their details.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The list is empty.
 
   Use case ends.
 
-* 1b. The given index is invalid.
-    * 1b1. AddressBook shows an error message.
-
-**Use Case: UC06 - Locating Students by Course**
+**Use Case: UC08 - Locating Students by Course**
 
 **MSS**
 
 1. User enters a valid findcourse command with one or more keywords.
 2. AddressBook displays a list of matching students with their details.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The list is empty.
 
   Use case ends.
 
-* 1b. The given index is invalid.
-    * 1b1. AddressBook shows an error message.
-
-
-**Use Case: UC07 - Clearing All Entries**
+**Use Case: UC09 - Clearing All Entries**
 
 **MSS**
 
 1. User enters the clear command.
 2. AddresBook clears all entries from the address book.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. The given command is invalid.
     * 1a1. AddressBook shows an error message.
+      
+       Use case ends.
 
-**Use Case: UC08 - Listing All Students**
+
+
+**Use Case: UC10 - Changing Themes**
 
 **MSS**
 
-1. User enters the list command.
-2. AddressBook displays a list of all students in the address book along with their details.
+1. User enters the theme dark command.
+2. GUI of the AddressBook changes from light to dark theme.
+
+    Use case ends.
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. The theme of the AddressBook is already dark.
+  * 1a1. GUI of the AddressBook does not change.
 
-  Use case ends.
+    Use case ends.
 
 * 1b. The given command is invalid.
     * 1b1. AddressBook shows an error message.
 
-**Use Case: UC09 - Exiting the Program**
+      Use case ends.
+
+**Use Case: UC11 - Exiting the Program**
 
 **MSS**
 
 1. User enters the exit command.
 2. AddressBook exits the program.
 
+   Use case ends.
+
 **Extensions**
 
 * 1a. The given command is invalid.
     * 1a1. AddressBook shows an error message.
+  
+        Use case ends.
 
 ### A.4 Non-Functional Requirements
 
@@ -891,8 +1006,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
-testers are expected to do more *exploratory* testing.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**
+* These instructions only provide a starting point for testers to work on; testers are expected to do more *exploratory* testing. 
 
 </div>
 
@@ -1170,9 +1287,9 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ## **Appendix C: Planned Enhancements**
 
-1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name, which can be problematic when there are indeed multiple students with identical names.
+1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even in cases of common names.
+   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
    * Implementation Details:
    The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
    
@@ -1180,20 +1297,55 @@ Enter the `list` command to view the student records. Repeat this for every test
    * Proposed Enhancement:
    To enhance data integrity and streamline contact management, we are planning to implement a change that enforces the uniqueness of phone numbers, email addresses, and Telegram handles within the Address Book. This improvement will prevent the inclusion of duplicate contact information, ensuring that each entry remains distinct.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
+   The planned enhancement involves modifying the Address Book feature to validate and enforce the uniqueness of key contact information, specifically phone numbers, email addresses, and Telegram handles. This could be done by checking the details entered by the user with all details already stored in NUSCoursemates. When users attempt to add or update a contact with information matching an existing entry, NUSCoursemates will prevent them from doing so.
    
-3. The current implementation of the system allows any email address containing the "@" symbol, which may not align with our specific user base of NUS SoC students. To ensure accurate and secure data, we aim to implement a check that requires email addresses to end with "@u.nus.edu".
-   * Proposed Enhancement:
-   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of incorrect email addresses.
+3. The current implementation of the system allows any email address domain after the '@' character. To better suit the needs of NUS SoC students, we could implement a check which requires email addresses to end with "@u.nus.edu" instead. This would help to improve the security and accuracy of these data. 
+    * Proposed Enhancement:
+   We plan to enhance the system by enforcing the use of NUS SoC student email addresses ending with "@u.nus.edu". This change will ensure that all email addresses within the system adhere to NUS's email domain, reducing the risk of users entering incorrect email addresses.
    * Implementation Details:
    The planned enhancement involves implementing an email address validation check during the contact creation or update process. When users enter or update an email address, the system will verify that it ends with the required "@u.nus.edu" domain. If the email address does not meet this criterion, NUSCoursemates will prevent them from doing so.
 
 4. Currently, our system's error message for invalid input related to the 'theme' command doesn't effectively communicate the nature of the error. Users may receive an error message that implies a problem with the command format, even when the issue is with the parameter itself. 
    * Proposed Enhancement:
-   To improve user understanding and minimize confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
+   To improve user understanding and minimise confusion, we plan to enhance the error message associated with the 'theme' command. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to an invalid parameter and provide clear guidance on the accepted inputs. 
    * Possible Error Message:
    `Invalid Parameter! The error is not related to the command format but rather due to an invalid parameter. To set the theme of NUSCoursemates, please use one of the accepted options:
      'dark' for dark mode
      'light' for light mode
      Example: theme dark`
+
+5. Currently, when a very large positive integer is entered as the INDEX for commands which take in an INDEX (these include commands such as `delete` and `edit`) as an argument, the error message displayed suggests that there is a problem with the command format. However, this may not be the case. The inaccurate error message is shown because the number entered for INDEX is simply too big for the computer to parse. 
+   * Proposed Enhancement:
+   We plan to enhance the error messages returned from these features. Rather than attributing the error to the command format, we will explicitly communicate that the error is due to a positive integer entered that is too large, and remind users to enter positive integers that do not exceed the limits imposed. We would also provide clear guidance on the accepted inputs. 
+   * Possible Error Message:
+       `Invalid Parameter! The error is not related to the command format but rather due to an invalid paramater. You should not be entering a positive integer that is larger than the size of the student list.`
+   
+6. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+* Proposed Enhancement:
+  We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
+* Implementation Details:
+We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix D: Effort**
+
+Overall, we felt that the difficulty level for NUSCoursemates was moderate. When creating NUSCoursemates, which evolved from AB-3, we meticulously considered the overall design, architecture, and testing aspects to ensure the development of meaningful features for our intended users, SoC students. 
+
+  Justification for effort: 
+* **Changing existing commands** - While some commands, such as `list`, were adapted from AB-3, there were many cases where the code for these commands had to be rewritten or tweaked for NUSCoursemates. For example, the `find` feature was heavily modified and separated into new `findcourse` and `findstudent` commands.
+* **Creating new classes** - We created multiple new classes (such as `course`, `tags` and `telehandle`) which are common and important attributes of our target users. 
+* **Implementing new features** - We implemented new features which deal with these new classes too. The `sort` and `c/add-` are examples. Moreover, there are validation checks for each of the new attributes. 
+* **Huge improvement in UI** - With JavaFX AND FXML, we are able to create the current NUSCoursemates UI which is made up of different components and gives users the option to switch between different themes.
+* ...and many more!
+
+We faced numerous challenges in this project:
+* **Learning new technologies** - Adjusting and familiarising ourselves to new technologies such as Git and GitHub were difficult for us. For example, we often made edits to the same piece of code which resulted in messy merge conflicts that took up valuable time to resolve. 
+* **Time constraint** - We were also faced with tight deadlines for the various milestones and submissions. This also meant that we had to learn these new technologies in order to implement new features fast. 
+* **Immediately applying what we learnt** - Juggling between the project and the concepts taught in the course was particularly difficult. For example, although heuristics for test cases were only taught towards the end of the course, we were already expected to apply them in the testing component of our project.
+
+Achievements: 
+We are definitely proud of our final product. We have picked up many invaluable soft skills (such as teamwork and collaboration) in a short amount of time, and expanded our technical proficiency in ways we hadn't anticipated at the project's onset.
+
+It has been a wonderful (but really tiring) journey for all of us! 
 

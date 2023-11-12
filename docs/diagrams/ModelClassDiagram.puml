@@ -39,12 +39,12 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
-Person *--> Name
-Person *--> Phone
+Person *-->"1"Name
+Person *--> "1"Phone
 Person *--> "0..1"Email
 Person *--> "0..1"Address
 Person *--> "0..1"Telehandle
-Person *--> "*" Tag
+Person *--> "0..3" Tag
 Person *--> "*" Course
 
 Person -[hidden]up--> I

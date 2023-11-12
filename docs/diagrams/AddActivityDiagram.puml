@@ -3,20 +3,34 @@ skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 start
-:User executes AddCommand;
+:User inputs add command;
+:Parse input into fields for person;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
 if () then ([input is valid])
-    :Parse input into fields for person;
+    :Validates fields;
+
+    if () then ([fields are valid])
+    :Constructs Person object;
     :Constructs AddCommand object;
     :Returns back to LogicManager;
     :LogicManager executes AddCommand;
+    if () then ([person is unique])
     :Insert person to PersonList;
     :Update UI;
+    else ([else])
+    :Display person already exist \nerror message;
+    endif
+    else ([else])
+    :Display invalid \nfield error message;
+    endif
 else ([else])
-:Display error message;
+:Display invalid \ninput error message;
+
+
+
 
 endif
 stop

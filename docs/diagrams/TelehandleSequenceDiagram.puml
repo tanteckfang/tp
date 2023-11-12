@@ -6,18 +6,22 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":AddCommandParser" as AddCommandParser LOGIC_COLOR
+participant ":ParserUtil" as ParserUtil LOGIC_COLOR
 participant "a:AddCommand" as AddCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
+participant ":Telehandle" as TelehandleClass MODEL_COLOR
+participant "th:Telehandle" as TelehandleObject MODEL_COLOR
+participant "p:Person" as Person MODEL_COLOR
 end box
 
-[-> LogicManager : execute("add n/... th/...")
+[-> LogicManager : execute("add n/john\n p/98765432 th/@john2")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("add n/... th/...")
+LogicManager -> AddressBookParser : parseCommand("add n/john\n p/98765432 th/@john2")
 activate AddressBookParser
 
 create AddCommandParser
@@ -27,11 +31,37 @@ activate AddCommandParser
 AddCommandParser --> AddressBookParser
 deactivate AddCommandParser
 
-AddressBookParser -> AddCommandParser : parse("n/... th/...")
+AddressBookParser -> AddCommandParser : parse("n/john\n p/98765432 th/@john2")
 activate AddCommandParser
 
+AddCommandParser -> ParserUtil : parseTelehandle("@john2")
+activate ParserUtil
+
+ParserUtil -> TelehandleClass : isValidTelehandle("@john2")
+activate TelehandleClass
+
+TelehandleClass --> ParserUtil :
+deactivate TelehandleClass
+
+create TelehandleObject
+ParserUtil -> TelehandleObject : Telehandle("@john2")
+activate TelehandleObject
+
+TelehandleObject --> ParserUtil : th
+deactivate TelehandleObject
+
+ParserUtil --> AddCommandParser : th
+deactivate ParserUtil
+
+create Person
+AddCommandParser -> Person : Person("john", "98765432", ... ,th)
+activate Person
+
+Person --> AddCommandParser : p
+deactivate Person
+
 create AddCommand
-AddCommandParser -> AddCommand
+AddCommandParser -> AddCommand : AddCommand(p)
 activate AddCommand
 
 AddCommand --> AddCommandParser : a

@@ -1,0 +1,49 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+hide stereotype
+
+skinparam Class<<Generic>> {
+    StereotypeFontColor black
+    StereotypeFontStyle normal
+    borderColor lightBlue
+    backgroundColor lightBlue
+    fontColor black
+}
+
+package UI <<Rectangle>> {
+Class PersonListPanel
+Class PersonCard
+Class CourseListPanel
+Class CourseListCard
+Class TagListPanel
+Class TagListCard
+Class MainWindow
+Class "{abstract}\nUiPart" as UiPart
+}
+
+Class "ObservableList<Person>" as ObservableListPerson <<Generic>>
+Class "ObservableList<Course>" as ObservableListCourse <<Generic>>
+Class "ObservableList<Tag>" as ObservableListTag <<Generic>>
+
+MainWindow *-down-> "1" PersonListPanel
+PersonListPanel *-down-> "*" PersonCard
+PersonListPanel .left.|> ObservableListPerson
+PersonCard --|> UiPart
+
+MainWindow *-down-> "1" CourseListPanel
+CourseListPanel *-down-> "*" CourseListCard
+CourseListPanel ..|> ObservableListCourse
+CourseListCard --|> UiPart
+
+MainWindow *-down-> "1" TagListPanel
+TagListPanel *-down-> "3" TagListCard
+TagListPanel .right.|> ObservableListTag
+TagListCard --|> UiPart
+
+MainWindow --|> UiPart
+
+@enduml
