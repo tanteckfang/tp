@@ -13,6 +13,7 @@ title: Developer Guide
 ## **1. Acknowledgements**
 
 * The foundational code was derived from [Addressbook-level3](https://se-education.org/addressbook-level3/)
+* We also reused code from StackOverflow for [case-insensitive sorting](https://stackoverflow.com/a/57278437).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -428,7 +429,7 @@ Step 2. When `LogicManager` is called upon to execute the command, it will call 
 
 Step 3. `SortCommandParser` will then parse the sort criterion, which in this case, is `name`.
 
-Step 4. The static `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
+Step 4. The `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
 
 Step 5. A new `PersonNameAscendingSorter` object is constructed. 
 
