@@ -7,7 +7,7 @@ title: Carlin Tan's Project Portfolio Page
 
 NUSCourseMates is a desktop address book application used for keeping track of the courses your contacts are taking.
 The user interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
-It is written in Java, and has about 19 kLoC.
+It is written in Java, and has about 20 kLoC.
 
 Given below are my contributions to the project.
 
@@ -52,9 +52,12 @@ Given below are my contributions to the project.
     * Updated UI Class diagram. (Pull Request: [#126](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/126))
     * Added AddCommand feature implementation. (Pull Request: [#126](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/126))
     * Added Planned Enhancements. (Pull Request: [#232](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/232))
+    * Added Ui panel list. (Pull Request: [#274](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/274))
+    * Added Theme feature implementation (Pull Request: [#254](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/254))
+    * Added List Panel feature implementation (Pull Request: [#294](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/294))
 
 * **Community**:
-  * Reviewed [21](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Acarlintyj) Pull Requests
+  * Reviewed [44](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Acarlintyj) Pull Requests
   * Reviewed PRs: [#75](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/75), [#82](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/82), [#94](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/94), [#95](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/95), [#97](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/97), [#104](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/104), [#106](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/106), [#123](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/123), [#125](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/125), [#133](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/133), [#137](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/137), [#159](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/159), [#162](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/162), [#163](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/163), [#165](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/165), [#166](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/166), [#224](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/224), [#225](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/225), [#230](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/230), [#233](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/233), [#235](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/235)
 
 

@@ -15,6 +15,8 @@ skinparam Class<<Generic>> {
 }
 
 package UI <<Rectangle>> {
+class "<<interface>>\nUi" as Ui
+class UiManager
 Class PersonListPanel
 Class PersonCard
 Class CourseListPanel
@@ -25,9 +27,29 @@ Class MainWindow
 Class "{abstract}\nUiPart" as UiPart
 }
 
+package Model <<Rectangle>> {
+Class HiddenModel #FFFFFF
+}
+
+package Logic <<Rectangle>> {
+Class HiddenLogic #FFFFFF
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> Ui
+
+UiManager .left.|> Ui
+UiManager -down-> "1" MainWindow
+UiManager -right-> Logic
+MainWindow -right-> Logic
+
+PersonCard ..> Model
+CourseListCard ..> Model
+TagListCard ..> Model
+
 Class "ObservableList<Person>" as ObservableListPerson <<Generic>>
-Class "ObservableList<Course>" as ObservableListCourse <<Generic>>
-Class "ObservableList<Tag>" as ObservableListTag <<Generic>>
+Class "ObservableList<Pair<String, Integer>>" as ObservableListCourse <<Generic>>
+Class "ObservableList<Pair<String, Integer>>" as ObservableListTag <<Generic>>
 
 MainWindow *-down-> "1" PersonListPanel
 PersonListPanel *-down-> "*" PersonCard

@@ -92,7 +92,7 @@ The `UI` component,
 In the UI of the `MainWindow`, three major List Panels—`PersonListPanel`, `CourseListPanel`, and `TagListPanel`—implement the Observer Design Pattern using the `ObservableList` class. 
 Each panel observes changes in its associated data, enabling dynamic updates in response to modifications. 
 
-For instance, the `CourseListPanel`, observing the `ObservableList<Course>`, triggers updates to the `CourseListCard` upon any changes in the courses.
+For instance, the `CourseListPanel`, observing the `ObservableList<Pair<String, Integer>>`, triggers updates to the `CourseListCard` upon any changes in the courses.
 This implementation is replicated for `PersonListPanel` and `TagListPanel`. 
 
 The following class diagram illustrates the relationships:
@@ -176,34 +176,22 @@ This section describes some noteworthy details on how certain features are imple
 The add course mechanism is facilitated by `AddCommand`. It extends `Command` which overrides the following operation:
 * `AddCommand#execute():` Adds a person into NUSCoursemates
 
-Given below is an example usage scenario and how the add mechanism behaves at each step.
+Given below is an example usage scenario and how the add mechanism behaves at each step focusing on the `Course` field.
 
-Step 1. The user will input the add command along with the person's name and the course that the person is taking.
+Step 1. The user executes `add n/John p/81234567 c/CS2103T` to add a new person.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
+Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
-Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The course will be indicated by the `c/` prefix.
-For this scenario, we will be focusing on the `Course`.
+Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. The course will be indicated by the `c/` prefix.
 
-Step 4. The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
+Step 4. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
 
-Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil#contains()` method to ensure it is a valid input.
+Step 5. This results in a `AddCommand` object which is executed by the `LogicManager`.
 
-Step 6. After parsing each course input, a `Course` object is constructed.
+Step 6. The command will communicate with the `Model` to add a person. 
 
-Step 7. The constructed `Course` object is returned to `ParserUtil`. It is then combined with other `Course` inputs into a `Set<Course>`.
+Step 7. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `LogicManager`.
 
-Step 8. The `Set<Course>` is returned from `ParserUtil` to `AddCommandParser`.
-
-Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
-
-Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
-
-Step 11. The command will communicate with the `Model` to add a person with the inputted course. 
-
-Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
-
-For example, let's say the user inputs `add n/John p/81234567 c/CS2103T`.
 The following sequence diagram shows how the add operation works:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
@@ -212,6 +200,7 @@ The following sequence diagram shows how the add operation works:
 :information_source: **Note:** 
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component) 
 </div>
 
 The following activity diagram shows how the add operation works:
@@ -256,7 +245,7 @@ The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for EditCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
@@ -653,7 +642,7 @@ Step 4. This results in a `FeedbackCommand` object which is executed by the `Log
 
 Step 5. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 6. Then the `CommandResult` object will cause the MainWindow#handleFeedback() to be executed. 
+Step 6. Then the `CommandResult` object will cause the `MainWindow#handleFeedback()` to be executed. 
 
 Step 7. The `Ui` will be updated, and the success message will be displayed to the user.
 
@@ -695,23 +684,31 @@ The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` 
 
 Given below is an example usage scenario and how the theme mechanism behaves at each step.
 
-Step 1. The user will input the theme command along with the desired THEME (Light or Dark).
+Step 1. The user launches the application for the first time. The current default theme will be a light theme.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
+Step 2. The user executes `theme DARK` command to change the theme from light to dark.
+
+Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` 
+object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
 
 Step 3. This results in a `ThemeCommand` object which is executed by the `LogicManager`.
 
-Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 5. The `CommandResult` object will have either `isLight` or `isDark` to be set as `true`. 
+Step 5. The `CommandResult` object will cause `MainWindow#handleTheme()` to be executed. 
 
-Step 6. The `CommandResult` object will be executed which calls the `handleTheme` method in `MainWindow`.
-
-Step 7. The UI will then be updated accordingly to either DARK or LIGHT theme.
+Step 6. The `Ui` will then be updated to DARK theme.
 
 The following sequence diagram shows how the theme operation works:
 
 ![ThemeSequenceDiagram](images/ThemeSequenceDiagram.png)
+
+<div markdown="block" class="alert alert-info">
+
+:information_source:**Note:**
+* The lifeline for `ThemeCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component)
+</div>
 
 The following activity diagram summarizes what happens when a user executes the `theme` command:
 
@@ -738,6 +735,54 @@ The following activity diagram summarizes what happens when a user executes the 
     * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
 
    * Cons: Development Effort. Implementing and maintaining both CLI and graphical options may require additional development effort.
+
+### 4.10 Course List Panel and Tag List Panel Feature
+
+NUSCoursemates comes with three major List Panels — `PersonListPanel`, `CourseListPanel`, and `TagListPanel` as stated [above](#321-list-panel).
+The three panels can be seen in the UI below:
+
+![DGUiDiagram](images/DGUiDiagram.png)
+
+#### 4.10.1 Implementation
+
+The panels mechanism is facilitated by `MainWindow`. It houses the three following panels:
+* `PersonListPanel`: Displays the list of all the students
+* `CourseListPanel`: Displays the list of the summary of courses
+* `TagListPanel`: Displays the list of the summary of tags
+
+**Course List Panel (CourseListPanel):**
+
+The `CourseListPanel` class is implemented as a `JavaFX` component responsible for presenting a summarised list of courses. 
+It uses a `ListView` to display each course, with each item represented by a `CourseCard`. 
+The `CourseCard` class encapsulates the visual representation of a course, displaying the course name 
+and the number of students taking the course. The panel is dynamically updated by binding 
+it to an `ObservableList<Pair<String, Integer>>`, where each pair represents the string of the course and the 
+integer corresponds to number of students taking that course. The `CourseListViewCell` class which extends the `ListCell`, 
+controls the rendering of each course item in the list.
+
+**Tag List Panel (TagListPanel):**
+
+Similar to the `CourseListPanel`, the `TagListPanel` is implemented as a `JavaFX` component utilising a `ListView` 
+to display a summarised list of tags. Each tag is represented by `TagCard`. 
+The panel is linked to an `ObservableList<Pair<String, Integer>>` containing tag names and number of students having the tag names, 
+and the `TagListViewCell` class customises the rendering of each tag item.
+
+
+#### 4.10.2 Design considerations:
+
+**Aspect: Unified Panel for Tags and Courses**
+
+* **Alternative 1 (current choice):** Separate Panels for Tags and Courses
+    * Pros: Distinct Categorization. Maintaining separate panels ensures clear categorization. 
+    * Pros: Focused Interaction. Users interact with tags and courses in dedicated spaces. 
+
+    * Cons: Increased Navigation Steps. Users need to switch between panels for tags and courses, potentially adding extra steps.
+
+* **Alternative 2:** Merge Tags and Courses into a Unified Panel
+    * Pros: Simplicity. Combining tags and courses into a single panel simplifies the interface. 
+    * Pros: Streamlined Navigation. Users access both tags and courses from one centralised location. 
+
+    * Cons: Potential Information Overload. 
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -854,17 +899,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the list command.
+1. User requests to view the list of students.
 2. NUSCoursemates displays a list of all students along with their details.
 
    Use case ends.
 
 **Use Case: UC05 - Deleting a Student**
 
-1. User requests to <u>list persons (UC04)</u>
-2. NUSCoursemates shows a list of persons
-3. User requests to delete a specific person in the list
-4. NUSCoursemates deletes the person
+1. User requests to <u>list persons (UC04)</u>.
+2. NUSCoursemates shows a list of students.
+3. User requests to delete a specific person in the list.
+4. NUSCoursemates deletes the student.
 
     Use case ends.
 
@@ -883,10 +928,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to <u>list persons (UC04)</u>
-2. NUSCoursemates shows a list of persons
-3. User requests to edit a specific person in the list
-4. NUSCoursemates edits the person
+1. User requests to <u>list persons (UC04)</u>.
+2. NUSCoursemates shows a list of persons.
+3. User requests to edit a specific person in the list.
+4. NUSCoursemates edits the person.
 
    Use case ends.
 
