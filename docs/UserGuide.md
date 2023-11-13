@@ -96,6 +96,8 @@ The Menu Bar is your command center, offering access to a variety of functions, 
 | Help      | Access the User Guide to get assistance and answers to your questions.  |
 
 ### 2. Command Box
+<img src="images/CommandBox.png" alt="CommandBox"/>
+
 The Command Box is where the magic happens. It's your gateway to NUSCoursemates, allowing you to input commands and perform a wide range of operations with ease.
 
 You can locate the list of commands you can perform in our [Command Summary](#command-summary).
