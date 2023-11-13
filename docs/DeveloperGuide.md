@@ -743,12 +743,12 @@ The following activity diagram summarizes what happens when a user executes the 
 
     * Cons: Learning Curve. Users unfamiliar with CLI commands may face a learning curve.
 
-* **Alternative 2:** Menu Bar Button
+* **Alternative 2:** Menu Bar Button.
     * Pros: Intuitiveness. A graphical button on the menu bar may be more intuitive for users who prefer visual interactions.
 
     * Cons: Inconsistency. May deviate from the overall CLI theme of the application.
 
-* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button
+* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button.
     * Pros: Flexibility. Providing both options caters to a wider audience, accommodating users with different preferences.
     * Pros: User Preference. Users can choose their preferred method of interaction, enhancing the overall user experience. 
     * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
