@@ -805,7 +805,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
 
 
-*{More to be added}*
 
 ### A.3 Use cases
 
@@ -1402,13 +1401,16 @@ Currently, when an unrealistically large positive integer is entered as the `IND
      * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
      * Possible Error Message (in Step 3):
          `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
-   
-5. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+
+### C.5 Incorporate courses from Special Terms 1 and 2 into NUSCourseMates
+Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
-We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
-The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
+  * We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this 
+  list of courses, which includes ST courses, from the NUSMods API.
+  * The `CourseUtil` class would be need to be populated with new courses on a regular basis. To make this more 
+    extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 ### C.6 Customising the sort functions
 While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 

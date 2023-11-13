@@ -450,13 +450,6 @@ This prefix empowers you to easily modify your enrolled courses in one of three 
 | `c/del-[COURSE_TO_DELETE]`         | Deletes a course for the student                          | If the student does not have the course, an error message will be displayed.          |
 | `c/[ORIGINAL_COURSE]-[NEW_COURSE]` | Changes `ORIGINAL_COURSE` to `NEW_COURSE` for the student | If the student does not have `ORIGINAL_COURSE`, an error message will be displayed.   |
 
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes:**<br>
-* You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.<br>
-E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command.
-</div>
-
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com c/add-MA1521 c/del-CS2103T c/MA2001-ST2334`
 * `edit 2 n/Betsy Crower t/`
@@ -465,11 +458,22 @@ Examples:
 |-----------|-------------------------------------------------|
 | **After** | ![edit student](images/editFeatureAfter.png)    |
 
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes:**<br>
+* You can chain any amount of any type of modification together. The modifications will be performed in the listed order, from left to right.<br>
+  E.g. `c/add-MA1521 c/del-CS2030S c/MA1521-ST2334 c/add-MA2001` can all be specified in one edit command.
+</div>
+
 <div markdown="block" class="alert alert-warning">
 
 **:exclamation: Caution: Chaining of multiple modifications** <br>
 * When chaining multiple modifications, attempting to delete or change a course that the specified student does not possess will lead to an error.
-* If such an error occur, an error message is displayed, and all changes in the chain of modifications will be invalidated.
+* For example, if the first person in your NUSCourseMates list originally has MA1521, performing `edit 1 c/del-MA1521 
+  c/del-MA1521` will cause an error, as the changes are read from left to right, and after the first delete, the 
+  person no longer has the MA1521 available for the second delete.
+* If such an error occur, an error message is displayed, and all changes in the chain of modifications will be 
+  invalidated (none will be performed until the errors are fixed).
 </div>
 
 [Back to Table of Contents](#table-of-contents)
