@@ -252,9 +252,9 @@ The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:
+<div markdown="span" class="alert alert-info">
 
-information_source: **Note:** 
+:information_source: **Note:** 
 * The lifeline for EditCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
 
 </div>
