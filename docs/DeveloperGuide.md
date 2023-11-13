@@ -449,13 +449,20 @@ Step 7. The `SortCommand` object is then executed by the `LogicManager`.
 
 Step 8. As a result, the `SortCommand` object will call `Model#sortPersonList()` with the `PersonNameAscendingSorter` object created in the earlier steps.  
 
+The following UML Sequence diagram shows what happens when `sort name` is entered as an input up to this step.
+
+![SortSequenceDiagram1](images/SortSequenceDiagram1.png) 
+
 Step 9. Afterwards, `AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
 
-Step 10. Finally, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
+Step 10. Consequently, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
 
-The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
+The following UML Sequence diagram shows what happens within the `Model` component. 
 
-![SortSequenceDiagram](images/SortSequenceDiagram.png) 
+![SortSequenceDiagram2](images/SortSequenceDiagram2.png)  
+
+Step 11. Finally, after the sorting process is successful, the result of the `sort` command execution is encapsulated as a CommandResult object which is returned back from Logic.
+
 
 <div markdown="block" class="alert alert-info">
 
@@ -1005,7 +1012,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         Use case ends.
 
 
-**Use Case: UC12 - Sorting NUSCoursemates**
+**Use Case: UC13 - Sorting NUSCoursemates**
 
 **MSS**
 
@@ -1126,7 +1133,7 @@ Given below are instructions to test the app manually.
    1. **Test case:** `add n/Bobby Lim` <br>
       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
    2. **Test case:** `add n/` <br>
-   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
+   **Expected Outcome:** Same as previous.
 
 
 5. Adding a student with an invalid field:
