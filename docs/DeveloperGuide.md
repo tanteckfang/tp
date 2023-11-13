@@ -853,7 +853,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the list command.
+1. User requests to view the list of students.
 2. NUSCoursemates displays a list of all students along with their details.
 
    Use case ends.
@@ -861,9 +861,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Use Case: UC05 - Deleting a Student**
 
 1. User requests to <u>list persons (UC04)</u>
-2. NUSCoursemates shows a list of persons
+2. NUSCoursemates shows a list of students
 3. User requests to delete a specific person in the list
-4. NUSCoursemates deletes the person
+4. NUSCoursemates deletes the student
 
     Use case ends.
 
