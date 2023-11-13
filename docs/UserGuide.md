@@ -820,13 +820,13 @@ Format: `exit`
 
 ### Saving the data
 
-NUSCoursemates data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+NUSCoursemates data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 [Back to Table of Contents](#table-of-contents)
 
 ### Editing the data file
 
-NUSCoursemates data is saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="block" class="alert alert-warning">
 
