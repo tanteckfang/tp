@@ -24,8 +24,8 @@ Given below are my contributions to the project.
       entirely new commands - `addcourse`, `deletecourse` and `editcourse`, but to make it more user-friendly and 
       convenient for the end user, I decided to make them utilise the common `edit` interface using the `c/add-` and 
       `c-del` sub-prefixes. The result of this innovation is unparalleled flexibility and ease of use for the end user. 
-    * The effort to validate the courses was non-trivial as well, as there were many edge cases we had to consider, 
-      given we allowed the user to supply not just one, but a list of modifications that will be applied sequentially.
+    * The effort required to validate the courses was non-trivial as well, as there were many edge cases we had to 
+      consider, given we allowed the user to supply not just one, but a list of modifications that will be applied sequentially.
 
 * **New Feature**: Added a `clear-courses` command that clears the courses of a specified student in the address book. 
   * What it does: Allows the user to remove all courses of a particular student in the address book.
