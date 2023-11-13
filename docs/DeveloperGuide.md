@@ -857,10 +857,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use Case: UC05 - Deleting a Student**
 
-1. User requests to <u>list persons (UC04)</u>
-2. NUSCoursemates shows a list of students
-3. User requests to delete a specific person in the list
-4. NUSCoursemates deletes the student
+1. User requests to <u>list persons (UC04)</u>.
+2. NUSCoursemates shows a list of students.
+3. User requests to delete a specific person in the list.
+4. NUSCoursemates deletes the student.
 
     Use case ends.
 
@@ -879,10 +879,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to <u>list persons (UC04)</u>
-2. NUSCoursemates shows a list of persons
-3. User requests to edit a specific person in the list
-4. NUSCoursemates edits the person
+1. User requests to <u>list persons (UC04)</u>.
+2. NUSCoursemates shows a list of persons.
+3. User requests to edit a specific person in the list.
+4. NUSCoursemates edits the person.
 
    Use case ends.
 
