@@ -1356,7 +1356,7 @@ The current implementation of the NUSCoursemates allows for duplicate Telegram h
 
    * Implementation Details:
      * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
-     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle);` <br>
+     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle());` <br>
      * Step 3: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated `Name`.
 
 
