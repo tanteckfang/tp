@@ -13,6 +13,7 @@ title: Developer Guide
 ## **1. Acknowledgements**
 
 * The foundational code was derived from [Addressbook-level3](https://se-education.org/addressbook-level3/)
+* We also reused code from StackOverflow for [case-insensitive sorting](https://stackoverflow.com/a/57278437).
 
 --------------------------------------------------------------------------------------------------------------------
 
