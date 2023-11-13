@@ -973,7 +973,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User request to change the theme to dark
+1. User request to change the theme to dark.
 2. GUI of the NUSCoursemates changes from light to dark theme.
 
     Use case ends.
@@ -1005,7 +1005,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. The given command is invalid.
     * 1a1. NUSCoursemates shows an error message.
   
-        Use case ends.
+      Use case ends.
 
 
 **Use Case: UC12 - Sorting NUSCoursemates**
