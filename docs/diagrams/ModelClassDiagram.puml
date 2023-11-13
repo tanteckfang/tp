@@ -22,6 +22,8 @@ Class Telehandle
 Class Tag
 Class Course
 
+Class "<<enumeration>>\nTagType" as TagType
+
 Class I #FFFFFF
 }
 
@@ -46,6 +48,8 @@ Person *--> "0..1"Address
 Person *--> "0..1"Telehandle
 Person *--> "0..3" Tag
 Person *--> "*" Course
+
+Tag *-down-> "1"TagType
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
