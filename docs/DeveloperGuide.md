@@ -1487,6 +1487,14 @@ While there are various sort features implemented for users to sort NUSCoursemat
     * Step 3: The command is parsed, and a priority is attached to each tag. 
     * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
 
+
+### C.7 Updating Telehandle's requirement
+The current `telehandle` requirements do not align with the real requirements of the `telehandle` for Telegram.
+* Proposed Enhancement:
+  We aim to adhere to Telegram's telehandle requirements, which include constraints such as not starting with a number or underscore, not ending with an underscore, and limiting the use of more than one underscore.
+* Implementation Details:
+    * Make changes to the regex pattern in the `Telehandle` class.
+
 ### C.9 Finding tags
 The current feature set includes search capabilities with `findstudent` and `findcourse`, 
 however, the absence of a dedicated `findtag` command limits users' ability to locate students 
