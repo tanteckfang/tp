@@ -1511,8 +1511,7 @@ based on specific tags. This enhancement proposes the addition of the `findtag` 
 users with a more comprehensive search experience.
 
 * Proposed Enhancement:
-  We plan to allow users to be able to `findtag ` so that they can easily find their list of `
-Close Friend`, `Friend` or `Emergency`.
+  We plan to allow users to be able to `findtag ` so that they can easily find their list of `Close Friend`, `Friend` or `Emergency`.
 * Implementation Details:
   * Step 1: Update `AddressBookParser` to recognise and route the `findtag` command.
   * Step 2: Introduce `FindTagCommandParser` for extracting tag keywords from user input.
