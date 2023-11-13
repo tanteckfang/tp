@@ -469,7 +469,11 @@ Examples:
 
 **:exclamation: Caution: Chaining of multiple modifications** <br>
 * When chaining multiple modifications, attempting to delete or change a course that the specified student does not possess will lead to an error.
-* If such an error occur, an error message is displayed, and all changes in the chain of modifications will be invalidated.
+* For example, if the first person in your NUSCourseMates list originally has MA1521, performing `edit 1 c/del-MA1521 
+  c/del-MA1521` will cause an error, as the changes are read from left to right, and after the first delete, the 
+  person no longer has the MA1521 available for the second delete.
+* If such an error occur, an error message is displayed, and all changes in the chain of modifications will be 
+  invalidated (none will be performed until the errors are fixed).
 </div>
 
 [Back to Table of Contents](#table-of-contents)
