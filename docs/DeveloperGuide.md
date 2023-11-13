@@ -1139,12 +1139,12 @@ Given below are instructions to test the app manually.
 
 5. Adding a student with an invalid field:
     1. **Test case:** `add n/!@#$%#$#$ p/91234567` <br>
-       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the format for the name is invalid. The correct command format and an example is also shown in the error message.
+       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the format for the name is invalid. 
    
 
 
 ### B.6 Editing a student
-**Prerequisites:**  Completed all steps in [the previous section](#b2-adding-a-student) and have at least 3 student records stored. Afterwards, enter the `list` command to view the student records. Repeat this for every test case.
+**Prerequisites:**  Completed all steps in the previous sections and have at least 3 student records stored. Afterwards, enter the `list` command to view the student records. Repeat this for every test case.
 
 1. Editing a student with a valid index and at least one field specified:
 
@@ -1160,7 +1160,7 @@ Given below are instructions to test the app manually.
 
 2. Editing a student with a valid index but invalid fields are specified:
    1. **Test case:** `edit 2 n/` <br>
-   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating the correct format of the name field. 
+   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown stating the correct requirements for the name field. 
    2. **Additional prerequisite:** The first student does not take course `EC2101`. <br>
    **Test case:** `edit 1 c/del-ec2101` <br>
       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the student does not have course `EC2101`.
