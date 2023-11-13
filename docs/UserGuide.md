@@ -22,7 +22,7 @@ Are you a SoC student looking to build new and meaningful connections with other
 
 With this desktop application, you can easily  
 * **add** their contacts into your own NUSCoursemates application
-* **find** students saved in NUSCoursemates for their names or the courses they are enrolled
+* **find** students saved in NUSCoursemates for their names or the courses they are enrolled in
 * **sort** these contacts
 * and do **much more**!
 

@@ -439,7 +439,7 @@ Step 2. When `LogicManager` is called upon to execute the command, it will call 
 
 Step 3. `SortCommandParser` will then parse the sort criterion, which in this case, is `name`.
 
-Step 4. The static `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
+Step 4. The `createPersonSorter()` method of the `PersonSorter` class is called along with the sort criterion. 
 
 Step 5. A new `PersonNameAscendingSorter` object is constructed. 
 
