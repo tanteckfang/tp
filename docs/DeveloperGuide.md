@@ -319,7 +319,7 @@ The following sequence diagram shows how the `findcourse` operation works:
 
 The following activity diagram summarizes what happens when a user executes a new `findcourse` command:
 
-<img src="images/FindcourseActivityDiagram.png" width="250" />
+![FindcourseActivityDiagram](images/FindcourseActivityDiagram.png)
 
 #### 4.3.2 Design considerations:
 
@@ -370,7 +370,7 @@ Step 6. The outcome, which indicates the number of persons found, is presented t
 
 The following sequence diagram shows how the `findstudent` operation works:
 
-![FindcourseSequenceDiagram](images/FindStudentSequenceDiagram.png)
+![FindstudentSequenceDiagram](images/FindStudentSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** 
 The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -378,7 +378,7 @@ The lifeline for FindCommandParser should end at the destroy marker (X) but due 
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
 
-<img src="images/FindstudentActivityDiagram.png" width="250" />
+![FindstudentActivityDiagram](images/FindstudentActivityDiagram.png)
 
 #### 4.4.2 Design considerations:
 
@@ -527,7 +527,8 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:**  
+* For simplicity in the diagrams, all interactions with different components of the Logic are represented under a single 'Logic' participant.
 
 </div>
 
@@ -589,24 +590,18 @@ Step 2. The `LogicManager` receives this command string and passes it to the `Ad
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
 
-Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The telehandle will be indicated by the `th/` prefix.
+Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. `Telehandle` will be indicated by the `th/` prefix.
 For this scenario, we will be focusing on the `Telehandle`.
 
 Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle()` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 6. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
 
-Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
+Step 7. This results in a `AddCommand` object which is executed by the `LogicManager`.
 
-Step 8. The `Telehandle` is returned from `ParserUtil` to `AddCommandParser`.
+Step 8. The command will communicate with the `Model` to add a person with the inputted `Telehandle`.
 
-Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
-
-Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
-
-Step 11. The command will communicate with the `Model` to add a person with the inputted course.
-
-Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+Step 9. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
 
 
 The following sequence diagram shows how the `Telehandle` works through the `AddCommand`:
@@ -618,9 +613,10 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 :information_source:**Note:**
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component)
 </div>
 
-The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle` as shown in step 1.
+The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle`.
 
 ![TelehandleObjectDiagram](images/TelehandleObjectDiagram.png) 
 
@@ -645,18 +641,22 @@ The Feedback mechanism is facilitated by `FeedbackCommand`.
 
 Given below is an example usage scenario and how the Feedback mechanism works at each step.
 
-Step 1. The user wishes to send a feedback in regard to the app. They execute the `feedback` command: feedback
+Step 1. The user wishes to send a feedback in regard to the app. They execute the `feedback` command.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant command, in this case, 
 `FeedbackCommand`.
 
-Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+Step 4. This results in a `FeedbackCommand` object which is executed by the `LogicManager`.
 
-Step 5. The success message is displayed to the user.
+Step 5. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 6. The `Ui` updates and the `Feedback` popup window appears.
+Step 6. Then the `CommandResult` object will cause the MainWindow#handleFeedback() to be executed. 
+
+Step 7. The `Ui` will be updated, and the success message will be displayed to the user.
+
+Step 8. Lastly, the `Feedback` popup window will appear.
 
 The following sequence diagram shows how the `Feedback` operation works:
 
@@ -805,7 +805,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
 
 
-*{More to be added}*
 
 ### A.3 Use cases
 
@@ -1369,7 +1368,7 @@ The current implementation of the NUSCoursemates allows for duplicate Telegram h
 
    * Implementation Details:
      * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
-     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle);` <br>
+     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle());` <br>
      * Step 3: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated `Name`.
 
 
@@ -1402,13 +1401,16 @@ Currently, when an unrealistically large positive integer is entered as the `IND
      * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
      * Possible Error Message (in Step 3):
          `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
-   
-5. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+
+### C.5 Incorporate courses from Special Terms 1 and 2 into NUSCourseMates
+Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
-We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
-The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
+  * We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this 
+  list of courses, which includes ST courses, from the NUSMods API.
+  * The `CourseUtil` class would be need to be populated with new courses on a regular basis. To make this more 
+    extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 ### C.6 Customising the sort functions
 While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 
