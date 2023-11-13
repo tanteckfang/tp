@@ -177,7 +177,7 @@ The add course mechanism is facilitated by `AddCommand`. It extends `Command` wh
 
 Given below is an example usage scenario and how the add mechanism behaves at each step focusing on the `Course` field.
 
-Step 1. The user executes `add n/John p/81234567 \n c/CS2103T` to add a new person.
+Step 1. The user executes `add n/John p/81234567 c/CS2103T` to add a new person.
 
 Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
@@ -678,7 +678,7 @@ Given below is an example usage scenario and how the theme mechanism behaves at 
 
 Step 1. The user launches the application for the first time. The current default theme will be a dark theme.
 
-Step 2. The user executes `theme LIGHT` to change the theme from dark to light.
+Step 2. The user executes `theme LIGHT` command to change the theme from dark to light.
 
 Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` 
 object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
@@ -687,7 +687,7 @@ Step 3. This results in a `ThemeCommand` object which is executed by the `LogicM
 
 Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 5. The `CommandResult` object will execute `MainWindow#handleTheme()`. 
+Step 5. The `CommandResult` object will cause `MainWindow#handleTheme()` to be executed. 
 
 Step 6. The UI will then be updated to LIGHT theme.
 

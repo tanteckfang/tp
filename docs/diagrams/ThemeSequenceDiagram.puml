@@ -65,6 +65,8 @@ deactivate ThemeCommand
 LogicManager --> UI : result
 deactivate LogicManager
 
+UI -> UI : handleTheme\n("DARK")
+
 
 [<--UI
 deactivate UI
