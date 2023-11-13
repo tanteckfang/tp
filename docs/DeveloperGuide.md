@@ -425,17 +425,17 @@ There are 3 ways to sort the students in NUSCoursemates:
 
 1. **Sort by Name**
     - Function: Sorts students by name in alphabetical order
-    - Criterion: name, name-ascending, name-descending
+    - Criterion: `name`, `name-ascending`, `name-descending`
     - Example usage: `sort name-ascending`
 
 2. **Sort by Course size**
     - Function: Sorts students by the number of courses taken
-    - Criterion: course, course size-ascending, course size-descending
+    - Criterion: `course`, `course size-ascending`, `course size-descending`
     - Example usage: `sort course size-ascending`
 
 3. **Sort by Tags**
     - Function: Sorts students by their tags
-    - Criterion: tags
+    - Criterion: `tags`
     - Example usage: `sort tags`
 
 Given below is an example usage scenario and how the sort mechanism behaves at each step.
