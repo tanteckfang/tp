@@ -397,8 +397,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 #### 4.5.1 Implementation
 The sort feature sorts the students in the `UniquePersonList` object in `AddressBook` according to a specified sorting criterion.
 
-The sorting mechanism is facilitated by `SortCommandParser` and `SortCommand`. The latter extends the existing `Command` class and overrides the following method: 
-* `Command#execute()`: Executes the command and returns the result message 
+The sorting mechanism is facilitated by `SortCommandParser` and `SortCommand`. The latter extends the existing `Command` class and implements the following method: 
+* `SortCommand#execute()`: Executes the sort command and returns the result message 
 
 After the user specifies the sorting criterion, the corresponding subclass of `PersonSorter` will be instantiated. There are different `PersonSorter` objects that each sorts differently. The `PersonSorter` object, which implements the Comparable interface, directly sorts the `UniquePersonList` object in `AddressBook`.
 
