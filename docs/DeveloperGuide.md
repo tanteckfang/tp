@@ -1488,7 +1488,7 @@ While there are various sort features implemented for users to sort NUSCoursemat
     * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
 
 
-### C.7 Customising the sort functions
+### C.7 Updating Telehandle's requirement
 The current `telehandle` requirements does not align to the real requirements of the `telehandles` for Telegram.
 * Proposed Enhancement:
   We aim to adhere to Telegram's telehandle requirements, which include constraints such as not starting with a number or underscore, not ending with an underscore, and limiting the use of more than one underscore.
