@@ -209,7 +209,7 @@ In this section, let us explore the components that constitute a command in **NU
 | Component    | Example    | Description                                                                                                                                                     |
 |--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command word | `add`      | Specifies the task to be performed                                                                                                                              |
-| Prefix       | `n/`       | Indicates the field to be edited (e.g. name)                                                                                                                    |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
 | Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
 
 Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features---managing-student-profiles) section below.
@@ -414,7 +414,7 @@ Picture this: your best friend has changed his phone number, and you want to ens
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
 [c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
-* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student. It must only range from 1 to [MAX_INT](#glossary).
 
 | Field             | Requirement | Description                               |
 |-------------------|-------------|-------------------------------------------|
@@ -488,7 +488,7 @@ In your journey with NUSCoursemates, you may find it necessary to part ways with
 
 Format: `delete INDEX`
 
-* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student. It must only range from 1 to [MAX_INT](#glossary).
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in NUSCoursemates.
@@ -885,6 +885,7 @@ Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
 | Integer                   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
 | JAR                       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
 | JSON                      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
+| MAX_INT                   | **Integer.MAX_VALUE (MAX_INT):** Represents the maximum positive integer value that can be represented in Java (i.e., 2147483647).                                                                                                                                                                     |
 | Parameter                 | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customise the behavior of the function or command.                                                                                            |
 | Prefix                    | **Prefix:** The initial letter followed by a slash ("/"), indicating specific operations like "n/" for name, "p/" for phone number, "e/" for email, etc.                                                                                                                                               |
 | Unsigned Positive Integer | **Unsigned Positive Integer:** An integer without the positive or negative sign. e.g. 1, 2, 3, 4                                                                                                                                                                                                       |
