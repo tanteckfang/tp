@@ -7,13 +7,10 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FindCourseCommandParser" as FindCourseCommandParser LOGIC_COLOR
 participant "fc:FindCourseCommand" as FindCourseCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant ":CourseContainsKeywordsPredicate" as CoursePredicate MODEL_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-box Model MODEL_COLOR_T1
-participant ":Model" as Model MODEL_COLOR
-participant ":CourseContainsKeywordsPredicate" as CoursePredicate MODEL_COLOR
-end box
 
 [-> LogicManager : execute("findcourse MA2001")
 activate LogicManager
@@ -32,7 +29,7 @@ AddressBookParser -> FindCourseCommandParser : parse("MA2001")
 activate FindCourseCommandParser
 
 create CoursePredicate
-FindCourseCommandParser -> CoursePredicate : "MA2001"
+FindCourseCommandParser -> CoursePredicate : CourseContainsKeywordsPredicate("MA2001")
 activate CoursePredicate
 
 CoursePredicate --> FindCourseCommandParser
@@ -63,22 +60,17 @@ activate CoursePredicate
 CoursePredicate --> FindCourseCommand
 deactivate CoursePredicate
 
-FindCourseCommand -> Model : updateFilteredPersonList(predicate)
-activate Model
-
-Model --> FindCourseCommand
-deactivate Model
 
 create CommandResult
 FindCourseCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> FindCourseCommand
+CommandResult --> FindCourseCommand :result
 deactivate CommandResult
 
 FindCourseCommand --> LogicManager : result
 deactivate FindCourseCommand
 
-[<--LogicManager
+[<--LogicManager :result
 deactivate LogicManager
 @enduml
