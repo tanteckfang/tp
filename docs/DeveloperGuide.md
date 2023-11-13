@@ -1487,17 +1487,22 @@ While there are various sort features implemented for users to sort NUSCoursemat
     * Step 3: The command is parsed, and a priority is attached to each tag. 
     * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
 
+### C.7 Updating Telehandle's requirement
+The current `telehandle` requirements do not align with the real requirements of the `telehandle` for Telegram.
+* Proposed Enhancement:
+  We aim to adhere to Telegram's telehandle requirements, which include constraints such as not starting with a number or underscore, not ending with an underscore, and limiting the use of more than one underscore.
+* Implementation Details:
+    * Make changes to the regex pattern in the `Telehandle` class.
 
 ### C.8 Improving error messages
 Currently, the error messages returned for commands such as `add` and `edit` are not comprehensive enough. When users enter multiple invalid fields for these long commands, the error message returned suggests one incorrect field among the many multiple invalid fields that may be present.
 * Proposed Enhancement:
-Instead of displaying an error message that shows the first error in the user input, we plan to combine all the errors found in the user input into one single error message. Afterwards, this error message will be displayed to the user.
+  Instead of displaying an error message that shows the first error in the user input, we plan to combine all the errors found in the user input into one single error message. Afterwards, this error message will be displayed to the user.
 * Implementation Details:
-  * Step 1: The user input is deconstructed into various fields. 
+  * Step 1: The user input is deconstructed into various fields.
   * Step 2: The fields are parsed. If an error is thrown while parsing the field, the error message will be stored.
-  * Step 3: When there are multiple errors, the respective error messages will be appended into one long error message. 
-  * Step 4: An exception is thrown, and this error message (consisting of multiple smaller errors) is displayed to the user. 
-
+  * Step 3: When there are multiple errors, the respective error messages will be appended into one long error message.
+  * Step 4: An exception is thrown, and this error message (consisting of multiple smaller errors) is displayed to the user.
 
 ### C.9 Finding tags
 The current feature set includes search capabilities with `findstudent` and `findcourse`, 
