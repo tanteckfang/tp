@@ -698,7 +698,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 #### 4.9.1 Implementation
 
-The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` which overrides the following operation:
+The change theme mechanism is facilitated by `ThemeCommand`. It extends `Command` which implements the following operation:
 * `ThemeCommand#execute():` Changes the Theme of NUSCoursemates
 
 Given below is an example usage scenario and how the theme mechanism behaves at each step.
