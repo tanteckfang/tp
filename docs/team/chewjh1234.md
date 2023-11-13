@@ -3,22 +3,22 @@ layout: page
 title: Chew Jing Heng's Project Portfolio Page
 ---
 
-## Project: NUSCourseMates
+## Project: NUSCoursemates
 
 ### Overview
-NUSCourseMates is a desktop address book application used for keeping track of the courses your contacts are taking. 
+NUSCoursemates is a desktop address book application used for keeping track of the courses your contacts are taking. 
 The user interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX. 
-It is written in Java, and has about 19 kLoC.
+It is written in Java, and has about 20 kLoC.
 
 ### Summary of Contributions
-Given below are my contributions to the project.
-[Full contribution on RepoSense](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=chewjh1234&breakdown=true)
+Given below are my contributions to the project
+[on RepoSense](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=chewjh1234&breakdown=true).
   
 #### New Feature - Sort by Name
 * **What it does:** Allows users of the application to sort the student contacts by name. 
 * **Justification:** Before this feature was implemented, new contacts were added to the bottom of NUSCoursemates which meant that it could get messy very easily. With this feature, contacts are sorted by name in alphabetical order (aAbBcC...zZ), and it will take the user much less time to search for a contact by name, thereby improving user experience. 
 * **Highlights:** The user is also able to specify whether the contacts are to be sorted in an **ascending** or a **descending** alphabetical order with the `sort name-ascending` and `sort name-descending` commands respectively. 
-* **Credits:** Referenced Stack Overflow [forum](https://stackoverflow.com/questions/57277475/sort-results-in-ascending-return-in-the-form-a-a-b-b-in-java) for case-insensitive Comparator. 
+* **Credits:** Referenced Stack Overflow [forum](https://stackoverflow.com/questions/57277475/sort-results-in-ascending-return-in-the-form-a-a-b-b-in-java) for case-insensitive comparator. 
 
 #### New Feature - Sort by Course
 * **What it does:** Allows users of the application to sort the student contacts by the number of courses taken. 
@@ -39,16 +39,15 @@ Given below are my contributions to the project.
 #### Documentation
 * User Guide
   * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#sorting-by-tags-sort-tags). 
-  * Added the [Command Line Interface (CLI) tutorial](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#using-the-command-line-interface-cli) to enable users to use the CLI efficiently. 
-  * Added the [Command Format section](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#command-format)
+  * Added the [Command Line Interface (CLI) tutorial](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#using-the-command-line-interface-cli), [Command Format section](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#command-format).
+  * Modified [Introduction](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#introduction), [Quick Start](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#quick-start) and [FAQ](https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html#faq).
 * Developer's Guide
-  * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#45-sort-feature). 
-  * Added UML diagrams (Activity diagram, Sequence diagram) for the various sort features.
+  * Added documentation for the various [sort features](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#45-sort-feature) including UML diagrams (Activity diagram, Sequence diagram).
   * Added [Manual Testing](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#appendix-b-instructions-for-manual-testing). 
-  * Modify [Product Scope](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#a1-product-scope), [Use Cases](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#a3-use-cases), [Planned Enhancements](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#appendix-c-planned-enhancements). 
+  * Modified [Product Scope](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#a1-product-scope), [Use Cases](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#a3-use-cases), [Planned Enhancements](https://ay2324s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html#appendix-c-planned-enhancements). 
 
 #### Review/mentoring contributions
-* I did some [pull request reviews](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Achewjh1234) in the project. 
-* Some critical bugs were found when reviewing the pull requests of others. For example, I found a [bug](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863) which incorrectly prevented contacts from being added.
-* Some notable PR reviews: [#57](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/57#pullrequestreview-1642578187), [#106](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/106#pullrequestreview-1685497544), [#107](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863), [#132](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/132#pullrequestreview-1697943613).   
-* In addition, bugs for another group's project were also found during the Practical Examination dry run.
+* Reviewed [27](https://github.com/AY2324S1-CS2103T-T17-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Achewjh1234) pull requests.
+* Some critical bugs were found when reviewing pull requests. For example, I found a [bug](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863) which incorrectly prevented contacts from being added.
+* Some notable PR reviews: [#57](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/57#pullrequestreview-1642578187), [#106](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/106#pullrequestreview-1685497544), [#107](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/107#pullrequestreview-1691405863), [#132](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/132#pullrequestreview-1697943613), [#288](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/288#pullrequestreview-1727318899).
+* In addition, [bugs](https://github.com/chewjh1234/ped) for another group's project were also found during the Practical Examination dry run.
