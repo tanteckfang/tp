@@ -175,34 +175,22 @@ This section describes some noteworthy details on how certain features are imple
 The add course mechanism is facilitated by `AddCommand`. It extends `Command` which overrides the following operation:
 * `AddCommand#execute():` Adds a person into NUSCoursemates
 
-Given below is an example usage scenario and how the add mechanism behaves at each step.
+Given below is an example usage scenario and how the add mechanism behaves at each step focusing on the `Course` field.
 
-Step 1. The user will input the add command along with the person's name and the course that the person is taking.
+Step 1. The user executes `add n/John p/81234567 \n c/CS2103T` to add a new person.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
+Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `AddCommandParser` object.
 
-Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The course will be indicated by the `c/` prefix.
-For this scenario, we will be focusing on the `Course`.
+Step 3. The parser `AddCommandParser` will then parse the command and create objects for each field. The course will be indicated by the `c/` prefix.
 
-Step 4. The `parseCourses()` method in `ParserUtil` is invoked within `AddCommandParser`, where the `Course` field can accept multiple inputs. Each input is individually parsed using the `parseCourse()` method.
+Step 4. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
 
-Step 5. During the `parseCourse()` method, the validity of the course string is verified by checking with the `CourseUtil#contains()` method to ensure it is a valid input.
+Step 5. This results in a `AddCommand` object which is executed by the `LogicManager`.
 
-Step 6. After parsing each course input, a `Course` object is constructed.
+Step 6. The command will communicate with the `Model` to add a person. 
 
-Step 7. The constructed `Course` object is returned to `ParserUtil`. It is then combined with other `Course` inputs into a `Set<Course>`.
+Step 7. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `LogicManager`.
 
-Step 8. The `Set<Course>` is returned from `ParserUtil` to `AddCommandParser`.
-
-Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
-
-Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
-
-Step 11. The command will communicate with the `Model` to add a person with the inputted course. 
-
-Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
-
-For example, let's say the user inputs `add n/John p/81234567 c/CS2103T`.
 The following sequence diagram shows how the add operation works:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
@@ -211,6 +199,7 @@ The following sequence diagram shows how the add operation works:
 :information_source: **Note:** 
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component) 
 </div>
 
 The following activity diagram shows how the add operation works:
@@ -687,19 +676,20 @@ The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` 
 
 Given below is an example usage scenario and how the theme mechanism behaves at each step.
 
-Step 1. The user will input the theme command along with the desired THEME (Light or Dark).
+Step 1. The user launches the application for the first time. The current default theme will be a dark theme.
 
-Step 2. When `Logic` is called upon to execute the command, it will pass it to an `AddressBookParser` object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
+Step 2. The user executes `theme LIGHT` to change the theme from dark to light.
+
+Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` 
+object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
 
 Step 3. This results in a `ThemeCommand` object which is executed by the `LogicManager`.
 
-Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 5. The `CommandResult` object will have either `isLight` or `isDark` to be set as `true`. 
+Step 5. The `CommandResult` object will execute `MainWindow#handleTheme()`. 
 
-Step 6. The `CommandResult` object will be executed which calls the `handleTheme` method in `MainWindow`.
-
-Step 7. The UI will then be updated accordingly to either DARK or LIGHT theme.
+Step 6. The UI will then be updated to LIGHT theme.
 
 The following sequence diagram shows how the theme operation works:
 
