@@ -37,7 +37,7 @@ repeat
         :Invalid command;
         stop
     endif
-repeat while (more courses?) is (yes)
-->no;
+repeat while () is ([more courses?])
+->[else];
 stop
 @enduml

@@ -9,11 +9,11 @@ participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
 participant ":ParserUtil" as ParserUtil LOGIC_COLOR
 participant "e:EditCommand" as EditCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
+participant "editedPerson:Person" as EditedPerson MODEL_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant "editedPerson:Person" as EditedPerson MODEL_COLOR
 end box
 [-> LogicManager : execute("edit 2 c/MA2001-MA1521")
 activate LogicManager
@@ -53,7 +53,7 @@ return
 
 create CommandResult
 EditCommand -> CommandResult++
-return
+return r
 
 return r
 
