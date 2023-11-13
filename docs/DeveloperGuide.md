@@ -111,7 +111,11 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">
+
+:information_source:**Note:**
+* The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+
 </div>
 
 How the `Logic` component works:
@@ -142,7 +146,10 @@ The `Model` component,
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
 
@@ -245,7 +252,12 @@ The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for EditCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* The lifeline for EditCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
+
+</div>
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
@@ -303,7 +315,10 @@ The following sequence diagram shows how the `findcourse` operation works:
 
 ![FindcourseSequenceDiagram](images/FindcourseSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
@@ -362,8 +377,10 @@ The following sequence diagram shows how the `findstudent` operation works:
 
 ![FindstudentSequenceDiagram](images/FindStudentSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** 
-The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
+* The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
@@ -517,7 +534,9 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:** 
 * For simplicity in the diagrams, all interactions with different components of the Logic are represented under a single 'Logic' participant.
 
 </div>
