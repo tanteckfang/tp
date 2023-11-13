@@ -41,6 +41,8 @@ public class PersonNameAscendingSorter extends PersonSorter {
                 .compare(person1Name, person2Name);
 
         // Case-insensitive sort determines that both strings are equal
+        // Solution below adapted from
+        // https://stackoverflow.com/questions/57277475/sort-results-in-ascending-return-in-the-form-a-a-b-b-in-java
         if (compareInsensitive == 0) {
             for (int i = 0; i < Math.min(person1NameLength, person2NameLength); i++) {
                 // Compare each character in the string until a difference in character is found.
