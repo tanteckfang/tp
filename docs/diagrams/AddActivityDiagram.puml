@@ -4,13 +4,12 @@ skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 start
 :User inputs add command;
-:Parse input into fields for person;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
-if () then ([input is valid])
-    :Validates fields;
+if () then ([command format is valid])
+    :Parses and validates input into fields for person;
 
     if () then ([fields are valid])
     :Constructs Person object;
@@ -27,7 +26,7 @@ if () then ([input is valid])
     :Display invalid \nfield error message;
     endif
 else ([else])
-:Display invalid \ninput error message;
+:Display invalid \ncommand format error message;
 
 
 
