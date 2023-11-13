@@ -294,16 +294,16 @@ Given below is an example usage scenario and how the findcourse mechanism behave
 Step 1. The user wants to filter the list of persons to show only those enrolled in the course "MA2001". They execute the command "findcourse MA2001".
 
 
-Step 2. The LogicManager receives this command string and passes it to the AddressBookParser.
+Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 
-Step 3. The AddressBookParser identifies the type of command and invokes the FindCourseCommandParser to parse the course keyword.
+Step 3. The `AddressBookParser` identifies the type of command and invokes the `FindCourseCommandParser` to parse the course keyword.
 
 
-Step 4. The FindCourseCommandParser creates a CourseContainsKeywordsPredicate object with the keyword "MA2001" and then creates a FindCourseCommand object with this predicate.
+Step 4. The `FindCourseCommandParser` creates a `CourseContainsKeywordsPredicate` object with the keyword "MA2001" and then creates a `FindCourseCommand` object with this predicate.
 
 
-Step 5. The FindCourseCommand is executed, and it uses the predicate to filter the list of persons in the model. The filtered list in the model is updated to only show persons enrolled in "MA2001".
+Step 5. The `FindCourseCommand` is executed, and it uses the predicate to filter the list of persons in the model. The filtered list in the model is updated to only show persons enrolled in "MA2001".
 
 
 Step 6. The result, which is the number of persons listed, is then shown to the user.
@@ -319,7 +319,7 @@ The following sequence diagram shows how the `findcourse` operation works:
 
 The following activity diagram summarizes what happens when a user executes a new `findcourse` command:
 
-<img src="images/FindcourseActivityDiagram.png" width="250" />
+![FindcourseActivityDiagram](images/FindcourseActivityDiagram.png)
 
 #### 4.3.2 Design considerations:
 
@@ -356,7 +356,7 @@ The following operations are central to this feature:
 
 Outlined below is an example usage scenario and how the `findstudent` mechanism functions at each stage.
 
-Step 1. The user aims to filter the list of persons to display only those whose names include "Alice" or "Bob". They input the command "findstudent Alice Bob".
+Step 1. The user aims to filter the list of persons to display only those whose names include "Alice" or "Bob". They input the command "findstudent alice bob".
 
 Step 2. The `LogicManager` obtains this command string and forwards it to the `AddressBookParser`.
 
@@ -370,15 +370,15 @@ Step 6. The outcome, which indicates the number of persons found, is presented t
 
 The following sequence diagram shows how the `findstudent` operation works:
 
-![FindcourseSequenceDiagram](images/FindStudentSequenceDiagram.png)
+![FindstudentSequenceDiagram](images/FindStudentSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
+<div markdown="span" class="alert alert-info">:information_source: **Note:** 
+The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
 
-<img src="images/FindstudentActivityDiagram.png" width="250" />
+![FindstudentActivityDiagram](images/FindstudentActivityDiagram.png)
 
 #### 4.4.2 Design considerations:
 
@@ -449,13 +449,20 @@ Step 7. The `SortCommand` object is then executed by the `LogicManager`.
 
 Step 8. As a result, the `SortCommand` object will call `Model#sortPersonList()` with the `PersonNameAscendingSorter` object created in the earlier steps.  
 
+The following UML Sequence diagram shows what happens when `sort name` is entered as an input up to this step.
+
+![SortSequenceDiagram1](images/SortSequenceDiagram1.png) 
+
 Step 9. Afterwards, `AddressBook#sortPersonList()` is called with the same `PersonNameAscendingSorter` object.
 
-Step 10. Finally, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
+Step 10. Consequently, `UniquePersonList#sortPersons()` is called with the `PersonNameAscendingSorter` object that sorts the list. As a result, we get a list that is sorted according to the specified sort criterion. 
 
-The following UML Sequence diagram shows what happens when `sort name` is entered as an input. 
+The following UML Sequence diagram shows what happens within the `Model` component. 
 
-![SortSequenceDiagram](images/SortSequenceDiagram.png) 
+![SortSequenceDiagram2](images/SortSequenceDiagram2.png)  
+
+Step 11. Finally, after the sorting process is successful, the result of the `sort` command execution is encapsulated as a CommandResult object which is returned back from Logic.
+
 
 <div markdown="block" class="alert alert-info">
 
@@ -497,7 +504,7 @@ The Tag feature is facilitated by the `Tag` class, which contains an attribute `
 
 Given below is an example usage scenario and how the Tag mechanism behaves at each step.
 
-Step 1. The user wishes to add a new contact with a tag "Emergency". They execute the `add` command: add n/John Doe p/98765432 t/Emergency.
+Step 1. The user wishes to add a new contact with a tag "Emergency". They execute the `add` command: add n/John Doe p/12345678 t/Emergency.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
@@ -520,7 +527,8 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:**  
+* For simplicity in the diagrams, all interactions with different components of the Logic are represented under a single 'Logic' participant.
 
 </div>
 
@@ -528,7 +536,7 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 The following activity diagram summarizes what happens when a user executes a new `add` command; the `edit` command will be similar:
 
-![TagSequenceDiagram](images/TagActivityDiagram.png)
+![TagActivityDiagram](images/TagActivityDiagram.png)
 
 #### 4.6.2 Design considerations:
 
@@ -797,7 +805,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
  | `* `     | SoC Student                           | set my friend as an emergency contact                                                       | call the person if I face any serious issue                                                  |
 
 
-*{More to be added}*
 
 ### A.3 Use cases
 
@@ -970,7 +977,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the theme dark command.
+1. User request to change the theme to dark.
 2. GUI of the NUSCoursemates changes from light to dark theme.
 
     Use case ends.
@@ -991,7 +998,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the exit command.
+1. User request to exit the program.
+
 2. NUSCoursemates exits the program.
 
    Use case ends.
@@ -1001,10 +1009,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. The given command is invalid.
     * 1a1. NUSCoursemates shows an error message.
   
-        Use case ends.
+      Use case ends.
 
 
-**Use Case: UC12 - Sorting NUSCoursemates**
+**Use Case: UC13 - Sorting NUSCoursemates**
 
 **MSS**
 
@@ -1125,7 +1133,7 @@ Given below are instructions to test the app manually.
    1. **Test case:** `add n/Bobby Lim` <br>
       **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
    2. **Test case:** `add n/` <br>
-   **Expected Outcome:** The command entered is now highlighted in red. An error message is shown, stating that the command format is invalid. The command format and an example is also shown in the error message.
+   **Expected Outcome:** Same as previous.
 
 
 5. Adding a student with an invalid field:
@@ -1339,12 +1347,17 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ## **Appendix C: Planned Enhancements**
 
-1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
+### C.1 Allow Duplicate Student Names
+The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This limitation can be problematic as it does not reflect real-world scenarios where multiple students might have identical names, hindering the user's ability to accurately manage their contacts in such cases.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their NUSCoursemates. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
+     * To improve user experience and reflect real-world scenarios more accurately, we propose an enhancement to the NUSCoursemates feature that will allow the addition of multiple students with the same name. This change will eliminate the current restriction on duplicate names, ensuring users can manage their contacts more effectively, even in cases of identical names.
+   
+   
    * Implementation Details:
-   The planned enhancement involves modifying the NUSCoursemates feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
-
+     * Step 1: Modify the `isSamePerson` method in `Person.java` to no longer consider identical names as a criteria for duplicate entries.
+     * Step 2: Adjust the logic in `UniquePersonList#setPerson()` to allow the addition of persons with duplicate names, removing the current check that prevents this.
+     * Step 3: Update relevant documentation and user guides to reflect the new capability of handling duplicate names in the NUSCoursemates, ensuring users are aware of this change and can use it effectively.
+   
 
 ### C.2 Do not allow duplicate Telehandles   
 
@@ -1388,13 +1401,16 @@ Currently, when an unrealistically large positive integer is entered as the `IND
      * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
      * Possible Error Message (in Step 3):
          `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
-   
-5. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+
+### C.5 Incorporate courses from Special Terms 1 and 2 into NUSCourseMates
+Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
-We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this list of courses, which includes ST courses, from the NUSMods API.
-The `CourseUtils` class would be need to be populated with new courses on a regular basis. To make this more extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
+  * We plan to update the list of valid courses throughout the semester by regularly and periodically fetching this 
+  list of courses, which includes ST courses, from the NUSMods API.
+  * The `CourseUtil` class would be need to be populated with new courses on a regular basis. To make this more 
+    extensible and remove the need for hardcoded values, we would need to configure the app to fetch data from the NUSModsAPI instead, which is out of the scope of this course.
 
 ### C.6 Customising the sort functions
 While there are various sort features implemented for users to sort NUSCoursemates, these sort features are fully pre-determined by us. Therefore, users may not be able to sort NUSCoursemates in a way they prefer. For example, for `sort tags`, students tagged as 'Close Friend' are arranged before students tagged as 'Friend' and 'Emergency'. Users are currently not able to customise this feature by changing the order. 
