@@ -698,7 +698,7 @@ The following activity diagram summarizes what happens when a user executes the 
 
 #### 4.9.1 Implementation
 
-The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` which overrides the following operation:
+The change theme mechanism is facilitated by `ThemeCommand`. It extends `Command` which implements the following operation:
 * `ThemeCommand#execute():` Changes the Theme of NUSCoursemates
 
 Given below is an example usage scenario and how the theme mechanism behaves at each step.
@@ -743,12 +743,12 @@ The following activity diagram summarizes what happens when a user executes the 
 
     * Cons: Learning Curve. Users unfamiliar with CLI commands may face a learning curve.
 
-* **Alternative 2:** Menu Bar Button
+* **Alternative 2:** Menu Bar Button.
     * Pros: Intuitiveness. A graphical button on the menu bar may be more intuitive for users who prefer visual interactions.
 
     * Cons: Inconsistency. May deviate from the overall CLI theme of the application.
 
-* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button
+* **Alternative 3 (current choice):** Hybrid Approach - CLI Command and Graphical Button.
     * Pros: Flexibility. Providing both options caters to a wider audience, accommodating users with different preferences.
     * Pros: User Preference. Users can choose their preferred method of interaction, enhancing the overall user experience. 
     * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
@@ -1511,8 +1511,7 @@ based on specific tags. This enhancement proposes the addition of the `findtag` 
 users with a more comprehensive search experience.
 
 * Proposed Enhancement:
-  We plan to allow users to be able to `findtag ` so that they can easily find their list of `
-Close Friend`, `Friend` or `Emergency`.
+  We plan to allow users to be able to `findtag` so that they can easily find their list of `Close Friend`, `Friend` or `Emergency`.
 * Implementation Details:
   * Step 1: Update `AddressBookParser` to recognise and route the `findtag` command.
   * Step 2: Introduce `FindTagCommandParser` for extracting tag keywords from user input.
