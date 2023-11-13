@@ -378,7 +378,7 @@ The lifeline for FindCommandParser should end at the destroy marker (X) but due 
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
 
-![FindstudentActivityDiagram](images/FindStudentActivityDiagram.png)
+![FindstudentActivityDiagram](images/FindstudentActivityDiagram.png)
 
 #### 4.4.2 Design considerations:
 
