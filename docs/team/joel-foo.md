@@ -34,7 +34,7 @@ Given below are my contributions to the project.
 
 * **Project management**:
   * Set up the Github team org and repo
-  * Created and managed all the project milestones on Github, ensuring that the deadlines were adhered to
+  * Created and managed all the project milestones on Github
   * Set up codecov for the repo and updated the project `README.md`
   * Managed releases `v1.3` and `v1.3trial`
 

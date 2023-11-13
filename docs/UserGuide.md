@@ -22,7 +22,7 @@ Are you a SoC student looking to build new and meaningful connections with other
 
 With this desktop application, you can easily  
 * **add** their contacts into your own NUSCoursemates application
-* **find** students saved in NUSCoursemates for their names or the courses they are enrolled
+* **find** students saved in NUSCoursemates for their names or the courses they are enrolled in
 * **sort** these contacts
 * and do **much more**!
 
@@ -76,7 +76,7 @@ In NUSCoursemates, we've designed our user interface with your convenience and e
 
 | No  | Component          | Description                                                                                                                                           |
 |-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light modes, and other miscellaneous features.                      |
 | 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
 | 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
 | 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
@@ -88,12 +88,12 @@ In NUSCoursemates, we've designed our user interface with your convenience and e
 
 The Menu Bar is your command center, offering access to a variety of functions, including the ability to switch between dark and light modes, and other useful features.
 
-| Menu Item | Description                                                             |
-|-----------|-------------------------------------------------------------------------|
-| File      | Exit the application to close it.                                       |
-| Theme     | Choose between Light or Dark mode for your preferred look.              |
-| Feedback  | Share your thoughts and suggestions with us through the feedback link.  |
-| Help      | Access the User Guide to get assistance and answers to your questions.  |
+| Menu Item | Description                                                            |
+|-----------|------------------------------------------------------------------------|
+| File      | Exit the application to close it.                                      |
+| Theme     | Choose either Light or Dark mode for your preferred look.              |
+| Feedback  | Share your thoughts and suggestions with us through the feedback link. |
+| Help      | Access the User Guide to get assistance and answers to your questions. |
 
 ### 2. Command Box
 <img src="images/CommandBox.png" alt="CommandBox"/>
@@ -112,6 +112,7 @@ The Command Result section is your information hub. Here, you'll find the outcom
 The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
 
 You will be able to view each student's details such as:
+* Name
 * Phone number
 * Address
 * Telehandle
@@ -130,14 +131,14 @@ You will be able to view each student's details such as:
 
 The Course List Panel is your academic overview. It presents a summary of all the courses in your NUSCoursemates, along with the total number of students in each course. It's your academic compass.
 
-e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
+e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates who take MA2001.
 
 ### 6. Tag List Panel
 <img src="images/TagListPanel.png" alt="TagListPanel" width="400"/>
 
 The Tag List Panel allows you to personalise your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorise and manage your contacts with ease.
 
-e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
+e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have the "Friend" tag.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -242,7 +243,7 @@ For example (with reference to the `add` command above):
 
 
 ### Input Table
-Moreover, you should also take note of the specific requirements for each field as outlined by the table below.
+Moreover, you should also take note of the specific requirements for each [field](#glossary) as outlined by the table below.
 
 | Field        | Valid Input(s)                                  | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                        |
 |--------------|-------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -365,7 +366,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 |------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | n/NAME           | Compulsory  | Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!                                                        |
 | p/PHONE_NUMBER   | Compulsory  | Stay connected with your local and overseas friends whose phone numbers may be of different lengths. Furthermore, the use of shared phone numbers is permissible, recognising that home numbers may be used. |
-| e/EMAIL          | Optional    | Ensure effortless digital connections using their email addresses; additionally, the use of shared email accounts is permissible, recognising that numerous friends collaborate on group projects.           |
+| e/EMAIL          | Optional    | Ensure effortless digital connections using their email addresses. Additionally, the use of shared email accounts is permissible, recognising that numerous friends can collaborate on group projects.       |
 | a/ADDRESS        | Optional    | Specify their physical address, ideal for planning meetups.                                                                                                                                                  |
 | th/TELEHANDLE    | Optional    | Provide their telehandle, ensuring quick and easy communication.                                                                                                                                             |
 | t/TAG            | Optional    | Categorise your friend with relevant tags, simplifying your contact management.                                                                                                                              |
@@ -380,7 +381,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 
 Examples:
-* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/cf c/CS1231S c/CS2103T`
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/John Doe 2 p/5136850137`
 
@@ -415,7 +416,7 @@ Picture this: your best friend has changed his phone number, and you want to ens
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]…​ [c/add-COURSE_TO_ADD]…​ 
 [c/del-COURSE_TO_DELETE]…​ [c/ORIGINAL_COURSE-NEW_COURSE]…​`
 
-* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student. It must only range from 1 to [MAX_INT](#glossary).
 
 | Field             | Requirement | Description                               |
 |-------------------|-------------|-------------------------------------------|
@@ -489,11 +490,11 @@ In your journey with NUSCoursemates, you may find it necessary to part ways with
 
 Format: `delete INDEX`
 
-* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student.
+* `INDEX`: [Unsigned positive integer](#glossary) that denotes the position of the student. It must only range from 1 to [MAX_INT](#glossary).
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in NUSCoursemates.
-* `findstudent Betsy` followed by `delete 1` deletes the 1st student in the results of the `findstudent` command.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st student from the results of the `findstudent` command.
 
 ![delete student](images/deleteFeature.png)
 
@@ -745,7 +746,7 @@ But before you go, let's talk about a few extra features that can make your NUSC
 > "Ignorance has always been the weapon of tyrants; enlightenment the salvation of the free."
 > — Bill Richardson
 
-Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
+Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located in the Menu bar. It is as simple as that.
 
 Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
@@ -821,7 +822,7 @@ Format: `exit`
 
 ### Saving the data
 
-NUSCoursemates data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+NUSCoursemates data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -886,6 +887,7 @@ Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
 | Integer                   | **Integer:** In computer programming, an integer is a whole number without a fractional or decimal component. Integers are used to represent whole quantities in mathematics and computer science. They can be positive, negative, or zero.                                                            |
 | JAR                       | **JAR (Java ARchive):** A file format used for aggregating multiple files (typically Java class files, metadata, and resources) into a single compressed archive. JAR files are commonly used to package and distribute Java applications or libraries.                                                |
 | JSON                      | **JSON (JavaScript Object Notation):** A lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is commonly used for data storage and exchange in web applications. It consists of key-value pairs enclosed in curly braces. |
+| MAX_INT                   | **Integer.MAX_VALUE (MAX_INT):** Represents the maximum positive integer value that can be represented in Java (i.e., 2147483647).                                                                                                                                                                     |
 | Parameter                 | **Parameter:** In the context of software, a parameter is a variable or value that is passed into a function, method, or command. Parameters are used to customise the behavior of the function or command.                                                                                            |
 | Prefix                    | **Prefix:** The initial letter followed by a slash ("/"), indicating specific operations like "n/" for name, "p/" for phone number, "e/" for email, etc.                                                                                                                                               |
 | Unsigned Positive Integer | **Unsigned Positive Integer:** An integer without the positive or negative sign. e.g. 1, 2, 3, 4                                                                                                                                                                                                       |
