@@ -36,11 +36,12 @@ Given below are my contributions to the project.
 
 * **Documentation**:
     * User Guide:
-        * Added documentation for the features `findcourse` and `findstudent`.
+        * Added documentation for the features `findcourse` and `findstudent`. Pull Request([#138](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/138/files))
         * Added some specification for the changes in `Tag`.
     * Developer Guide:
-        * Added documentation for the features `findcourse`, `findstudent`, added activity diagram and sequence diagram for both of these features.
+        * Added documentation for the features `findcourse`, `findstudent`, added activity diagram and sequence diagram for both of these features. Pull Request([#123](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/123/file),[#148](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/148/files))
         * Added documentation for the feature `Tag`, added activity diagram, sequence diagram and class diagram for it.
+        * Added NFRs. Pull Request([#89](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/89/files))
 
 * **Community** :
     * PRs reviewed: [#124](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/124),[#149](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/149), [#232](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/232)
