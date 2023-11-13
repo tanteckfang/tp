@@ -65,7 +65,7 @@ deactivate ThemeCommand
 LogicManager --> MainWindow : result
 deactivate LogicManager
 
-MainWindow --> MainWindow : handleTheme\n("DARK")
+MainWindow -> MainWindow : handleTheme\n("DARK")
 
 [<--MainWindow
 deactivate MainWindow

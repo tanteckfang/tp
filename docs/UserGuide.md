@@ -359,15 +359,15 @@ With the `add` command, you can include a variety of details to create a compreh
 
 Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]… [c/COURSE]…​`
 
-| Field            | Requirement | Description                                                                                                                                           |
-|------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| n/NAME           | Compulsory  | Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so! |
-| p/PHONE_NUMBER   | Compulsory  | Stay connected with your local and overseas friends whose phone numbers may be of different lengths.                                                  |
-| e/EMAIL          | Optional    | Make digital connections seamless with their email address.                                                                                           |
-| a/ADDRESS        | Optional    | Specify their physical address, ideal for planning meetups.                                                                                           |
-| th/TELEHANDLE    | Optional    | Provide their telehandle, ensuring quick and easy communication.                                                                                      |
-| t/TAG            | Optional    | Categorise your friend with relevant tags, simplifying your contact management.                                                                       |
-| c/COURSE         | Optional    | Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.                                             |
+| Field            | Requirement | Description                                                                                                                                                                                                  |
+|------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| n/NAME           | Compulsory  | Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!                                                        |
+| p/PHONE_NUMBER   | Compulsory  | Stay connected with your local and overseas friends whose phone numbers may be of different lengths. Furthermore, the use of shared phone numbers is permissible, recognising that home numbers may be used. |
+| e/EMAIL          | Optional    | Ensure effortless digital connections using their email addresses; additionally, the use of shared email accounts is permissible, recognising that numerous friends collaborate on group projects.           |
+| a/ADDRESS        | Optional    | Specify their physical address, ideal for planning meetups.                                                                                                                                                  |
+| th/TELEHANDLE    | Optional    | Provide their telehandle, ensuring quick and easy communication.                                                                                                                                             |
+| t/TAG            | Optional    | Categorise your friend with relevant tags, simplifying your contact management.                                                                                                                              |
+| c/COURSE         | Optional    | Associate your friend with the courses they are enrolled in, for easy reference in your academic journey.                                                                                                    |
 
 
 <div markdown="block" class="alert alert-tip">
@@ -576,11 +576,11 @@ NUSCoursemates may get a little disorganised as you add more students. This is w
 
 There are numerous ways you can sort your NUSCoursemates, and these options are summarised here:
 
-| Required Format | Description                                        | Special Notes                                                                                     |
-|-----------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                |
-| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names alphabetically.        |
-| `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the highest importance is taken into account. |
+| Required Format | Description                                        | Special Notes                                                                                      |
+|-----------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `sort name`     | Sorts students by their **names**.                 | Students' names are sorted in alphabetical order (case-sensitive).                                 |
+| `sort course`   | Sorts students by the **number of courses** taken. | Students with the same number of courses taken are arranged by their names alphabetically.         |
+| `sort tags`     | Sort students by their **tags**.                   | If the student has multiple tags, only the tag with the greatest importance is taken into account. |
 
 The details for each `sort` command are specified below. For seasoned users of NUSCoursemates, you can further customise the sorting criteria. Read on to learn more!
 
@@ -666,7 +666,7 @@ The greatest joy in university is, without a doubt, to attend boring classes wit
 
 With the `sort tags` command, NUSCoursemates helps you keep a _close_ track of students tagged as 'Close Friend' by placing them right at the top.
 
-These will be followed by students tagged as 'Friend', and 'Emergency', in that order of decreasing importance.
+These will be followed by students tagged as 'Friend', 'Emergency', and those without tags.
 
 **Format:** `sort tags`
 

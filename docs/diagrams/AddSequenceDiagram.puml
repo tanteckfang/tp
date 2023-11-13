@@ -38,7 +38,7 @@ activate AddCommandParser
 AddCommandParser --> ParserUtil : parseCourses\n("CS2103T")
 activate ParserUtil
 
-ParserUtil --> ParserUtil : parseCourse\n("CS2103T")
+ParserUtil -> ParserUtil : parseCourse\n("CS2103T")
 
 ParserUtil -> CourseClass : isExistingCourseName("CS2103T")
 activate CourseClass
@@ -98,12 +98,12 @@ create CommandResult
 AddCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> AddCommand
+CommandResult --> AddCommand : result
 deactivate CommandResult
 
 AddCommand --> LogicManager : result
 deactivate AddCommand
 
-[<--LogicManager
+[<--LogicManager : result
 deactivate LogicManager
 @enduml
