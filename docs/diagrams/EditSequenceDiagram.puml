@@ -53,7 +53,7 @@ return
 
 create CommandResult
 EditCommand -> CommandResult++
-return
+return r
 
 return r
 
