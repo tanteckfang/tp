@@ -319,7 +319,7 @@ The following sequence diagram shows how the `findcourse` operation works:
 
 The following activity diagram summarizes what happens when a user executes a new `findcourse` command:
 
-<img src="images/FindcourseActivityDiagram.png" width="250" />
+![FindcourseActivityDiagram](images/FindcourseActivityDiagram.png)
 
 #### 4.3.2 Design considerations:
 
@@ -370,7 +370,7 @@ Step 6. The outcome, which indicates the number of persons found, is presented t
 
 The following sequence diagram shows how the `findstudent` operation works:
 
-![FindcourseSequenceDiagram](images/FindStudentSequenceDiagram.png)
+![FindstudentSequenceDiagram](images/FindStudentSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** 
 The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -378,7 +378,7 @@ The lifeline for FindCommandParser should end at the destroy marker (X) but due 
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
 
-<img src="images/FindstudentActivityDiagram.png" width="250" />
+![FindstudentActivityDiagram](images/FindstudentActivityDiagram.png)
 
 #### 4.4.2 Design considerations:
 
@@ -527,7 +527,8 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**  The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:**  
+* For simplicity in the diagrams, all interactions with different components of the Logic are represented under a single 'Logic' participant.
 
 </div>
 
