@@ -3,8 +3,7 @@
 skinparam ArrowFontStyle plain
 
 box Ui UI_COLOR_T1
-participant ":MainWindow" as MainWindow UI_COLOR
-participant ":FeedbackWindow" as FeedbackWindow UI_COLOR
+participant ":Ui" as Ui UI_COLOR
 end box
 
 box Logic LOGIC_COLOR_T1
@@ -14,10 +13,10 @@ participant "f:FeedbackCommand" as FeedbackCommand LOGIC_COLOR
 participant "result\n:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-[-> MainWindow : "feedback"
-activate MainWindow
+[-> Ui : "feedback"
+activate Ui
 
-MainWindow -> LogicManager : execute("feedback")
+Ui -> LogicManager : execute("feedback")
 activate LogicManager
 
 LogicManager -> AddressBookParser : parseCommand("feedback")
@@ -46,24 +45,12 @@ deactivate CommandResult
 FeedbackCommand --> LogicManager : result
 deactivate FeedbackCommand
 
-LogicManager --> MainWindow
+LogicManager --> Ui : result
 deactivate LogicManager
 
-MainWindow -> CommandResult : isShowFeedback()
-activate CommandResult
+Ui -> Ui : handleFeedback()
 
-CommandResult --> MainWindow
-deactivate CommandResult
-
-opt showFeedback
-  MainWindow -> FeedbackWindow : show()
-  activate FeedbackWindow
-
-  FeedbackWindow --> MainWindow
-  deactivate FeedbackWindow
-end
-
-[<--MainWindow
-deactivate MainWindow
+[<--Ui
+deactivate Ui
 
 @enduml

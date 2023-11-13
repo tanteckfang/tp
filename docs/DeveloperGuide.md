@@ -590,24 +590,18 @@ Step 2. The `LogicManager` receives this command string and passes it to the `Ad
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant parser, in this case, `AddCommandParser`, to process the command details.
 
-Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. Each field will go through their own respective parse method in `ParserUtil`. The telehandle will be indicated by the `th/` prefix.
+Step 4. The parser `AddCommandParser` will then parse the command and create objects for each field. `Telehandle` will be indicated by the `th/` prefix.
 For this scenario, we will be focusing on the `Telehandle`.
 
 Step 5. The `AddCommandParser` processes the input and if a `Telehandle` is provided, the `ParserUtil#parseTelehandle()` method will then be invoked within `AddCommandParser`, else an empty `Telehandle` would be created instead.
 
-Step 6. If the `ParserUtil#parseTelehandle()` is called, then `Telehandle#isValidTelehandle()` method is called to check on the validity of the `Telehandle` according to the input contraints.
+Step 6. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
 
-Step 7. If the `Telehandle` is valid, a new `Telehandle` is constructed and then returned to `ParserUtil`.
+Step 7. This results in a `AddCommand` object which is executed by the `LogicManager`.
 
-Step 8. The `Telehandle` is returned from `ParserUtil` to `AddCommandParser`.
+Step 8. The command will communicate with the `Model` to add a person with the inputted `Telehandle`.
 
-Step 9. Using all the parsed fields (`Name, Phone, Email, Address, Telehandle, Tag, Courses`), a `Person` object is constructed.
-
-Step 10. This results in a `AddCommand` object which is executed by the `LogicManager`.
-
-Step 11. The command will communicate with the `Model` to add a person with the inputted course.
-
-Step 12. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
+Step 9. Upon success, the result of the command execution is encapsulated as a CommandResult object which is returned back from `Logic`.
 
 
 The following sequence diagram shows how the `Telehandle` works through the `AddCommand`:
@@ -619,9 +613,10 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 :information_source:**Note:**
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 * During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component)
 </div>
 
-The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle` as shown in step 1.
+The following object diagram below shows the new `Person` object created when the user executes the `Add` command with a valid `Telehandle`.
 
 ![TelehandleObjectDiagram](images/TelehandleObjectDiagram.png) 
 
@@ -646,18 +641,22 @@ The Feedback mechanism is facilitated by `FeedbackCommand`.
 
 Given below is an example usage scenario and how the Feedback mechanism works at each step.
 
-Step 1. The user wishes to send a feedback in regard to the app. They execute the `feedback` command: feedback
+Step 1. The user wishes to send a feedback in regard to the app. They execute the `feedback` command.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
 Step 3. The `AddressBookParser` identifies the type of command and invokes the relevant command, in this case, 
 `FeedbackCommand`.
 
-Step 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+Step 4. This results in a `FeedbackCommand` object which is executed by the `LogicManager`.
 
-Step 5. The success message is displayed to the user.
+Step 5. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 6. The `Ui` updates and the `Feedback` popup window appears.
+Step 6. Then the `CommandResult` object will cause the MainWindow#handleFeedback() to be executed. 
+
+Step 7. The `Ui` will be updated, and the success message will be displayed to the user.
+
+Step 8. Lastly, the `Feedback` popup window will appear.
 
 The following sequence diagram shows how the `Feedback` operation works:
 
@@ -1369,7 +1368,7 @@ The current implementation of the NUSCoursemates allows for duplicate Telegram h
 
    * Implementation Details:
      * Step 1: In the `Person.java`, we will add an additional check in the `isSamePerson` method to check whether the `Telehandle` added is equal, similar to how AB3 checks for equality of `Name`.
-     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle);` <br>
+     * Step 2: The future implementation of the additional check for `Person#isSamePerson()` could be `otherPerson.getTelehandle().equals(getTelehandle());` <br>
      * Step 3: This would then throw a duplication error in `UniquePersonList#setPerson()` whenever it receives a duplicated `Telehandle` similar to when it receives a duplicated `Name`.
 
 
