@@ -91,7 +91,7 @@ The `UI` component,
 In the UI of the `MainWindow`, three major List Panels—`PersonListPanel`, `CourseListPanel`, and `TagListPanel`—implement the Observer Design Pattern using the `ObservableList` class. 
 Each panel observes changes in its associated data, enabling dynamic updates in response to modifications. 
 
-For instance, the `CourseListPanel`, observing the `ObservableList<Course>`, triggers updates to the `CourseListCard` upon any changes in the courses.
+For instance, the `CourseListPanel`, observing the `ObservableList<Pair<String, Integer>>`, triggers updates to the `CourseListCard` upon any changes in the courses.
 This implementation is replicated for `PersonListPanel` and `TagListPanel`. 
 
 The following class diagram illustrates the relationships:
@@ -641,7 +641,7 @@ Step 4. This results in a `FeedbackCommand` object which is executed by the `Log
 
 Step 5. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `LogicManager`.
 
-Step 6. Then the `CommandResult` object will cause the MainWindow#handleFeedback() to be executed. 
+Step 6. Then the `CommandResult` object will cause the `MainWindow#handleFeedback()` to be executed. 
 
 Step 7. The `Ui` will be updated, and the success message will be displayed to the user.
 
@@ -683,9 +683,9 @@ The add course mechanism is facilitated by `ThemeCommand`. It extends `Command` 
 
 Given below is an example usage scenario and how the theme mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The current default theme will be a dark theme.
+Step 1. The user launches the application for the first time. The current default theme will be a light theme.
 
-Step 2. The user executes `theme LIGHT` command to change the theme from dark to light.
+Step 2. The user executes `theme DARK` command to change the theme from light to dark.
 
 Step 2. When `LogicManager` is called upon to execute the command, it will pass it to an `AddressBookParser` 
 object which will call `parseCommand()` which creates a parser `ThemeCommandParser` and uses it to parse the command.
@@ -696,7 +696,7 @@ Step 4. The result of the command execution is encapsulated as a `CommandResult`
 
 Step 5. The `CommandResult` object will cause `MainWindow#handleTheme()` to be executed. 
 
-Step 6. The UI will then be updated to LIGHT theme.
+Step 6. The `Ui` will then be updated to DARK theme.
 
 The following sequence diagram shows how the theme operation works:
 
@@ -734,6 +734,54 @@ The following activity diagram summarizes what happens when a user executes the 
     * Pros: Discoverability. The graphical button enhances discoverability for users who might not be familiar with CLI commands.
 
    * Cons: Development Effort. Implementing and maintaining both CLI and graphical options may require additional development effort.
+
+### 4.10 Course List Panel and Tag List Panel Feature
+
+NUSCoursemates comes with three major List Panels — `PersonListPanel`, `CourseListPanel`, and `TagListPanel` as stated [above](#321-list-panel).
+The three panels can be seen in the UI below:
+
+![DGUiDiagram](images/DGUiDiagram.png)
+
+#### 4.10.1 Implementation
+
+The panels mechanism is facilitated by `MainWindow`. It houses the three following panels:
+* `PersonListPanel`: Displays the list of all the students
+* `CourseListPanel`: Displays the list of the summary of courses
+* `TagListPanel`: Displays the list of the summary of tags
+
+**Course List Panel (CourseListPanel):**
+
+The `CourseListPanel` class is implemented as a `JavaFX` component responsible for presenting a summarised list of courses. 
+It uses a `ListView` to display each course, with each item represented by a `CourseCard`. 
+The `CourseCard` class encapsulates the visual representation of a course, displaying the course name 
+and the number of students taking the course. The panel is dynamically updated by binding 
+it to an `ObservableList<Pair<String, Integer>>`, where each pair represents the string of the course and the 
+integer corresponds to number of students taking that course. The `CourseListViewCell` class which extends the `ListCell`, 
+controls the rendering of each course item in the list.
+
+**Tag List Panel (TagListPanel):**
+
+Similar to the `CourseListPanel`, the `TagListPanel` is implemented as a `JavaFX` component utilising a `ListView` 
+to display a summarised list of tags. Each tag is represented by `TagCard`. 
+The panel is linked to an `ObservableList<Pair<String, Integer>>` containing tag names and number of students having the tag names, 
+and the `TagListViewCell` class customises the rendering of each tag item.
+
+
+#### 4.10.2 Design considerations:
+
+**Aspect: Unified Panel for Tags and Courses**
+
+* **Alternative 1 (current choice):** Separate Panels for Tags and Courses
+    * Pros: Distinct Categorization. Maintaining separate panels ensures clear categorization. 
+    * Pros: Focused Interaction. Users interact with tags and courses in dedicated spaces. 
+
+    * Cons: Increased Navigation Steps. Users need to switch between panels for tags and courses, potentially adding extra steps.
+
+* **Alternative 2:** Merge Tags and Courses into a Unified Panel
+    * Pros: Simplicity. Combining tags and courses into a single panel simplifies the interface. 
+    * Pros: Streamlined Navigation. Users access both tags and courses from one centralised location. 
+
+    * Cons: Potential Information Overload. 
 
 --------------------------------------------------------------------------------------------------------------------
 
