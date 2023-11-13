@@ -76,7 +76,7 @@ In NUSCoursemates, we've designed our user interface with your convenience and e
 
 | No  | Component          | Description                                                                                                                                           |
 |-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light mode, and other miscellaneous features.                       |
+| 1   | Menu Bar           | Provides access to various commands, including options to switch between dark and light modes, and other miscellaneous features.                      |
 | 2   | Command Box        | The Command Box is where you can input commands to interact with NUSCoursemates. You can execute a wide range of operations through this input field. |
 | 3   | Command Result     | Displays the results and feedback for the executed commands. It provides information and feedback on the outcomes of your actions.                    |
 | 4   | Student List Panel | Presents a list of students, and it is where you can view your fellow student records.                                                                |
@@ -88,12 +88,12 @@ In NUSCoursemates, we've designed our user interface with your convenience and e
 
 The Menu Bar is your command center, offering access to a variety of functions, including the ability to switch between dark and light modes, and other useful features.
 
-| Menu Item | Description                                                             |
-|-----------|-------------------------------------------------------------------------|
-| File      | Exit the application to close it.                                       |
-| Theme     | Choose between Light or Dark mode for your preferred look.              |
-| Feedback  | Share your thoughts and suggestions with us through the feedback link.  |
-| Help      | Access the User Guide to get assistance and answers to your questions.  |
+| Menu Item | Description                                                            |
+|-----------|------------------------------------------------------------------------|
+| File      | Exit the application to close it.                                      |
+| Theme     | Choose either Light or Dark mode for your preferred look.              |
+| Feedback  | Share your thoughts and suggestions with us through the feedback link. |
+| Help      | Access the User Guide to get assistance and answers to your questions. |
 
 ### 2. Command Box
 The Command Box is where the magic happens. It's your gateway to NUSCoursemates, allowing you to input commands and perform a wide range of operations with ease.
@@ -110,6 +110,7 @@ The Command Result section is your information hub. Here, you'll find the outcom
 The Student List Panel simplifies your connections. It provides a list of fellow students, offering a convenient way to explore and manage student records, fostering collaboration and community.
 
 You will be able to view each student's details such as:
+* Name
 * Phone number
 * Address
 * Telehandle
@@ -128,14 +129,14 @@ You will be able to view each student's details such as:
 
 The Course List Panel is your academic overview. It presents a summary of all the courses in your NUSCoursemates, along with the total number of students in each course. It's your academic compass.
 
-e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates that takes MA2001.
+e.g. `MA2001: 2` means that there are 2 students in NUSCoursemates who take MA2001.
 
 ### 6. Tag List Panel
 <img src="images/TagListPanel.png" alt="TagListPanel" width="400"/>
 
 The Tag List Panel allows you to personalise your connections. Here, you'll find a summary of your tags, including options like 'Friend,' 'Close Friend,' and 'Emergency.' It helps you categorise and manage your contacts with ease.
 
-e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have "Friend" tag.
+e.g. `Friend: 3` means that there are 3 students in NUSCoursemates that have the "Friend" tag.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -208,7 +209,7 @@ In this section, let us explore the components that constitute a command in **NU
 | Component    | Example    | Description                                                                                                                                                     |
 |--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command word | `add`      | Specifies the task to be performed                                                                                                                              |
-| Prefix       | `n/`       | Indicates the field to be edited (e.g., name)                                                                                                                   |
+| Prefix       | `n/`       | Indicates the field to be edited (e.g. name)                                                                                                                    |
 | Field        | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
 
 Each feature has a unique command format composed of up to three components. The command format for each feature is explicitly described in the [Features](#features---managing-student-profiles) section below.
@@ -363,7 +364,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 |------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | n/NAME           | Compulsory  | Your friend's name, because every name carries a unique story. If you want to add multiple "Johns" like "John 1, John 2, John 3," feel free to do so!                                                        |
 | p/PHONE_NUMBER   | Compulsory  | Stay connected with your local and overseas friends whose phone numbers may be of different lengths. Furthermore, the use of shared phone numbers is permissible, recognising that home numbers may be used. |
-| e/EMAIL          | Optional    | Ensure effortless digital connections using their email addresses; additionally, the use of shared email accounts is permissible, recognising that numerous friends collaborate on group projects.           |
+| e/EMAIL          | Optional    | Ensure effortless digital connections using their email addresses. Additionally, the use of shared email accounts is permissible, recognising that numerous friends can collaborate on group projects.       |
 | a/ADDRESS        | Optional    | Specify their physical address, ideal for planning meetups.                                                                                                                                                  |
 | th/TELEHANDLE    | Optional    | Provide their telehandle, ensuring quick and easy communication.                                                                                                                                             |
 | t/TAG            | Optional    | Categorise your friend with relevant tags, simplifying your contact management.                                                                                                                              |
@@ -378,7 +379,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [th/TELEHANDLE] [t/TAG]
 
 
 Examples:
-* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/close friend c/CS1231S c/CS2103T`
+* `add n/John Doe p/81234567 e/John@gmail.com a/123 NUS Rd th/@johnny t/cf c/CS1231S c/CS2103T`
 * `add n/Bob Lee p/91234567 e/BL@gmail.com a/123 Clementi Rd th/@boblee c/CS2030S c/CS2040S c/GEA1000 c/NUR1113a`
 * `add n/John Doe 2 p/5136850137`
 
@@ -743,7 +744,7 @@ But before you go, let's talk about a few extra features that can make your NUSC
 > "Ignorance has always been the weapon of tyrants; enlightenment the salvation of the free."
 > — Bill Richardson
 
-Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located on the Menu bar. It is as simple as that.
+Still feeling a little lost? Just type "help" to access our User Guide and find the issue you are facing. Alternatively, you can simply click on the help button located in the Menu bar. It is as simple as that.
 
 Once you use the help command, you'll receive a message containing a hyperlink to our comprehensive User Guide.
 
@@ -825,7 +826,7 @@ NUSCoursemates data is saved in the hard disk automatically after any command th
 
 ### Editing the data file
 
-NUSCoursemates data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+NUSCoursemates data is saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="block" class="alert alert-warning">
 
