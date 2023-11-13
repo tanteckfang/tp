@@ -42,7 +42,8 @@ Given below are my contributions to the project.
         * Added documentation for the feature `Tag`, added activity diagram, sequence diagram and class diagram for it.
 
 * **Community** :
-    * PRs reviewed:
-    * Reported bugs and some suggestions for other team during PE Dry Run.
+    * PRs reviewed: [#124](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/124),[#149](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/149), [#232](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/232)
+    * Posted an issue about an error I faced but resolved it myself and share my solution in forum: [395](https://github.com/nus-cs2103-AY2324S1/forum/issues/385)
+    * Reported bugs and some suggestions for other team during PE Dry Run:  [1](https://github.com/tanteckfang/ped/issues/1), [3](https://github.com/tanteckfang/ped/issues/3),[7](https://github.com/tanteckfang/ped/issues/7)
 
 
