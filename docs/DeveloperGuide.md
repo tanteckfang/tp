@@ -244,7 +244,7 @@ The following sequence diagram shows how the edit operation works:
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCourseCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for EditCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. </div>
 
 The following activity diagram sheds more light on how exactly the chain of edit operations work:
 
@@ -701,6 +701,13 @@ Step 6. The UI will then be updated to LIGHT theme.
 The following sequence diagram shows how the theme operation works:
 
 ![ThemeSequenceDiagram](images/ThemeSequenceDiagram.png)
+
+<div markdown="block" class="alert alert-info">
+
+:information_source:**Note:**
+* The lifeline for `ThemeCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component)
+</div>
 
 The following activity diagram summarizes what happens when a user executes the `theme` command:
 
