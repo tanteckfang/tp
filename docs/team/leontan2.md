@@ -8,7 +8,7 @@ title: Tan Jia Liang Leon's Project Portfolio Page
 ### Overview
 NUSCourseMates is a desktop address book application used for keeping track of the courses your contacts are taking.
 The user interacts with it using a Command Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
-It is written in Java, and has about 19 kLoC.
+It is written in Java, and has about 20 kLoC.
 
 Given below are my contributions to the project.
 
@@ -35,15 +35,16 @@ Given below are my contributions to the project.
 
 
 * **Project management**:
+  * Released v1.4 jar file.
   * In charge of the ensuring code quality stays consistent throughout the entire project.
 
 
 * **Documentation**:
   * User Guide:
-    * Changed the language use in the User Guide. (Pull Request: [#145](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/145))
+    * Added the Tutorial section of the User Guide. (Pull Request: [#257](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/257))
+    * Added the Input Table of the User Guide. (Pull Request: [#257](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/257))
     * Sectioned the User Guide into different parts. (Pull Request: [#165](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/165))
     * Updated the following features: Clear, Clear Course, Exit, Delete, Feedback, Help and Theme in the User Guide. (Pull Requests: [#145](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/145), [#152](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/152))
-    * Updated the colour schemes of the tips and warning blocks. [#242](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/242))
     * Updated the Glossary section. (Pull Request: [#224](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/224))
     * Updated the Command Summary section. (Pull Request: [#51](https://github.com/AY2324S1-CS2103T-T17-4/tp/pull/51))
     
