@@ -372,8 +372,9 @@ The following sequence diagram shows how the `findstudent` operation works:
 
 ![FindcourseSequenceDiagram](images/FindStudentSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
+<div markdown="span" class="alert alert-info">:information_source: **Note:** 
+* The lifeline for FindCommandParser should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* For simplicity in the diagrams, all interactions with different components of the Model are represented under a single 'Model' participant.
 </div>
 
 The following activity diagram summarizes what happens when a user executes a new `findstudent` command:
