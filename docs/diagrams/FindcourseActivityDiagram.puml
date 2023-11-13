@@ -5,25 +5,31 @@ skinparam ArrowFontSize 12
 
 start
 
-:User inputs "findcourse MA2001";
+:User inputs findcourse command;
 
 :LogicManager processes the input;
 
 :AddressBookParser identifies the command type;
 
-:Instantiate FindCourseCommandParser;
+if () then ([command is valid])
+    :Instantiate FindCourseCommandParser;
 
-:Parse the module code "MA2001";
+    :Parse the module code;
 
-:Instantiate CourseContainsKeywordsPredicate;
 
-:Instantiate FindCourseCommand with predicate;
+        :Instantiate CourseContainsKeywordsPredicate;
 
-:Execute FindCourseCommand;
+        :Instantiate FindCourseCommand with predicate;
 
-:Model filters the person list using predicate;
+        :Execute FindCourseCommand;
 
-:Return filtered list as CommandResult;
+        :Model filters the person list using predicate;
+
+        :Return filtered list as CommandResult;
+
+else ([command is invalid])
+    :Show error message for invalid command;
+endif
 
 stop
 

@@ -7,7 +7,7 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":AddCommandParser" as AddCommandParser LOGIC_COLOR
 participant "a:AddCommand" as AddCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -17,10 +17,10 @@ participant ":Tag" as Tag MODEL_COLOR
 participant ":TagType" as TagType MODEL_COLOR
 end box
 
-[-> LogicManager : execute("add n/John Doe t/Emergency")
+[-> LogicManager : execute("add n/John Doe p/12345678 t/Emergency")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("add n/John Doe t/Emergency")
+LogicManager -> AddressBookParser : parseCommand("add n/John Doe p/12345678 t/Emergency")
 activate AddressBookParser
 
 create AddCommandParser
@@ -30,12 +30,9 @@ activate AddCommandParser
 AddCommandParser --> AddressBookParser
 deactivate AddCommandParser
 
-AddressBookParser -> AddCommandParser : parse("n/John Doe t/Emergency")
+AddressBookParser -> AddCommandParser : parse("add n/John Doe p/12345678 t/Emergency")
 activate AddCommandParser
 
-create AddCommand
-AddCommandParser -> AddCommand
-activate AddCommand
 
 create Tag
 AddCommandParser -> Tag
@@ -49,6 +46,10 @@ deactivate TagType
 
 Tag --> AddCommandParser
 deactivate Tag
+
+create AddCommand
+AddCommandParser -> AddCommand
+activate AddCommand
 
 AddCommand --> AddCommandParser : a
 deactivate AddCommand
@@ -81,12 +82,12 @@ create CommandResult
 AddCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> AddCommand
+CommandResult --> AddCommand :result
 deactivate CommandResult
 
 AddCommand --> LogicManager : result
 deactivate AddCommand
 
-[<--LogicManager
+[<--LogicManager :result
 deactivate LogicManager
 @enduml

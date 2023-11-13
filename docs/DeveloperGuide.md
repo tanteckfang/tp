@@ -495,7 +495,7 @@ The Tag feature is facilitated by the `Tag` class, which contains an attribute `
 
 Given below is an example usage scenario and how the Tag mechanism behaves at each step.
 
-Step 1. The user wishes to add a new contact with a tag "Emergency". They execute the `add` command: add n/John Doe p/98765432 t/Emergency.
+Step 1. The user wishes to add a new contact with a tag "Emergency". They execute the `add` command: add n/John Doe p/12345678 t/Emergency.
 
 Step 2. The `LogicManager` receives this command string and passes it to the `AddressBookParser`.
 
@@ -518,7 +518,9 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 ![TagSequenceDiagram](images/TagSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** 
+* The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 
 </div>
 
@@ -526,7 +528,7 @@ The following sequence diagram shows how the Tag operation works by calling the 
 
 The following activity diagram summarizes what happens when a user executes a new `add` command; the `edit` command will be similar:
 
-![TagSequenceDiagram](images/TagActivityDiagram.png)
+![TagActivityDiagram](images/TagActivityDiagram.png)
 
 #### 4.6.2 Design considerations:
 
@@ -950,20 +952,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the theme dark command.
-2. GUI of the AddressBook changes from light to dark theme.
+1. User request to change the theme to dark
+2. GUI of the NUSCoursemates changes from light to dark theme.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The theme of the AddressBook is already dark.
-  * 1a1. GUI of the AddressBook does not change.
+* 1a. The theme of the NUSCoursemates is already dark.
+  * 1a1. GUI of the NUSCoursemates does not change.
 
     Use case ends.
 
 * 1b. The given command is invalid.
-    * 1b1. AddressBook shows an error message.
+    * 1b1. NUSCoursemates shows an error message.
 
       Use case ends.
 
@@ -971,15 +973,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters the exit command.
-2. AddressBook exits the program.
+1. User request to exit the program.
+2. NUSCoursemates exits the program.
 
    Use case ends.
 
 **Extensions**
 
 * 1a. The given command is invalid.
-    * 1a1. AddressBook shows an error message.
+    * 1a1. NUSCoursemates shows an error message.
   
         Use case ends.
 
@@ -1286,11 +1288,14 @@ Enter the `list` command to view the student records. Repeat this for every test
 
 ## **Appendix C: Planned Enhancements**
 
-1. The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This can be problematic when there are indeed multiple students with identical names but users are not able to add them into NUSCoursemates because the application's logic prevents them from doing so.
+### C.1 Allow Duplicate Student Names
+The current implementation of the Address Book in NUSCoursemates restricts users from adding multiple students who share the same name. This limitation can be problematic as it does not reflect real-world scenarios where multiple students might have identical names, hindering the user's ability to accurately manage their contacts in such cases.
    * Proposed Enhancement:
-   To rectify this issue and improve the user experience, we intend to implement a solution that allows users to add multiple students with the same name to their Address Book. This enhancement will eliminate the restriction on duplicate names, ensuring that users can accurately and efficiently manage their contacts, even when they encounter identical names.
+     * To improve user experience and reflect real-world scenarios more accurately, we propose an enhancement to the NUSCoursemates feature that will allow the addition of multiple students with the same name. This change will eliminate the current restriction on duplicate names, ensuring users can manage their contacts more effectively, even in cases of identical names.
    * Implementation Details:
-   The planned enhancement involves modifying the Address Book feature to accommodate duplicate names. We will remove the restriction of duplicate student names.
+     * Step 1: Modify the `isSamePerson` method in `Person.java` to no longer consider identical names as a criteria for duplicate entries.
+     * Step 2: Adjust the logic in `UniquePersonList#setPerson()` to allow the addition of persons with duplicate names, removing the current check that prevents this.
+     * Step 3: Update relevant documentation and user guides to reflect the new capability of handling duplicate names in the NUSCoursemates, ensuring users are aware of this change and can use it effectively.
    
 2. The current implementation of the Address Book allows for duplicate phone numbers, email addresses, and Telegram handles across contacts. This flexibility can lead to confusion and inaccuracies in managing contact information.
    * Proposed Enhancement:
