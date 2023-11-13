@@ -1489,10 +1489,10 @@ While there are various sort features implemented for users to sort NUSCoursemat
 
 
 ### C.7 Updating Telehandle's requirement
-The current `telehandle` requirements does not align to the real requirements of the `telehandles` for Telegram.
+The current `telehandle` requirements do not align with the real requirements of the `telehandle` for Telegram.
 * Proposed Enhancement:
   We aim to adhere to Telegram's telehandle requirements, which include constraints such as not starting with a number or underscore, not ending with an underscore, and limiting the use of more than one underscore.
-* Implementation Details (with reference to the `sort tags` command):
+* Implementation Details:
     * Make changes to the regex pattern in the `Telehandle` class.
 
 ### C.9 Finding tags
