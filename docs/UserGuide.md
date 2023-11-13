@@ -240,7 +240,7 @@ For example (with reference to the `add` command above):
 
 
 ### Input Table
-Moreover, you should also take note of the specific requirements for each field as outlined by the table below.
+Moreover, you should also take note of the specific requirements for each [field](#glossary) as outlined by the table below.
 
 | Field        | Valid Input(s)                                  | Invalid Input(s)                   | Case-sensitive? | Requirement(s)                                                                                                                        |
 |--------------|-------------------------------------------------|------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -487,7 +487,7 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in NUSCoursemates.
-* `findstudent Betsy` followed by `delete 1` deletes the 1st student in the results of the `findstudent` command.
+* `findstudent Betsy` followed by `delete 1` deletes the 1st student from the results of the `findstudent` command.
 
 ![delete student](images/deleteFeature.png)
 
