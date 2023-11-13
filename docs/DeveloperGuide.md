@@ -173,7 +173,7 @@ This section describes some noteworthy details on how certain features are imple
 ### 4.1 Add Course feature
 
 #### 4.1.1 Implementation
-The add course mechanism is facilitated by `AddCommand`. It extends `Command` which overrides the following operation:
+The add course mechanism is facilitated by `AddCommand`. It extends `Command` and implements the following operation:
 * `AddCommand#execute():` Adds a person into NUSCoursemates
 
 Given below is an example usage scenario and how the add mechanism behaves at each step focusing on the `Course` field.
@@ -199,7 +199,7 @@ The following sequence diagram shows how the add operation works:
 
 :information_source: **Note:** 
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag` objects are created as well but due to space constraint and simplification, the details have been omitted
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 * There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component) 
 </div>
 
@@ -213,7 +213,7 @@ The following activity diagram shows how the add operation works:
   * Pros: Offers a clear separation of concerns and commands, potentially reducing complexity. 
   * Cons: Introduces an additional command class, which might require extra development time.
 * **Alternative 2 (current choice):** Reuse the existing "AddCommand" by adding a 'c/' prefix to specify course addition. 
-  * Pros: Minimizes the need for creating new command classes, thus reducing code duplication. 
+  * Pros: Minimises the need for creating new command classes, thus reducing code duplication. 
   * Cons: Slightly alters the behavior of the existing "AddCommand," which may increase complexity and potentially confuse users.
 
 ### 4.2 Edit feature
@@ -602,7 +602,7 @@ The following sequence diagram shows how the `Telehandle` works through the `Add
 
 :information_source:**Note:**
 * The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-* During the `AddCommandParser`, `Name, Phone, Email, Address, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
+* During the `AddCommandParser`, `Name, Phone, Email, Address, Telehandle, Tag, Course` objects are created as well but due to space constraint and simplification, the details have been omitted
 * There are other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command and can be found [here](#33-logic-component)
 </div>
 
@@ -1467,6 +1467,23 @@ While there are various sort features implemented for users to sort NUSCoursemat
     * Step 2: The user enters the priorities of these tags in order, giving rise to the `sort tags 123` command. 
     * Step 3: The command is parsed, and a priority is attached to each tag. 
     * Step 4: The students in NUSCoursemates are arranged by their highest priority tags according to the tag priorities given by the user.  
+
+### C.9 Finding tags
+The current feature set includes search capabilities with `findstudent` and `findcourse`, 
+however, the absence of a dedicated `findtag` command limits users' ability to locate students 
+based on specific tags. This enhancement proposes the addition of the `findtag` command to provide 
+users with a more comprehensive search experience.
+
+* Proposed Enhancement:
+  We plan to allow users to be able to `findtag ` so that they can easily find their list of `
+Close Friend`, `Friend` or `Emergency`.
+* Implementation Details:
+  * Step 1: Update `AddressBookParser` to recognise and route the `findtag` command.
+  * Step 2: Introduce `FindTagCommandParser` for extracting tag keywords from user input.
+  * Step 3: Create `TagContainsKeywordsPredicate` to check if a person's tags match specified keywords.
+  * Step 4: Implement `FindTagCommand` to execute based on the constructed predicate.
+  * Step 5: Display to user on the number of persons found with specified tags.
+  * Step 6: Update `MainWindow` and `TagListPanel` to reflect UI changes.
 
 --------------------------------------------------------------------------------------------------------------------
 
