@@ -19,7 +19,13 @@ Given below are my contributions to the project.
     * It is possible to chain any amount of each type of edit in a single command, providing unparalleled flexibility. 
       * For example, you can perform `edit 1 c/add-MA1521 c/del-CS2030 c/add-ST2334 c/CS2103T-MA2001`, and the changes will be performed in the listed order, from left to right. 
     * Implemented course validation, so that you can only add or delete a valid course.
-    * Instead of having separate commands such as `addcourse` or `deletecourse`, maintaining the common interface `edit` provides much more flexibility and convenience. 
+  * Effort: 
+    * The effort required for expanding this feature is essentially equivalent to the work needed for creating three 
+      entirely new commands - `addcourse`, `deletecourse` and `editcourse`, but to make it more user-friendly and 
+      convenient for the end user, I decided to make them utilise the common `edit` interface using the `c/add-` and 
+      `c-del` sub-prefixes. The result of this innovation is unparalleled flexibility and ease of use for the end user. 
+    * The effort to validate the courses was non-trivial as well, as there were many edge cases we had to consider, 
+      given we allowed the user to supply not just one, but a list of modifications that will be applied sequentially.
 
 * **New Feature**: Added a `clear-courses` command that clears the courses of a specified student in the address book. 
   * What it does: Allows the user to remove all courses of a particular student in the address book.
