@@ -1388,8 +1388,9 @@ Currently, when an unrealistically large positive integer is entered as the `IND
      * Step 4: Otherwise, `INDEX` will be parsed and the process thereafter remains unchanged. 
      * Possible Error Message (in Step 3):
          `Invalid Parameter! The INDEX you have entered is invalid. You must only enter a positive integer after the command word that is within the size of the student list.`
-   
-5. Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
+
+### C.5 Incorporate courses from Special Terms 1 and 2 into NUSCourseMates
+Currently, NUSCoursemates recognises courses from Semesters 1 and 2 only. It does not recognise courses from Special Term (ST) semesters. Therefore, users are not able to enter these ST courses into NUSCoursemates as it will deem ST courses as invalid. In addition, new courses may be rolled out throughout the semester. 
 * Proposed Enhancement:
   We plan to include these ST courses in the list of valid courses. We also plan to update the list of valid courses in NUSCoursemates regularly. 
 * Implementation Details:
