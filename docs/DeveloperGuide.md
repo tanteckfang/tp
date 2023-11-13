@@ -1521,7 +1521,6 @@ Close Friend`, `Friend` or `Emergency`.
   * Step 5: Display to user on the number of persons found with specified tags.
   * Step 6: Update `MainWindow` and `TagListPanel` to reflect UI changes.
 
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix D: Effort**
